@@ -8,22 +8,20 @@ import { LoginComponent } from './components/auth/login/login.component';
 import { SignupComponent } from './components/auth/signup/signup.component';
 import { AdminsideComponent } from './components/adminside/adminside.component';
 import { UsersideComponent } from './components/userside/userside.component';
-import { CoursesComponent } from './components/adminside/courses/courses.component';
-import { InstitutesComponent } from './components/adminside/institutes/institutes.component';
-import { UserComponent } from './components/adminside/user/user.component';
-import { AdminreviewComponent } from './components/adminside/adminreview/adminreview.component';
 import { AdmissionformComponent } from './components/userside/admissionform/admissionform.component';
-import { StatusComponent } from './components/userside/status/status.component';
-import { UserhomepageComponent } from './components/userside/userhomepage/userhomepage.component';
-import { UserreviewComponent } from './components/userside/userreview/userreview.component';
 import { UsernavbarComponent } from './components/userside/usernavbar/usernavbar.component';
 import { AddcourseComponent } from './components/adminside/addcourse/addcourse.component';
 import { EditcourseComponent } from './components/adminside/editcourse/editcourse.component';
 import { EditinsituteComponent } from './components/adminside/editinsitute/editinsitute.component';
-import { AdduserComponent } from './components/adminside/adduser/adduser.component';
-import { EdituserComponent } from './components/adminside/edituser/edituser.component';
 import { AdminnavbarComponent } from './components/adminside/adminnavbar/adminnavbar.component';
 import { AddinstituteComponent } from './components/adminside/addinstitute/addinstitute.component';
+import { AdminacademyComponent } from './components/adminside/adminacademy/adminacademy.component';
+import { AdmincourseComponent } from './components/adminside/admincourse/admincourse.component';
+import { AdminstudentComponent } from './components/adminside/adminstudent/adminstudent.component';
+import { AddstudentComponent } from './components/adminside/addstudent/addstudent.component';
+import { EditstudentComponent } from './components/adminside/editstudent/editstudent.component';
+import { ViewacademyComponent } from './components/userside/viewacademy/viewacademy.component';
+import { EnrolledcourseComponent } from './components/userside/enrolledcourse/enrolledcourse.component';
 
 @NgModule({
   declarations: [
@@ -33,22 +31,20 @@ import { AddinstituteComponent } from './components/adminside/addinstitute/addin
     SignupComponent,
     AdminsideComponent,
     UsersideComponent,
-    CoursesComponent,
-    InstitutesComponent,
-    UserComponent,
-    AdminreviewComponent,
     AdmissionformComponent,
-    StatusComponent,
-    UserhomepageComponent,
-    UserreviewComponent,
     UsernavbarComponent,
     AddcourseComponent,
     EditcourseComponent,
     EditinsituteComponent,
-    AdduserComponent,
-    EdituserComponent,
     AdminnavbarComponent,
-    AddinstituteComponent
+    AddinstituteComponent,
+    AdminacademyComponent,
+    AdmincourseComponent,
+    AdminstudentComponent,
+    AddstudentComponent,
+    EditstudentComponent,
+    ViewacademyComponent,
+    EnrolledcourseComponent
   ],
   imports: [
     BrowserModule,
