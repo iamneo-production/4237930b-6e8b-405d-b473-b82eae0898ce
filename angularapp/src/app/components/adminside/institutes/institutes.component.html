@@ -14,7 +14,7 @@
 <div>
   <div class = "container">
     <div class = "row row-cols-1 row-cols-md-4 g-4">
-        <ng-container *ngFor = "let institute of institutes">
+        <ng-container *ngFor = "let institute of institutes | filter:searchText">
             <div class="col">
 
               <div class="card shadow-lg bg-body rounded thumbcard mb-4">
@@ -26,8 +26,8 @@
                       <div class="star">
                         <ngb-rating [max]="5" [readonly]="true" [rate] = "institute.rating">:</ngb-rating>
                         <div class="icons">
-                          <a (click)="gotoeditinstitute()"><i class="fa fa-pencil-square-o" aria-hidden="true" style="margin-right: 10px;"></i></a>
-                          <a (click)="alert()"><i class="fa fa-trash" aria-hidden="true"></i>
+                          <a (click)="gotoeditinstitute()" id="editInsitute"><i class="fa fa-pencil-square-o" aria-hidden="true" style="margin-right: 10px;"></i></a>
+                          <a (click)="alert()" id="deleteInsitute"><i class="fa fa-trash" aria-hidden="true"></i>
                           </a>
                         </div>
                       </div>

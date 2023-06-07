@@ -15,6 +15,9 @@ import { UserhomepageComponent } from './components/userside/userhomepage/userho
 import { EnrolledcourseComponent } from './components/userside/enrolledcourse/enrolledcourse.component';
 import { CourselistComponent } from './components/userside/courselist/courselist.component';
 import { AdmissionformComponent } from './components/userside/admissionform/admissionform.component';
+import { AuthComponent } from './components/auth/auth.component';
+import { LoginComponent } from './components/auth/login/login.component';
+import { SignupComponent } from './components/auth/signup/signup.component';
 
 const routes: Routes = [
 
@@ -41,6 +44,14 @@ const routes: Routes = [
       {path:"courses",component:CourselistComponent},
       {path:"admissionform",component:AdmissionformComponent}
     ]
+  },
+  
+  {path:"auth",component:AuthComponent,children:
+   [
+      {path:"",component:LoginComponent},
+      {path:"login",component:LoginComponent},
+      {path:"signup",component:SignupComponent},
+   ]
   }
 ];
 
