@@ -1,0 +1,25 @@
+<!-- Authors -Sindhu Priyadharshini C, Sai Deepika Thatha-->
+
+<section>
+
+  <div class="form-box">
+    <div class="form-value">
+        <form  class="page"action="login" #f="ngForm" novalidate (ngSubmit)="f.form.valid && onSubmit()">
+          <h2>Login</h2>
+            <div class="inputbox">
+              <input type="email" name="email"  id="email" placeholder="Enter Email"  [(ngModel)]="login.email" #email="ngModel" required>
+                <br><span style="color: rgb(230, 17, 17);" *ngIf="email.touched && email.errors">*Email is required<br></span>
+            </div>
+            <div class="inputbox">
+              <input  type="password" placeholder="Enter Password" id="passward"  name="password" [(ngModel)]="login.password" #password="ngModel" required ><br>
+                <span style="color: rgb(230, 17, 17);" *ngIf="password.touched && password.errors">*Password is required.</span>
+            </div>
+            <div>
+              <button class="btn btn-outline-info" [disabled]="f.invalid">Login</button>
+              <p class="text link">New User/admin? <a routerLink="/auth/signup" class="link-info" routerLinkActive="active" id="signupLink">Sign Up</a></p>
+            </div>
+        </form>
+    </div>
+  </div>
+  </section>
+  
