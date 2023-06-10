@@ -29,7 +29,13 @@ input
     height: 45px;
     background-color: #E8E8E8;
 }
-
+.pnx
+{
+    width: 370px;
+    text-align: center;
+    height: 33px;
+    margin-left: 190px;
+}
 button
 {
     float: right;
@@ -41,6 +47,25 @@ button
     color: white;
     background-color: 	#008000;
 
+}
+.course1
+{
+    width: 370px;
+    text-align: center;
+    height: 40px;
+}
+.course2
+{
+    width: 370px;
+    text-align: center;
+    height: 40px;
+    
+}
+.course3
+{
+    width: 370px;
+    text-align: center;
+    height: 40px;
 }
 .p1
 {
@@ -64,6 +89,13 @@ button
     margin-left: 20px;
     padding-top: 30px;
 }
+.mf
+{
+    width: 370px;
+    text-align: center;
+    height: 33px;
+    margin-left: 190px;
+}
 ol
 {
     display: inline;
@@ -81,4 +113,11 @@ span
 }
 form{
   background-color:#808080;
+}
+.fn
+{
+    width: 370px;
+    text-align: center;
+    height: 40px;
+    
 }
