@@ -1,23 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
 import { FormControl,FormGroup,Validators} from '@angular/forms';
-import { faGraduationCap } from '@fortawesome/free-solid-svg-icons';
-import { faBuildingColumns } from '@fortawesome/free-solid-svg-icons';
-import { faBookOpenReader } from '@fortawesome/free-solid-svg-icons';
-import { faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
-import { faUsers } from '@fortawesome/free-solid-svg-icons';
+// import { faGraduationCap } from '@fortawesome/free-solid-svg-icons';
+// import { faBuildingColumns } from '@fortawesome/free-solid-svg-icons';
+// import { faBookOpenReader } from '@fortawesome/free-solid-svg-icons';
+// import { faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
+// import { faUsers } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-admissionform',
   templateUrl: './admissionform.component.html',
   styleUrls: ['./admissionform.component.css']
 })
-export class AdmissionformComponent implements OnInit {
+export class AdmissionformComponent {
 
-  faGraduationCap = faGraduationCap;
-  faBuildingColumns = faBuildingColumns;
-  faBookOpenReader = faBookOpenReader;
-  faRightFromBracket = faRightFromBracket;
-  faUsers = faUsers;
+  // faGraduationCap = faGraduationCap;
+  // faBuildingColumns = faBuildingColumns;
+  // faBookOpenReader = faBookOpenReader;
+  // faRightFromBracket = faRightFromBracket;
+  // faUsers = faUsers;
 
 
   loginForm = new FormGroup({

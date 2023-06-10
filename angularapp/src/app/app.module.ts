@@ -26,6 +26,7 @@ import { StatusComponent } from './components/userside/status/status.component';
 import { UserhomepageComponent } from './components/userside/userhomepage/userhomepage.component';
 import { UsernavbarComponent } from './components/userside/usernavbar/usernavbar.component';
 import { UserreviewComponent } from './components/userside/userreview/userreview.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,9 @@ import { UserreviewComponent } from './components/userside/userreview/userreview
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
