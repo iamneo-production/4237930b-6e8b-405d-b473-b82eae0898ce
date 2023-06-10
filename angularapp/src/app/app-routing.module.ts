@@ -32,7 +32,8 @@ const routes: Routes = [
       {path:"addstudent",component:AdduserComponent},
       {path:"editstudent",component:EdituserComponent},
       {path:"addinstitute",component:AddinstituteComponent},
-      {path:"editinstitute",component:EditinstituteComponent}
+      {path:"editinstitute",component:EditinstituteComponent},
+      {path:"edituser",component:EdituserComponent}
    ]
   },
 

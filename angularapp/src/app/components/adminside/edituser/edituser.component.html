@@ -1,1 +1,149 @@
-<p>edituser works!</p>
+<app-adminnavbar></app-adminnavbar>
+<!-- <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #16952f;">
+    <div class="container-fluid">
+  
+      <a class="navbar-brand" routerLink="/admin" routerLinkActive="active">&nbsp;Academy</a>
+  
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  
+        <ul class="navbar-nav mx-auto">
+  
+          <li class="nav-link" id="adminInstitute" style="padding-right:225px;">
+            <a routerLink="/admin/institute" routerLinkActive="active" class="nav-link"> &nbsp;Course</a>
+          </li>
+  
+          <li class="nav-link" id="userEnrolledCourse" style="padding-right: 225px; ">
+            <a routerLink="/admin/course" routerLinkActive="active" class="nav-link">
+               &nbsp;Students</a>
+          </li>
+  
+          
+        </ul>
+  
+        <ul class="navbar-nav ms-auto " id="logout" style="padding-right:0px;">
+  
+          <li class="nav-link">
+            <a routerLink="/auth/login" routerLinkActive="active" class="nav-link"><fa-icon
+                [icon]="faRightFromBracket"></fa-icon> &nbsp;Logout</a>
+          </li>
+  
+        </ul>
+      </div>
+    </div>
+  </nav> -->
+  
+  <div class="group">
+  <form [formGroup]="loginForm">
+    <div class="forms">
+      <input type="text" id="firstName" class="fn" placeholder="enter your first name" formControlName="firstName">
+      <br>
+      <span style="color: red;" *ngIf="firstName && firstName.invalid && firstName.touched">*Required</span>
+      <br>
+      <input type="text" id="fatherName" class="fan" placeholder="enter your father name" formControlName="fatherName">
+      <br>
+      <span style="color: red;" *ngIf="fatherName && fatherName.invalid && fatherName.touched">*Required</span>
+      <br>
+      <input type="text" id="motherName" class="mn" placeholder="enter your mother name" formControlName="motherName">
+      <br>
+      <span style="color: red;" *ngIf="motherName && motherName.invalid && motherName.touched">*Required</span>
+      <br>
+      <input type="text" id="emailId" class="email" placeholder="enter email id" formControlName="emailId">
+      <br>
+      <span style="color: red;" *ngIf="emailId && emailId.invalid && emailId.touched">*Required</span>
+      <br>
+      <input type="number" id="age" class="ag" placeholder="enter your age" formControlName="age">
+      <br>
+      <span style="color: red;" *ngIf="age && age.invalid && age.touched">*Required</span>
+      <br>
+      <input type="number" id="enterSSLC/HSCMarks" class="sslc-hsc" placeholder="enter SSLC/HSC marks"
+        formControlName="enterSSLC/HSCMarks">
+      <br>
+      <span style="color: red;"
+        *ngIf="enterSSLCHSCMarks && enterSSLCHSCMarks.invalid && enterSSLCHSCMarks.touched">*Required</span>
+      <br>
+      
+      
+    </div>
+    <div class="forms1">
+      <input type="text" id="lastName" class="ln" placeholder="enter your last name" formControlName="lastName">
+      <br>
+      <span style="color: red;" *ngIf="lastName && lastName.invalid && lastName.touched" class="last">*Required</span>
+      <br>
+      <input type="number" id="phoneNumber1" class="pn1" placeholder="enter phone number" formControlName="phoneNumber1">
+      <br>
+      <span style="color: red;" *ngIf="phoneNumber1 && phoneNumber1.invalid && phoneNumber1.touched"
+        class="ph1">*Required</span>
+      <br>
+      <input type="text" id="in" class="pn1" placeholder="enter institute name" formControlName="in">
+      <br>
+      <span style="color: red;" *ngIf="in && in.invalid && in.touched"
+        >*Required</span>
+      <br>
+  
+  
+    </div>
+    <div class="forms2">
+      <input type="text" id="male/female" class="mf" placeholder="enter male or female" formControlName="male/female">
+      <br>
+      <span style="color: red;" *ngIf="malefemale && malefemale.invalid && malefemale.touched"
+        class="mafe">*Required</span>
+      <br>
+      <input type="number" id="phoneNumber2" class="pn2" placeholder="enter alternate number"
+        formControlName="phoneNumber2">
+      <br>
+      <span style="color: red;" *ngIf="phoneNumber2 && phoneNumber2.invalid && phoneNumber2.touched"
+        class="ph2">*Required</span>
+      <br>
+      <input type="text" id="cn" class="pn2" placeholder="enter course name"
+      formControlName="cn">
+      <br>
+      <span style="color: red;" *ngIf="cn && cn.invalid && cn.touched"
+        class="ph2">*Required</span>
+      <br>
+      
+    </div>
+  
+    <div class="box_area" id="content">
+      <p>Address Information</p>
+      <label>House No:</label>
+      <input type="text" id="houseNo" class="hn" formControlName="houseNo">
+      <br>
+      <span style="color: red;" *ngIf="houseNo && houseNo.invalid && houseNo.touched">*Required</span>
+      <br>
+      <label>Street Name:</label>
+      <input type="text" id="streetName" class="sn" formControlName="streetName">
+      <br>
+      <span style="color: red;" *ngIf="streetName && streetName.invalid && streetName.touched">*Required</span>
+      <br>
+      <label>Area Name:</label>
+      <input type="text" id="areaName" class="an" formControlName="areaName">
+  
+      <label class="p">Pincode:</label>
+      <input type="number" id="pincode" class="pc" formControlName="pincode">
+      <br>
+      <span style="color: red;"
+        *ngIf="areaName && areaName.invalid && areaName.touched || pincode && pincode.invalid && pincode.touched">*Required</span>
+      <!-- <span style="color: red;" *ngIf="pincode && pincode.invalid && pincode.touched">*Required</span> -->
+      <br>
+      <label>State:</label>
+      <input type="text" id="state" class="s" formControlName="state">
+      <label class="na">Nationality:</label>
+      <input type="text" id="nation" class="n" formControlName="nation">
+      <br>
+      <span style="color: red;"
+        *ngIf="state && state.invalid && state.touched || nation && nation.invalid && nation.touched">*Required</span>
+      <!-- <span style="color: red;" *ngIf="nation && nation.invalid && nation.touched">*Required</span> -->
+      <br>
+    </div>
+  </form>
+  </div>
+  
+  <footer>
+    <button type="button" class="btn btn-success" (click)="loginUser()" [disabled]="loginForm.invalid">Update Student</button>
+  </footer>
+  
