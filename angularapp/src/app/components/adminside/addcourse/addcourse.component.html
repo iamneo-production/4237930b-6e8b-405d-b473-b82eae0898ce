@@ -1,29 +1,97 @@
 <!--author-tanusha-->
 <app-adminnavbar></app-adminnavbar>
+<!-- <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #16952f;">
+    <div class="container-fluid">
+  
+      <a class="navbar-brand" routerLink="/admin" routerLinkActive="active">&nbsp;Academy</a>
+  
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  
+        <ul class="navbar-nav mx-auto">
+  
+          <li class="nav-link" id="adminInstitute" style="padding-right:225px;">
+            <a routerLink="/admin/institute" routerLinkActive="active" class="nav-link"> &nbsp;Course</a>
+          </li>
+  
+          <li class="nav-link" id="userEnrolledCourse" style="padding-right: 225px; ">
+            <a routerLink="/admin/course" routerLinkActive="active" class="nav-link">
+               &nbsp;Students</a>
+          </li>
+  
+          
+        </ul>
+  
+        <ul class="navbar-nav ms-auto " id="logout" style="padding-right:0px;">
+  
+          <li class="nav-link">
+            <a routerLink="/auth/login" routerLinkActive="active" class="nav-link"><fa-icon
+                [icon]="faRightFromBracket"></fa-icon> &nbsp;Logout</a>
+          </li>
+  
+        </ul>
+      </div>
+    </div>
+  </nav> -->
+
 <div class = "container">
+
     <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" #loginForm="ngForm">
+
       <div class="row" >
        
-          <input class="form-control" name="CourseName" id="CourseName" style="margin-left: 300px; margin-top: 100px;" type="text" placeholder="Enter The Course Name" required formControlName="CourseName" [ngClass]="{ 'is-invalid': submitted && f.CourseName.errors }" [(ngModel)]="CourseName" aria-describedby="CN">
-          <input class="form-control" style=" margin-top :30px ; margin-left: 300px; margin-top: 70px;" type="number" placeholder=" No of Students Enrolled" required formControlName="StudentsEnrolled" [ngClass]="{ 'is-invalid': submitted && f.StudentsEnrolled.errors }"  [(ngModel)]="StudentsEnrolled" aria-describedby="SE">
+          <input class="form-control" name="CourseName" id="CourseName" 
+          style="margin-left: 300px; margin-top: 90 px;" 
+          type="text" placeholder="Enter The Course Name" 
+          required formControlName="CourseName" 
+          [ngClass]="{ 'is-invalid': submitted && f.CourseName.errors }" 
+          [(ngModel)]="CourseName" aria-describedby="CN">
+
+          <input class="form-control" name="StudentsEnrolled" id="StudentsEnrolled"
+          style=" margin-top :30px ; margin-left: 300px; margin-top: 70px;" 
+          type="number" placeholder=" No of Students Enrolled" required formControlName="StudentsEnrolled" 
+          [ngClass]="{ 'is-invalid': submitted && f.StudentsEnrolled.errors }"  [(ngModel)]="StudentsEnrolled" aria-describedby="SE">
   
+  
+      </div>
+
+      <div class="row">
+          <input class="form-control" name="CourseDuration" id="CourseDuration"
+          style="margin-left: 300px;margin-bottom: 100px;margin-top:90px"
+          type="text" placeholder="Enter The Course Duration" 
+          required formControlName="CourseDuration" 
+          [ngClass]="{ 'is-invalid': submitted && f.CourseDuration.errors }" 
+          [(ngModel)]="CourseDuration" aria-describedby="CDU">
+
+  
+      <input class="form-control" name="CourseDescription" id="CourseDescription"
+      style="margin-left: 300px; height: 150px;margin-top: 100px;" 
+      type="text" placeholder="Enter the Course Description" required formControlName="CourseDescription"  
+      [ngClass]="{ 'is-invalid': submitted && f.CourseDescription.errors }"  [(ngModel)]="CourseDescription" aria-describedby="CD">
   
       </div>
       <div class="row">
-          <input class="form-control"style="margin-left: 300px;margin-bottom: 100px;margin-top:100px"type="text" placeholder="Enter The Course Duration" required formControlName="CourseDuration" [ngClass]="{ 'is-invalid': submitted && f.CourseDuration.errors }" [(ngModel)]="CourseDuration" aria-describedby="CDU">
-  
-  
-      <input class="form-control" style="margin-left: 300px; height: 150px;margin-top: 100px;" type="text" placeholder="Enter the Course Description" required formControlName="CourseDescription"  [ngClass]="{ 'is-invalid': submitted && f.CourseDescription.errors }"  [(ngModel)]="CourseDescription" aria-describedby="CD">
-  
+
+          <input class="form-control" 
+          style="margin-left: 300px;margin-top: 40px;" 
+          type="text" placeholder="Enter The Course Timings" 
+          required formControlName="CourseTimings" [ngClass]="{ 'is-invalid': submitted && f.CourseTimings.errors }" 
+          [(ngModel)]="CourseTimings" aria-describedby="CT">
+
       </div>
-      <div class="row">
-          <input class="form-control" style="margin-left: 300px;margin-top: 40px;" type="text" placeholder="Enter The Course Timings" required formControlName="CourseTimings" [ngClass]="{ 'is-invalid': submitted && f.CourseTimings.errors }" [(ngModel)]="CourseTimings" aria-describedby="CT">
-      </div>
   
-      <button  style="margin-top: 150px;" type="submit"  [ngClass]="{ 'p1': loginForm.form.valid, 'p2': loginForm.form.invalid} "   [disabled]="loginForm.form.invalid">AddCourse</button>
+      <button  style="margin-top: 150px;" type="submit"  
+      [ngClass]="{ 'p1': loginForm.form.valid, 'p2': loginForm.form.invalid} "   
+      [disabled]="loginForm.form.invalid">AddCourse</button>
       
       <div >
   
       </div>
+
   </form>
+  
   </div>
