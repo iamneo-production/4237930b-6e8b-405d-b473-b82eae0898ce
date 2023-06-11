@@ -1,0 +1,123 @@
+.top
+  {
+    background-color: white;
+    padding-bottom: 5px;
+  }
+  html
+{
+    background-color:#808080;
+}
+
+.form-control
+{
+    width: 260px;
+    text-align: center;
+    display:inline;
+    margin-left: 400px;
+    border-radius: 0%;
+
+
+}
+.form-group
+{
+    justify-content: center;
+    margin: 0%;
+}
+input
+{
+    width: 260px;
+    height: 45px;
+    background-color: #E8E8E8;
+}
+.pnx
+{
+    width: 370px;
+    text-align: center;
+    height: 33px;
+    margin-left: 190px;
+}
+button
+{
+    float: right;
+    margin-right: 80px;
+    border-style: none;
+    padding: 13px 20px;
+
+    border-radius: 20px;
+    color: white;
+    background-color: 	#008000;
+
+}
+.course1
+{
+    width: 370px;
+    text-align: center;
+    height: 40px;
+}
+.course2
+{
+    width: 370px;
+    text-align: center;
+    height: 40px;
+    
+}
+.course3
+{
+    width: 370px;
+    text-align: center;
+    height: 40px;
+}
+.p1
+{
+    color: white;
+    background-color: 	#008000;
+}
+.p2
+{
+    color:#808080;
+    background-color: white;
+}
+::placeholder {
+    color:black;
+    opacity: 0.8;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+
+
+.text-danger
+{
+    margin-left: 20px;
+    padding-top: 30px;
+}
+.mf
+{
+    width: 370px;
+    text-align: center;
+    height: 33px;
+    margin-left: 190px;
+}
+ol
+{
+    display: inline;
+}
+li{
+    display: inline;
+    position: relative;
+}
+div{
+    display: inline;
+}
+span
+{
+    position: relative;
+}
+form{
+  background-color:#808080;
+}
+.fn
+{
+    width: 370px;
+    text-align: center;
+    height: 40px;
+    
+}

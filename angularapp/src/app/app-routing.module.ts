@@ -20,7 +20,7 @@ import { LoginComponent } from './components/auth/login/login.component';
 import { SignupComponent } from './components/auth/signup/signup.component';
 
 const routes: Routes = [
-
+  {path:"",component:LoginComponent},
   {path:"admin",component:AdminsideComponent,children:
    [
       {path:"",component:InstitutesComponent},
@@ -32,7 +32,8 @@ const routes: Routes = [
       {path:"addstudent",component:AdduserComponent},
       {path:"editstudent",component:EdituserComponent},
       {path:"addinstitute",component:AddinstituteComponent},
-      {path:"editinstitute",component:EditinstituteComponent}
+      {path:"editinstitute",component:EditinstituteComponent},
+      {path:"edituser",component:EdituserComponent}
    ]
   },
 

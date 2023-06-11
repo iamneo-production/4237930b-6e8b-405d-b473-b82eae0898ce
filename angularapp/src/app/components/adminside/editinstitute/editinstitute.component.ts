@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditinstituteComponent implements OnInit {
 
+  formdata = {academyname:"",contactnumber:"", image:"", email:"", location:"", discription:""};
+  onSubmit(){
+    console.log(this.formdata)
+}
   constructor() { }
 
   ngOnInit(): void {
