@@ -1,1 +1,37 @@
-<p>enrolledcourse works!</p>
+<!--
+    <p>enrolledcourse works!</p>
+-->
+
+<!-- Authors- Tanusha -->
+
+<app-usernavbar></app-usernavbar>
+
+<div class="enrolledcourse" style="background: linear-gradient(
+    rgb(242, 242, 164),
+    rgb(247, 229, 128),
+    rgba(92, 78, 200, 0.303)
+  ); height: fit-content;
+  min-height: 800px;">
+
+<div class="p4"></div>
+
+    <div class="container" 
+    *ngFor="let ec of enrollcourse" 
+    id="enrolledCourse">
+
+        <div class="row">
+
+            <div class="col-xs-6 p3">
+
+              <p>Course Name: {{ec.CourseName}}</p>
+              <p>Joined Date: {{ec.JoinDate}}</p>
+              <p>Course End Date: {{ec.CourseEndDate}}</p>
+              <button href="#" class="b1">My Learning</button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
