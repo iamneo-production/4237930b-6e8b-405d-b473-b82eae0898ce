@@ -1,10 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Courses } from 'src/app/class/Courses';
-/*
-import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
-import { faTrash} from '@fortawesome/free-solid-svg-icons';
-import { faCirclePlus} from '@fortawesome/free-solid-svg-icons';
-*/
 import { Router } from '@angular/router';
 
 
@@ -19,11 +14,6 @@ export class CoursesComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  /*
-  faPenToSquare = faPenToSquare;
-  faTrash = faTrash;
-  faCirclePlus=faCirclePlus;
-*/
   searchText!:string;
   
   Courses:Courses[]=[
