@@ -1,0 +1,35 @@
+<!-- authors - Deepika, Diveesh -->
+
+<app-adminnavbar></app-adminnavbar>
+
+<div class="container">
+
+<div class = "searchbar">
+  <div class="form-group">
+    <input type="search" class="form-control me-2 search"  placeholder="Type here to search student" id="searchButton" [(ngModel)]="searchText"/>
+    <button type="button" class="btn btn">Search</button>
+  </div>
+</div>
+
+
+  <table class="std-table">
+    <tr class="heading">
+        <th>Student ID</th>
+        <th>Student Name</th>
+        <th>Enrolled Course</th>
+        <th>Mobile Number</th>
+        <th>Actions</th>
+    </tr>
+    <tr *ngFor="let student of students | filter:searchText">
+        <td>{{student.studentId}}</td>
+        <td>{{student.studentName}}</td>
+        <td>{{student.enrolledCourse}}</td>
+        <td>{{student.mobileNumber}}</td>
+        <td class="actions">
+          <button routerLink="/admin/editstudent">&#9998;</button>
+          <button class="del-btn" (click)="deleteStudent()">&#10006;</button>
+        </td>
+    </tr>
+  </table>
+  <button class="add-std" routerLink="/admin/addstudent">&#8853; Add Student</button>
+</div>
