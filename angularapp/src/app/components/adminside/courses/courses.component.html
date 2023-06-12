@@ -1,1 +1,43 @@
-<p>courses works!</p>
+<app-adminnavbar></app-adminnavbar>
+
+    <div class="courses">
+      <br>
+      <div class = "searchbar">
+        <div class="form-group">
+          <input type="search" class="form-control me-2 search"  placeholder="Type here to search course" id="searchButton" [(ngModel)]="searchText"/>
+          <button type="button" class="btn btn">Search</button>
+        </div>
+      </div>
+      <br>
+
+        <div class = "container">
+              <ng-container *ngFor = "let course of Courses | filter:searchText">
+                    <div class="card shadow-lg rounded mb-4">
+                        <div class="card-body">
+                          <div class="left">
+                            <h6 class="card-subtitle">Course name : {{course.Coursename}}</h6><br>
+                            <h6 class="card-subtitle">Course duration : {{course.Courseduration}}hrs</h6><br>
+                            <h6 class="card-subtitle">Course Available timings : {{course.Coursetimings}}</h6><br>
+                          </div>
+                            <div class="right">
+                            <h6 class="card-subtitle">Number of Students : {{course.noOfStudentsEnrolled}}</h6><br>
+                            <h6 class="card-subtitle">Course Description : {{course.Coursedescription}}</h6><br>
+                          </div>
+                            <div class="icons">
+                              <a (click)="goteditcourse()">
+                                <!-- <fa-icon [icon]="faPenToSquare" style="margin-right: 12px;" ></fa-icon> -->
+                              </a>
+                              <a (click)="alert()">
+                                <!-- <fa-icon [icon]="faTrash"></fa-icon> -->
+                              </a>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+                <div class="addButtondiv">
+                  <button class="btn btn-success addButton" routerLink="/admin/addcourse">
+                    <!-- <fa-icon [icon]="faCirclePlus"></fa-icon>  -->
+                    &nbsp;Add Course</button>
+                </div>
+              </div>
+  </div>
