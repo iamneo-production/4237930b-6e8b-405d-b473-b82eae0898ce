@@ -1,19 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ElementRef,NgModule } from '@angular/core';
 
 import { FormControl,FormGroup,NgModel,Validators} from '@angular/forms';
 
-import { NgModule } from '@angular/core';
+
 
 @Component({
   selector: 'app-edituser',
   templateUrl: './edituser.component.html',
   styleUrls: ['./edituser.component.css']
 })
+
 export class EdituserComponent implements OnInit {
 
-  constructor() { }
+  constructor(private elementRef:ElementRef) { }
 
   ngOnInit(): void {
+  }
+  ngAfterViewInit(){
+    this.elementRef.nativeElement.ownerDocument
+    .body.style.backgroundColor='gray';
   }
   name=new FormControl('');
   
