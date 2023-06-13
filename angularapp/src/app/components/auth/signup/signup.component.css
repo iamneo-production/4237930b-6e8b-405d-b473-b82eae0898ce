@@ -66,32 +66,3 @@ border-color: black;
 }
 
  .container{width: 100%; padding: 50px;  }
-.form-control{
-  position: relative;
-  border: none;
-  outline: none;
-  border-bottom: 2px solid black;
-  width: 300px;
-  height: 30px;
-  background: transparent;
-  font-size: 15px;
-  padding:0 35px 0 4px;
-  color: black;
-  color: rgb(104, 98, 98);
-}
-h2{
-  font-size: 23px;
-  color: black;
-  text-align: center;
-}
-
-.submit
-{
-  text-align: center;
-}
-
-
-.link
-{
-  margin-top: 15px;
-}
