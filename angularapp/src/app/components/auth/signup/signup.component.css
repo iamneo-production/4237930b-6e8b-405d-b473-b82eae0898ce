@@ -8,7 +8,8 @@
 .register-block
 {
   float:left;
-  width: 1365px;
+  /* width: 1365px; */
+  width: 1535px;
   padding : 10px 0;
 }
 
