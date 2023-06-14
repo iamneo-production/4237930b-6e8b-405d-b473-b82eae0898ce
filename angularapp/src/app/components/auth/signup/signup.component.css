@@ -8,7 +8,8 @@
 .register-block
 {
   float:left;
-  width: 1365px;
+  /* width: 1365px; */
+  width: 1535px;
   padding : 10px 0;
 }
 
@@ -31,7 +32,7 @@ section
   width: 100%;
   background-position: center;
   background-size: cover;
-  background-image: url(/assets/2.jpg);
+  background-image: url(/assets/images/9.jpg);
 }
 
 .g
@@ -49,7 +50,7 @@ border-color: black;
 {
   position: relative;
   width: 450px;
-  height: 500px;
+  height: 555px;
   background: transparent;
   border: 2px solid rgba(15, 14, 14, 0.5);
   border-radius: 20px;
@@ -64,8 +65,9 @@ border-color: black;
   width: 300px;
   border-bottom: 2px solid black;
 }
-.inputbox input 
-{
+
+ .inputbox input 
+ {
   width: 100%;
   height: 35px;
   background: transparent;
@@ -94,12 +96,14 @@ button
   border: none;
   outline: none;
 }
-::placeholder
+::placeholder{
+  color: rgb(104, 98, 98); 
+}
+.container{
+  width: 100%; padding: 50px;  
+}
+.form-control
 {
-  color: rgb(104, 98, 98);
- }
- .container{width: 100%; padding: 50px;  }
-.form-control{
   position: relative;
   border: none;
   outline: none;
@@ -112,7 +116,8 @@ button
   color: black;
   color: rgb(104, 98, 98);
 }
-h2{
+h2
+{
   font-size: 23px;
   color: black;
   text-align: center;
@@ -122,7 +127,6 @@ h2{
 {
   text-align: center;
 }
-
 
 .link
 {
