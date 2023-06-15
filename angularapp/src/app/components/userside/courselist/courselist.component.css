@@ -38,11 +38,7 @@
 
 .courses
 {
-  background: linear-gradient(
-    rgb(182, 134, 234),
-    rgb(129, 219, 232),
-    rgba(105, 217, 120, 0.303)
-  );
+  background-color: #ECECEC;
   display: block;
   animation: -animation 5s infinite alternate ;
   /* background-color: rgb(216, 223, 149); */

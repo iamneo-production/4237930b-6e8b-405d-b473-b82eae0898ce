@@ -1,68 +1,33 @@
 <!-- Author Srinivasa teja -->
 <app-usernavbar></app-usernavbar> 
-<div class="container">
-    <h1>PG Admission</h1>
-    <h2>Institute</h2>
-    <h3>EnrolledCourse</h3>
-    <h4><span>Logout</span></h4>
-    
-  
-
-
-
-
+<div class="courses">
+  <br>
+  <div class = "searchbar">
+    <div class="form-group">
+      <input type="search" class="form-control me-2 search"  placeholder="Type here to search course" id="searchButton" [(ngModel)]="searchText"/>
+      <button type="button" class="btn btn">Search</button>
+    </div>
   </div>
-  <div class="form-container">
-    <input type="text" class="form-input" placeholder="Type here to search course">
-    <button class="submit">Search</button>
-  </div>
-  <div class="box">
-    
-    <ul>
+  <br>
 
-    
-      <li *ngFor="let user of users">
-        <div class="content">
-        Course name: {{ user.Coursename }} <br>
-        Course duration: {{ user.Courseduration }} <br>
-        Course Available timings: {{ user.CourseAvailabletimings }} <br>
-        </div>
-      
-        <div class="xyz">
-
-        
-        Number of Students: {{ user.NumberofStudents }} <br>
-        Course Description: {{ user.CourseDescription }}
-        </div>
-        </li>
-      </ul>
-        <a href="#" style="text-decoration: none;" class="move-down">Enroll Now</a>
-        <div class="box1">
-          <ul>
-          <li *ngFor="let item of items">
-            <div class="abc">
-            Course name: {{ item.Coursename }} <br>
-            Course duration: {{ item.Courseduration }} <br>
-            Course Available timings: {{ item.CourseAvailabletimings }} <br>
-
-            </div>
-            <div class="mst">
-            Number of Students: {{ item.NumberofStudents }} <br>
-            Course Description: {{ item.CourseDescription }} <br>
-            </div>
-
-          </li>
-          </ul>
-          <a href="#" style="text-decoration: none;" class="move-cal">Enroll Now</a>
-
-        
-
-          
-
-
-        
-  </div>
-
-
-
-
+    <div class = "container">
+          <ng-container *ngFor = "let course of courses | filter:searchText">
+                <div class="card shadow-lg rounded mb-4">
+                    <div class="card-body">
+                      <div class="left">
+                        <h6 class="card-subtitle">Course name : {{course.Coursename}}</h6><br>
+                        <h6 class="card-subtitle">Course duration : {{course.Courseduration}}hrs</h6><br>
+                        <h6 class="card-subtitle">Course Available timings : {{course.Coursetimings}}</h6><br>
+                      </div>
+                        <div class="right">
+                        <h6 class="card-subtitle">Number of Students : {{course.noOfStudentsEnrolled}}</h6><br>
+                        <h6 class="card-subtitle">Course Description : {{course.Coursedescription}}</h6><br>
+                      </div>
+                      <div class="button">
+                        <button class="btn btn-success enrollbutton" routerLink="/user/admissionform">Enroll course</button>
+                      </div>
+                    </div>
+                </div>
+            </ng-container>
+          </div>
+</div>
