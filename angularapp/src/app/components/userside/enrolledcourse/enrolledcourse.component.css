@@ -27,11 +27,12 @@
 
 .enrolledcourse
 {
-  background: linear-gradient(
+  /* background: linear-gradient(
     rgb(242, 242, 164),
     rgb(247, 229, 128),
     rgba(92, 78, 200, 0.303)
-  );
+  ); */
+  background-color: #ECECEC;
   /* animation:my-animation 5s infinite alternate ; */
   /* background-color: rgb(216, 223, 149); */
   height: fit-content;
