@@ -1,39 +1,28 @@
-<!--
-    <p>enrolledcourse works!</p>
--->
-
 <!-- Authors- Tanusha -->
-
 <app-usernavbar></app-usernavbar>
 
-<div class="enrolledcourse" style="
-/* background: linear-gradient(
-    rgb(242, 242, 164),
-    rgb(247, 229, 128),
-    rgba(92, 78, 200, 0.303)
-  ); */
-   height: fit-content;
-  min-height: 800px;">
-
-<div class="p4"></div>
-
-    <div class="container" 
-    *ngFor="let ec of enrollcourse" 
-    id="enrolledCourse">
-
-        <div class="row">
-
-            <div class="col-xs-6 p3">
-
-              <p>Course Name: {{ec.CourseName}}</p>
-              <p>Joined Date: {{ec.JoinDate}}</p>
-              <p>Course End Date: {{ec.CourseEndDate}}</p>
-              <button href="#" class="b1">My Learning</button>
-
-            </div>
-
-        </div>
-
-    </div>
-
+<div class="enrolledcourse">
+<br><br>
+<div class = "container">
+    <ng-container *ngFor = "let ec of enrollcourse">
+          <div class="card shadow-lg rounded">
+              <div class="card-body">
+                  <div class="left">
+                    <h6 class="card-subtitle">Course name : {{ec.CourseName}}</h6><br>
+                    <h6 class="card-subtitle">Joined duration : {{ec.JoinDate}}</h6><br>
+                    <h6 class="card-subtitle">Course End Date: {{ec.CourseEndDate}}</h6><br>
+                  </div>
+                  <div class="right">
+                      <p><strong>Ratings : <ngb-rating [max]="5">:</ngb-rating></strong></p>
+                  </div>
+                  <div class="button">
+                    <button class="btn editbutton" routerLink='/user/admissionform'>Edit&nbsp;<i class="fa fa-pencil" aria-hidden="true"></i></button>
+                    <button class="btn deletebutton" (click) = "delete()">Delete&nbsp;<i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                    <button class="btn statusbutton">Status&nbsp;<i class="fa fa-info-circle" aria-hidden="true"></i></button>
+                    <button class="btn mylearnbutton">My Learning&nbsp;<i class="fa fa-book" aria-hidden="true"></i></button>
+                  </div>
+              </div>
+          </div><br>
+      </ng-container>
+  </div>
 </div>
