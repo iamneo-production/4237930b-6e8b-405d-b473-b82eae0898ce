@@ -1,3 +1,5 @@
+// author-> SindhupriyaDharshini
+
 package com.examly.springapp.Service;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -5,13 +7,13 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import com.examly.springapp.Model.LoginModel;
 import com.examly.springapp.Model.UserModel;
-import com.examly.springapp.Repository.Userrepository;
+import com.examly.springapp.Repository.UserRepository;
 
 @Service
 public class UserServiceImpl implements UserService{
 
     @Autowired
-    private Userrepository userrepository;
+    private UserRepository userrepository;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -67,7 +69,7 @@ public class UserServiceImpl implements UserService{
             return user.getUserRole();
 
         else
-            return "Emailid Not available";           
+            return "EmailId Not available";           
     }
 
     //for finding the user by email
