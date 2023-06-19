@@ -25,7 +25,9 @@ export class CoursesComponent implements OnInit {
 
     alert()
     {
-      alert("Institute deleted successfully");
+      if(confirm('Are you sure to delete this record ?')){
+          alert("Institute deleted successfully");
+      }
     }
 
     goteditcourse()
