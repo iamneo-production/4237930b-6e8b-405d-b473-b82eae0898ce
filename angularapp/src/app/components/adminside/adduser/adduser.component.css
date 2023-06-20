@@ -6,74 +6,74 @@
   .fn {
     width: 370px;
     text-align: center;
-    height: 40px;
+    height: 25px;
   
   }
   
   .ln {
     width: 370px;
     text-align: center;
-    height: 40px;
+    height: 25px;
     margin-left: 100px;
   }
   
   .mf {
     width: 370px;
     text-align: center;
-    height: 40px;
+    height: 25px;
     margin-left: 190px;
   }
   
   .fan {
     width: 370px;
     text-align: center;
-    height: 40px;
+    height: 25px;
   }
   
   .pn1 {
     width: 370px;
     text-align: center;
-    height: 40px;
+    height: 25px;
     margin-left: 100px;
   }
   
   .pn2 {
     width: 370px;
     text-align: center;
-    height: 40px;
+    height: 25px;
     margin-left: 190px;
   }
   
   .mn {
     width: 370px;
     text-align: center;
-    height: 40px;
+    height: 25px;
   }
   
   .email {
     width: 370px;
     text-align: center;
-    height: 40px;
+    height: 25px;
   }
   
   .ag {
     width: 370px;
     text-align: center;
-    height: 40px;
+    height: 25px;
   
   }
   
   .sslc-hsc {
     width: 370px;
     text-align: center;
-    height: 40px;
+    height: 25px;
   }
   
   .forms {
     width: 25%;
     height: 280px;
-    padding: 5%;
-    font-size: 20px;
+    padding: 2%;
+    font-size: 12px;
     float: left;
   
   
@@ -81,24 +81,23 @@
   
   .forms1 {
     width: 25%;
-    height: 100px;
-    padding: 5%;
-    font-size: 20px;
+    height: 200px;
+    padding: 2%;
+    font-size: 12px;
     float: left;
   
   }
   
   .forms2 {
     width: 25%;
-    height: 100px;
-    padding: 5%;
-    font-size: 20px;
+    height: 200px;
+    padding: 2%;
+    font-size: 12px;
     float: left;
   
   }
   
-  footer {
-    background-color: gray;
+  .foot {
     padding: 10px;
     margin: 0;
     position: absolute;
@@ -120,14 +119,11 @@
   
   .box_area {
     background-color: rgba(255, 255, 255, 0.5);
-    /* width: 550px;
-  height: 250px;  */
     padding: 1%;
     display: inline-block;
-    /* float: right; */
-    margin-top: 75px;
+    margin-top: 40px;
     margin-right: 5%;
-    margin-left: 175px;
+    margin-left: 130px;
     padding-left: 40px;
     padding-right: 40px;
     color: black;
@@ -157,7 +153,7 @@
   .pc {
     width: 25%;
     height: 9%;
-    margin-left: 5px;
+    margin-left: 21px;
   }
   
   .p {
@@ -167,7 +163,7 @@
   .s {
     width: 30%;
     height: 9%;
-    margin-left: 20px;
+    margin-left: 60px;
   }
   
   .n {
@@ -197,8 +193,12 @@
   }
   
   .group {
-    height: 650px;
-    background-color: gray;
+    height: 697px;
+    background: linear-gradient(
+      rgb(184, 234, 182),
+      rgb(211, 236, 206),
+      rgba(133, 209, 143, 0.303)
+    );
   }
   
   span
@@ -210,12 +210,14 @@
   {
     width: 370px;
     text-align: center;
-    height: 40px;
+    height: 30px;
   }
   
   .institute
   {
     width: 370px;
     text-align: center;
-    height: 40px;
+    height: 30px;
   }
+
+
