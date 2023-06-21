@@ -30,13 +30,14 @@ export class AdduserComponent implements OnInit {
     pincode:new FormControl('',[Validators.required]),
     state:new FormControl('',[Validators.required]),
     nation:new FormControl('',[Validators.required]),
-    institute:new FormControl('',[Validators.required]),
-    course:new FormControl('',[Validators.required])
+    // institute:new FormControl('',[Validators.required]),
+    // course:new FormControl('',[Validators.required])
 
   })
 
-  loginUser()
+  loginUser(val1:string, val2:string)
   {
+    console.log(val1,val2);
     console.warn(this.loginForm.value)
   }
 
