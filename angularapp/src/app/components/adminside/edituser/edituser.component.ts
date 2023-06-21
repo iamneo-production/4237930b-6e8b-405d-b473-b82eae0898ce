@@ -22,11 +22,8 @@ export class EdituserComponent implements OnInit {
   }
   name=new FormControl('');
   
-  
-
   loginForm = new FormGroup({
     firstName:new FormControl('',[Validators.required]),
-    in:new FormControl('',[Validators.required]),
     fatherName:new FormControl('',[Validators.required]),
     motherName:new FormControl('',[Validators.required]),
     emailId:new FormControl('',[Validators.required,Validators.email,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]),
@@ -42,19 +39,22 @@ export class EdituserComponent implements OnInit {
     pincode:new FormControl('',[Validators.required]),
     state:new FormControl('',[Validators.required]),
     nation:new FormControl('',[Validators.required]),
-    cn:new FormControl('',[Validators.required])
+    // institute:new FormControl('',[Validators.required]),
+    // course:new FormControl('',[Validators.required])
 
   })
 
-  loginUser()
+  loginUser(val1:string, val2:string)
   {
+    console.log(val1,val2);
     console.warn(this.loginForm.value)
   }
+
   get firstName()
   {
     return this.loginForm.get('firstName')
   }
-  
+
   get fatherName()
   {
     return this.loginForm.get('fatherName')
@@ -129,14 +129,14 @@ export class EdituserComponent implements OnInit {
   {
     return this.loginForm.get('nation')
   }
-  get in()
+
+  get institute()
   {
-    return this.loginForm.get('in')
-  }
-  get cn()
-  {
-    return this.loginForm.get('cn')
+    return this.loginForm.get('institute')
   }
 
-
+  get course()
+  {
+    return this.loginForm.get('course')
+  }
 }
