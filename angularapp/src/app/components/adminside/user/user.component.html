@@ -1,36 +1,42 @@
 <!-- authors - Deepika, Diveesh -->
 
 <app-adminnavbar></app-adminnavbar>
-<div class="page">
+
 <div class="container">
-<br>
-<div class = "searchbar">
-  <div class="form-group">
-    <input type="search" class="form-control me-2 search"  placeholder="Type here to search student" id="searchButton" [(ngModel)]="searchText"/>
-    <button type="button" class="btn btn"><i class="fa fa-search" aria-hidden="true"></i>&nbsp; Search</button>
+
+  <div class="searchbar">
+    <div class="input-group">
+      <input type="search" class="form-control search" placeholder="Type here to search student" id="searchButton" [(ngModel)]="searchText" />
+      <button type="button" class="btn btn-primary search-btn">Search</button>
+    </div>
   </div>
-</div>
 
+  <div class="table-responsive">
+    <table class="table table-hover table-bordered">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Student ID</th>
+          <th scope="col">Student Name</th>
+          <th scope="col">Enrolled Course</th>
+          <th scope="col">Mobile Number</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let student of students | filter:searchText">
+          <td>{{student.studentId}}</td>
+          <td>{{student.studentName}}</td>
+          <td>{{student.enrolledCourse}}</td>
+          <td>{{student.mobileNumber}}</td>
+          <td class="actions">
+            <button routerLink="/admin/editstudent" class="btn btn-primary">&#9998; Edit</button>
+            <button class="btn btn-danger del-btn" (click)="deleteStudent()">&#10006; Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
-  <table class="std-table">
-    <tr class="heading">
-        <th>Student ID</th>
-        <th>Student Name</th>
-        <th>Enrolled Course</th>
-        <th>Mobile Number</th>
-        <th>Actions</th>
-    </tr>
-    <tr *ngFor="let student of students | filter:searchText">
-        <td>{{student.studentId}}</td>
-        <td>{{student.studentName}}</td>
-        <td>{{student.enrolledCourse}}</td>
-        <td>{{student.mobileNumber}}</td>
-        <td class="actions">
-          <button routerLink="/admin/editstudent">&#9998;</button>
-          <button class="del-btn" (click)="deleteStudent()">&#10006;</button>
-        </td>
-    </tr>
-  </table>
-  <button class="add-std" routerLink="/admin/addstudent">&#8853; Add Student</button>
-</div>
+  <button class="btn btn-primary add-std" routerLink="/admin/addstudent">&#8853; Add Student</button>
+
 </div>

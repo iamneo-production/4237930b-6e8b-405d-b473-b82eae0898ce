@@ -18,6 +18,7 @@ import { AdmissionformComponent } from './components/userside/admissionform/admi
 import { AuthComponent } from './components/auth/auth.component';
 import { LoginComponent } from './components/auth/login/login.component';
 import { SignupComponent } from './components/auth/signup/signup.component';
+import { StatusComponent } from './components/userside/status/status.component';
 
 const routes: Routes = [
   {path:"",component:LoginComponent},
@@ -43,7 +44,9 @@ const routes: Routes = [
       {path:"institute",component:UserhomepageComponent},
       {path:"enrolledcourse",component:EnrolledcourseComponent},
       {path:"courses",component:CourselistComponent},
-      {path:"admissionform",component:AdmissionformComponent}
+      {path:"admissionform",component:AdmissionformComponent},
+      {path:"status",component:StatusComponent}
+
     ]
   },
   
