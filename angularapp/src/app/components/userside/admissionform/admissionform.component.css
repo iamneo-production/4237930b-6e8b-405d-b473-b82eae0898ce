@@ -6,74 +6,74 @@
   .fn {
     width: 370px;
     text-align: center;
-    height: 40px;
+    height: 30px;
   
   }
   
   .ln {
     width: 370px;
     text-align: center;
-    height: 40px;
+    height: 30px;
     margin-left: 100px;
   }
   
   .mf {
     width: 370px;
     text-align: center;
-    height: 40px;
+    height: 30px;
     margin-left: 190px;
   }
   
   .fan {
     width: 370px;
     text-align: center;
-    height: 40px;
+    height: 30px;
   }
   
   .pn1 {
     width: 370px;
     text-align: center;
-    height: 40px;
+    height: 30px;
     margin-left: 100px;
   }
   
   .pn2 {
     width: 370px;
     text-align: center;
-    height: 40px;
+    height: 30px;
     margin-left: 190px;
   }
   
   .mn {
     width: 370px;
     text-align: center;
-    height: 40px;
+    height: 30px;
   }
   
   .email {
     width: 370px;
     text-align: center;
-    height: 40px;
+    height: 30px;
   }
   
   .ag {
     width: 370px;
     text-align: center;
-    height: 40px;
+    height: 30px;
   
   }
   
   .sslc-hsc {
     width: 370px;
     text-align: center;
-    height: 40px;
+    height: 30px;
   }
   
   .forms {
     width: 25%;
     height: 280px;
-    padding: 5%;
-    font-size: 20px;
+    padding: 2%;
+    font-size: 15px;
     float: left;
   
   
@@ -81,24 +81,23 @@
   
   .forms1 {
     width: 25%;
-    height: 100px;
-    padding: 5%;
-    font-size: 20px;
+    height: 200px;
+    padding: 2%;
+    font-size: 15px;
     float: left;
   
   }
   
   .forms2 {
     width: 25%;
-    height: 100px;
-    padding: 5%;
-    font-size: 20px;
+    height: 200px;
+    padding: 2%;
+    font-size: 15px;
     float: left;
   
   }
   
-  footer {
-    background-color: gray;
+  .foot {
     padding: 10px;
     margin: 0;
     position: absolute;
@@ -120,16 +119,14 @@
   
   .box_area {
     background-color: rgba(255, 255, 255, 0.5);
-    /* width: 550px;
-  height: 250px;  */
     padding: 1%;
     display: inline-block;
-    /* float: right; */
-    margin-top: 75px;
+    margin-top: 40px;
     margin-right: 5%;
-    margin-left: 175px;
+    margin-left: 130px;
     padding-left: 40px;
     padding-right: 40px;
+    left:130px;
     color: black;
     opacity: 12;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -157,7 +154,7 @@
   .pc {
     width: 25%;
     height: 9%;
-    margin-left: 5px;
+    margin-left: 21px;
   }
   
   .p {
@@ -167,7 +164,7 @@
   .s {
     width: 30%;
     height: 9%;
-    margin-left: 20px;
+    margin-left: 60px;
   }
   
   .n {
@@ -197,8 +194,8 @@
   }
   
   .group {
-    height: 650px;
-    background-color: gray;
+    height: 697px;
+    background-color: #ECECEC;
   }
   
   span
