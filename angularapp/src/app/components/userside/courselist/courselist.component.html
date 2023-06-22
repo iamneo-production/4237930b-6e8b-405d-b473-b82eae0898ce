@@ -1,5 +1,6 @@
-<!-- Author Srinivasa teja -->
-<app-usernavbar></app-usernavbar> 
+<!-- Authors Srinivasa teja, deepika -->
+<app-usernavbar></app-usernavbar>
+
 <div class="courses">
   <br>
   <div class = "searchbar">
@@ -12,7 +13,7 @@
 
     <div class = "container">
           <ng-container *ngFor = "let course of courses | filter:searchText">
-                <div class="card shadow-lg rounded mb-4">
+                <div class="card shadow-lg rounded">
                     <div class="card-body">
                       <div class="left">
                         <h6 class="card-subtitle">Course name : {{course.Coursename}}</h6><br>
@@ -27,7 +28,7 @@
                         <button class="btn btn-success enrollbutton" routerLink="/user/admissionform">Enroll course</button>
                       </div>
                     </div>
-                </div>
+                </div><br>
             </ng-container>
           </div>
 </div>

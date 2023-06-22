@@ -44,7 +44,10 @@ export class UserComponent implements OnInit {
   }
 
   deleteStudent(){
-    this.students.pop();
+    if(confirm('Are you sure to delete this record ?')){
+      this.students.pop();
+    }
+    
   }
 
 }

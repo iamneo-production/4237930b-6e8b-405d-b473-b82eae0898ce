@@ -41,4 +41,12 @@ export class EnrolledcourseComponent implements OnInit {
   ];
   */
 
+  delete()
+  {
+    if(confirm('Are you sure to delete this record ?'))
+    {
+      alert("Deleted successfully");
+    }
+  }
+
 }

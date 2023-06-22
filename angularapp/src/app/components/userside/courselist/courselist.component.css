@@ -13,12 +13,12 @@
 
 .btn
 {
-  background-color: #096407;
+  background-color: #5ba9ab;
   color: white;
   border: none;
   padding-left: 30px;
   padding-right: 30px;
-  border-radius: 0px;
+  border-radius: 4px;
   cursor: pointer;
   margin-right: 8px;
   transition: opacity 0.15s;
@@ -41,13 +41,13 @@
   background-color: #ECECEC;
   display: block;
   animation: -animation 5s infinite alternate ;
-  /* background-color: rgb(216, 223, 149); */
   height: fit-content;
   min-height: 1100px;
 }
 
 .searchbar
 {
+  margin-top: 20px;
   text-align: center;
 }
 
@@ -55,7 +55,6 @@
 {
   margin-top: 10px;
   width: 600px;
-  margin-bottom: 20px;
 }
 
 .left
@@ -79,7 +78,7 @@
 
 .enrollbutton
 {
-  background-color: #40b117;
+  background-color: #5ba9ab;
   color: white;
   border: none;
   padding-left: 10px;
@@ -111,7 +110,7 @@
 
 .card
 {
-  background-color: lightgrey;
-  margin-bottom: 10px;
+  background-color: rgb(221, 238, 241);
   cursor: pointer;
 }
+
