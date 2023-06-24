@@ -1,42 +1,125 @@
-.top
-  {
-    background-color: white;
-    padding-bottom: 5px;
+h1
+{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+
+div
+{
+    text-align: center;
   }
-  html
+span 
 {
-    background-color:#808080;
-}
-
-.form-control
-{
-    width: 260px;
     text-align: center;
-    display:inline;
-    margin-left: 400px;
-    border-radius: 0%;
-
-
-}
-.form-group
-{
-    justify-content: center;
-    margin: 0%;
-}
-input
-{
-    width: 260px;
-    height: 45px;
-    background-color: #E8E8E8;
-}
-.pnx
-{
-    width: 370px;
+  }
+  
+  h2
+  {
     text-align: center;
-    height: 33px;
-    margin-left: 190px;
+    color: black;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+  
+  section{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      width: 100%;
+      background-position: center;
+      background-size: cover;
+      /* background-image: url(/assets/7.jpg); */
+  }
+  .form-box{
+      position: relative;
+      width: 400px;
+      height: 450px;
+      background: transparent;
+      justify-content: center;
+      align-items: center;
+  
+  }
+  
+  span
+  {
+      color: rgb(177, 5, 5);
+      font-size: small;
+  }
+  
+  .input-box
+  {
+      cursor: pointer;
+      width: 270px;
+      height: 40px;
+      border-radius: 40px;
+      font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+
+  .input-box1
+  {
+      cursor: pointer;
+      width: 270px;
+      height: 40px;
+      border-radius: 4px;
+      font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      font-size: medium;
+  
+  }
+
+  .form
+  {
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      background: linear-gradient(
+        rgb(184, 234, 182),
+        rgb(211, 236, 206),
+        rgba(133, 209, 143, 0.303)
+      );
+      /* background-image: url(/assets/addinstitute.jpg); */
+      background-position: center;
+      background-size: cover;
+      min-height: 92vh;
+  
+  }
+  textarea
+{
+    text-align: center;
+    width: 250px;
+    height: 200px;
+    border-style: none;
+    background-color:#E0E0E0;
+    border-radius: 0;
+    float: right;
+    margin-right: 645px;
+    margin-top: 30px;
+    
 }
-button
+  label
+  {
+      /* display: block; */
+      margin-bottom: 5px;
+      font-weight: 400;
+      text-transform: uppercase;
+      line-height: 24px;
+      height: 24px;
+      font-size: 15px;
+    left: 165px;
+    margin-bottom: 8px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+  .p1
+{
+    color: white;
+    background-color: 	#008000;
+}
+.p2
+{
+    color:black;
+    background: linear-gradient(to right, #16A085 0%, #F4D03F  51%, #16A085  100%);
+    /*background: linear-gradient(to right, #348F50 0%, #56B4D3  51%, #348F50  100%);*/
+}
+/*button
 {
     float: right;
     margin-right: 80px;
@@ -47,77 +130,17 @@ button
     color: white;
     background-color: 	#008000;
 
-}
-.course1
-{
-    width: 370px;
-    text-align: center;
+}*/
+
+button{
+    width: 12%;
     height: 40px;
-}
-.course2
-{
-    width: 370px;
-    text-align: center;
-    height: 40px;
-    
-}
-.course3
-{
-    width: 370px;
-    text-align: center;
-    height: 40px;
-}
-.p1
-{
-    color: white;
-    background-color: 	#008000;
-}
-.p2
-{
-    color:#808080;
-    background-color: white;
-}
-::placeholder {
-    color:black;
-    opacity: 0.8;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-image: linear-gradient(to left, rgb(131, 130, 134), white);
+    border-color: black;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+    border-radius: 40px;
+
   }
-
-
-.text-danger
-{
-    margin-left: 20px;
-    padding-top: 30px;
-}
-.mf
-{
-    width: 370px;
-    text-align: center;
-    height: 33px;
-    margin-left: 190px;
-}
-ol
-{
-    display: inline;
-}
-li{
-    display: inline;
-    position: relative;
-}
-div{
-    display: inline;
-}
-span
-{
-    position: relative;
-}
-form{
-  background-color:#808080;
-}
-.fn
-{
-    width: 370px;
-    text-align: center;
-    height: 40px;
-    
-}
+  
