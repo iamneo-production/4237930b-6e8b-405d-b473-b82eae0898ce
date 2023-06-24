@@ -111,25 +111,25 @@ body
    color: #9561f5;
 
 }
-.name1
-{
+.name1 {
+   width: 120px;
    font-family: fontawesome;
-   position: relative;
-   margin-left: 125px;
+   margin-left: 0px;
    margin-top: -20px;
 }
-.name2
-{
- position: relative;
- margin-left: 310px;
- margin-top: -22px;
+
+.name2 {
+   width: 120px;
+   margin-left: 160px;
+   margin-top: -23px;
 }
-.name3
-{
- position: relative;
- margin-left: 490px;
- margin-top: -25px;
+
+.name3 {
+   width: 120px;
+   margin-left: 335px;
+   margin-top: -25px;
 }
+
 #rcorners2 
 {
    border-radius: 25px;
@@ -143,15 +143,15 @@ body
    font-size: 16px;
    font-family:cursive ;
  }
-.institute
+
+.admissionstatus
 {
    font-family: fontawesome;
-
+   background-color: #ECECEC;
 }
-h3
+h4
 {
    text-align:center;
-
 }
 .first {
    background-color: transparent;
@@ -160,8 +160,8 @@ h3
    perspective: 1000px;
    position: relative;
    margin-top: -25px;
-   margin-bottom: 30px;
-   margin-left: 140px;
+   /* margin-bottom: 30px; */
+   margin-left: 40px;
  }
  
  .first-inner {
@@ -234,19 +234,87 @@ h3
    width: 450px;
  }
 
- .inscard
- {
-   width: 350px;
- }
-
  ngb-rating
  {
    color: orange;
-   font-size: medium;
+   font-size: larger;
  }
 
  .heading
  {
-   margin-left:140px;
    margin-top: 20px;
+   text-align: center;
+
  }
+ .title {
+    margin-bottom: 30px;
+ }
+
+ .institute {
+  margin-left: 50px;
+  display: inline-block;
+  width: 400px;
+  text-align: center;
+ }
+
+ .inscard
+ {
+   width: 350px;
+   margin-left: 20px;
+ }
+
+ .course {
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 0px;
+  width: 500px;
+ }
+
+ .coursecard{
+  margin-left: 20px;
+ }
+
+ .coursesbody{
+  margin-left: 20px;
+  font-family: fontawesome;
+ }
+
+ .user {
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 0px;
+  width: 550px;
+ }
+
+ .info-body {
+   width: 500px;
+ }
+
+ .status {
+  display: inline-block;
+  vertical-align: top;
+  margin-top: -10px;
+  margin-left: 50px;
+  width: 510px;
+  padding-bottom: 15px;
+ }
+
+ .container {
+   font-family: fontawesome;
+   width: 450px;
+   margin-left: 30px;
+ }
+
+ .subheadings {
+   margin-left: -15px;
+ }
+
+ .notes {
+   /* background-color: #9561f5; */
+   display: inline-block;
+   vertical-align: top;
+   margin-top: -10px;
+   margin-left: 380px;
+   width: 480px;
+ }
+ 
