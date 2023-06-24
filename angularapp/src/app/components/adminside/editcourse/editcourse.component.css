@@ -35,7 +35,7 @@ h1 a{
      position: absolute;
      height: 45px;
      width: 250px;
-     border: 1px solid black;
+     border: 1px solid white;
      text-align: center;
     
      
@@ -47,7 +47,7 @@ h1 a{
      position: absolute;
      height: 45px;
      width: 250px;
-     border: 1px solid black;
+     border: 1px solid white;
      text-align: center;
     
      
@@ -60,7 +60,7 @@ h1 a{
      height: 45px;
      width: 250px;
      margin-top: 356px;
-     border: 1px solid black;
+     border: 1px solid white;
      
  
  }
@@ -70,7 +70,7 @@ h1 a{
      height: 45px;
      width: 350px;
      margin-top: 120px;
-     border: 1px solid black;
+     border: 1px solid white;
      text-align: center; 
      
  }
@@ -79,8 +79,8 @@ h1 a{
     position: absolute;
     margin-top: 270px;
     height: 140px;
-    width: 300px;
-    border: 1px solid black;
+    width: 350px;
+    border: 1px solid white;
     text-align: center;
    
     
