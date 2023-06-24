@@ -29,8 +29,8 @@ export class AddcourseComponent implements OnInit {
   },);
   }
   ngAfterViewInit() {
-    this.elementRef.nativeElement.ownerDocument
-        .body.style.backgroundColor = '#808080';
+    /*this.elementRef.nativeElement.ownerDocument
+        .body.style.backgroundColor = '#808080';*/
 }
 get f() { return this.registerForm.controls; }
 
@@ -43,7 +43,7 @@ get f() { return this.registerForm.controls; }
     }
 
     // display form values on success
-    alert('SUCCESSfull!! Added Course');
+    alert('SUCCESSfully!! Added Course');
 }
 
 onReset() {
