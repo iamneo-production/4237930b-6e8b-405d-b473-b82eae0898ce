@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Courses } from 'src/app/class/Courses';
 import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 
 @Component({
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class CoursesComponent implements OnInit {
 
-  constructor(private router: Router) {}
+  constructor(private router: Router,private modalService: NgbModal) {}
 
   ngOnInit(): void {
   }
@@ -23,18 +24,26 @@ export class CoursesComponent implements OnInit {
   ];
 
 
-    alert()
-    {
-      if(confirm('Are you sure to delete this record ?')){
-          alert("Institute deleted successfully");
-      }
-    }
+    
 
     goteditcourse()
     {
       this.router.navigate(['/admin/editcourse']);
     }
 
+    //for delete popup modal
+    open(content:any) {
+      this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+          console.log(result);
+      }, (reason) => {
+        console.log(reason);
+      });
+    }
+
+    delete()
+    {
+      this.modalService.dismissAll();
+    }
 
 
 

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { EnrollCourse } from 'src/app/class/enrollCourse';
 import { Course } from 'src/app/class/Course';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
 
 @Component({
   selector: 'app-enrolledcourse',
@@ -12,7 +14,7 @@ export class EnrolledcourseComponent implements OnInit {
   public JoinDate:any;
   public CourseEndDate:any;
 
-  constructor() {
+  constructor(private modalService: NgbModal) {
 
    }
 
@@ -29,24 +31,20 @@ export class EnrolledcourseComponent implements OnInit {
     new EnrollCourse("M.E(VSI)","16/7/2022","23/7/2023")
 
   ];
-  /*
-  course:Course[]=[
-
-    new Course("P.H.D(IIT)","12/110/2020","11/11/2023"),
-    new Course("B.S.C(BIT)","1/1/2022","2/1/2025"),
-    new Course("M.S.C(VSE)","26/3/2023","3/7/2023"),
-    new Course("M.E(VSI)","6/6/2021","25/5/2022"),
-    new Course("M.TECH(RMK)","7/10/2024","10/7/2025")
-
-  ];
-  */
-
+ 
+  //for delete popup modal
+  open(content:any) {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+        console.log(result);
+    }, (reason) => {
+      console.log(reason);
+    });
+  }
+  
+  //delete the admission by admission id
   delete()
   {
-    if(confirm('Are you sure to delete this record ?'))
-    {
-      alert("Deleted successfully");
-    }
+    this.modalService.dismissAll();
   }
 
 }

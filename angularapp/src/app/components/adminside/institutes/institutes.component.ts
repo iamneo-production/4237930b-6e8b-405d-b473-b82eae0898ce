@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Institute } from 'src/app/class/institute';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
 
 @Component({
   selector: 'app-institutes',
@@ -9,8 +11,8 @@ import { Institute } from 'src/app/class/institute';
 })
 export class InstitutesComponent implements OnInit {
 
-  constructor(private router: Router){}
-  searchText!:string;
+  constructor(private router: Router,private modalService: NgbModal){}
+  searchText!: string;
 
   ngOnInit(): void {
   }
@@ -30,16 +32,26 @@ export class InstitutesComponent implements OnInit {
     new Institute(3,"SRI KRISHNA","https://i.ytimg.com/vi/hhArRZNWRj0/maxresdefault.jpg","Coimbatore",3),
   ]
 
-    alert()
-    {
-      if(confirm('Are you sure to delete this record ?')){
-        alert("Institute deleted successfully");
-      }
-    }
+    
 
     gotoeditinstitute()
     {
       this.router.navigate(['/admin/editinstitute']);
     }
+
+    //for delete popup modal
+    open(content:any) {
+      this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+        console.log(result);
+      }, (reason) => {
+        console.log(reason);
+      });
+    }
+
+    delete(): void
+    {
+      this.modalService.dismissAll();
+    }
+
 
 }
