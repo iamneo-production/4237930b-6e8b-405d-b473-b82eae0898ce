@@ -1,11 +1,11 @@
-* {
+/* * {
   box-sizing: border-box;
-}
+} */
 
-body {
+/* body {
   background-color: #f5f5f5;
   font-family: "Open Sans", sans-serif;
-}
+} */
 
 .container {
   max-width: 1000px;
@@ -14,10 +14,9 @@ body {
 }
 
 .searchbar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 20px;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 30px;
 }
 
 .input-group {
@@ -26,36 +25,38 @@ body {
 }
 
 .search {
-  border: none;
-  border-bottom: 2px solid #ccc;
-  font-size: 16px;
-  padding: 10px 20px;
-  width: 100%;
-  transition: border-bottom-color 0.3s ease-in-out;
-  color: black;
-  font-weight: bold;
+  display: inline-block;
+  margin-left: auto;
+  margin-right: 10px;
+  height: 38px;
+  align-items: center;
+  vertical-align: top;
+  width: auto;
+  min-width: 250px;
+  border-radius: 0;
 }
 
-.search:focus {
+/* .search:focus {
   outline: none;
   border-bottom-color: #007bff;
-}
+} */
 
 .search-btn {
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: #007bff;
+  background-color: rgb(58, 135, 58);
+  color: white;
   border: none;
-  color: #fff;
-  padding: 10px 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+  border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
+  margin-right: 8px;
+  transition: opacity 0.15s;
+  vertical-align: top;
+  height: 38px;
 }
 
 .search-btn:hover {
-  background-color: #0069d9;
+  opacity: 0.9;
 }
 
 table {
@@ -97,7 +98,7 @@ tr:nth-child(even) {
   color: #fff;
   cursor: pointer;
   font-size: 14px;
-  padding: 10px 20px;
+  padding: 10px 14px;
   transition: background-color 0.3s ease-in-out;
 }
 
@@ -118,18 +119,34 @@ tr:nth-child(even) {
 }
 
 .add-std {
-  display: block;
-  margin: 0 auto;
-  background-color: #007bff;
-  border: none;
-  border-radius: 4px;
-  color: #fff;
-  cursor: pointer;
-  font-size: 16px;
-  padding: 10px 20px;
-  transition: background-color 0.3s ease-in-out;
+  background-color: rgb(58, 135, 58);
+  margin: auto;
+  border-radius: 10px;
+  width: 160px;
+  padding-left: 2px;
+  padding-right: 2px;
+  height: 45px;
 }
 
 .add-std:hover {
-  background-color: #0069d9;
+  opacity: 0.9;
+  background-color: rgb(58, 135, 58) ;
+}
+
+.user
+{
+  background: linear-gradient(
+    rgb(184, 234, 182),
+    rgb(211, 236, 206),
+    rgba(133, 209, 143, 0.303)
+  );
+  height: 93vh;
+}
+
+.addButtondiv
+{
+  margin: auto;
+  text-align: right;
+  padding-right: 14px;
+  padding-bottom: 14px;
 }

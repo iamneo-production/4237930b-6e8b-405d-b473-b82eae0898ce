@@ -3,7 +3,6 @@
 {
    --line-border-fill: #9c37b0;
    --line-border-empty: #bdbdbd;
-
 }
 *
 {
@@ -233,4 +232,21 @@ h3
  }
  .card{
    width: 450px;
+ }
+
+ .inscard
+ {
+   width: 350px;
+ }
+
+ ngb-rating
+ {
+   color: orange;
+   font-size: medium;
+ }
+
+ .heading
+ {
+   margin-left:140px;
+   margin-top: 20px;
  }
