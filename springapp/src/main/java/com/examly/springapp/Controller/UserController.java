@@ -16,6 +16,7 @@ import com.examly.springapp.Service.AdmissionService;
 
 @RestController
 public class UserController {
+    
     @Autowired
     public AdmissionService admissionService;
 
@@ -56,5 +57,13 @@ public class UserController {
  {
      return admissionService.getStatusValue(id);
    }
+
+    //view admission by Id
+    @GetMapping("/user/viewAdmission/{id}")
+    public AdmissionModel viewAdmissionById(@PathVariable ("id") int id)
+    {
+        return admissionService.getDetailsById(id);
+
+    }
 
 }
