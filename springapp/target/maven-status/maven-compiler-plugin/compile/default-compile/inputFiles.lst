@@ -10,6 +10,7 @@
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/Service/AdmissionService.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/Service/UserServiceImpl.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/Config/UserInfoUserDetailService.java
+/home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/Controller/UserController.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/Repository/AdmissionRepository.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/Config/UserInfoDetails.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/Model/LoginModel.java
