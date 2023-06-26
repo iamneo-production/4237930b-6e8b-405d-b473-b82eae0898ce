@@ -8,7 +8,7 @@ import { ElementRef } from '@angular/core';
   styleUrls: ['./addcourse.component.css']
 })
 export class AddcourseComponent implements OnInit {
-  CourseName:string='';
+  CourseName: string='' ;
   CourseDuration:string='';
   CourseTimings:string='';
   StudentsEnrolled:any;
