@@ -8,14 +8,14 @@ import { Institutes } from 'src/app/class/institutes';
 })
 export class AddinstituteComponent implements OnInit {
 
+  newinstitute : Institutes = new Institutes();
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  newinstitute : Institutes = new Institutes();
-  onSubmit(){
-    alert("Institute added Sucessfully");
+  onSubmit(): void {
+    alert('Institute added Sucessfully');
     console.log(this.newinstitute);
   }
 

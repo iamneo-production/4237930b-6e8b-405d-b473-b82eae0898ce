@@ -12,16 +12,13 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class LoginComponent {
 
-  login : Login = new Login();
-  userRole !: string;
+  login: Login = new Login();
+  userRole!: string;
 
-  constructor(private router:Router,private toastr :ToastrService)
-  {}
+  constructor(private router: Router, private toastr: ToastrService) {}
 
-  onSubmit()
-  {
+  onSubmit(): void {
     console.log(this.login);
-
     if(this.login.email == "admin" && this.login.password == "admin" )
     {
       this.toastr.success('Admin Login successful !', 'Login Status !');
@@ -38,13 +35,11 @@ export class LoginComponent {
     }
   }
 
-  gotoAdmin()
-  {
+  gotoAdmin(): void {
     this.router.navigate(['/admin']);
   }
 
-  gotoUser()
-  {
+  gotoUser(): void {
     this.router.navigate(['/user']);
   }
 

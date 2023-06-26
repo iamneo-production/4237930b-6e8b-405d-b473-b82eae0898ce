@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Courses } from 'src/app/class/Courses';
 
 
-type Institue = Array<{ id: number; name: string; src:string; Place:string; rating:number}>;
-type Info = Array<{id:number;firstname: string; lastname:string; gender:string; mobileNumber:string, fathername:string, mothername:string, emailId:string, age:number, marks:number}>;
+type Institue = Array<{ id: number; name: string; src:string; Place: string; rating: number}>;
+type Info = Array<{id: number;firstname: string; lastname: string; gender: string; mobileNumber: string, fathername: string, mothername: string, emailId: string, age: number, marks: number}>;
 
 @Component({
   selector: 'app-status',
@@ -11,7 +11,7 @@ type Info = Array<{id:number;firstname: string; lastname:string; gender:string; 
   styleUrls: ['./status.component.css']
 })
 export class StatusComponent implements OnInit {
-  searchText!:string;
+  searchText!: string;
 
   courses ?: Courses[]=[
     new Courses("M.E(VSI)",10,"20days","YYYY",50)
@@ -26,7 +26,7 @@ export class StatusComponent implements OnInit {
  ];
  
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
   }
