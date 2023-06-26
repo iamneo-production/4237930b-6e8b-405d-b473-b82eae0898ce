@@ -2,34 +2,63 @@
 
 <app-adminnavbar></app-adminnavbar>
 
+<div class="user">
 <div class="container">
 
-<div class = "searchbar">
-  <div class="form-group">
-    <input type="search" class="form-control me-2 search"  placeholder="Type here to search student" id="searchButton" [(ngModel)]="searchText"/>
-    <button type="button" class="btn btn">Search</button>
+  <div class="searchbar">
+    <div class="form-group">
+      <input type="search" class="form-control search" placeholder="Type here to search student" id="searchButton" [(ngModel)]="searchText" />
+      <button type="button" class="search-btn"><i class="fa fa-search" aria-hidden="true"></i>&nbsp; Search</button>
+    </div>
   </div>
+
+  <div class="table-responsive">
+    <table class="table table-hover table-bordered">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Student ID</th>
+          <th scope="col">Student Name</th>
+          <th scope="col">Enrolled Course</th>
+          <th scope="col">Mobile Number</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let student of students | filter:searchText">
+          <td>{{student.studentId}}</td>
+          <td>{{student.studentName}}</td>
+          <td>{{student.enrolledCourse}}</td>
+          <td>{{student.mobileNumber}}</td>
+          <td class="actions">
+            <button routerLink="/admin/editstudent" class="btn btn-primary">Edit &nbsp;<i class="fa fa-pencil" aria-hidden="true"></i></button>
+            <button class="btn btn-danger del-btn" (click)="open(content)">Delete &nbsp;<i class="fa fa-trash-o" aria-hidden="true"></i></button>
+
+            <!-- codes for the delete popup -->
+            <ng-template #content let-modal >
+              <div class="modal-header">
+                <h4 class="modal-title">Confirm Delete</h4>
+                <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                Are you sure you want to delete this item?
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="modal.dismiss('cancel')">Cancel</button>
+                <button type="button" class="btn btn-danger" (click)="deleteStudent()">Delete</button>
+              </div>
+            </ng-template>
+            <!-- ------------------------------------------------- -->
+
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+    <div class="addButtondiv">
+      <button class="btn btn-primary add-std" routerLink="/admin/addstudent"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp; Add Student</button>
+    </div>
 </div>
 
-
-  <table class="std-table">
-    <tr class="heading">
-        <th>Student ID</th>
-        <th>Student Name</th>
-        <th>Enrolled Course</th>
-        <th>Mobile Number</th>
-        <th>Actions</th>
-    </tr>
-    <tr *ngFor="let student of students | filter:searchText">
-        <td>{{student.studentId}}</td>
-        <td>{{student.studentName}}</td>
-        <td>{{student.enrolledCourse}}</td>
-        <td>{{student.mobileNumber}}</td>
-        <td class="actions">
-          <button routerLink="/admin/editstudent">&#9998;</button>
-          <button class="del-btn" (click)="deleteStudent()">&#10006;</button>
-        </td>
-    </tr>
-  </table>
-  <button class="add-std" routerLink="/admin/addstudent">&#8853; Add Student</button>
 </div>

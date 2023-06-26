@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
 
 @Component({
   selector: 'app-user',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserComponent implements OnInit {
 
-  constructor() { }
+  constructor(private modalService: NgbModal) { }
 
   ngOnInit(): void {
   }
@@ -43,8 +45,19 @@ export class UserComponent implements OnInit {
     })
   }
 
-  deleteStudent(){
-    this.students.pop();
+  //for delete popup modal
+  open(content:any) {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+        console.log(result);
+    }, (reason) => {
+      console.log(reason);
+    });
+  }
+
+  deleteStudent()
+  {
+      this.modalService.dismissAll();
+      this.students.pop();
   }
 
 }

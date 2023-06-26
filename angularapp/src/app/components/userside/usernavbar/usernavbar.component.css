@@ -1,6 +1,9 @@
 .navbar
 {
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
-    min-height: 45px !important;
+    padding-top: 0;
+    padding-bottom: 0;
+    height: 48px;
+}
+.nav-link {
+    cursor: pointer;
 }

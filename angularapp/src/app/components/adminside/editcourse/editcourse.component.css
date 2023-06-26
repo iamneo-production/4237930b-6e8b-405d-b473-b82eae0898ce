@@ -1,0 +1,133 @@
+
+h1 a{
+    text-align: center;
+    margin-left: 600px;
+    color: white;
+    margin-top: 200px;
+    word-spacing: 20px;
+    font-size: 25px;
+    text-decoration: none;
+    
+ }
+ .top-right-link {
+     position: absolute;
+     top: 20px; /* Adjust the distance from the top as needed */
+     right: 20px;
+     color: red;
+     text-decoration: none;
+     font-size: 20px;
+     margin-top: -5px; /* Adjust the distance from the right as needed */
+   }
+ 
+     
+ 
+ .container{
+     background-color: green;
+     margin-top: -25px;
+     height: 50px;
+     
+     
+     
+ }
+ .input-box{
+     margin-left: 400px;
+     margin-top: 120px;
+     position: absolute;
+     height: 45px;
+     width: 250px;
+     border: 1px solid white;
+     text-align: center;
+    
+     
+ 
+ }
+ .duration-box{
+     margin-left: 400px;
+     margin-top: 240px;
+     position: absolute;
+     height: 45px;
+     width: 250px;
+     border: 1px solid white;
+     text-align: center;
+    
+     
+ 
+ }
+ .timing-box{
+     margin-left: 400px;
+     text-align: center;
+     position: absolute;
+     height: 45px;
+     width: 250px;
+     margin-top: 356px;
+     border: 1px solid white;
+     
+ 
+ }
+ .student-box{
+     margin-left: 800px;
+     position: absolute;
+     height: 45px;
+     width: 350px;
+     margin-top: 120px;
+     border: 1px solid white;
+     text-align: center; 
+     
+ }
+ .desp-box{
+    margin-left: 800px;
+    position: absolute;
+    margin-top: 270px;
+    height: 140px;
+    width: 350px;
+    border: 1px solid white;
+    text-align: center;
+   
+    
+}
+ 
+ .update-course-button {
+     background-color: #4CAF50; /* Set the background color */
+     color: white; /* Set the text color */
+     padding: 10px 10px; /* Adjust the padding as needed */
+     font-size: 16px; /* Adjust the font size as needed */
+     border: none; /* Remove the button border */
+     border-radius: 13px; /* Apply rounded corners if desired */
+     cursor: pointer; /* Change the cursor style on hover */
+   }
+   .update-course-button {
+     position: absolute;
+     bottom: 70px; /* Adjust the distance from the bottom as needed */
+     right: 70px; /* Adjust the distance from the right as needed */
+   }
+   body{
+    background: linear-gradient(
+      rgb(184, 234, 182),
+      rgb(211, 236, 206),
+      rgba(133, 209, 143, 0.303)
+    ); 
+     height: 100vh;
+     margin: 0;
+     margin-top: -10px;
+     
+     
+     
+   }
+   .input-box::placeholder{
+    color: grey;
+   }
+   .duration-box::placeholder{
+    color: grey;
+   }
+   .timing-box::placeholder{
+    color: grey;
+   }
+   .student-box::placeholder{
+    color: grey;
+   }
+   .desp-box::placeholder{
+    color: grey;
+   }
+   
+ 
+ 

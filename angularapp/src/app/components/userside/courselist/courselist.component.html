@@ -1,1 +1,34 @@
-<p>courselist works!</p>
+<!-- Authors Srinivasa teja, deepika -->
+<app-usernavbar></app-usernavbar>
+
+<div class="courses">
+  <br>
+  <div class = "searchbar">
+    <div class="form-group">
+      <input type="search" class="form-control me-2 search"  placeholder="Type here to search course" id="searchButton" [(ngModel)]="searchText"/>
+      <button type="button" class="btn btn"><i class="fa fa-search" aria-hidden="true"></i>&nbsp; Search</button>
+    </div>
+  </div>
+  <br>
+
+    <div class = "container">
+          <ng-container *ngFor = "let course of courses | filter:searchText">
+                <div class="card shadow-lg rounded">
+                    <div class="card-body">
+                      <div class="left">
+                        <h6 class="card-subtitle">Course name : {{course.Coursename}}</h6><br>
+                        <h6 class="card-subtitle">Course duration : {{course.Courseduration}}hrs</h6><br>
+                        <h6 class="card-subtitle">Course Available timings : {{course.Coursetimings}}</h6><br>
+                      </div>
+                        <div class="right">
+                        <h6 class="card-subtitle">Number of Students : {{course.noOfStudentsEnrolled}}</h6><br>
+                        <h6 class="card-subtitle">Course Description : {{course.Coursedescription}}</h6><br>
+                      </div>
+                      <div class="button">
+                        <button class="btn btn-success enrollbutton" routerLink="/user/admissionform">Enroll course</button>
+                      </div>
+                    </div>
+                </div><br>
+            </ng-container>
+          </div>
+</div>
