@@ -10,16 +10,13 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./enrolledcourse.component.css']
 })
 export class EnrolledcourseComponent implements OnInit {
-  public CourseName:any;
-  public JoinDate:any;
-  public CourseEndDate:any;
+  public CourseName: any;
+  public JoinDate: any;
+  public CourseEndDate: any;
 
-  constructor(private modalService: NgbModal) {
+  constructor(private modalService: NgbModal) {}
 
-   }
-
-  ngOnInit(): void {
-    
+  ngOnInit(): void {  
   }
 
   enrollcourse:EnrollCourse[]=[
@@ -33,17 +30,16 @@ export class EnrolledcourseComponent implements OnInit {
   ];
  
   //for delete popup modal
-  open(content:any) {
+  open(content: any): void {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
-        console.log(result);
+    console.log(result);
     }, (reason) => {
       console.log(reason);
     });
   }
   
   //delete the admission by admission id
-  delete()
-  {
+  delete(): void {
     this.modalService.dismissAll();
   }
 
