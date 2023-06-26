@@ -1,4 +1,4 @@
-.btn
+.searchbtn
 {
   background-color: rgb(58, 135, 58);
   color: white;
@@ -13,13 +13,13 @@
   height: 38px;
 }
 
-.btn:active{
+.searchbtn:active{
   opacity: 0.4;
   background-color: #71b64f;
   color: rgb(12, 24, 3);
 }
 
-.btn:hover{
+.searchbtn:hover{
   opacity: 0.9;
 }
 
@@ -100,10 +100,10 @@ ngb-rating
   vertical-align: top;
   display: inline-block;
   position: relative;
-  left: 62%;
+  left: 67%;
   /* margin-left: 90px; */
   padding-top: 7px;
-  font-size: 25px;
+  font-size: 22px;
 }
 
 .card-body
