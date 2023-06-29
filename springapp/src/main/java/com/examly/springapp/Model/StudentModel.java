@@ -110,8 +110,8 @@ public class StudentModel {
 	public void setStudentDOB(LocalDate studentDOB) {
 		this.studentDOB = studentDOB;
 	}
-	public String getAddress() {
-		return Address;
+	public String getaddress() {
+		return address;
 	}
 	public void setAddress(String address) {
 		Address = address;
@@ -134,8 +134,8 @@ public class StudentModel {
 	public void setHscMarks(int hscMarks) {
 		this.hscMarks = hscMarks;
 	}
-	public int getDiplomaMarks() {
-		return DiplomaMarks;
+	public int getdiplomaMarks() {
+		return diplomaMarks;
 	}
 	public void setDiplomaMarks(int diplomaMarks) {
 		DiplomaMarks = diplomaMarks;
