@@ -1,10 +1,10 @@
 export class Institutes {
     public instituteId!: number;
-    public instituteName!: String;
-    public instituteImgUrl!:String;
-    public instituteLocation!:String;
-    public instituteRating!:number;
-    public instituteMobileNo!:number;
-    public instituteEmail!:number;
-    public instituteDescription!:number;
+    public instituteName!: string;
+    public instituteImgUrl!: string;
+    public instituteLocation!: string;
+    public instituteRating!: number;
+    public instituteMobileNo!: number;
+    public instituteEmail!: number;
+    public instituteDescription!: number;
 }

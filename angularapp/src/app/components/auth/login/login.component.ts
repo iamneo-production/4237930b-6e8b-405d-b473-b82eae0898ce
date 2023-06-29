@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Login } from 'src/app/class/login';
+import { ToastrService } from 'ngx-toastr';
+
 
 
 @Component({
@@ -10,37 +12,34 @@ import { Login } from 'src/app/class/login';
 })
 export class LoginComponent {
 
-  login : Login = new Login();
-  userRole !: string;
+  login: Login = new Login();
+  userRole!: string;
 
-  constructor(private router:Router)
-  {}
+  constructor(private router: Router, private toastr: ToastrService) {}
 
-  onSubmit()
-  {
+  onSubmit(): void {
     console.log(this.login);
-
     if(this.login.email == "admin" && this.login.password == "admin" )
     {
+      this.toastr.success('Admin Login successful !', 'Login Status !');
       this.gotoAdmin();
     }
     else if(this.login.email == "user" && this.login.password == "user" )
     {
+      this.toastr.success('User Login successful !', 'Login Status !');
       this.gotoUser();
     }
     else
     {
-      alert("error credentials");
+      this.toastr.error('Account not exist!', 'Login Status !');
     }
   }
 
-  gotoAdmin()
-  {
+  gotoAdmin(): void {
     this.router.navigate(['/admin']);
   }
 
-  gotoUser()
-  {
+  gotoUser(): void {
     this.router.navigate(['/user']);
   }
 
