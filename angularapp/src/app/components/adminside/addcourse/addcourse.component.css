@@ -135,7 +135,7 @@ span
 button{
     width: 12%;
     height: 40px;
-    background-image: linear-gradient(to left, rgb(131, 130, 134), white);
+    background-image: linear-gradient(to right, rgb(131, 130, 134), white);
     border-color: black;
     cursor: pointer;
     font-size: 1em;
