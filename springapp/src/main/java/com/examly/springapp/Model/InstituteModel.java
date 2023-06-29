@@ -14,7 +14,7 @@ import jakarta.persistence.Table;
 public class InstituteModel {
     @Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int instituteId;
+	private Integer instituteId;
 	@Column(name = "institute_name")
 	private String instituteName;
 	@Column(name = "institute_mobile_no")
@@ -28,11 +28,11 @@ public class InstituteModel {
 	@Column(name = "institute_description")
 	private String instituteDescription;
 	@Column(name = "institute_rating")
-	private int instituteRating;
+	private Integer instituteRating;
 	
 	
 	public InstituteModel(String instituteName, String instituteMobileno, String instituteImgUrl, String instituteEmail,
-			String instituteAddress, String instituteDescription, int instituteRating) {
+			String instituteAddress, String instituteDescription, Integer instituteRating) {
 		super();
 		this.instituteName = instituteName;
 		this.instituteMobileno = instituteMobileno;
@@ -42,10 +42,10 @@ public class InstituteModel {
 		this.instituteDescription = instituteDescription;
 		this.instituteRating = instituteRating;
 	}
-	public int getInstituteId() {
+	public Integer getInstituteId() {
 		return instituteId;
 	}
-	public void setInstituteId(int instituteId) {
+	public void setInstituteId(Integer instituteId) {
 		this.instituteId = instituteId;
 	}
 	public String getInstituteName() {
@@ -84,10 +84,10 @@ public class InstituteModel {
 	public void setInstituteDescription(String instituteDescription) {
 		this.instituteDescription = instituteDescription;
 	}
-	public int getInstituteRating() {
+	public Integer getInstituteRating() {
 		return instituteRating;
 	}
-	public void setInstituteRating(int instituteRating) {
+	public void setInstituteRating(Integer instituteRating) {
 		this.instituteRating = instituteRating;
 	}
 	

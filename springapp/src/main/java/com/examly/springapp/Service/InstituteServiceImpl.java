@@ -54,6 +54,16 @@ public class InstituteServiceImpl implements InstituteService{
             inm.setEmail(institute.getEmail());
         }
 
+        if(Objects.nonNull(institute.getInstituteImgUrl())&&
+        !"".equalsIgnoreCase(institute.getInstituteImgUrl())) {
+            inm.setInstituteImgUrl(institute.getInstituteImgUrl());
+        }
+
+        if(Objects.nonNull(institute.getInstituteRating()) &&
+        !"".equals(institute.getInstituteRating())) {
+            inm.setInstituteRating(institute.getInstituteRating());
+        }
+
         return adminInstituteRepository.save(inm);
 
 
