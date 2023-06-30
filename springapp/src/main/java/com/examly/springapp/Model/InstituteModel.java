@@ -14,7 +14,7 @@ import javax.persistence.Table;
 public class InstituteModel {
     @Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int instituteId;
+	private Integer instituteId;
 	@Column(name = "institute_name")
 	private String instituteName;
 	@Column(name = "institute_mobile_no")
@@ -28,14 +28,14 @@ public class InstituteModel {
 	@Column(name = "institute_description")
 	private String instituteDescription;
 	@Column(name = "institute_rating")
-	private int instituteRating;
+	private Integer instituteRating;
 
 	public InstituteModel() {
 
 	}
 
-	public InstituteModel(int instituteId, String instituteName, String instituteMobileNo, String instituteImgUrl,
-			String instituteEmail, String instituteAddress, String instituteDescription, int instituteRating) {
+	public InstituteModel(Integer instituteId, String instituteName, String instituteMobileNo, String instituteImgUrl,
+			String instituteEmail, String instituteAddress, String instituteDescription, Integer instituteRating) {
 		this.instituteId = instituteId;
 		this.instituteName = instituteName;
 		this.instituteMobileNo = instituteMobileNo;
@@ -94,20 +94,15 @@ public class InstituteModel {
 		this.instituteDescription = instituteDescription;
 	}
 
-	public int getInstituteRating() {
+	public Integer getInstituteRating() {
 		return instituteRating;
 	}
 
-	public void setInstituteRating(int instituteRating) {
+	public void setInstituteRating(Integer instituteRating) {
 		this.instituteRating = instituteRating;
 	}
 
-	public int getInstituteId() {
-		return instituteId;
-	}
-	public void setInstituteId(int instituteId) {
-		this.instituteId = instituteId;
-	}
+	
 	
 }
 

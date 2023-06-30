@@ -13,26 +13,26 @@ import javax.persistence.Table;
 public class CourseModel {
     @Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int courseId;
+	private Integer courseId;
 	@Column(name = "course_name")
 	private String courseName;
 	@Column(name = "course_duration")
-	private int courseDuration;
+	private Integer courseDuration;
 	@Column(name = "course_description")
 	private String courseDescription;
 	@Column(name = "course_timing")
 	private String courseTiming;
 	@Column(name = "enrolled_students")
-	private int enrolledStudents;
+	private Integer enrolledStudents;
 	@Column(name = "institute_id")
-	private int instituteId;
+	private Integer instituteId;
 
 	public CourseModel() {
 		
 	}
 
-	public CourseModel(int courseId, String courseName, int courseDuration, String courseDescription,
-			String courseTiming, int enrolledStudents, int instituteId) {
+	public CourseModel(Integer courseId, String courseName, Integer courseDuration, String courseDescription,
+			String courseTiming, Integer enrolledStudents, Integer instituteId) {
 		this.courseId = courseId;
 		this.courseName = courseName;
 		this.courseDuration = courseDuration;
@@ -40,13 +40,6 @@ public class CourseModel {
 		this.courseTiming = courseTiming;
 		this.enrolledStudents = enrolledStudents;
 		this.instituteId = instituteId;
-	}
-
-	public int getCourseId() {
-		return courseId;
-	}
-	public void setCourseId(int courseId) {
-		this.courseId = courseId;
 	}
 	
 	public String getCourseName() {
@@ -57,11 +50,11 @@ public class CourseModel {
 		this.courseName = courseName;
 	}
 
-	public int getCourseDuration() {
+	public Integer getCourseDuration() {
 		return courseDuration;
 	}
 
-	public void setCourseDuration(int courseDuration) {
+	public void setCourseDuration(Integer courseDuration) {
 		this.courseDuration = courseDuration;
 	}
 
@@ -81,21 +74,23 @@ public class CourseModel {
 		this.courseTiming = courseTiming;
 	}
 
-	public int getEnrolledStudents() {
+	public Integer getEnrolledStudents() {
 		return enrolledStudents;
 	}
 
-	public void setEnrolledStudents(int enrolledStudents) {
+	public void setEnrolledStudents(Integer enrolledStudents) {
 		this.enrolledStudents = enrolledStudents;
 	}
 
-	public int getInstituteId() {
+	public Integer getInstituteId() {
 		return instituteId;
 	}
 
-	public void setInstituteId(int instituteId) {
+	public void setInstituteId(Integer instituteId) {
 		this.instituteId = instituteId;
 	}
+
+	
 	
 	
 }
