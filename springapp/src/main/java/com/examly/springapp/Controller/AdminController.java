@@ -13,12 +13,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.examly.springapp.model.CourseModel;
-import com.examly.springapp.model.InstituteModel;
-import com.examly.springapp.model.StudentModel;
-import com.examly.springapp.service.CourseService;
-import com.examly.springapp.service.InstituteService;
-import com.examly.springapp.service.StudentService;
+import com.examly.springapp.Model.CourseModel;
+import com.examly.springapp.Model.InstituteModel;
+import com.examly.springapp.Model.StudentModel;
+import com.examly.springapp.Service.CourseService;
+import com.examly.springapp.Service.InstituteService;
+import com.examly.springapp.Service.StudentService;
 
 @RequestMapping("/admin")
 @RestController

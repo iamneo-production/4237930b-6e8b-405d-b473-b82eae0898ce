@@ -7,13 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.examly.springapp.Model.InstituteModel;
-import com.examly.springapp.repository.AdminInstituteRepository;
+import com.examly.springapp.Repository.InstituteRepository;
 
 @Service
 public class InstituteServiceImpl implements InstituteService{
 
     @Autowired
-    private AdminInstituteRepository adminInstituteRepository;
+    private InstituteRepository adminInstituteRepository;
 
     @Override
     public InstituteModel addInstitute(InstituteModel institute) {
@@ -44,14 +44,14 @@ public class InstituteServiceImpl implements InstituteService{
             inm.setInstituteAddress(institute.getInstituteAddress());
         }
 
-        if(Objects.nonNull(institute.getMobile()) &&
-        !"".equalsIgnoreCase(institute.getMobile())) {
-            inm.setMobile(institute.getMobile());
+        if(Objects.nonNull(institute.getInstituteMobileno()) &&
+        !"".equalsIgnoreCase(institute.getInstituteMobileno())) {
+            inm.setInstituteMobileno(institute.getInstituteMobileno());
         }
 
-        if(Objects.nonNull(institute.getEmail()) &&
-        !"".equalsIgnoreCase(institute.getEmail())) {
-            inm.setEmail(institute.getEmail());
+        if(Objects.nonNull(institute.getInstituteEmail()) &&
+        !"".equalsIgnoreCase(institute.getInstituteEmail())) {
+            inm.setInstituteEmail(institute.getInstituteEmail());
         }
 
         if(Objects.nonNull(institute.getInstituteImgUrl())&&

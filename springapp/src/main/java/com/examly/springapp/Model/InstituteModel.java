@@ -1,12 +1,12 @@
 package com.examly.springapp.Model;
 
-import jakarta.persistence.Column;
+import javax.persistence.Column;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 
 @Entity
@@ -14,7 +14,7 @@ import jakarta.persistence.Table;
 public class InstituteModel {
     @Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer instituteId;
+	private int instituteId;
 	@Column(name = "institute_name")
 	private String instituteName;
 	@Column(name = "institute_mobile_no")
@@ -28,71 +28,71 @@ public class InstituteModel {
 	@Column(name = "institute_description")
 	private String instituteDescription;
 	@Column(name = "institute_rating")
-	private Integer instituteRating;
+	private int instituteRating;
 	
-	
-	public InstituteModel(String instituteName, String instituteMobileno, String instituteImgUrl, String instituteEmail,
-			String instituteAddress, String instituteDescription, Integer instituteRating) {
-		super();
-		this.instituteName = instituteName;
-		this.instituteMobileno = instituteMobileno;
-		this.instituteImgUrl = instituteImgUrl;
-		this.instituteEmail = instituteEmail;
-		this.instituteAddress = instituteAddress;
-		this.instituteDescription = instituteDescription;
-		this.instituteRating = instituteRating;
+	@Override
+	public String toString() {
+		return "InstituteModel [instituteAddress=" + instituteAddress + ", instituteDescription=" + instituteDescription
+				+ ", instituteEmail=" + instituteEmail + ", instituteId=" + instituteId + ", instituteImgUrl="
+				+ instituteImgUrl + ", instituteMobileno=" + instituteMobileno + ", instituteName=" + instituteName
+				+ ", instituteRating=" + instituteRating + "]";
 	}
-	public Integer getInstituteId() {
-		return instituteId;
-	}
-	public void setInstituteId(Integer instituteId) {
-		this.instituteId = instituteId;
-	}
+
 	public String getInstituteName() {
 		return instituteName;
 	}
+
 	public void setInstituteName(String instituteName) {
 		this.instituteName = instituteName;
 	}
+
 	public String getInstituteMobileno() {
 		return instituteMobileno;
 	}
+
 	public void setInstituteMobileno(String instituteMobileno) {
 		this.instituteMobileno = instituteMobileno;
 	}
+
 	public String getInstituteImgUrl() {
 		return instituteImgUrl;
 	}
+
 	public void setInstituteImgUrl(String instituteImgUrl) {
 		this.instituteImgUrl = instituteImgUrl;
 	}
+
 	public String getInstituteEmail() {
 		return instituteEmail;
 	}
+
 	public void setInstituteEmail(String instituteEmail) {
 		this.instituteEmail = instituteEmail;
 	}
+
 	public String getInstituteAddress() {
 		return instituteAddress;
 	}
+
 	public void setInstituteAddress(String instituteAddress) {
 		this.instituteAddress = instituteAddress;
 	}
+
 	public String getInstituteDescription() {
 		return instituteDescription;
 	}
+
 	public void setInstituteDescription(String instituteDescription) {
 		this.instituteDescription = instituteDescription;
 	}
-	public Integer getInstituteRating() {
+
+	public int getInstituteRating() {
 		return instituteRating;
 	}
-	public void setInstituteRating(Integer instituteRating) {
+
+	public void setInstituteRating(int instituteRating) {
 		this.instituteRating = instituteRating;
 	}
-	
-	
-	
 	
 }
 

@@ -7,13 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.examly.springapp.Model.CourseModel;
-import com.examly.springapp.repository.AdminCourseRepository;
+import com.examly.springapp.Repository.CourseRepository;
 
 @Service
 public class CourseServiceImpl implements CourseService{
 
     @Autowired
-    private AdminCourseRepository adminCourseRepository;
+    private CourseRepository adminCourseRepository;
 
     @Override
     public CourseModel addCourse(CourseModel course) {

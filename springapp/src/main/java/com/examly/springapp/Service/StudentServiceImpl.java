@@ -7,13 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.examly.springapp.Model.StudentModel;
-import com.examly.springapp.repository.AdminStudentRepository;
+import com.examly.springapp.Repository.StudentRepository;
 
 @Service
 public class StudentServiceImpl implements StudentService{
 
     @Autowired
-    private AdminStudentRepository adminRepository;
+    private StudentRepository adminRepository;
 
     @Override
     public StudentModel addStudent(StudentModel student) {
@@ -79,8 +79,8 @@ public class StudentServiceImpl implements StudentService{
             stud.setAltMobile(student.getAltMobile());
         }
 
-        if(Objects.nonNull((student.getFatherName()) &&
-        !"".equalsIgnoreCase(student.getFatherName()))) {
+        if(Objects.nonNull(student.getFatherName()) &&
+        !"".equalsIgnoreCase(student.getFatherName())) {
             stud.setFatherName(student.getFatherName());
         }
 
