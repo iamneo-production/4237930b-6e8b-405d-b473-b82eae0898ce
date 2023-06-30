@@ -18,7 +18,7 @@ public class InstituteModel {
 	@Column(name = "institute_name")
 	private String instituteName;
 	@Column(name = "institute_mobile_no")
-	private String instituteMobileno;
+	private String instituteMobileNo;
 	@Column(name = "institute_imgUrl")
 	private String instituteImgUrl;
 	@Column(name = "institute_email")
@@ -30,11 +30,15 @@ public class InstituteModel {
 	@Column(name = "institute_rating")
 	private int instituteRating;
 
-	public InstituteModel(int instituteId, String instituteName, String instituteMobileno, String instituteImgUrl,
+	public InstituteModel() {
+
+	}
+
+	public InstituteModel(int instituteId, String instituteName, String instituteMobileNo, String instituteImgUrl,
 			String instituteEmail, String instituteAddress, String instituteDescription, int instituteRating) {
 		this.instituteId = instituteId;
 		this.instituteName = instituteName;
-		this.instituteMobileno = instituteMobileno;
+		this.instituteMobileNo = instituteMobileNo;
 		this.instituteImgUrl = instituteImgUrl;
 		this.instituteEmail = instituteEmail;
 		this.instituteAddress = instituteAddress;
@@ -50,12 +54,12 @@ public class InstituteModel {
 		this.instituteName = instituteName;
 	}
 
-	public String getInstituteMobileno() {
-		return instituteMobileno;
+	public String getInstituteMobileNo() {
+		return instituteMobileNo;
 	}
 
-	public void setInstituteMobileno(String instituteMobileno) {
-		this.instituteMobileno = instituteMobileno;
+	public void setInstituteMobileNo(String instituteMobileNo) {
+		this.instituteMobileNo = instituteMobileNo;
 	}
 
 	public String getInstituteImgUrl() {
@@ -96,6 +100,13 @@ public class InstituteModel {
 
 	public void setInstituteRating(int instituteRating) {
 		this.instituteRating = instituteRating;
+	}
+
+	public int getInstituteId() {
+		return instituteId;
+	}
+	public void setInstituteId(int instituteId) {
+		this.instituteId = instituteId;
 	}
 	
 }

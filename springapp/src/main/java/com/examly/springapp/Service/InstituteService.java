@@ -10,6 +10,8 @@ public interface InstituteService {
 
     public List<InstituteModel> viewInstitute();
 
+    InstituteModel getInstituteById(Integer instituteId);
+
     public InstituteModel editInstitute(Integer instituteId, InstituteModel institute);
 
     public void deleteInstitute(Integer instituteId);

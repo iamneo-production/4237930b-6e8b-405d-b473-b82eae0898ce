@@ -10,7 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 @Entity
-@Table(name="admission1")
+@Table(name="admission")
 public class AdmissionModel {
     
     //declaring table entity

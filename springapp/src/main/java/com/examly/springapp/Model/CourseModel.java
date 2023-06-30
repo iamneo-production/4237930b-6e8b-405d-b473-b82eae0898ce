@@ -10,7 +10,6 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "courses")
-
 public class CourseModel {
     @Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -43,6 +42,13 @@ public class CourseModel {
 		this.instituteId = instituteId;
 	}
 
+	public int getCourseId() {
+		return courseId;
+	}
+	public void setCourseId(int courseId) {
+		this.courseId = courseId;
+	}
+	
 	public String getCourseName() {
 		return courseName;
 	}

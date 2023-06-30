@@ -15,7 +15,7 @@ import com.examly.springapp.Service.UserService;
 
 @RestController
 @RequestMapping
-@CrossOrigin(origins = "http://localhost:8081")
+@CrossOrigin(origins = "https://8081-fddecffdbcffbbedebaebcdacaee.project.examly.io")
 public class AuthController {
 
     @Autowired
