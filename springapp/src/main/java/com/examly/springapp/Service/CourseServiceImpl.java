@@ -44,6 +44,21 @@ public class CourseServiceImpl implements CourseService{
             cm.setCourseDuration(course.getCourseDuration());
         }
 
+        if(Objects.nonNull(course.getCourseTiming()) &&
+        !"".equalsIgnoreCase(course.getCourseTiming())) {
+            cm.setCourseTiming(course.getCourseTiming());
+        }
+
+        if(Objects.nonNull(course.getEnrolledStudents()) &&
+        !"".equals(course.getEnrolledStudents())) {
+            cm.setEnrolledStudents(course.getEnrolledStudents());
+        }
+
+        if(Objects.nonNull(course.getInstituteId()) &&
+        !"".equals(course.getInstituteId())) {
+            cm.setInstituteId(course.getInstituteId());
+        }
+
         return adminCourseRepository.save(cm);
 
     }
