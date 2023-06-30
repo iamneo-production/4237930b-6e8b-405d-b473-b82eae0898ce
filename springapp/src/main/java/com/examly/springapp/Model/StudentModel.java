@@ -15,7 +15,7 @@ import javax.persistence.Table;
 public class StudentModel {
     @Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int studentId;
+	private Integer studentId;
 	@Column(name = "student_name")
 	private String studentName;
 	@Column(name = "student_dob")
@@ -25,11 +25,11 @@ public class StudentModel {
 	@Column(name = "mobile_no")
 	private String mobile;
 	@Column(name = "sslc_marks")
-	private int sslc;
+	private Integer sslc;
 	@Column(name = "hsc_marks")
-	private int hsc;
+	private Integer hsc;
 	@Column(name = "diploma_marks")
-	private int diploma;
+	private Integer diploma;
 	@Column(name = "eligibility")
 	private String eligibility;
 	@Column(name = "gender")
@@ -49,7 +49,7 @@ public class StudentModel {
 	@Column(name = "area_name")
 	private String areaName;
 	@Column(name = "pin_code")
-	private int pincode;
+	private Integer pincode;
 	@Column(name = "nationality")
 	private String nationality;
 	@Column(name = "state")
@@ -59,10 +59,10 @@ public class StudentModel {
 		
 	}
 
-	public StudentModel(int studentId, String studentName, Date studentDOB, String address, String mobile, int sslc,
-			int hsc, int diploma, String eligibility, String gender, String fatherName, String motherName,
-			String altMobile, String emailId, String houseNo, String streetName, String areaName, int pincode,
-			String nationality, String state) {
+	public StudentModel(Integer studentId, String studentName, Date studentDOB, String address, String mobile,
+			Integer sslc, Integer hsc, Integer diploma, String eligibility, String gender, String fatherName,
+			String motherName, String altMobile, String emailId, String houseNo, String streetName, String areaName,
+			Integer pincode, String nationality, String state) {
 		this.studentId = studentId;
 		this.studentName = studentName;
 		this.studentDOB = studentDOB;
@@ -117,27 +117,27 @@ public class StudentModel {
 		this.mobile = mobile;
 	}
 
-	public int getSslc() {
+	public Integer getSslc() {
 		return sslc;
 	}
 
-	public void setSslc(int sslc) {
+	public void setSslc(Integer sslc) {
 		this.sslc = sslc;
 	}
 
-	public int getHsc() {
+	public Integer getHsc() {
 		return hsc;
 	}
 
-	public void setHsc(int hsc) {
+	public void setHsc(Integer hsc) {
 		this.hsc = hsc;
 	}
 
-	public int getDiploma() {
+	public Integer getDiploma() {
 		return diploma;
 	}
 
-	public void setDiploma(int diploma) {
+	public void setDiploma(Integer diploma) {
 		this.diploma = diploma;
 	}
 
@@ -213,11 +213,11 @@ public class StudentModel {
 		this.areaName = areaName;
 	}
 
-	public int getPincode() {
+	public Integer getPincode() {
 		return pincode;
 	}
 
-	public void setPincode(int pincode) {
+	public void setPincode(Integer pincode) {
 		this.pincode = pincode;
 	}
 
