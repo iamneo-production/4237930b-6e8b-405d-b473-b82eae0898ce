@@ -2,12 +2,12 @@ package com.examly.springapp.Model;
 
 import java.util.Date;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "students")
@@ -15,7 +15,7 @@ import jakarta.persistence.Table;
 public class StudentModel {
     @Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer studentId;
+	private int studentId;
 	@Column(name = "student_name")
 	private String studentName;
 	@Column(name = "student_dob")
@@ -25,11 +25,11 @@ public class StudentModel {
 	@Column(name = "mobile_no")
 	private String mobile;
 	@Column(name = "sslc_marks")
-	private Integer sslc;
+	private int sslc;
 	@Column(name = "hsc_marks")
-	private Integer hsc;
+	private int hsc;
 	@Column(name = "diploma_marks")
-	private Integer diploma;
+	private int diploma;
 	@Column(name = "eligibility")
 	private String eligibility;
 	@Column(name = "gender")
@@ -49,20 +49,21 @@ public class StudentModel {
 	@Column(name = "area_name")
 	private String areaName;
 	@Column(name = "pin_code")
-	private Integer pincode;
+	private int pincode;
 	@Column(name = "nationality")
 	private String nationality;
 	@Column(name = "state")
 	private String state;
 	
-	public student() {
+	public StudentModel() {
 		
 	}
 
-	public StudentModel(String studentName, Date studentDOB, String address, String mobile, Integer sslc, Integer hsc,
-			Integer diploma, String eligibility, String gender, String fatherName, String motherName, String altMobile,
-			String emailId, String houseNo, String streetName, String areaName, Integer pincode, String nationality,
-			String state) {
+	public StudentModel(int studentId, String studentName, Date studentDOB, String address, String mobile, int sslc,
+			int hsc, int diploma, String eligibility, String gender, String fatherName, String motherName,
+			String altMobile, String emailId, String houseNo, String streetName, String areaName, int pincode,
+			String nationality, String state) {
+		this.studentId = studentId;
 		this.studentName = studentName;
 		this.studentDOB = studentDOB;
 		this.address = address;
@@ -82,14 +83,6 @@ public class StudentModel {
 		this.pincode = pincode;
 		this.nationality = nationality;
 		this.state = state;
-	}
-
-	public Integer getStudentId() {
-		return studentId;
-	}
-
-	public void setStudentId(Integer studentId) {
-		this.studentId = studentId;
 	}
 
 	public String getStudentName() {
@@ -124,27 +117,27 @@ public class StudentModel {
 		this.mobile = mobile;
 	}
 
-	public Integer getSslc() {
+	public int getSslc() {
 		return sslc;
 	}
 
-	public void setSslc(Integer sslc) {
+	public void setSslc(int sslc) {
 		this.sslc = sslc;
 	}
 
-	public Integer getHsc() {
+	public int getHsc() {
 		return hsc;
 	}
 
-	public void setHsc(Integer hsc) {
+	public void setHsc(int hsc) {
 		this.hsc = hsc;
 	}
 
-	public Integer getDiploma() {
+	public int getDiploma() {
 		return diploma;
 	}
 
-	public void setDiploma(Integer diploma) {
+	public void setDiploma(int diploma) {
 		this.diploma = diploma;
 	}
 
@@ -220,11 +213,11 @@ public class StudentModel {
 		this.areaName = areaName;
 	}
 
-	public Integer getPincode() {
+	public int getPincode() {
 		return pincode;
 	}
 
-	public void setPincode(Integer pincode) {
+	public void setPincode(int pincode) {
 		this.pincode = pincode;
 	}
 
@@ -243,6 +236,9 @@ public class StudentModel {
 	public void setState(String state) {
 		this.state = state;
 	}
+
+	
+	
 	
 }
 
