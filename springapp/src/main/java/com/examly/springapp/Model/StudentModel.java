@@ -59,14 +59,30 @@ public class StudentModel {
 		
 	}
 
-	@Override
-	public String toString() {
-		return "StudentModel [address=" + address + ", altMobile=" + altMobile + ", areaName=" + areaName + ", diploma="
-				+ diploma + ", eligibility=" + eligibility + ", emailId=" + emailId + ", fatherName=" + fatherName
-				+ ", gender=" + gender + ", houseNo=" + houseNo + ", hsc=" + hsc + ", mobile=" + mobile
-				+ ", motherName=" + motherName + ", nationality=" + nationality + ", pincode=" + pincode + ", sslc="
-				+ sslc + ", state=" + state + ", streetName=" + streetName + ", studentDOB=" + studentDOB
-				+ ", studentId=" + studentId + ", studentName=" + studentName + "]";
+	public StudentModel(int studentId, String studentName, Date studentDOB, String address, String mobile, int sslc,
+			int hsc, int diploma, String eligibility, String gender, String fatherName, String motherName,
+			String altMobile, String emailId, String houseNo, String streetName, String areaName, int pincode,
+			String nationality, String state) {
+		this.studentId = studentId;
+		this.studentName = studentName;
+		this.studentDOB = studentDOB;
+		this.address = address;
+		this.mobile = mobile;
+		this.sslc = sslc;
+		this.hsc = hsc;
+		this.diploma = diploma;
+		this.eligibility = eligibility;
+		this.gender = gender;
+		this.fatherName = fatherName;
+		this.motherName = motherName;
+		this.altMobile = altMobile;
+		this.emailId = emailId;
+		this.houseNo = houseNo;
+		this.streetName = streetName;
+		this.areaName = areaName;
+		this.pincode = pincode;
+		this.nationality = nationality;
+		this.state = state;
 	}
 
 	public String getStudentName() {

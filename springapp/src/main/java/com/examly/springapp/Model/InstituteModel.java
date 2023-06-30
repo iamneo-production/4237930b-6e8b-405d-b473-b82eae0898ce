@@ -29,13 +29,17 @@ public class InstituteModel {
 	private String instituteDescription;
 	@Column(name = "institute_rating")
 	private int instituteRating;
-	
-	@Override
-	public String toString() {
-		return "InstituteModel [instituteAddress=" + instituteAddress + ", instituteDescription=" + instituteDescription
-				+ ", instituteEmail=" + instituteEmail + ", instituteId=" + instituteId + ", instituteImgUrl="
-				+ instituteImgUrl + ", instituteMobileno=" + instituteMobileno + ", instituteName=" + instituteName
-				+ ", instituteRating=" + instituteRating + "]";
+
+	public InstituteModel(int instituteId, String instituteName, String instituteMobileno, String instituteImgUrl,
+			String instituteEmail, String instituteAddress, String instituteDescription, int instituteRating) {
+		this.instituteId = instituteId;
+		this.instituteName = instituteName;
+		this.instituteMobileno = instituteMobileno;
+		this.instituteImgUrl = instituteImgUrl;
+		this.instituteEmail = instituteEmail;
+		this.instituteAddress = instituteAddress;
+		this.instituteDescription = instituteDescription;
+		this.instituteRating = instituteRating;
 	}
 
 	public String getInstituteName() {

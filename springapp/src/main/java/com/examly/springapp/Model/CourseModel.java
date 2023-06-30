@@ -32,11 +32,15 @@ public class CourseModel {
 		
 	}
 
-	@Override
-	public String toString() {
-		return "CourseModel [courseDescription=" + courseDescription + ", courseDuration=" + courseDuration
-				+ ", courseId=" + courseId + ", courseName=" + courseName + ", courseTiming=" + courseTiming
-				+ ", enrolledStudents=" + enrolledStudents + ", instituteId=" + instituteId + "]";
+	public CourseModel(int courseId, String courseName, int courseDuration, String courseDescription,
+			String courseTiming, int enrolledStudents, int instituteId) {
+		this.courseId = courseId;
+		this.courseName = courseName;
+		this.courseDuration = courseDuration;
+		this.courseDescription = courseDescription;
+		this.courseTiming = courseTiming;
+		this.enrolledStudents = enrolledStudents;
+		this.instituteId = instituteId;
 	}
 
 	public String getCourseName() {
