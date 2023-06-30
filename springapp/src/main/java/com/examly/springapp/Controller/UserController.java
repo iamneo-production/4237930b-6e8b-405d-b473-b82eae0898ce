@@ -10,11 +10,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.examly.springapp.Model.AdmissionModel;
 import com.examly.springapp.Service.AdmissionService;
 
+@RequestMapping
 @RestController
+// change the origin link as per your workspace- port-8081 link
+@CrossOrigin(origins = "https://8081-fddecffdbcffbbedebaebcdacaee.project.examly.io")
 public class UserController {
     
     @Autowired
@@ -32,7 +37,6 @@ public class UserController {
     public List<AdmissionModel> viewAllDetails()
     {
         return admissionService.getDetails();
-
     }
 
     //edit admission
@@ -47,14 +51,14 @@ public class UserController {
     @DeleteMapping("/user/deleteAdmission/{id}")
     public String deleteAdmision(@PathVariable ("id") int id)
     {
-            return admissionService.deleteDetails(id);
+        return admissionService.deleteDetails(id);
     }
 
     
-   //extract status attribute
+  //extract status attribute
   @GetMapping("/user/viewStatus/{id}")
    public String findStatus(@PathVariable int id)
- {
+   {
      return admissionService.getStatusValue(id);
    }
 
@@ -63,7 +67,6 @@ public class UserController {
     public AdmissionModel viewAdmissionById(@PathVariable ("id") int id)
     {
         return admissionService.getDetailsById(id);
-
     }
 
 }

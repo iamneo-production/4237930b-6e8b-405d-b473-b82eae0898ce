@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import com.examly.springapp.Model.InstituteModel;
 import com.examly.springapp.Repository.InstituteRepository;
+import com.examly.springapp.Exception.ResourceNotFoundException;
+
 
 @Service
 public class InstituteServiceImpl implements InstituteService{
@@ -44,9 +46,9 @@ public class InstituteServiceImpl implements InstituteService{
             inm.setInstituteAddress(institute.getInstituteAddress());
         }
 
-        if(Objects.nonNull(institute.getInstituteMobileno()) &&
-        !"".equalsIgnoreCase(institute.getInstituteMobileno())) {
-            inm.setInstituteMobileno(institute.getInstituteMobileno());
+        if(Objects.nonNull(institute.getInstituteMobileNo()) &&
+        !"".equalsIgnoreCase(institute.getInstituteMobileNo())) {
+            inm.setInstituteMobileNo(institute.getInstituteMobileNo());
         }
 
         if(Objects.nonNull(institute.getInstituteEmail()) &&
@@ -63,15 +65,19 @@ public class InstituteServiceImpl implements InstituteService{
         !"".equals(institute.getInstituteRating())) {
             inm.setInstituteRating(institute.getInstituteRating());
         }
-
         return adminInstituteRepository.save(inm);
-
-
     }
 
     @Override
     public void deleteInstitute(Integer instituteId) {
         adminInstituteRepository.deleteById(instituteId);
+    }
+
+    @Override
+    public InstituteModel getInstituteById(Integer instituteId) {
+
+        return adminInstituteRepository.findById(instituteId).orElseThrow(() -> 
+                                    new ResourceNotFoundException("Institute not existed for id:"+ instituteId));
     }
     
 }
