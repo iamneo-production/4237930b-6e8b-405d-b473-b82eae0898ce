@@ -45,6 +45,14 @@ public class InstituteModel {
 		this.instituteDescription = instituteDescription;
 		this.instituteRating = instituteRating;
 	}
+	
+	public Integer getInstituteId() {
+		return instituteId;
+	}
+
+	public void setInstituteId(Integer instituteId) {
+		this.instituteId = instituteId;
+	}
 
 	public String getInstituteName() {
 		return instituteName;
