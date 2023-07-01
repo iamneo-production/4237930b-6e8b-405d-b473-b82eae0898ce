@@ -45,7 +45,7 @@ public class InstituteModel {
 		this.instituteDescription = instituteDescription;
 		this.instituteRating = instituteRating;
 	}
-
+	
 	public Integer getInstituteId() {
 		return instituteId;
 	}

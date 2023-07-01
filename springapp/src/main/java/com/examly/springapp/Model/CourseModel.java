@@ -41,7 +41,7 @@ public class CourseModel {
 		this.enrolledStudents = enrolledStudents;
 		this.instituteId = instituteId;
 	}
-	
+
 	public Integer getCourseId() {
 		return courseId;
 	}
