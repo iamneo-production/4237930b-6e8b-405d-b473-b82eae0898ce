@@ -85,6 +85,14 @@ public class StudentModel {
 		this.state = state;
 	}
 
+	public Integer getStudentId() {
+		return studentId;
+	}
+
+	public void setStudentId(Integer studentId) {
+		this.studentId = studentId;
+	}
+
 	public String getStudentName() {
 		return studentName;
 	}

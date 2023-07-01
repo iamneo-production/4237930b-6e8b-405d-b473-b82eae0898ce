@@ -42,6 +42,14 @@ public class CourseModel {
 		this.instituteId = instituteId;
 	}
 	
+	public Integer getCourseId() {
+		return courseId;
+	}
+
+	public void setCourseId(Integer courseId) {
+		this.courseId = courseId;
+	}
+
 	public String getCourseName() {
 		return courseName;
 	}
