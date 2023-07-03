@@ -5,7 +5,7 @@ import java.util.Objects;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+import com.examly.springapp.Exception.ResourceNotFoundException;
 import com.examly.springapp.Model.StudentModel;
 import com.examly.springapp.Repository.StudentRepository;
 
@@ -132,6 +132,12 @@ public class StudentServiceImpl implements StudentService{
     public void deleteStudent(Integer studentId) {
         adminRepository.deleteById(studentId);
     }
+ 
+    @Override
+    public StudentModel getStudentById(Integer studentId) {
 
+        return adminRepository.findById(studentId).orElseThrow(() -> 
+                                    new ResourceNotFoundException("Student does not exist for id:"+ studentId));
+    }
 
 }

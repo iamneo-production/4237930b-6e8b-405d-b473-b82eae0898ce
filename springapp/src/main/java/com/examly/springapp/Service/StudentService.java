@@ -15,4 +15,5 @@ public interface StudentService {
 
     public void deleteStudent(Integer studentId);
     
+    public StudentModel getStudentById(Integer studentId);
 }

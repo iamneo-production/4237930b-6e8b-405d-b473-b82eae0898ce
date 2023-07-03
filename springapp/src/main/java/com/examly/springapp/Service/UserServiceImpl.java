@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.examly.springapp.Model.LoginModel;
 import com.examly.springapp.Model.UserModel;
 import com.examly.springapp.Repository.UserRepository;
-
+import com.examly.springapp.Exception.ResourceNotFoundException;
 @Service
 public class UserServiceImpl implements UserService{
 

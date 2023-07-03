@@ -26,6 +26,11 @@ public class CourseServiceImpl implements CourseService{
     }
 
     @Override
+    public List<CourseModel> findByInstituteId(int instituteId) {
+        return adminCourseRepository.findByInstituteId(instituteId);
+    }
+
+    @Override
     public CourseModel editCourse(Integer courseId, CourseModel course) {
         CourseModel cm = adminCourseRepository.findById(courseId).get();
 
@@ -71,9 +76,11 @@ public class CourseServiceImpl implements CourseService{
     @Override
     public CourseModel getcourseById(int courseId) {
         return adminCourseRepository.findById(courseId).orElseThrow(() -> 
-                                    new ResourceNotFoundException("Institute not existed for id:"+ courseId));
+
+
+
+        new ResourceNotFoundException("Institute does not exist for id:"+ courseId));
         
     }
-
     
 }
