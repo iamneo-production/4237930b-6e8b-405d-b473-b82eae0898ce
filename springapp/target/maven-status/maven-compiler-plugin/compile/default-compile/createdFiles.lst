@@ -19,11 +19,11 @@ com/examly/springapp/Service/AdmissionService.class
 com/examly/springapp/Repository/UserRepository.class
 com/examly/springapp/Model/AdmissionModel.class
 com/examly/springapp/Controller/AdminController.class
-com/examly/springapp/Model/UserModel.class
 com/examly/springapp/Model/StudentModel.class
+com/examly/springapp/Model/UserModel.class
 com/examly/springapp/Config/UserInfoDetails.class
-com/examly/springapp/Service/UserService.class
 com/examly/springapp/Config/UserInfoUserDetailService.class
+com/examly/springapp/Service/UserService.class
 com/examly/springapp/Repository/InstituteRepository.class
 com/examly/springapp/Service/UserServiceImpl.class
 com/examly/springapp/Model/LoginModel.class

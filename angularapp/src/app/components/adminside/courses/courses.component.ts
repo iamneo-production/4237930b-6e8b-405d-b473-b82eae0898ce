@@ -28,7 +28,7 @@ export class CoursesComponent implements OnInit {
 
     goteditcourse()
     {
-      this.router.navigate(['/admin/editcourse']);
+      this.router.navigate(['/admin/editcourse/1']);
     }
 
     //for delete popup modal

@@ -26,11 +26,11 @@
       <tbody>
         <tr *ngFor="let student of students | filter:searchText">
           <td>{{student.studentId}}</td>
-          <td>{{student.studentName}}</td>
-          <td>{{student.enrolledCourse}}</td>
-          <td>{{student.mobileNumber}}</td>
+          <td>{{student.studentName }}</td>
+          <td>{{"B.Tech"}}</td>
+          <td>{{student.mobile}}</td>
           <td class="actions">
-            <button routerLink="/admin/editstudent" class="btn btn-primary">Edit &nbsp;<i class="fa fa-pencil" aria-hidden="true"></i></button>
+            <button (click)="editStudent(student.studentId)" class="btn btn-primary">Edit &nbsp;<i class="fa fa-pencil" aria-hidden="true"></i></button>
             <button class="btn btn-danger del-btn" (click)="open(content)">Delete &nbsp;<i class="fa fa-trash-o" aria-hidden="true"></i></button>
 
             <!-- codes for the delete popup -->
