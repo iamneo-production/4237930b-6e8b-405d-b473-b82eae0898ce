@@ -14,5 +14,7 @@ public interface CourseService {
 
     public void deleteCourse(Integer courseId);
 
+    CourseModel getcourseById(int courseId);
+
 
 }

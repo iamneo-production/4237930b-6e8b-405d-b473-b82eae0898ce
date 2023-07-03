@@ -24,7 +24,7 @@ import com.examly.springapp.Service.StudentService;
 
 @RequestMapping("/admin")
 // change the origin link as per your workspace- port-8081 link
-@CrossOrigin(origins = "https://8081-fddecffdbcffbbedebaebcdacaee.project.examly.io")
+@CrossOrigin(origins = "https://8081-addcabcdecadbcffbbedebaebcdacaee.project.examly.io")
 @RestController
 public class AdminController {
 
@@ -82,6 +82,14 @@ public class AdminController {
                     @RequestBody CourseModel course) {
         return courseService.editCourse(courseId,course);
     }
+
+    // get course by courseId
+    @GetMapping("/getcourseById/{courseId}")
+    public CourseModel getcourseById(@PathVariable Integer courseId) {
+        return courseService.getcourseById(courseId);
+    }
+
+
 
     //delete course
     @DeleteMapping("/deleteCourse/{courseId}")
