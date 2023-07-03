@@ -9,10 +9,10 @@ com/examly/springapp/Service/StudentServiceImpl.class
 com/examly/springapp/Exception/ResourceNotFoundException.class
 com/examly/springapp/Controller/AuthController.class
 com/examly/springapp/Repository/AdmissionRepository.class
-com/examly/springapp/Service/InstituteServiceImpl.class
 com/examly/springapp/Repository/StudentRepository.class
-com/examly/springapp/Service/AdmissionServiceImp.class
+com/examly/springapp/Service/InstituteServiceImpl.class
 com/examly/springapp/Repository/CourseRepository.class
+com/examly/springapp/Service/AdmissionServiceImp.class
 com/examly/springapp/Service/CourseServiceImpl.class
 com/examly/springapp/Config/SecurityConfig.class
 com/examly/springapp/Service/AdmissionService.class
@@ -22,8 +22,8 @@ com/examly/springapp/Controller/AdminController.class
 com/examly/springapp/Model/UserModel.class
 com/examly/springapp/Model/StudentModel.class
 com/examly/springapp/Config/UserInfoDetails.class
+com/examly/springapp/Repository/InstituteRepository.class
 com/examly/springapp/Service/UserService.class
 com/examly/springapp/Config/UserInfoUserDetailService.class
-com/examly/springapp/Repository/InstituteRepository.class
 com/examly/springapp/Service/UserServiceImpl.class
 com/examly/springapp/Model/LoginModel.class

@@ -24,7 +24,7 @@ import com.examly.springapp.Service.StudentService;
 
 @RequestMapping("/admin")
 // change the origin link as per your workspace- port-8081 link
-@CrossOrigin(origins = "https://8081-fddecffdbcffbbedebaebcdacaee.project.examly.io")
+@CrossOrigin(origins = "https://8081-ffaeadfaacdbcffbbedebaebcdacaee.project.examly.io/")
 @RestController
 public class AdminController {
 
@@ -37,6 +37,11 @@ public class AdminController {
     @Autowired
     private InstituteService instituteService;
 
+    // get student by student id
+    @GetMapping("/getStudentById/{courseId}")
+    public StudentModel getStudentById(@PathVariable Integer studentId) {
+        return adminService.getStudentById(studentId);
+    }
     
     //method to add student
     @PostMapping("/addStudent")
@@ -62,6 +67,18 @@ public class AdminController {
     public String deleteStudent(@PathVariable("studentId") Integer studentId) {
         adminService.deleteStudent(studentId);
         return "Student deleted Successfully";
+    }
+
+    // get course by course id
+    @GetMapping("/getCourseById/{courseId}")
+    public CourseModel getCourseById(@PathVariable Integer courseId) {
+        return courseService.getcourseById(courseId);
+    }
+
+    //view the course list by instituteId
+    @GetMapping("/findByInstituteId/{instituteId}")
+    public List<CourseModel> findByInstituteId(@PathVariable int instituteId) {
+        return courseService.findByInstituteId(instituteId);
     }
 
     //add course
@@ -90,6 +107,13 @@ public class AdminController {
         return "Course deleted Successfully";
     }
 
+    // get institutes by institute id
+    @GetMapping("/getInstituteById/{instituteId}")
+    public InstituteModel getInstituteById(@PathVariable Integer instituteId) {
+        return instituteService.getInstituteById(instituteId);
+    }
+
+    
     //add institue
     @PostMapping("/addInstitute")
     public InstituteModel addInstitute(@RequestBody InstituteModel institute) {
@@ -100,12 +124,6 @@ public class AdminController {
     @GetMapping("/viewInstitutes")
     public List<InstituteModel> viewInstitute() {
         return instituteService.viewInstitute();
-    }
-
-    // get institutes by institute id
-    @GetMapping("/getInstituteById/{instituteId}")
-    public InstituteModel getInstituteById(@PathVariable Integer instituteId) {
-        return instituteService.getInstituteById(instituteId);
     }
 
     //edit institute
