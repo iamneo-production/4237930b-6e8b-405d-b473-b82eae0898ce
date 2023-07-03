@@ -12,15 +12,19 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
-import com.examly.springapp.model.CourseModel;
-import com.examly.springapp.model.InstituteModel;
-import com.examly.springapp.model.StudentModel;
-import com.examly.springapp.service.CourseService;
-import com.examly.springapp.service.InstituteService;
-import com.examly.springapp.service.StudentService;
+
+import com.examly.springapp.Model.CourseModel;
+import com.examly.springapp.Model.InstituteModel;
+import com.examly.springapp.Model.StudentModel;
+import com.examly.springapp.Service.CourseService;
+import com.examly.springapp.Service.InstituteService;
+import com.examly.springapp.Service.StudentService;
 
 @RequestMapping("/admin")
+// change the origin link as per your workspace- port-8081 link
+@CrossOrigin(origins = "https://8081-fddecffdbcffbbedebaebcdacaee.project.examly.io")
 @RestController
 public class AdminController {
 
@@ -88,7 +92,7 @@ public class AdminController {
 
     //add institue
     @PostMapping("/addInstitute")
-    public InstituteModel addInstitute(InstituteModel institute) {
+    public InstituteModel addInstitute(@RequestBody InstituteModel institute) {
         return instituteService.addInstitute(institute);
     }
 
@@ -96,6 +100,12 @@ public class AdminController {
     @GetMapping("/viewInstitutes")
     public List<InstituteModel> viewInstitute() {
         return instituteService.viewInstitute();
+    }
+
+    // get institutes by institute id
+    @GetMapping("/getInstituteById/{instituteId}")
+    public InstituteModel getInstituteById(@PathVariable Integer instituteId) {
+        return instituteService.getInstituteById(instituteId);
     }
 
     //edit institute
@@ -107,7 +117,7 @@ public class AdminController {
 
     //delete institute
     @DeleteMapping("/deleteInstitutes/{instituteId}")
-    public String deleteInstitute(Integer instituteId) {
+    public String deleteInstitute(@PathVariable("instituteId") Integer instituteId) {
         instituteService.deleteInstitute(instituteId);
         return "Institute deleted Successfully";
     }
