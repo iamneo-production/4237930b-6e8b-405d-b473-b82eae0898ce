@@ -76,7 +76,10 @@ public class CourseServiceImpl implements CourseService{
     @Override
     public CourseModel getcourseById(int courseId) {
         return adminCourseRepository.findById(courseId).orElseThrow(() -> 
-                                    new ResourceNotFoundException("Institute does not exist for id:"+ courseId));
+
+
+
+        new ResourceNotFoundException("Institute does not exist for id:"+ courseId));
         
     }
     

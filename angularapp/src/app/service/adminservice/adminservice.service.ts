@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Institute } from 'src/app/class/institute';
+import { Course } from 'src/app/class/Course';
+import { Students } from 'src/app/class/Student';
 
 
 @Injectable({
@@ -12,7 +14,7 @@ export class AdminserviceService {
   constructor(private http: HttpClient) { }
 
   //change the baseUrl asper your workspace port-8080 link
-  baseUrl: string = "https://8080-fddecffdbcffbbedebaebcdacaee.project.examly.io/"
+  baseUrl: string = "https://8080-addcabcdecadbcffbbedebaebcdacaee.project.examly.io/"
 
   //get the list of institutes
   public viewInstitute(): Observable<Institute[]>{
@@ -33,5 +35,34 @@ export class AdminserviceService {
   public editInstitute(instituteId:number, institute:Institute): Observable<Institute>{
     return this.http.put<Institute>(this.baseUrl+`admin/editInstitute/`+instituteId,institute);
   }
+   //get the list of courses in institutes
+   public viewCoursesFromInstitute(instituteId : number): Observable<Course[]>{
+    return this.http.get<Course[]>(this.baseUrl+`admin/findByInstituteId/`+instituteId);
+  }
+
+  //add the institutes courses
+ 
+
+  //delete the course by courseId
+  public deleteCourse(courseId : number): Observable<String>{
+    const requestOptions: Object = {
+      responseType: 'text'
+    }
+    return this.http.delete<String>(this.baseUrl+`admin/deleteCourse/`+courseId,requestOptions);
+  }
+  
+  //update the Course by CourseId and Course details
+  public editCourse(courseId:number, updatedCourse:Course): Observable<Course>{
+    return this.http.put<Course>(this.baseUrl+`admin/editCourse/`+courseId,updatedCourse);
+  }
+  //get the course by courseId
+  public getCourseById(courseId : number): Observable<Course>{
+    return this.http.get<Course>(this.baseUrl+`admin/getcourseById/`+courseId);
+  }
+  //get the list of institutes
+  public viewStudents(): Observable<Students[]>{
+    return this.http.get<Students[]>(this.baseUrl+`admin/viewStudent`);
+  }
+
 
 }

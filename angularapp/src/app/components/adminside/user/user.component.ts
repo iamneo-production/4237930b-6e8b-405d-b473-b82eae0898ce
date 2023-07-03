@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-
+import { Students } from 'src/app/class/Student';
+import { AdminserviceService } from 'src/app/service/adminservice/adminservice.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user',
@@ -9,41 +11,24 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class UserComponent implements OnInit {
 
-  constructor(private modalService: NgbModal) { }
+  constructor(private modalService: NgbModal,private router: Router,private adminservice :AdminserviceService) { }
 
   ngOnInit(): void {
+    this.getallStudents();
+    console.log("Hi");
   }
+  
   searchText!:string;
 
-  students =[
-    {
-      'studentId': 1232213,
-      'studentName': 'Anil',
-      'enrolledCourse': 'Boxing Drills',
-      'mobileNumber': 2971234445,
-    },
-    {
-      'studentId': 2238631,
-      'studentName': 'Sai',
-      'enrolledCourse': 'Strength Training',
-      'mobileNumber': 2971234445,
-    },
-    {
-      'studentId': 2346871,
-      'studentName': 'Manoj',
-      'enrolledCourse': 'Conditioning Work',
-      'mobileNumber': 2971234445,
-    }
-  ]
+  students ?:Students[];
 
-  addStudent(){
-    this.students.push({
-      'studentId': 19003144,
-      'studentName': 'Deepika',
-      'enrolledCourse': 'Frontend',
-      'mobileNumber': 8096254335,
-    })
-  }
+  getallStudents()
+    {
+        this.adminservice.viewStudents().subscribe(data =>{
+        this.students = data;
+        console.log(this.students);
+      })
+    }
 
   //for delete popup modal
   open(content:any) {
@@ -54,6 +39,11 @@ export class UserComponent implements OnInit {
     });
   }
 
+  //redirect to editstudent page with studentId
+  editStudent(studentId : number)
+  {
+    this.router.navigate(['/admin/editstudent',studentId]);
+  }
   deleteStudent()
   {
       this.modalService.dismissAll();
