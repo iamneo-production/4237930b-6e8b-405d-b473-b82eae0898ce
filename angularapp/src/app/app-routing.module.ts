@@ -26,14 +26,14 @@ const routes: Routes = [
    [
       {path:"",component:InstitutesComponent},
       {path:"institute",component:InstitutesComponent},
-      {path:"course",component:CoursesComponent},
-      {path:"addcourse",component:AddcourseComponent},
-      {path:"editcourse",component:EditcourseComponent},
+      {path:"course/:instituteId",component:CoursesComponent},
+      {path:"addcourse/:instituteId",component:AddcourseComponent},
+      {path:"editcourse/:courseId",component:EditcourseComponent},
       {path:"students",component:UserComponent},
       {path:"addstudent",component:AdduserComponent},
-      {path:"editstudent",component:EdituserComponent},
+      {path:"editstudent/:studentId",component:EdituserComponent},
       {path:"addinstitute",component:AddinstituteComponent},
-      {path:"editinstitute",component:EditinstituteComponent},
+      {path:"editinstitute/:instituteId",component:EditinstituteComponent},
       {path:"edituser",component:EdituserComponent}
    ]
   },

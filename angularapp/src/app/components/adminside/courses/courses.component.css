@@ -11,7 +11,7 @@
   border-radius: 0;
 }
 
-.btn
+.searchbtn
 {
   background-color: rgb(58, 135, 58);
   color: white;
@@ -26,13 +26,13 @@
   height: 38px;
 }
 
-.btn:active{
+.searchbtn:active{
   opacity: 0.4;
   background-color: #e7e0e9;
   color: rgb(24, 3, 11);
 }
 
-.btn:hover{
+.searchbtn:hover{
   opacity: 0.9;
 }
 

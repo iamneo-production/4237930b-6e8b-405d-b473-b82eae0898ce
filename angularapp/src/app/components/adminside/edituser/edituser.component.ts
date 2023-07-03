@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, ElementRef,NgModule } from '@angular/core';
+import { Component, OnInit, AfterViewInit, NgModule } from '@angular/core';
 
 import { FormControl,FormGroup,NgModel,Validators} from '@angular/forms';
 
@@ -12,13 +12,12 @@ import { FormControl,FormGroup,NgModel,Validators} from '@angular/forms';
 
 export class EdituserComponent implements OnInit {
 
-  constructor(private elementRef:ElementRef) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
   ngAfterViewInit(){
-    this.elementRef.nativeElement.ownerDocument
-    .body.style.backgroundColor='gray';
+    
   }
   name=new FormControl('');
   
