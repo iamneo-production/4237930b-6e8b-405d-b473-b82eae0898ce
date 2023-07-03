@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Institutes } from 'src/app/class/institutes';
+import { Router } from '@angular/router';
+import { Institute } from 'src/app/class/institute';
+import { AdminserviceService } from 'src/app/service/adminservice/adminservice.service';
+import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-addinstitute',
@@ -8,15 +12,26 @@ import { Institutes } from 'src/app/class/institutes';
 })
 export class AddinstituteComponent implements OnInit {
 
-  newinstitute : Institutes = new Institutes();
-  constructor() { }
-
+  constructor(private router:Router, private adminservice:AdminserviceService, private toastr :ToastrService) { }
+  newinstitute : Institute = new Institute();
+  
   ngOnInit(): void {
   }
 
   onSubmit(): void {
-    alert('Institute added Sucessfully');
+    this.addInstitute();
     console.log(this.newinstitute);
   }
+
+  //For adding the new institute
+  addInstitute(): void {
+    this.newinstitute.instituteRating = 5;
+    this.adminservice.addInstitute(this.newinstitute).subscribe(data =>
+    {
+       console.log(data);
+       this.toastr.warning('Institute added Sucessfully!', 'Institute status !');
+       this.router.navigate(['/admin']);
+       })
+    }
 
 }

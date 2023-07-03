@@ -26,7 +26,7 @@
 <div class="col-md-6">
   <div class="form-group">
       <label>Academy name &nbsp;<i class="fa fa-graduation-cap" aria-hidden="true"></i></label><br>
-      <input class="input-box1"  type="academyname" name="academyname"  id="editAcademyName" style="text-align: center" placeholder="Enter Academy name"  [(ngModel)]="formdata.academyname" #academyname="ngModel" required>
+      <input class="input-box1"  type="academyname" name="academyname"  id="editAcademyName" style="text-align: center" placeholder="Enter Academy name"  [(ngModel)]="newinstitute.instituteName" #academyname="ngModel" required>
       <br>
   </div>
 </div>
@@ -34,7 +34,7 @@
 <div class="col-md-6">
   <div class="form-group">
     <label>Contact number &nbsp;<i class="fa fa-phone" aria-hidden="true"></i></label><br>
-      <input class="input-box"  type="contactnumber"  style="text-align: center" placeholder="Enter the contact number" id="editContactNumber"  name="contactnumber" [(ngModel)]="formdata.contactnumber" #contactnumber="ngModel" required >
+      <input class="input-box"  type="contactnumber"  style="text-align: center" placeholder="Enter the contact number" id="editContactNumber"  name="contactnumber" [(ngModel)]="newinstitute.instituteMobileNo" #contactnumber="ngModel" required >
       <br>
   </div>
 </div>
@@ -46,14 +46,14 @@
 <div class="col-md-6">
   <div class="form-group">
     <label>Image URL &nbsp;<i class="fa fa-file-image-o" aria-hidden="true"></i></label><br>
-      <input class="input-box1"  type="imageurl" name="imageurl"  id="editimageUrl" style="text-align: center" placeholder="Enter the academy image url"  [(ngModel)]="formdata.image" #image="ngModel" required>
+      <input class="input-box1"  type="imageurl" name="imageurl"  id="editimageUrl" style="text-align: center" placeholder="Enter the academy image url"  [(ngModel)]="newinstitute.instituteImgUrl" #image="ngModel" required>
       <br>
   </div>
 </div>
 <div class="col-md-6">
   <div class="form-group">
     <label>Academy Email &nbsp;<i class="fa fa-envelope" aria-hidden="true"></i></label><br>
-      <input class="input-box"  type="email" style="text-align: center" placeholder="Enter the academy email" id="editEmailId"  name="email" [(ngModel)]="formdata.email" #email="ngModel" required >
+      <input class="input-box"  type="email" style="text-align: center" placeholder="Enter the academy email" id="editEmailId"  name="email" [(ngModel)]="newinstitute.instituteEmail" #email="ngModel" required >
       <br>
   </div>
 </div>
@@ -65,7 +65,7 @@
 <div class="col-md-6">
   <div class="form-group">
     <label>Location  &nbsp;<i class="fa fa-location-arrow" aria-hidden="true"></i></label><br>
-      <input class="input-box1"  type="location" name="location"  id="editAcademyLocation" style="text-align: center" placeholder="Enter Academy Location"  [(ngModel)]="formdata.location" #location="ngModel" required>
+      <input class="input-box1"  type="location" name="location"  id="editAcademyLocation" style="text-align: center" placeholder="Enter Academy Location"  [(ngModel)]="newinstitute.instituteAddress" #location="ngModel" required>
       <br>
   </div>
 </div>
@@ -73,7 +73,7 @@
 <div class="col-md-6">
   <div class="form-group">
       <label>Description  &nbsp;<i class="fa fa-book" aria-hidden="true"></i></label><br>
-      <input class="input-box"  type="discription" style="text-align: center" placeholder="Enter Academy discription" id="editAcademyDiscription"  name="discription" [(ngModel)]="formdata.discription" #discription="ngModel" required >
+      <input class="input-box"  type="discription" style="text-align: center" placeholder="Enter Academy discription" id="editAcademyDiscription"  name="discription" [(ngModel)]="newinstitute.instituteDescription" #discription="ngModel" required >
       <br>
     </div>
   </div>

@@ -7,13 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.examly.springapp.Model.CourseModel;
-import com.examly.springapp.repository.AdminCourseRepository;
+import com.examly.springapp.Repository.CourseRepository;
 
 @Service
 public class CourseServiceImpl implements CourseService{
 
     @Autowired
-    private AdminCourseRepository adminCourseRepository;
+    private CourseRepository adminCourseRepository;
 
     @Override
     public CourseModel addCourse(CourseModel course) {
@@ -42,6 +42,21 @@ public class CourseServiceImpl implements CourseService{
         if(Objects.nonNull(course.getCourseDuration()) &&
         !"".equals(course.getCourseDuration())) {
             cm.setCourseDuration(course.getCourseDuration());
+        }
+
+        if(Objects.nonNull(course.getCourseTiming()) &&
+        !"".equalsIgnoreCase(course.getCourseTiming())) {
+            cm.setCourseTiming(course.getCourseTiming());
+        }
+
+        if(Objects.nonNull(course.getEnrolledStudents()) &&
+        !"".equals(course.getEnrolledStudents())) {
+            cm.setEnrolledStudents(course.getEnrolledStudents());
+        }
+
+        if(Objects.nonNull(course.getInstituteId()) &&
+        !"".equals(course.getInstituteId())) {
+            cm.setInstituteId(course.getInstituteId());
         }
 
         return adminCourseRepository.save(cm);
