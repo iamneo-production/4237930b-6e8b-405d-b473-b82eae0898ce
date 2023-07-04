@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
-import { ElementRef } from '@angular/core';
+import { Course } from 'src/app/class/Course';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AdminserviceService } from 'src/app/service/adminservice/adminservice.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-addcourse',
@@ -8,47 +10,34 @@ import { ElementRef } from '@angular/core';
   styleUrls: ['./addcourse.component.css']
 })
 export class AddcourseComponent implements OnInit {
-  CourseName: string='' ;
-  CourseDuration:string='';
-  CourseTimings:string='';
-  StudentsEnrolled:any;
-  CourseDescription:string='';
 
-  registerForm!: FormGroup;
-  submitted = false;
+  constructor(private router:Router,private adminservice:AdminserviceService,private route:ActivatedRoute,private toastr :ToastrService) { }
 
-  constructor(private formBuilder: FormBuilder,private elementRef: ElementRef) { }
+  course : Course = new Course();
+  instituteId !:number;
 
   ngOnInit(): void {
-    this.registerForm = this.formBuilder.group({
-      CourseName: ['', Validators.required],
-      CourseDuration: ['', Validators.required],
-      CourseTimings:['', Validators.required],
-      StudentsEnrolled:['', Validators.required],
-      CourseDescription:['', Validators.required],
-  },);
+
+    this.instituteId = this.route.snapshot.params['instituteId'];
+    console.log(this.instituteId);
   }
-  ngAfterViewInit() {
-    /*this.elementRef.nativeElement.ownerDocument
-        .body.style.backgroundColor = '#808080';*/
-}
-get f() { return this.registerForm.controls; }
 
-  onSubmit() {
-    this.submitted = true;
+  onSubmit()
+  {
+    console.log(this.course);
+    this.addCourse();
+  }
 
-    // stop here if form is invalid
-    if (this.registerForm.invalid) {
-        return;
-    }
+  addCourse()
+  {
+    this.course.instituteId = this.instituteId;
+    this.adminservice.addCourse(this.course).subscribe(data =>
+      {
+        console.log(data);
+        this.toastr.warning("Course for the Institute added Sucessfully");
+      },error => console.log(error));
+        this.router.navigate(['/admin/course',this.instituteId]);
+      }
+   }
+  
 
-    // display form values on success
-    alert('SUCCESSfully!! Added Course');
-}
-
-onReset() {
-    this.submitted = false;
-    this.registerForm.reset();
-}
-
-}
