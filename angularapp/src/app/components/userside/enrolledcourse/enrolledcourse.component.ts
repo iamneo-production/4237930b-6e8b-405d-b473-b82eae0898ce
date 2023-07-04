@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { EnrollCourse } from 'src/app/class/enrollCourse';
 import { Course } from 'src/app/class/Course';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { AuthService } from 'src/app/service/authservice/auth.service';
 
 
 @Component({
@@ -14,9 +15,13 @@ export class EnrolledcourseComponent implements OnInit {
   public JoinDate: any;
   public CourseEndDate: any;
 
-  constructor(private modalService: NgbModal) {}
+  userId: number;
+
+  constructor(private modalService: NgbModal,private authservices: AuthService) {}
 
   ngOnInit(): void {  
+    this.userId = this.authservices.getUserId();
+    console.log(this.userId);
   }
 
   enrollcourse:EnrollCourse[]=[

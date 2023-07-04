@@ -4,7 +4,7 @@ import { MustMatch } from './_helpers/must-match.validator';
 import { AuthService } from 'src/app/service/authservice/auth.service';
 import { User } from 'src/app/class/user';
 import { Router } from '@angular/router';
-
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-signup',
@@ -23,10 +23,7 @@ export class SignupComponent implements OnInit
   registerForm!: FormGroup;
   newuser : User = new User();
 
-
-  // submitted = false;
-
-  constructor(private formBuilder: FormBuilder, private authservice : AuthService, private router: Router) {}
+  constructor(private formBuilder: FormBuilder, private authservice : AuthService, private router: Router, private toastr: ToastrService) {}
 
   ngOnInit(): void 
   {
@@ -63,8 +60,7 @@ export class SignupComponent implements OnInit
         this.authservice.checkUserAvailabilityByEmail(this.newuser.email).subscribe((data) =>{
           console.log(data);
           if(data == true) {
-            alert("Account already exist..! Go to Login page");
-  
+            this.toastr.warning('Please Login', 'Account already exist!!');
             this.registerForm.reset();
           }
           else
@@ -78,9 +74,8 @@ export class SignupComponent implements OnInit
           this.authservice.saveAdmin(this.newuser).subscribe((data) =>
           {
             console.log(data);});
-            alert("Admin Account created sucessfully");
+            this.toastr.success('Registered sucessfully!', 'Register Info!');
             this.router.navigate(['auth/login'])
-
             this.registerForm.reset();
         }
 
@@ -89,30 +84,9 @@ export class SignupComponent implements OnInit
             this.authservice.saveUser(this.newuser).subscribe((data) =>
             {
               console.log(data);});
-              alert("User Account created sucessfully");
+              this.toastr.success('Registered sucessfully!', 'Register Info!');
               this.router.navigate(['auth/login'])
-
               this.registerForm.reset();
             }
           }
         }
-
-    
-
-      /*onSubmit() 
-      {
-        // alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value));
-        this.newuser.email = this.email;
-        this.newuser.mobileNumber = this.mobileNumber;
-        this.newuser.password = this.password;
-        this.newuser.userRole = this.userAdmin;
-        this.newuser.username = this.userName;
-        console.log(this.newuser);
-
-      }*/
-
-      // onReset() {
-      //   this.submitted = false;
-      //   this.registerForm.reset();
-      // }
-
