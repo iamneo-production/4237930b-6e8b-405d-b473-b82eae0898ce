@@ -16,7 +16,7 @@ import com.examly.springapp.Service.UserService;
 @RestController
 @RequestMapping
 // change the origin link as per your workspace- port-8081 link
-@CrossOrigin(origins = "https://8081-ecefccaeffbaddbcffbbedebaebcdacaee.project.examly.io")
+@CrossOrigin(origins = "https://8081-fddecffdbcffbbedebaebcdacaee.project.examly.io")
 public class AuthController {
 
     @Autowired
@@ -69,5 +69,12 @@ public class AuthController {
     {
         userService.saveuser(user);
         return "Admin added"; 
-    }    
+    }
+    
+    //check the existing user id by email
+    @GetMapping("/user/getId/{email}")
+    public int getIdByEmail(@PathVariable String email)
+    {
+        return userService.getIdByEmail(email);
+    }
 }

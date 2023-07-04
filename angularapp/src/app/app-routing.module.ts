@@ -35,7 +35,8 @@ const routes: Routes = [
       {path:"addinstitute",component:AddinstituteComponent},
       {path:"editinstitute/:instituteId",component:EditinstituteComponent},
       {path:"edituser",component:EdituserComponent}
-   ]
+   ],
+  //  canActivate: [AuthComponent]
   },
 
   {path:"user",component:UsersideComponent,children:
@@ -46,8 +47,8 @@ const routes: Routes = [
       {path:"courses",component:CourselistComponent},
       {path:"admissionform",component:AdmissionformComponent},
       {path:"status",component:StatusComponent}
-
-    ]
+    ],
+    // canActivate: [AuthComponent]
   },
   
   {path:"auth",component:AuthComponent,children:
@@ -55,7 +56,7 @@ const routes: Routes = [
       {path:"",component:LoginComponent},
       {path:"login",component:LoginComponent},
       {path:"signup",component:SignupComponent},
-   ]
+   ],
   }
 ];
 
