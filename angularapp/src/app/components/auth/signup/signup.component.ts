@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms'; 
 import { MustMatch } from './_helpers/must-match.validator';
+import { AuthService } from 'src/app/service/authservice/auth.service';
+import { User } from 'src/app/class/user';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-signup',
@@ -17,10 +21,12 @@ export class SignupComponent implements OnInit
   cpassword: string='';  
 
   registerForm!: FormGroup;
+  newuser : User = new User();
 
-  submitted = false;
 
-  constructor(private formBuilder: FormBuilder) {}
+  // submitted = false;
+
+  constructor(private formBuilder: FormBuilder, private authservice : AuthService, private router: Router) {}
 
   ngOnInit(): void 
   {
@@ -42,17 +48,56 @@ export class SignupComponent implements OnInit
   get f() { 
     return this.registerForm.controls;
   }
-
-  onSubmit(): void {
-    this.submitted = true;
-    // stop here if form is invalid
-      if (this.registerForm.invalid) {
-        return; 
-      }
-      else {
-        alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value));
-      }
+    onSubmit() {
+        this.newuser.email = this.email;
+        this.newuser.mobileNumber = this.mobileNumber;
+        this.newuser.password = this.password;
+        this.newuser.userRole = this.userAdmin;
+        this.newuser.username = this.userName;
+        console.log(this.newuser);
+        this.checkmailid();
+        
     }
+    checkmailid()
+      {
+        this.authservice.checkUserAvailabilityByEmail(this.newuser.email).subscribe((data) =>{
+          console.log(data);
+          if(data == true) {
+            alert("Account already exist..! Go to Login page");
+  
+            this.registerForm.reset();
+          }
+          else
+            this.createaccount();
+        });
+      }
+
+      createaccount()
+      {
+        if(this.newuser.userRole == "Admin") {
+          this.authservice.saveAdmin(this.newuser).subscribe((data) =>
+          {
+            console.log(data);});
+            alert("Admin Account created sucessfully");
+            this.router.navigate(['auth/login'])
+
+            this.registerForm.reset();
+        }
+
+        else if(this.newuser.userRole == "User")
+          {
+            this.authservice.saveUser(this.newuser).subscribe((data) =>
+            {
+              console.log(data);});
+              alert("User Account created sucessfully");
+              this.router.navigate(['auth/login'])
+
+              this.registerForm.reset();
+            }
+          }
+        }
+
+    
 
       /*onSubmit() 
       {
@@ -66,8 +111,8 @@ export class SignupComponent implements OnInit
 
       }*/
 
-      onReset() {
-        this.submitted = false;
-        this.registerForm.reset();
-      }
-}
+      // onReset() {
+      //   this.submitted = false;
+      //   this.registerForm.reset();
+      // }
+
