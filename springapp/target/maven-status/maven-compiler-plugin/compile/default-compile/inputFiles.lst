@@ -20,10 +20,10 @@
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/Model/UserModel.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/Config/SecurityConfig.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/Service/InstituteServiceImpl.java
-/home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/Service/CourseServiceImpl.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/Service/AdmissionService.java
-/home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/Service/CourseService.java
+/home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/Service/CourseServiceImpl.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/Service/InstituteService.java
-/home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/Model/LoginModel.java
+/home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/Service/CourseService.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/Config/UserInfoDetails.java
+/home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/Model/LoginModel.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/Service/StudentService.java
