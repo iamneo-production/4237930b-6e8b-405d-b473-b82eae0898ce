@@ -12,15 +12,15 @@ import jakarta.persistence.Table;
 @Table(name = "students")
 
 public class StudentModel {
-    @Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY) 
 	private int studentId;
 	@Column(name = "student_name")
 	private String studentName;
 	@Column(name = "student_dob")
 	private LocalDate studentDOB;
 	@Column(name = "address")
-	private String Address;
+	private String address;
 	@Column(name = "mobile_no")
 	private String mobileNo;
 	@Column(name = "sslc_marks")
@@ -28,11 +28,11 @@ public class StudentModel {
 	@Column(name = "hsc_marks")
 	private int hscMarks;
 	@Column(name = "diploma_marks")
-	private int DiplomaMarks;
+	private int diplomaMarks;
 	@Column(name = "eligibility")
-	private String Eligibility;
+	private String eligibility;
 	@Column(name = "gender")
-	private String Gender;
+	private String gender;
 	@Column(name = "father_name")
 	private String fatherName;
 	@Column(name = "mother_name")
@@ -54,31 +54,28 @@ public class StudentModel {
 	@Column(name = "last_name")
 	private String lastName;
 	@Column(name = "nationality")
-	private String Nationality;
+	private String nationality;
 	@Column(name = "state")
-	private String State;
+	private String state;
 	
-	
-	
-	public student() {
-		
+	public student(){
+
 	}
 	
-	
-	public StudentModel(String studentName, LocalDate studentDOB, String address, String mobileNo, int sslcMarks,
+	public student(String studentName, LocalDate studentDOB, String address, String mobileNo, int sslcMarks,
 			int hscMarks, int diplomaMarks, String eligibility, String gender, String fatherName, String motherName,
 			String alternateMobileNo, String emailId, String houseNo, String streetName, String areaName, int pinCode,
 			String firstName, String lastName, String nationality, String state) {
-		super();
+		
 		this.studentName = studentName;
 		this.studentDOB = studentDOB;
-		Address = address;
+		this.address = address;
 		this.mobileNo = mobileNo;
 		this.sslcMarks = sslcMarks;
 		this.hscMarks = hscMarks;
-		DiplomaMarks = diplomaMarks;
-		Eligibility = eligibility;
-		Gender = gender;
+		this.diplomaMarks = diplomaMarks;
+		this.eligibility = eligibility;
+		this.gender = gender;
 		this.fatherName = fatherName;
 		this.motherName = motherName;
 		this.alternateMobileNo = alternateMobileNo;
@@ -89,8 +86,8 @@ public class StudentModel {
 		this.pinCode = pinCode;
 		this.firstName = firstName;
 		this.lastName = lastName;
-		Nationality = nationality;
-		State = state;
+		this.nationality = nationality;
+		this.state = state;
 	}
 	public int getStudentId() {
 		return studentId;
@@ -110,11 +107,11 @@ public class StudentModel {
 	public void setStudentDOB(LocalDate studentDOB) {
 		this.studentDOB = studentDOB;
 	}
-	public String getaddress() {
+	public String getAddress() {
 		return address;
 	}
 	public void setAddress(String address) {
-		Address = address;
+		this.address = address;
 	}
 	public String getMobileNo() {
 		return mobileNo;
@@ -134,23 +131,23 @@ public class StudentModel {
 	public void setHscMarks(int hscMarks) {
 		this.hscMarks = hscMarks;
 	}
-	public int getdiplomaMarks() {
+	public int getDiplomaMarks() {
 		return diplomaMarks;
 	}
 	public void setDiplomaMarks(int diplomaMarks) {
-		DiplomaMarks = diplomaMarks;
+		this.diplomaMarks = diplomaMarks;
 	}
 	public String getEligibility() {
-		return Eligibility;
+		return eligibility;
 	}
 	public void setEligibility(String eligibility) {
-		Eligibility = eligibility;
+		this.eligibility = eligibility;
 	}
 	public String getGender() {
-		return Gender;
+		return gender;
 	}
 	public void setGender(String gender) {
-		Gender = gender;
+		this.gender = gender;
 	}
 	public String getFatherName() {
 		return fatherName;
@@ -212,21 +209,18 @@ public class StudentModel {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	public String getState() {
-		return State;
-	}
-	public void setState(String state) {
-		State = state;
-	}
 	public String getNationality() {
-		return Nationality;
+		return nationality;
 	}
 	public void setNationality(String nationality) {
-		Nationality = nationality;
+		this.nationality = nationality;
 	}
-	
-	
-
+	public String getState() {
+		return state;
+	}
+	public void setState(String state) {
+		this.state = state;
+	}
 	
 }
 
