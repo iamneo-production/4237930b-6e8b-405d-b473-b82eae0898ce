@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl,FormGroup,Validators} from '@angular/forms';
+import { Students } from 'src/app/class/Student';
+import { AdminserviceService } from 'src/app/service/adminservice/adminservice.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-adduser',
@@ -7,8 +10,9 @@ import { FormControl,FormGroup,Validators} from '@angular/forms';
   styleUrls: ['./adduser.component.css']
 })
 export class AdduserComponent implements OnInit {
+  newstudent: Students = new Students();
 
-  constructor() { }
+  constructor(private adminservice:AdminserviceService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -19,17 +23,17 @@ export class AdduserComponent implements OnInit {
     motherName:new FormControl('',[Validators.required]),
     emailId:new FormControl('',[Validators.required,Validators.email,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]),
     age:new FormControl('',[Validators.required]),
-    'enterSSLC/HSCMarks':new FormControl('',[Validators.required]),
+    sslc:new FormControl('',[Validators.required]),
     lastName:new FormControl('',[Validators.required]),
-    phoneNumber1:new FormControl('',[Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
-    'male/female':new FormControl('',[Validators.required,Validators.pattern('^M(ale)?$|^F(emale)?$|^m(ale)?$|^f(emale)?$')]),
-    phoneNumber2:new FormControl('',[Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
+    mobile:new FormControl('',[Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
+    gender:new FormControl('',[Validators.required,Validators.pattern('^M(ale)?$|^F(emale)?$|^m(ale)?$|^f(emale)?$')]),
+    altMobile:new FormControl('',[Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
     houseNo:new FormControl('',[Validators.required]),
     streetName:new FormControl('',[Validators.required]),
     areaName:new FormControl('',[Validators.required]),
     pincode:new FormControl('',[Validators.required]),
     state:new FormControl('',[Validators.required]),
-    nation:new FormControl('',[Validators.required]),
+    nationality:new FormControl('',[Validators.required]),
     // institute:new FormControl('',[Validators.required]),
     // course:new FormControl('',[Validators.required])
 
@@ -38,8 +42,21 @@ export class AdduserComponent implements OnInit {
   loginUser(val1:string, val2:string)
   {
     console.log(val1,val2);
-    console.warn(this.loginForm.value)
+    //console.warn(this.loginForm.value)
+    this.addStudent();
+    console.log(this.newstudent);
+
   }
+
+  //for adding student details
+  addStudent(): void {
+    this.adminservice.addStudent(this.newstudent).subscribe(data =>
+      {
+        console.log(data);
+        this.router.navigate(['/admin/students']);
+      })
+  }
+
 
   get firstName()
   {

@@ -9,7 +9,7 @@ import { Login } from 'src/app/class/login';
 export class AuthService {
   loginstatus:boolean = false;
 
-  private baseURL = "https://8080-ecefccaeffbaddbcffbbedebaebcdacaee.project.examly.io/";
+  private baseURL = "https://8080-deabdbcffbbedebaebcdacaee.project.examly.io/";
 
   constructor(private http: HttpClient) { }
   //register admin
