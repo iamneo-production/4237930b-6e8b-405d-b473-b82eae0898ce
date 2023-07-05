@@ -21,13 +21,15 @@ import com.examly.springapp.Service.InstituteService;
 import com.examly.springapp.Service.CourseService;
 import com.examly.springapp.Service.InstituteService;
 import com.examly.springapp.Model.CourseModel;
+import com.examly.springapp.Model.StudentModel;
+import com.examly.springapp.Service.StudentService;
 
 
 @RequestMapping
 @RestController
 // change the origin link as per your workspace- port-8081 link
 
-@CrossOrigin(origins = "https://8081-cacdfbaedcbbdbddaedecdbcffbbedebaebcdacaee.project.examly.io")
+@CrossOrigin(origins = "https://8081-bafffefcdbcffbbedebaebcdacaee.project.examly.io")
 
 
 
@@ -42,6 +44,9 @@ public class UserController {
 
     @Autowired
     private InstituteService instituteService;
+
+    @Autowired
+    private StudentService adminService;
 
     //add admissin
     @PostMapping("/user/addAdmission")
@@ -108,17 +113,23 @@ public class UserController {
        return admissionService.getByuserId(id);
      }
 
-    //  // get course by course id
-    // @GetMapping("/user/getCourseById/{courseId}")
-    // public CourseModel getCourseById(@PathVariable Integer courseId) {
-    //     return courseService.getcourseById(courseId);
-    // }
+      // get course by course id
+     @GetMapping("/user/getCourseById/{courseId}")
+     public CourseModel getCourseById(@PathVariable Integer courseId) {
+        return courseService.getcourseById(courseId);
+     }
 
-    //  // get institutes by institute id
-    //  @GetMapping("/getInstituteById/{instituteId}")
-    //  public InstituteModel getInstituteById(@PathVariable Integer instituteId) {
-    //      return instituteService.getInstituteById(instituteId);
-    //  }
+      // get institutes by institute id
+      @GetMapping("/user/getInstituteById/{instituteId}")
+      public InstituteModel getInstituteById(@PathVariable Integer instituteId) {
+          return instituteService.getInstituteById(instituteId);
+     }
+
+     // get student by student id
+    @GetMapping("/user/getStudentById/{studentId}")
+    public StudentModel getStudentById(@PathVariable Integer studentId) {
+        return adminService.getStudentById(studentId);
+    }
 
 
 }
