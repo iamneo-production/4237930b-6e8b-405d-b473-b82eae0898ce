@@ -6,6 +6,7 @@ import com.examly.springapp.Model.UserModel;
 
 public interface UserService {
 
+
     //for saving the datas of user/admin (Registraion page)
     UserModel saveuser(UserModel newuser);
 
@@ -21,6 +22,7 @@ public interface UserService {
 
     //check the userrole by the email
     String checkRoleByEmail(String email);
+
 }
     
 

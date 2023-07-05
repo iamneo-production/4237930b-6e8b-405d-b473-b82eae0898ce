@@ -15,15 +15,28 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.examly.springapp.Model.AdmissionModel;
 import com.examly.springapp.Service.AdmissionService;
+import com.examly.springapp.Model.InstituteModel;
+import com.examly.springapp.Service.InstituteService;
+
+import com.examly.springapp.Service.CourseService;
+import com.examly.springapp.Service.InstituteService;
+import com.examly.springapp.Model.CourseModel;
+
 
 @RequestMapping
 @RestController
 // change the origin link as per your workspace- port-8081 link
-@CrossOrigin(origins = "https://8081-addcabcdecadbcffbbedebaebcdacaee.project.examly.io")
+@CrossOrigin(origins = "https://8081-cacdfbaedcbbdbddaedecdbcffbbedebaebcdacaee.project.examly.io")
 public class UserController {
     
     @Autowired
     public AdmissionService admissionService;
+
+    @Autowired
+    private CourseService courseService;
+
+    @Autowired
+    private InstituteService instituteService;
 
     //add admissin
     @PostMapping("/user/addAdmission")
@@ -68,5 +81,18 @@ public class UserController {
     {
         return admissionService.getDetailsById(id);
     }
+
+    //view institute
+    @GetMapping("/user/viewInstitutes")
+    public List<InstituteModel> viewInstitute() {
+        return instituteService.viewInstitute();
+    }
+
+    //view the course list by instituteId
+    @GetMapping("/user/findByInstituteId/{instituteId}")
+    public List<CourseModel> findByInstituteId(@PathVariable int instituteId) {
+        return courseService.findByInstituteId(instituteId);
+    }
+    
 
 }
