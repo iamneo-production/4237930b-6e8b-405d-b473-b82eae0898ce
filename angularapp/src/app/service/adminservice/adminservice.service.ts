@@ -14,7 +14,11 @@ export class AdminserviceService {
   constructor(private http: HttpClient) { }
 
   //change the baseUrl asper your workspace port-8080 link
-  baseUrl: string = "https://8080-addcabcdecadbcffbbedebaebcdacaee.project.examly.io/"
+
+  baseUrl: string = "https://8080-cacdfbaedcbbdbddaedecdbcffbbedebaebcdacaee.project.examly.io/"
+
+  
+
 
   //get the list of institutes
   public viewInstitute(): Observable<Institute[]>{
@@ -40,8 +44,10 @@ export class AdminserviceService {
     return this.http.get<Course[]>(this.baseUrl+`admin/findByInstituteId/`+instituteId);
   }
 
-  //add the institutes courses
- 
+   //add the courses to the specified institute
+  public addCourse(newcourse:Course): Observable<any>{
+    return this.http.post<Institute>(this.baseUrl+`admin/addCourse`,newcourse);
+  }
 
   //delete the course by courseId
   public deleteCourse(courseId : number): Observable<String>{
@@ -64,5 +70,31 @@ export class AdminserviceService {
     return this.http.get<Students[]>(this.baseUrl+`admin/viewStudent`);
   }
 
+   //add student details for admin
+   public addStudent(newstudent: Students): Observable<any>{
+    const requestOptions: Object = {
+      responseType: 'text'
+    }
+    return this.http.post<Students>('https://8080-deabdbcffbbedebaebcdacaee.project.examly.io/admin/addStudent',newstudent,requestOptions);
+  }
+
+  //delete student details for admin by studentId
+  public deleteStudent(studentId : number): Observable<String>{
+    const requestOptions: Object = {
+      responseType: 'text'
+    }
+    return this.http.delete<String>('https://8080-deabdbcffbbedebaebcdacaee.project.examly.io/admin/deleteStudent/'+studentId,requestOptions);
+  }
+
+  //update student by studentId and student details
+  public editStudent(studentId : number, student:Students): Observable<Students>{
+    return this.http.put<Students>('https://8080-deabdbcffbbedebaebcdacaee.project.examly.io/admin/editStudent/'+studentId,student);
+  }
+
+  //get the student by studentId
+  public getStudentById(studentId : number): Observable<Students>{
+    return this.http.get<Students>('https://8080-deabdbcffbbedebaebcdacaee.project.examly.io/admin/getStudentById/'+studentId);
+  }
+  
 
 }
