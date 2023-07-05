@@ -23,12 +23,12 @@ export class UserComponent implements OnInit {
   students ?:Students[];
 
   getallStudents()
-    {
-        this.adminservice.viewStudents().subscribe(data =>{
-        this.students = data;
-        console.log(this.students);
-      })
-    }
+  {
+    this.adminservice.viewStudents().subscribe(data =>{
+    this.students = data;
+    console.log(this.students);
+    })
+  }
 
   //for delete popup modal
   open(content:any) {

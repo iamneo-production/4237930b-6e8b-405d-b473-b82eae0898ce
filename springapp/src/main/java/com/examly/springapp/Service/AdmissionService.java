@@ -18,5 +18,6 @@ public interface AdmissionService {
     String getStatusValue(int id);
 
     AdmissionModel getDetailsById(int id);
+   List< AdmissionModel> getByuserId(int userId);
 
 }

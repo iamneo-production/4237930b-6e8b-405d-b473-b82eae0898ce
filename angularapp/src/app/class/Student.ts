@@ -17,5 +17,6 @@ export class Students{
 	public pincode  !:number;
 	public nationality  !:string;
 	public state  !:string;
+	public courseName !:string;
 	
 }
