@@ -25,7 +25,7 @@ import com.examly.springapp.Service.StudentService;
 @RequestMapping("/admin")
 // change the origin link as per your workspace- port-8081 link
 
-@CrossOrigin(origins = "https://8081-ffaeadfaacdbcffbbedebaebcdacaee.project.examly.io/")
+@CrossOrigin(origins = "https://8081-bafffefcdbcffbbedebaebcdacaee.project.examly.io")
 
 @RestController
 public class AdminController {

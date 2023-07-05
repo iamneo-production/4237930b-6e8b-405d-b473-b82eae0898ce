@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { EnrollCourse } from 'src/app/class/enrollCourse';
 import { Course } from 'src/app/class/Course';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Admission } from 'src/app/class/admission';
+import { UserserviceService } from 'src/app/service/userservice/userservice.service';
+import { HttpClient } from '@angular/common/http';
+import { AdminserviceService } from 'src/app/service/adminservice/adminservice.service';
 
 
 @Component({
@@ -13,21 +17,34 @@ export class EnrolledcourseComponent implements OnInit {
   public CourseName: any;
   public JoinDate: any;
   public CourseEndDate: any;
-
-  constructor(private modalService: NgbModal) {}
+  
+  constructor(private modalService: NgbModal, private userservice:UserserviceService) {}
+  admission:Admission[];
+  
+  
+  userId:number=1;
 
   ngOnInit(): void {  
+     this.userservice.getByUserId(this.userId).subscribe(data =>
+       {
+          this.admission = data;
+          console.log(this.admission);
+
+          
+      });
+    
   }
 
-  enrollcourse:EnrollCourse[]=[
+  // enrollcourse:EnrollCourse[]=[
 
-    new EnrollCourse("M.E(VSI)","10/12/2022","10/10/2023"),
-    new EnrollCourse("B.Tech(VSI)","21/1/2023","20/12/2024"),
-    new EnrollCourse("M.E(VSI)","16/7/2022","23/7/2023"),
-    new EnrollCourse("M.E(VSI)","16/7/2022","23/7/2023"),
-    new EnrollCourse("M.E(VSI)","16/7/2022","23/7/2023")
+  //   new EnrollCourse("M.E(VSI)","10/12/2022","10/10/2023"),
+  //   new EnrollCourse("B.Tech(VSI)","21/1/2023","20/12/2024"),
+  //   new EnrollCourse("M.E(VSI)","16/7/2022","23/7/2023"),
+  //   new EnrollCourse("M.E(VSI)","16/7/2022","23/7/2023"),
+  //   new EnrollCourse("M.E(VSI)","16/7/2022","23/7/2023")
 
-  ];
+  // ];
+  
  
   //for delete popup modal
   open(content: any): void {

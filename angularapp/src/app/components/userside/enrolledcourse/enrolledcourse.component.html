@@ -4,13 +4,13 @@
 <div class="enrolledcourse">
 <br><br>
 <div class = "container">
-    <ng-container *ngFor = "let ec of enrollcourse">
+    <ng-container *ngFor = "let ec of admission">
           <div class="card shadow-lg rounded">
               <div class="card-body">
                   <div class="left">
-                    <h6 class="card-subtitle">Course name : {{ec.CourseName}}</h6><br>
-                    <h6 class="card-subtitle">Joined duration : {{ec.JoinDate}}</h6><br>
-                    <h6 class="card-subtitle">Course End Date: {{ec.CourseEndDate}}</h6><br>
+                    <h6 class="card-subtitle">Course name : {{ec.courseId}}</h6><br>
+                    <h6 class="card-subtitle">Joined duration : {{ec.courseStartDate}}</h6><br>
+                    <h6 class="card-subtitle">Course End Date: {{ec.courseEndDate}}</h6><br>
                   </div>
                   <div class="right">
                       <p><strong>Ratings : <ngb-rating [max]="5">:</ngb-rating></strong></p>
