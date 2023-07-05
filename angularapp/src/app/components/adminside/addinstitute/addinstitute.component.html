@@ -1,0 +1,84 @@
+<!-- author - ARULSARAVANAN -->
+<app-adminnavbar></app-adminnavbar>
+
+<div class="form">
+
+      <br><br>
+      <h2><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-buildings" viewBox="0 0 16 16">
+        <path d="M14.763.075A.5.5 0 0 1 15 .5v15a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5V14h-1v1.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V10a.5.5 0 0 1 .342-.474L6 7.64V4.5a.5.5 0 0 1 .276-.447l8-4a.5.5 0 0 1 .487.022ZM6 8.694 1 10.36V15h5V8.694ZM7 15h2v-1.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5V15h2V1.309l-7 3.5V15Z"/>
+        <path d="M2 11h1v1H2v-1Zm2 0h1v1H4v-1Zm-2 2h1v1H2v-1Zm2 0h1v1H4v-1Zm4-4h1v1H8V9Zm2 0h1v1h-1V9Zm-2 2h1v1H8v-1Zm2 0h1v1h-1v-1Zm2-2h1v1h-1V9Zm0 2h1v1h-1v-1ZM8 7h1v1H8V7Zm2 0h1v1h-1V7Zm2 0h1v1h-1V7ZM8 5h1v1H8V5Zm2 0h1v1h-1V5Zm2 0h1v1h-1V5Zm0-2h1v1h-1V3Z"/>
+      </svg> Add Academy </h2>
+      <br><br><br>
+
+<div id="addinstitute" class="section">
+  <div class="section-center">
+    <div class="container">
+      <div class="row">
+        <div class="addinstitute-form">
+          <form #addInstituteForm = "ngForm" (ngSubmit)="onSubmit()">
+              <div class="row">
+                        <div class="col-md-7">
+                          <div class="form-group">
+                              <label>Academy name &nbsp;<i class="fa fa-graduation-cap" aria-hidden="true"></i></label><br>
+                              <input class="input-box1" name="academyname"  id="academyName" style="text-align: center" placeholder="Enter Academy name"  [(ngModel)]="newinstitute.instituteName" #academyname="ngModel" required>
+                              <br>
+                          </div>
+                        </div>
+
+                        <div class="col-md-3">
+                          <div class="form-group">
+                            <label>Contact number &nbsp;<i class="fa fa-phone" aria-hidden="true"></i></label><br>
+                              <input class="input-box" name="contactnumber" id="ContactNumber" style="text-align: center" placeholder="Enter the contact number"  [(ngModel)]="newinstitute.instituteMobileNo" #contactnumber="ngModel" required >
+                              <br>
+                          </div>
+                        </div>
+
+                        <br><br><br>
+
+
+                        <div class="col-md-7">
+                          <div class="form-group">
+                            <label>Image URL &nbsp;<i class="fa fa-file-image-o" aria-hidden="true"></i></label><br>
+                              <input class="input-box1" name="imageurl"  id="imageUrl" style="text-align: center" placeholder="Enter the academy image url"  [(ngModel)]="newinstitute.instituteImgUrl" #image="ngModel" required>
+                              <br>
+                          </div>
+                        </div>
+                        <div class="col-md-3">
+                          <div class="form-group">
+                            <label>Academy Email &nbsp;<i class="fa fa-envelope" aria-hidden="true"></i></label><br>
+                              <input class="input-box" name="email" id="emailId" style="text-align: center" placeholder="Enter the academy email" [(ngModel)]="newinstitute.instituteEmail" #email="ngModel" required >
+                              <br>
+                          </div>
+                        </div>
+
+                        <br><br><br>
+
+                      <div class="col-md-7">
+                        <div class="form-group">
+                          <label>Location  &nbsp;<i class="fa fa-location-arrow" aria-hidden="true"></i></label><br>
+                            <input class="input-box1" name="location"  id="academyLocation" style="text-align: center" placeholder="Enter Academy Location"  [(ngModel)]="newinstitute.instituteAddress" #location="ngModel" required>
+                            <br>
+                        </div>
+                      </div>
+
+                      <div class="col-md-3">
+                        <div class="form-group">
+                            <label>Description  &nbsp;<i class="fa fa-book" aria-hidden="true"></i></label><br>
+                            <input class="input-box" name="discription" id="academyDescription" style="text-align: center" placeholder="Enter Academy description"   [(ngModel)]="newinstitute.instituteDescription" #description="ngModel" required >
+                            <br>
+                          </div>
+                        </div>
+
+                      <br><br><br>
+              </div>
+                    <br><br>
+                    <button  [disabled] ="addInstituteForm.invalid"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
+                      <path d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0zm-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z"/>
+                    </svg> Add </button>
+      </form>
+    </div>
+  </div>
+</div>
+</div>
+
+

@@ -1,0 +1,152 @@
+/* * {
+  box-sizing: border-box;
+} */
+
+/* body {
+  background-color: #f5f5f5;
+  font-family: "Open Sans", sans-serif;
+} */
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.searchbar {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.input-group {
+  position: relative;
+  width: 100%;
+}
+
+.search {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: 10px;
+  height: 38px;
+  align-items: center;
+  vertical-align: top;
+  width: auto;
+  min-width: 250px;
+  border-radius: 0;
+}
+
+/* .search:focus {
+  outline: none;
+  border-bottom-color: #007bff;
+} */
+
+.search-btn {
+  background-color: rgb(58, 135, 58);
+  color: white;
+  border: none;
+  padding-left: 30px;
+  padding-right: 30px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 8px;
+  transition: opacity 0.15s;
+  vertical-align: top;
+  height: 38px;
+}
+
+.search-btn:hover {
+  opacity: 0.9;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+thead {
+  background-color: #007bff;
+  color: #fff;
+}
+
+th {
+  padding: 10px;
+  text-align: center;
+  font-size: 16px;
+}
+
+td {
+  padding: 10px;
+  text-align: center;
+  font-size: 14px;
+}
+
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btn {
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 10px 14px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.btn-primary {
+  background-color: #007bff;
+}
+
+.btn-primary:hover {
+  background-color: #0069d9;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+}
+
+.add-std {
+  background-color: rgb(58, 135, 58);
+  margin: auto;
+  border-radius: 10px;
+  width: 160px;
+  padding-left: 2px;
+  padding-right: 2px;
+  height: 45px;
+}
+
+.add-std:hover {
+  opacity: 0.9;
+  background-color: rgb(58, 135, 58) ;
+}
+
+.user
+{
+  background: linear-gradient(
+    rgb(184, 234, 182),
+    rgb(211, 236, 206),
+    rgba(133, 209, 143, 0.303)
+  );
+  height: 93vh;
+}
+
+.addButtondiv
+{
+  margin: auto;
+  text-align: right;
+  padding-right: 14px;
+  padding-bottom: 14px;
+}

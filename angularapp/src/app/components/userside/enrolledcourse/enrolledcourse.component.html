@@ -1,0 +1,46 @@
+<!-- Authors- Tanusha -->
+<app-usernavbar></app-usernavbar>
+
+<div class="enrolledcourse">
+<br><br>
+<div class = "container">
+    <ng-container *ngFor = "let ec of admission">
+          <div class="card shadow-lg rounded">
+              <div class="card-body">
+                  <div class="left">
+                    <h6 class="card-subtitle">Course name : {{ec.courseId}}</h6><br>
+                    <h6 class="card-subtitle">Joined duration : {{ec.courseStartDate}}</h6><br>
+                    <h6 class="card-subtitle">Course End Date: {{ec.courseEndDate}}</h6><br>
+                  </div>
+                  <div class="right">
+                      <p><strong>Ratings : <ngb-rating [max]="5">:</ngb-rating></strong></p>
+                  </div>
+                  <div class="button">
+                    <button class="btn editbutton" routerLink='/user/admissionform'>Edit&nbsp;<i class="fa fa-pencil" aria-hidden="true"></i></button>
+                    <button class="btn deletebutton" (click) = "open(content)">Delete&nbsp;<i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                    <button class="btn statusbutton" (click)="gotoStatus(ec.admissionId)">Status&nbsp;<i class="fa fa-info-circle" aria-hidden="true"></i></button>
+                    <button class="btn mylearnbutton">My Learning&nbsp;<i class="fa fa-book" aria-hidden="true"></i></button>
+                  </div>
+
+                  <!-- codes for the delete popup -->
+                  <ng-template #content let-modal >
+                    <div class="modal-header">
+                      <h4 class="modal-title">Confirm Delete</h4>
+                      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      Are you sure you want to delete this item?
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" (click)="modal.dismiss('cancel')">Cancel</button>
+                      <button type="button" class="btn btn-danger" (click)="delete()">Delete</button>
+                    </div>
+                  </ng-template>
+                  <!-- ------------------------ -->
+              </div>
+          </div><br>
+      </ng-container>
+  </div>
+</div>

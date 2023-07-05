@@ -1,0 +1,36 @@
+<!-- Author- Arulsaravanan -->
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: #316E88;">
+    <div class="container-fluid">
+  
+      <a class="navbar-brand" routerLink= "/user" routerLinkActive="active"><i class="fa fa-graduation-cap" aria-hidden="true"></i>&nbsp;PG Admission</a>
+  
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  
+        <ul class ="navbar-nav mx-auto">
+  
+          <li class = "nav-link" id="userInstitute"
+              style="padding-right:325px;">
+            <a routerLink= "/user/institute" routerLinkActive="active" class="nav-link" ><i class="fa fa-university" aria-hidden="true"></i>&nbsp;Institute</a>
+          </li>
+  
+          <li class = "nav-link" id="userEnrolledCourse">
+            <a routerLink="/user/enrolledcourse" routerLinkActive="active" class="nav-link"><i class="fa fa-book" aria-hidden="true"></i>&nbsp;Enrolled course</a>
+          </li>
+        </ul>
+  
+        <ul class ="navbar-nav ms-auto " id="logout"
+           style="padding-right:0px;">
+  
+           <li class = "nav-link">
+            <a (click)="gotToLogin()" routerLinkActive="active" class="nav-link"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;Logout</a>
+          </li>
+  
+        </ul>
+    </div>
+  </div>
+  </nav>
+  

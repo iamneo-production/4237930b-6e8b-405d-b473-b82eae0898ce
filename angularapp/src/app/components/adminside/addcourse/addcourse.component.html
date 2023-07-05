@@ -1,0 +1,129 @@
+<!--author-tanusha-->
+<app-adminnavbar></app-adminnavbar>
+<!-- <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #16952f;">
+    <div class="container-fluid">
+  
+      <a class="navbar-brand" routerLink="/admin" routerLinkActive="active">&nbsp;Academy</a>
+  
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  
+        <ul class="navbar-nav mx-auto">
+  
+          <li class="nav-link" id="adminInstitute" style="padding-right:225px;">
+            <a routerLink="/admin/institute" routerLinkActive="active" class="nav-link"> &nbsp;Course</a>
+          </li>
+  
+          <li class="nav-link" id="userEnrolledCourse" style="padding-right: 225px; ">
+            <a routerLink="/admin/course" routerLinkActive="active" class="nav-link">
+               &nbsp;Students</a>
+          </li>
+  
+          
+        </ul>
+  
+        <ul class="navbar-nav ms-auto " id="logout" style="padding-right:0px;">
+  
+          <li class="nav-link">
+            <a routerLink="/auth/login" routerLinkActive="active" class="nav-link"><fa-icon
+                [icon]="faRightFromBracket"></fa-icon> &nbsp;Logout</a>
+          </li>
+  
+        </ul>
+      </div>
+    </div>
+  </nav> -->
+
+  <div class="form">
+
+    <br><br>
+    <h2 > Add Course </h2>
+    <br><br><br>
+
+<div id="addcourse" class="section">
+<div class="section-center">
+  <div class="container">
+    <div class="row">
+      <div class="addcourse-form">
+        <form  (ngSubmit)="onSubmit()" #addcourse="ngForm">
+            <div class="row">
+                      <div class="col-md-7">
+                        <div class="form-group">
+                            <label>CourseName</label><br>
+                            <input class="input-box1" name="CourseName"  id="CourseName" style="text-align: center;margin-bottom: 30px;" 
+                            placeholder="Enter Course Name"   type="text" placeholder="Enter The Course Name"                            
+ 
+                            [(ngModel)]="course.courseName" aria-describedby="CN">
+                            <br>
+                        </div>
+                      </div>
+
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label>No of Students Enrolled</label><br>
+                            <input class="input-box1" name="StudentsEnrolled" id="StudentsEnrolled"
+                            style="text-align: center;margin-bottom: 30px;"
+                            type="number" placeholder=" No of Students Enrolled"   
+                            [(ngModel)]="course.enrolledStudents" aria-describedby="SE" >
+                            <br>
+                        </div>
+                      </div>
+
+                      <br><br><br>
+
+
+                      <div class="col-md-7">
+                        <div class="form-group">
+                          <label>Course Duration</label><br>
+                            <input class="input-box1" name="CourseDuration" id="CourseDuration"
+                            style="text-align: center;margin-bottom: 30px;"
+                            type="number" placeholder="Enter The Course Duration" 
+                            [(ngModel)]="course.courseDuration" aria-describedby="CDU">
+                            <br>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label>Course Description</label><br>
+                            <input class="input-box1"  style="text-align: center;margin-bottom: 30px;" 
+                             name="CourseDescription" id="CourseDescription"
+                            type="text" placeholder="Enter the Course Description"    
+                             [(ngModel)]="course.courseDescription" aria-describedby="CD"S >
+                            <br>
+                        </div>
+                      </div>
+
+                      <br><br><br>
+
+                    <div class="col-md-7">
+                      <div class="form-group">
+                        <label>Course Timings</label><br>
+                          <input class="input-box1"  style="text-align: center;margin-bottom: 30px;" 
+                          name="CourseTimings" id="CourseTimings" 
+                          type="text" placeholder="Enter The Course Timings" 
+                           
+                          [(ngModel)]="course.courseTiming" aria-describedby="CT">
+                          <br>
+                      </div>
+                    </div>
+
+                    
+            </div>
+                  <br><br>
+                  <button  [disabled] ="addcourse.invalid" [ngClass]="{ 'p1':addcourse .form.invalid,'p2':addcourse.form.valid} ">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
+                    <path d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0zm-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z"/>
+                  </svg> Add </button>
+  <div style="margin-bottom: 50px;">
+
+  </div>
+    </form>
+  </div>
+</div>
+</div>
+</div>
+

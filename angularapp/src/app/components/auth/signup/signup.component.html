@@ -1,0 +1,69 @@
+<!-- Authors - Tanusha N, Gerlin V, Sindhu Priyadharshini C,-->
+
+<section class="register-block">
+
+    <div class="form-box">
+  
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" novalidate>
+        <h2>SIGNUP</h2><br/>
+  
+        <div class="inputbox" class="dropdown" style="width: 300px;border: none;">
+             <select [(ngModel)]="userAdmin" formControlName="userAdmin" [ngClass]="{ 'is-invalid': f.userAdmin.errors && f.userAdmin.touched }" class="form-control">
+               <option value="" disabled selected >Enter User/Admin</option>
+                  <option value="User">User</option>
+                  <option value="Admin">Admin</option>
+              </select>
+            <div *ngIf="f.userAdmin.errors && f.userAdmin.touched" class="invalid-feedback">
+            <div class="required"  *ngIf="f.userAdmin.errors.required && f.userAdmin.touched" >User/Admin is required</div>
+         </div>
+        </div>
+  
+  
+        <div class="form-group" class="inputbox">
+             <input id="email"  type="email" name="email" placeholder="Enter The Email" [(ngModel)]="email" formControlName="email" [ngClass]="{ 'is-invalid': f.email.touched  && f.email.errors }" class="form-control">
+             <div *ngIf="f.email.touched && f.email.errors" class="invalid-feedback" >
+                <div class="required" *ngIf="f.email.errors.required && f.email.touched">Email is required</div>
+                <div class="required"  *ngIf="f.email.errors.email && f.email.touched">Email must be a valid email address</div>
+           </div>
+        </div>
+  
+        <div class="form-group" class="inputbox">
+          <input id="userName" type="text" name="userName" placeholder="Enter The UserName" [(ngModel)]="userName" formControlName="userName" [ngClass]="{ 'is-invalid': f.userName.touched && f.userName.errors }" class="form-control">
+          <div *ngIf="f.userName.touched && f.userName.errors" class="invalid-feedback">
+              <div class="required" *ngIf="f.userName.errors.required && f.userName.touched">UserName is required</div>
+              <div class="required" *ngIf="f.userName.errors.email && f.userName.touched">userName must be a valid email address</div>
+          </div>
+        </div>
+  
+        <div class="form-group" class="inputbox">
+          <input formControlName="mobileNumber" id="mobileNumber" type="text" name="mobileNumber" placeholder="Enter The MobileNumber" [(ngModel)]="mobileNumber" [ngClass]="{ 'is-invalid': f.mobileNumber.touched && f.mobileNumber.errors }" class="form-control">
+          <div *ngIf="f.mobileNumber.touched && f.mobileNumber.errors" class="invalid-feedback">
+            <div class="required"  *ngIf="f.mobileNumber.errors?.required && f.mobileNumber.touched">Mobile Number is Required</div>
+            <div class="required"  *ngIf="f.mobileNumber.errors?.pattern && f.mobileNumber.touched">Mobile number is not 10 digit</div>
+          </div>
+        </div>
+  
+        <div class="form-group" class="inputbox">
+            <input id="password" type="password" name="password" placeholder="Password" [(ngModel)]="password" formControlName="password"  [ngClass]="{ 'is-invalid': f.password.touched && f.password.errors }" class="is-invalid" class="form-control">
+              <div *ngIf="f.password.touched && f.password.errors" class="invalid-feedback ">
+                <div  class="required"  *ngIf="f.password.errors.required && f.password.touched">Password is required</div>
+                <div class="required"  *ngIf="f.password.errors.minlength && f.password.touched">Password must be at least 6 characters</div>
+             </div>
+        </div>
+  
+  
+      <div class="form-group" class="inputbox">
+      <input formControlName="cpassword"id="confirmPassword" name="confirmPassword" type="password" placeholder="Confirm Pasword" [(ngModel)]="cpassword"
+                              [ngClass]="{ 'is-invalid': f.cpassword.touched && f.cpassword.errors }" class="" class="form-control">
+          <div *ngIf="f.cpassword.touched && f.cpassword.errors" class="invalid-feedback">
+            <div  class="required"  *ngIf="f.cpassword.errors.required && f.cpassword.touched">Confirm Password is required</div>
+            <div  class="required"  *ngIf="f.cpassword.errors.mustMatch && f.cpassword.touched">Passwords must match</div>
+          </div>
+      </div><br>
+      <div class="submit">
+        <button class="btn btn-outline-success" [disabled]="registerForm.invalid">Submit</button>
+        <p class="text link">Already a user? <a routerLink="/auth/login" class="link-info" routerLinkActive="active" id="signupLink">Login</a></p>
+      </div>
+      </form>
+    </div>
+    </section>

@@ -1,0 +1,35 @@
+<!-- Authors- Arulsaravanan	 -->
+<app-usernavbar></app-usernavbar>
+
+<div class="institute">
+  <br>
+  <div class = "searchbar">
+    <div class="form-group">
+      <input type="search" class="form-control me-2 search"  placeholder="Type here to search Institute" id="searchButton" [(ngModel)]="searchText"/>
+      <button type="button" class="btn btn"><i class="fa fa-search" aria-hidden="true"></i>&nbsp; Search</button>
+    </div>
+  </div>
+  <br>
+
+<div class="institute">
+  <div class = "container">
+    <div class = "row row-cols-1 row-cols-md-4 g-4">
+        <ng-container *ngFor = "let institute of institutes | filter:searchText; let i= index">
+            <div class="col" id = "adminInstituteGrid{{i+1}}">
+
+              <div class="card shadow-lg bg-body rounded thumbcard mb-4" (click)="gotocourse()">
+                 <img class="card-img-top" [src]="institute.src" alt="Card image cap">
+                  <div class="card-body">
+                      <h5 class="card-title">{{institute.name}}</h5>
+                      <p class="card-text mt-2 mb-2 d-inline text-muted">Place: {{institute.Place}}</p><br>
+                      <div class="star">
+                        <ngb-rating [max]="5" [readonly]="true" [rate] = "institute.rating">:</ngb-rating>
+                      </div>
+                  </div>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>

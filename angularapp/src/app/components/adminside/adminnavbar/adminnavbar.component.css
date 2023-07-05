@@ -1,0 +1,10 @@
+.navbar
+{
+    padding-top: 0;
+    padding-bottom: 0;
+    height: 48px;
+}
+
+.nav-link {
+    cursor: pointer;
+}
