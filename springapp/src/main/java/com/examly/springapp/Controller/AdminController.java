@@ -108,8 +108,6 @@ public class AdminController {
         return courseService.getcourseById(courseId);
     }
 
-
-
     //delete course
     @DeleteMapping("/deleteCourse/{courseId}")
     public String deleteCourse(@PathVariable("courseId") Integer courseId) {

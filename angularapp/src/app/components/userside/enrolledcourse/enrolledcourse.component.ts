@@ -2,10 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { EnrollCourse } from 'src/app/class/enrollCourse';
 import { Course } from 'src/app/class/Course';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+<<<<<<< HEAD
 import { Admission } from 'src/app/class/admission';
 import { UserserviceService } from 'src/app/service/userservice/userservice.service';
 import { HttpClient } from '@angular/common/http';
 import { AdminserviceService } from 'src/app/service/adminservice/adminservice.service';
+=======
+import { AuthService } from 'src/app/service/authservice/auth.service';
+>>>>>>> 55a55d8b9f263889200cc9b73be53884a9adbcc6
 
 
 @Component({
@@ -17,22 +21,14 @@ export class EnrolledcourseComponent implements OnInit {
   public CourseName: any;
   public JoinDate: any;
   public CourseEndDate: any;
-  
-  constructor(private modalService: NgbModal, private userservice:UserserviceService) {}
-  admission:Admission[];
-  
-  
-  userId:number=1;
+
+  userId: number;
+
+  constructor(private modalService: NgbModal,private authservices: AuthService) {}
 
   ngOnInit(): void {  
-     this.userservice.getByUserId(this.userId).subscribe(data =>
-       {
-          this.admission = data;
-          console.log(this.admission);
-
-          
-      });
-    
+    this.userId = this.authservices.getUserId();
+    console.log(this.userId);
   }
 
   // enrollcourse:EnrollCourse[]=[

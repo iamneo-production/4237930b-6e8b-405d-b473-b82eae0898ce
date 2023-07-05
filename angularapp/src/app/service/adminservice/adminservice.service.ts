@@ -14,7 +14,7 @@ export class AdminserviceService {
   constructor(private http: HttpClient) { }
 
   //change the baseUrl asper your workspace port-8080 link
-  baseUrl: string = "https://8080-addcabcdecadbcffbbedebaebcdacaee.project.examly.io/"
+  baseUrl: string = "https://8080-fddecffdbcffbbedebaebcdacaee.project.examly.io/"
 
   //get the list of institutes
   public viewInstitute(): Observable<Institute[]>{
@@ -40,8 +40,10 @@ export class AdminserviceService {
     return this.http.get<Course[]>(this.baseUrl+`admin/findByInstituteId/`+instituteId);
   }
 
-  //add the institutes courses
- 
+   //add the courses to the specified institute
+  public addCourse(newcourse:Course): Observable<any>{
+    return this.http.post<Institute>(this.baseUrl+`admin/addCourse`,newcourse);
+  }
 
   //delete the course by courseId
   public deleteCourse(courseId : number): Observable<String>{
@@ -63,6 +65,6 @@ export class AdminserviceService {
   public viewStudents(): Observable<Students[]>{
     return this.http.get<Students[]>(this.baseUrl+`admin/viewStudent`);
   }
-
+  
 
 }

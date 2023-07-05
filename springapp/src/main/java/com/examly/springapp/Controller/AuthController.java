@@ -69,5 +69,12 @@ public class AuthController {
     {
         userService.saveuser(user);
         return "Admin added"; 
-    }    
+    }
+    
+    //check the existing user id by email
+    @GetMapping("/user/getId/{email}")
+    public int getIdByEmail(@PathVariable String email)
+    {
+        return userService.getIdByEmail(email);
+    }
 }
