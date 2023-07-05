@@ -44,7 +44,7 @@ const routes: Routes = [
       {path:"",component:UserhomepageComponent},
       {path:"institute",component:UserhomepageComponent},
       {path:"enrolledcourse",component:EnrolledcourseComponent},
-      {path:"courses",component:CourselistComponent},
+      {path:"courses/:instituteId",component:CourselistComponent},
       {path:"admissionform",component:AdmissionformComponent},
       {path:"status/:admissionId",component:StatusComponent}
     ],
