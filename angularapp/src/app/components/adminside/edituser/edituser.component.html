@@ -41,43 +41,34 @@
     <div>
       <p style="text-align:center;font-size: 30px;">Registration Form:</p>
     </div>
-  <form [formGroup]="loginForm">
+  <form #editStudentForm = "ngForm">
     
     <div class="forms">
-      <label>FirstName</label><br>
-      <input type="text" id="firstName" class="fn" placeholder="Enter your first name" formControlName="firstName"><br>
-        <span style="color: red;" *ngIf="firstName && firstName.invalid && firstName.touched">*Required</span>
+      <label class=""lab>FirstName</label><br>
+      <input type="text" id="firstName" class="fn" placeholder="Enter your first name" [(ngModel)]="newstudent.firstName" name="first" #first="ngModel"><br>
       <br>
     
-      <label>FatherName</label><br>
-      <input type="text" id="fatherName" class="fan" placeholder="Enter your father name" formControlName="fatherName"><br>
-      <span style="color: red;" *ngIf="fatherName && fatherName.invalid && fatherName.touched">*Required</span>
+      <label class=""lab>FatherName</label><br>
+      <input type="text" id="fatherName" class="fan" placeholder="Enter your father name" [(ngModel)]="newstudent.fatherName" name="father" #father="ngModel"><br>
       <br>
     
-      <label>MotherName</label><br>
-      <input type="text" id="motherName" class="mn" placeholder="Enter your mother name" formControlName="motherName"><br>
-      <span style="color: red;" *ngIf="motherName && motherName.invalid && motherName.touched">*Required</span>
+      <label class="lab">MotherName</label><br>
+      <input type="text" id="motherName" class="mn" placeholder="Enter your mother name" [(ngModel)]="newstudent.motherName" name="mother" #mother="ngModel"><br>
       <br>
     
-      <label>EmailId</label><br>
-      <input type="text" id="emailId" class="email" placeholder="Enter email id" formControlName="emailId"><br>
-      <span style="color: red;" *ngIf="emailId && emailId.invalid && emailId.touched">*Required</span>
+      <label class=""lab>EmailId</label><br>
+      <input type="text" id="emailId" class="email" placeholder="Enter email id" [(ngModel)]="newstudent.emailId" name="mail" #mail="ngModel"><br>
       <br>
     
-      <label>Age</label><br>
-      <input type="number" id="age" class="ag" placeholder="Enter your age" formControlName="age"><br>
-      <span style="color: red;" *ngIf="age && age.invalid && age.touched">*Required</span>
+      <label class=""lab>Age</label><br>
+      <input type="number" id="age" class="ag" placeholder="Enter your age" [(ngModel)]="newstudent.age" name="age" #age="ngModel"><br>
       <br>
     
-      <label>Marks</label><br>
-      <input type="number" id="enterSSLC/HSCMarks" class="sslc-hsc" placeholder="Enter SSLC/HSC marks"
-        formControlName="enterSSLC/HSCMarks">
-      <br>
-      <span style="color: red;"
-        *ngIf="enterSSLCHSCMarks && enterSSLCHSCMarks.invalid && enterSSLCHSCMarks.touched">*Required</span>
+      <label class=""lab>Marks</label><br>
+      <input type="number" id="enterSSLC/HSCMarks" class="sslc-hsc" placeholder="Enter SSLC/HSC marks" [(ngModel)]="newstudent.sslc" name="marks" #marks="ngModel"><br>
       <br>
     
-      <label>InstituteName</label><br>
+      <label class=""lab>InstituteName</label><br>
       <!-- <input type="text" id="institute" class="institute" placeholder="Enter Institute name"
       formControlName="institute"> -->
       <select id="institute" class="institute" #institute>
@@ -91,7 +82,7 @@
         *ngIf="institute && institute.invalid && institute.touched">*Required</span> -->
       <br>
     
-      <label>CourseName</label><br>
+      <label class=""lab>CourseName</label><br>
       <!-- <input type="text" id="course" class="course" placeholder="Enter Course name"
       formControlName="course"> -->
       <select id="course" class="course" #course>
@@ -112,63 +103,49 @@
     
     <div class="forms1">
       <label class="last">LastName</label><br>
-      <input type="text" id="editlastName" class="ln" placeholder="Enter your last name" formControlName="lastName"><br>
-      <span style="color: red;" *ngIf="lastName && lastName.invalid && lastName.touched" class="last">*Required</span>
+      <input type="text" id="editlastName" class="ln" placeholder="Enter your last name" [(ngModel)]="newstudent.lastName" name="last" #last="ngModel"><br>
       <br>
     
       <label class="ph1">PhoneNumber</label><br>
-      <input type="number" id="editphoneNumber1" class="pn1" placeholder="Enter phone number" formControlName="phoneNumber1"><br>
-      <span style="color: red;" *ngIf="phoneNumber1 && phoneNumber1.invalid && phoneNumber1.touched"class="ph1">*Required</span>
+      <input type="number" id="editphoneNumber1" class="pn1" placeholder="Enter phone number" [(ngModel)]="newstudent.mobile" name="mob" #mob="ngModel"><br>
       <br>
     </div>
     
     <div class="forms2">
       <label class="mafe">Male/Female</label><br>
-      <input type="text" id="male/female" class="mf" placeholder="Enter male or female" formControlName="male/female"><br>
-      <span style="color: rgb(161, 22, 22);" *ngIf="malefemale && malefemale.invalid && malefemale.touched"class="mafe">*Required</span>
+      <input type="text" id="male/female" class="mf" placeholder="Enter male or female" [(ngModel)]="newstudent.gender" name="gender" #gender="ngModel"><br>
       <br>
     
       <label class="ph2">Alt number</label><br>
-      <input type="number" id="editphoneNumber2" class="pn2" placeholder="Enter alternate number"formControlName="phoneNumber2"><br>
-      <span style="color: red;" *ngIf="phoneNumber2 && phoneNumber2.invalid && phoneNumber2.touched"class="ph2">*Required</span>
+      <input type="number" id="editphoneNumber2" class="pn2" placeholder="Enter alternate number" [(ngModel)]="newstudent.altMobile" name="altmob" #altmob="ngModel"><br>
       <br>
     </div>
   
     <div class="box_area" id="content">
       <p>Address Information</p>
       <label>House No:</label>
-      <input type="text" id="edithouseNo" class="hn" formControlName="houseNo">
-      <br>
-      <span style="color: red;" *ngIf="houseNo && houseNo.invalid && houseNo.touched">*Required</span>
+      <input type="text" id="edithouseNo" class="hn" [(ngModel)]="newstudent.houseNo" name="house" #house="ngModel"><br>
       <br>
       <label>Street Name:</label>
-      <input type="text" id="editstreetName" class="sn" formControlName="streetName">
-      <br>
-      <span style="color: red;" *ngIf="streetName && streetName.invalid && streetName.touched">*Required</span>
+      <input type="text" id="editstreetName" class="sn" [(ngModel)]="newstudent.streetName" name="street" #street="ngModel"><br>
       <br>
       <label>Area Name:</label>
-      <input type="text" id="editareaName" class="an" formControlName="areaName">
+      <input type="text" id="editareaName" class="an" [(ngModel)]="newstudent.areaName" name="area" #area="ngModel">
     
       <label class="p">Pincode:</label>
-      <input type="number" id="editpincode" class="pc" formControlName="pincode">
-      <br>
-      <span style="color: red;"
-        *ngIf="areaName && areaName.invalid && areaName.touched || pincode && pincode.invalid && pincode.touched">*Required</span>
-      <!-- <span style="color: red;" *ngIf="pincode && pincode.invalid && pincode.touched">*Required</span> -->
+      <input type="number" id="editpincode" class="pc" [(ngModel)]="newstudent.pincode" name="pin" #pin="ngModel"><br>
       <br>
       <label>State:</label>
-      <input type="text" id="editstate" class="s" formControlName="state">
+      <input type="text" id="editstate" class="s" [(ngModel)]="newstudent.state" name="state" #state="ngModel">
       <label class="na">Nationality:</label>
-      <input type="text" id="nation" class="n" formControlName="nation">
+      <input type="text" id="nation" class="n" [(ngModel)]="newstudent.nationality" name="nation" #nation="ngModel">
       <br>
-      <span style="color: red;"
-        *ngIf="state && state.invalid && state.touched || nation && nation.invalid && nation.touched">*Required</span>
       <!-- <span style="color: red;" *ngIf="nation && nation.invalid && nation.touched">*Required</span> -->
       <br>
     </div>
   </form>
   <div class="foot">
-    <button type="button" class="btn btn-success" (click)="loginUser(institute.value,course.value)" [disabled]="loginForm.invalid">Update Student</button>
+    <button type="button" class="btn btn-success" (click)="loginUser()" [disabled]="editStudentForm.invalid">Update Student</button>
   </div>
   </div>
   

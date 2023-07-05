@@ -29,19 +29,19 @@ public class StudentServiceImpl implements StudentService{
     public StudentModel editStudent(Integer studentId, StudentModel student) {
         StudentModel stud = adminRepository.findById(studentId).get();
 
-        if(Objects.nonNull(student.getStudentName()) &&
-        !"".equalsIgnoreCase(student.getStudentName())) {
-            stud.setStudentName(student.getStudentName());
+        if(Objects.nonNull(student.getFirstName()) &&
+        !"".equalsIgnoreCase(student.getFirstName())) {
+            stud.setFirstName(student.getFirstName());
         }
 
-        if(Objects.nonNull(student.getStudentDOB()) &&
-        !"".equals(student.getStudentDOB())) {
-            stud.setStudentDOB(student.getStudentDOB());
+        if(Objects.nonNull(student.getLastName()) &&
+        !"".equalsIgnoreCase(student.getLastName())) {
+            stud.setLastName(student.getLastName());
         }
 
-        if(Objects.nonNull(student.getAddress()) &&
-        !"".equalsIgnoreCase(student.getAddress())) {
-            stud.setAddress(student.getAddress());
+        if(Objects.nonNull(student.getAge()) &&
+        !"".equals(student.getAge())) {
+            stud.setAge(student.getAge());
         }
 
         if(Objects.nonNull(student.getMobile()) &&
@@ -52,21 +52,6 @@ public class StudentServiceImpl implements StudentService{
         if(Objects.nonNull(student.getSslc()) &&
         !"".equals(student.getSslc())) {
             stud.setSslc(student.getSslc());
-        }
-
-        if(Objects.nonNull(student.getHsc()) &&
-        !"".equals(student.getHsc())) {
-            stud.setHsc(student.getHsc());
-        }
-
-        if(Objects.nonNull(student.getDiploma()) &&
-        !"".equals(student.getDiploma())) {
-            stud.setDiploma(student.getDiploma());
-        }
-
-        if(Objects.nonNull(student.getEligibility()) &&
-        !"".equalsIgnoreCase(student.getEligibility())) {
-            stud.setEligibility(student.getEligibility());
         }
 
         if(Objects.nonNull(student.getEmailId()) &&

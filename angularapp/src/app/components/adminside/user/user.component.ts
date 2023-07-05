@@ -44,10 +44,14 @@ export class UserComponent implements OnInit {
   {
     this.router.navigate(['/admin/editstudent',studentId]);
   }
-  deleteStudent()
+  deleteStudent(studentId : number)
   {
+    this.adminservice.deleteStudent(studentId).subscribe(data => {
+      console.log(data);
       this.modalService.dismissAll();
-      this.students.pop();
+      this.router.navigate(['/admin/students']);
+    })
+      // this.students.pop();
   }
 
 }
