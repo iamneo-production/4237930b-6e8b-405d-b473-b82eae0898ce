@@ -3,6 +3,8 @@ import { FormControl,FormGroup,Validators} from '@angular/forms';
 import { Students } from 'src/app/class/Student';
 import { AdminserviceService } from 'src/app/service/adminservice/adminservice.service';
 import { Router } from '@angular/router';
+import { Institute } from 'src/app/class/institute';
+import { Course } from 'src/app/class/Course';
 
 @Component({
   selector: 'app-adduser',
@@ -11,10 +13,34 @@ import { Router } from '@angular/router';
 })
 export class AdduserComponent implements OnInit {
   newstudent: Students = new Students();
+  institutes: Institute[] =[];
+  courses: Course[] =[];
+
+
 
   constructor(private adminservice:AdminserviceService, private router: Router) { }
 
   ngOnInit(): void {
+    this.getallInstitutes();
+  }
+
+
+  // getCourses(){
+  //   this.adminservice.viewCoursesFromInstitute(this.instituteId).subscribe(data =>
+  //     {
+  //       console.log(data);
+  //       this.courses= data;
+  
+  //     })
+
+  // }
+
+  getallInstitutes()
+  {
+     this.adminservice.viewInstitute().subscribe(data =>{
+     this.institutes = data;
+     console.log(this.institutes);
+    })
   }
 
   loginForm = new FormGroup({
@@ -83,9 +109,9 @@ export class AdduserComponent implements OnInit {
     return this.loginForm.get('age')
   }
 
-  get enterSSLCHSCMarks()
+  get sslc()
   {
-    return this.loginForm.get('enterSSLC/HSCMarks')
+    return this.loginForm.get('sslc')
   }
 
   get lastName()
@@ -93,19 +119,19 @@ export class AdduserComponent implements OnInit {
     return this.loginForm.get('lastName')
   }
 
-  get phoneNumber1()
+  get mobile()
   {
-    return this.loginForm.get('phoneNumber1')
+    return this.loginForm.get('mobile')
   }
 
-  get malefemale()
+  get gender()
   {
-    return this.loginForm.get('male/female')
+    return this.loginForm.get('gender')
   }
 
-  get phoneNumber2()
+  get altMobile()
   {
-    return this.loginForm.get('phoneNumber2')
+    return this.loginForm.get('altMobile')
   }
 
   get houseNo()
@@ -133,9 +159,9 @@ export class AdduserComponent implements OnInit {
     return this.loginForm.get('state')
   }
 
-  get nation()
+  get nationality()
   {
-    return this.loginForm.get('nation')
+    return this.loginForm.get('nationality')
   }
 
   get institute()

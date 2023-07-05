@@ -73,6 +73,24 @@ export class AdminserviceService {
     }
     return this.http.post<Students>('https://8080-deabdbcffbbedebaebcdacaee.project.examly.io/admin/addStudent',newstudent,requestOptions);
   }
+
+  //delete student details for admin by studentId
+  public deleteStudent(studentId : number): Observable<String>{
+    const requestOptions: Object = {
+      responseType: 'text'
+    }
+    return this.http.delete<String>('https://8080-deabdbcffbbedebaebcdacaee.project.examly.io/admin/deleteStudent/'+studentId,requestOptions);
+  }
+
+  //update student by studentId and student details
+  public editStudent(studentId : number, student:Students): Observable<Students>{
+    return this.http.put<Students>('https://8080-deabdbcffbbedebaebcdacaee.project.examly.io/admin/editStudent/'+studentId,student);
+  }
+
+  //get the student by studentId
+  public getStudentById(studentId : number): Observable<Students>{
+    return this.http.get<Students>('https://8080-deabdbcffbbedebaebcdacaee.project.examly.io/admin/getStudentById/'+studentId);
+  }
   
 
 }

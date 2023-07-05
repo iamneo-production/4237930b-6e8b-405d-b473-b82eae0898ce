@@ -73,7 +73,7 @@
     width: 25%;
     height: 280px;
     padding: 2%;
-    font-size: 12px;
+    font-size: 13px;
     float: left;
   
   
@@ -83,7 +83,7 @@
     width: 25%;
     height: 200px;
     padding: 2%;
-    font-size: 12px;
+    font-size: 13px;
     float: left;
   
   }
@@ -92,7 +92,7 @@
     width: 25%;
     height: 200px;
     padding: 2%;
-    font-size: 12px;
+    font-size: 13px;
     float: left;
   
   }
@@ -219,5 +219,4 @@
     text-align: center;
     height: 30px;
   }
-
 

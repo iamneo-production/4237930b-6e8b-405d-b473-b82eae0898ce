@@ -40,7 +40,7 @@ public class AdminController {
     private InstituteService instituteService;
 
     // get student by student id
-    @GetMapping("/getStudentById/{courseId}")
+    @GetMapping("/getStudentById/{studentId}")
     public StudentModel getStudentById(@PathVariable Integer studentId) {
         return adminService.getStudentById(studentId);
     }
