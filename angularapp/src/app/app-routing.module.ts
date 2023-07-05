@@ -46,7 +46,7 @@ const routes: Routes = [
       {path:"enrolledcourse",component:EnrolledcourseComponent},
       {path:"courses",component:CourselistComponent},
       {path:"admissionform",component:AdmissionformComponent},
-      {path:"status",component:StatusComponent}
+      {path:"status/:admissionId",component:StatusComponent}
     ],
     // canActivate: [AuthComponent]
   },

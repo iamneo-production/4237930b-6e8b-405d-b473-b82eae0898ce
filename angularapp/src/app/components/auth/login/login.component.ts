@@ -81,6 +81,7 @@ export class LoginComponent {
     this.authservice.getIdByEmail(this.login.email).subscribe((data) =>
     {
       this.authservice.setUserId(data);
+      console.log(this.authservice.getUserId());
     });
   }
 

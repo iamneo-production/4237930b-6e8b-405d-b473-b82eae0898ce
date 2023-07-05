@@ -76,4 +76,16 @@ public class UserController {
        return admissionService.getByuserId(id);
      }
 
+    //  // get course by course id
+    // @GetMapping("/user/getCourseById/{courseId}")
+    // public CourseModel getCourseById(@PathVariable Integer courseId) {
+    //     return courseService.getcourseById(courseId);
+    // }
+
+    //  // get institutes by institute id
+    //  @GetMapping("/getInstituteById/{instituteId}")
+    //  public InstituteModel getInstituteById(@PathVariable Integer instituteId) {
+    //      return instituteService.getInstituteById(instituteId);
+    //  }
+
 }
