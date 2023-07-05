@@ -15,7 +15,7 @@ export class AdminserviceService {
 
   //change the baseUrl asper your workspace port-8080 link
 
-  baseUrl: string = "https://8080-cacdfbaedcbbdbddaedecdbcffbbedebaebcdacaee.project.examly.io/"
+  baseUrl: string = "https://8080-bafffefcdbcffbbedebaebcdacaee.project.examly.io/"
 
   
 
