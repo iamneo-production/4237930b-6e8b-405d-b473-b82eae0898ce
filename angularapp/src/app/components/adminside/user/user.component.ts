@@ -23,12 +23,12 @@ export class UserComponent implements OnInit {
   students ?:Students[];
 
   getallStudents()
-    {
-        this.adminservice.viewStudents().subscribe(data =>{
-        this.students = data;
-        console.log(this.students);
-      })
-    }
+  {
+    this.adminservice.viewStudents().subscribe(data =>{
+    this.students = data;
+    console.log(this.students);
+    })
+  }
 
   //for delete popup modal
   open(content:any) {
@@ -44,10 +44,14 @@ export class UserComponent implements OnInit {
   {
     this.router.navigate(['/admin/editstudent',studentId]);
   }
-  deleteStudent()
+  deleteStudent(studentId : number)
   {
+    this.adminservice.deleteStudent(studentId).subscribe(data => {
+      console.log(data);
       this.modalService.dismissAll();
-      this.students.pop();
+      this.router.navigate(['/admin/students']);
+    })
+      // this.students.pop();
   }
 
 }
