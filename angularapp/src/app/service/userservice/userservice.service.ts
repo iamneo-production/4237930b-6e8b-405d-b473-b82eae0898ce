@@ -11,7 +11,7 @@ export class UserserviceService {
 
   constructor(private http: HttpClient) { }
 
-  baseUrl: string = "https://8080-bafffefcdbcffbbedebaebcdacaee.project.examly.io/";
+  baseUrl: string = "https://8080-fddecffdbcffbbedebaebcdacaee.project.examly.io/";
   //get the course by courseId
   public getByUserId(userId : number): Observable<Admission[]>{
     return this.http.get<Admission[]>(this.baseUrl+`user/getByUserId/`+userId);

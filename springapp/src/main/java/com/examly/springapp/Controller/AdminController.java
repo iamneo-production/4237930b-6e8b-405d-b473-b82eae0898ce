@@ -21,12 +21,14 @@ import com.examly.springapp.Model.StudentModel;
 import com.examly.springapp.Service.CourseService;
 import com.examly.springapp.Service.InstituteService;
 import com.examly.springapp.Service.StudentService;
+import com.examly.springapp.Model.AdmissionModel;
+import com.examly.springapp.Service.AdmissionService;
 
 @RequestMapping("/admin")
 // change the origin link as per your workspace- port-8081 link
 
 
-@CrossOrigin(origins = "https://8081-deabdbcffbbedebaebcdacaee.project.examly.io")
+@CrossOrigin(origins = "https://8081-fddecffdbcffbbedebaebcdacaee.project.examly.io")
 
 
 @RestController
@@ -40,6 +42,9 @@ public class AdminController {
 
     @Autowired
     private InstituteService instituteService;
+
+    @Autowired
+    public AdmissionService admissionService;
 
     // get student by student id
     @GetMapping("/getStudentById/{studentId}")
@@ -149,5 +154,36 @@ public class AdminController {
         instituteService.deleteInstitute(instituteId);
         return "Institute deleted Successfully";
     }
+
+    //add admissin
+    @PostMapping("/addAdmission")
+    public AdmissionModel addAdmission(@RequestBody AdmissionModel admissionmodel)
+    {
+        return admissionService.saveDetail(admissionmodel);
+    }
+
+    //edit admission
+    @PutMapping("/editAdmission/{id}")
+    public AdmissionModel editAddmission(@PathVariable ("id") int id,@RequestBody AdmissionModel admissionmodel)
+    {
+        return admissionService.updateDetails( id,admissionmodel);
+    }
+
+     //view admission by Id
+     @GetMapping("/viewAdmission/{id}")
+     public AdmissionModel viewAdmissionById(@PathVariable ("id") int id)
+     {
+         return admissionService.getDetailsById(id);
+     }
+
+     //view admission by Id
+    @GetMapping("/getAdmissionById/{studentId}")
+    public AdmissionModel getAdmissionBystudentId(@PathVariable ("studentId") int studentId)
+    {
+        return admissionService.findByStudentId(studentId);
+    }
+     
+
+
     
 }

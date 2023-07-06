@@ -1,72 +1,73 @@
 ::placeholder {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: medium;
+    font-size: small;
+    text-transform: uppercase;
   }
   
   .fn {
     width: 370px;
     text-align: center;
-    height: 25px;
+    height: 30px;
   
   }
   
   .ln {
     width: 370px;
     text-align: center;
-    height: 25px;
+    height: 30px;
     margin-left: 100px;
   }
   
   .mf {
     width: 370px;
     text-align: center;
-    height: 25px;
+    height: 30px;
     margin-left: 190px;
   }
   
   .fan {
     width: 370px;
     text-align: center;
-    height: 25px;
+    height: 30px;
   }
   
   .pn1 {
     width: 370px;
     text-align: center;
-    height: 25px;
+    height: 30px;
     margin-left: 100px;
   }
   
   .pn2 {
     width: 370px;
     text-align: center;
-    height: 25px;
+    height: 30px;
     margin-left: 190px;
   }
   
   .mn {
     width: 370px;
     text-align: center;
-    height: 25px;
+    height: 30px;
   }
   
   .email {
     width: 370px;
     text-align: center;
-    height: 25px;
+    height: 30px;
   }
   
   .ag {
     width: 370px;
     text-align: center;
-    height: 25px;
+    height: 30px;
   
   }
   
   .sslc-hsc {
     width: 370px;
     text-align: center;
-    height: 25px;
+    height: 30px;
   }
   
   .forms {
@@ -75,8 +76,6 @@
     padding: 2%;
     font-size: 13px;
     float: left;
-  
-  
   }
   
   .forms1 {
@@ -98,37 +97,35 @@
   }
   
   .foot {
-    padding: 10px;
+    display: inline-block;
+    margin-left: 250px;
+    margin-top: 50px;
+    /* padding: 10px;
     margin: 0;
     position: absolute;
     width: 100%;
-    bottom: 0;
+    bottom: 0; */
   }
   
   button {
-    float: right;
+    display: inline-block;
+    /* float: right; */
     border-radius: 15px;
     overflow: visible;
   }
   
-  .navbar {
-    padding-top: 0;
-    padding-bottom: 0;
-    min-height: 45px;
-  }
   
   .box_area {
     background-color: rgba(255, 255, 255, 0.5);
-    padding: 1%;
+    width: 600px;
+    padding: 20px;
     display: inline-block;
-    margin-top: 40px;
-    margin-right: 5%;
     margin-left: 130px;
-    padding-left: 40px;
-    padding-right: 40px;
+    /* margin-top: 40px; */
+    /* margin-right: 5%; */
     color: black;
     opacity: 12;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    /* font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
   }
   
   .hn {
@@ -181,7 +178,9 @@
   }
   
   .ph1 {
-    margin-left: 100px;
+    margin-left: 0px;
+    width: 250px;
+    height: 25px;
   }
   
   .mafe {
@@ -193,7 +192,7 @@
   }
   
   .group {
-    height: 697px;
+    height: 710px;
     background: linear-gradient(
       rgb(184, 234, 182),
       rgb(211, 236, 206),
@@ -219,4 +218,19 @@
     text-align: center;
     height: 30px;
   }
+
+  label{
+    text-transform: uppercase;
+    margin-bottom: 4px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+
+  .institutefield {
+    margin-left: 100px;
+  }
+
+  .coursefield {
+    margin-left: 190px;
+  }
+  
 
