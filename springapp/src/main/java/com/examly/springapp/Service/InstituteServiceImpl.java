@@ -26,7 +26,7 @@ public class InstituteServiceImpl implements InstituteService{
     public List<InstituteModel> viewInstitute() {
         return adminInstituteRepository.findAll();
     }
-
+    
     @Override
     public InstituteModel editInstitute(Integer instituteId, InstituteModel institute) {
        InstituteModel inm = adminInstituteRepository.findById(instituteId).get();

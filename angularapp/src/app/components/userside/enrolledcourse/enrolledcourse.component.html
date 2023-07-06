@@ -4,13 +4,13 @@
 <div class="enrolledcourse">
 <br><br>
 <div class = "container">
-    <ng-container *ngFor = "let ec of enrollcourse">
+    <ng-container *ngFor = "let ec of admission">
           <div class="card shadow-lg rounded">
               <div class="card-body">
                   <div class="left">
-                    <h6 class="card-subtitle">Course name : {{ec.CourseName}}</h6><br>
-                    <h6 class="card-subtitle">Joined duration : {{ec.JoinDate}}</h6><br>
-                    <h6 class="card-subtitle">Course End Date: {{ec.CourseEndDate}}</h6><br>
+                    <h6 class="card-subtitle">Course name : {{ec.courseId}}</h6><br>
+                    <h6 class="card-subtitle">Joined duration : {{ec.courseStartDate}}</h6><br>
+                    <h6 class="card-subtitle">Course End Date: {{ec.courseEndDate}}</h6><br>
                   </div>
                   <div class="right">
                       <p><strong>Ratings : <ngb-rating [max]="5">:</ngb-rating></strong></p>
@@ -18,7 +18,7 @@
                   <div class="button">
                     <button class="btn editbutton" routerLink='/user/admissionform'>Edit&nbsp;<i class="fa fa-pencil" aria-hidden="true"></i></button>
                     <button class="btn deletebutton" (click) = "open(content)">Delete&nbsp;<i class="fa fa-trash-o" aria-hidden="true"></i></button>
-                    <button class="btn statusbutton" routerLink='/user/status'>Status&nbsp;<i class="fa fa-info-circle" aria-hidden="true"></i></button>
+                    <button class="btn statusbutton" (click)="gotoStatus(ec.admissionId)">Status&nbsp;<i class="fa fa-info-circle" aria-hidden="true"></i></button>
                     <button class="btn mylearnbutton">My Learning&nbsp;<i class="fa fa-book" aria-hidden="true"></i></button>
                   </div>
 

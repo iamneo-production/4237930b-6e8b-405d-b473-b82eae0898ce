@@ -15,4 +15,9 @@ public interface CourseService {
     public void deleteCourse(Integer courseId);
 
 
+    public List<CourseModel> findByInstituteId(int instituteId);
+
+    CourseModel getcourseById(int courseId);
+
+
 }

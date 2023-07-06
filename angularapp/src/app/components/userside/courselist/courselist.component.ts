@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Courses } from 'src/app/class/Courses';
+import { ActivatedRoute, Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ToastrService } from 'ngx-toastr';
+import { Course } from 'src/app/class/Course';
+import { UserserviceService } from 'src/app/service/userservice/userservice.service';
 
 
 @Component({
@@ -8,16 +12,31 @@ import { Courses } from 'src/app/class/Courses';
   styleUrls: ['./courselist.component.css']
 })
 export class CourselistComponent {
-  searchText!:string;
 
-      courses ?: Courses[]=[
-        new Courses("M.E(VSI)",10,"20days","YYYY",50),
-        new Courses("M.E",10,"30days","ZZZZ",60),
-        new Courses("PHD",15,"40days","XXXX",40),
-        new Courses("MCA",9,"10days","XYZA",25),
-        new Courses("MBA",11,"15days","AAAA",50),
-        new Courses("MBA",11,"15days","AAAA",50),
-      ]
+  constructor(private router:Router,private userservice:UserserviceService,private route:ActivatedRoute,private toastr :ToastrService,private modalService: NgbModal) {}
+  searchText!:string;
+  instituteId !:number;
+  
+      courses ?: Course[];
+      ngOnInit(): void {
+  
+        this.instituteId = this.route.snapshot.params['instituteId'];
+        console.log(this.instituteId);
+    
+        this.getCourses();
+        
+    }
+      
+      getCourses(){
+        this.userservice.viewCoursesFromInstitute(this.instituteId).subscribe(data =>
+          {
+            console.log(data);
+            this.courses= data;
+      
+          })
+        }    
+        
+      
   
   }
 

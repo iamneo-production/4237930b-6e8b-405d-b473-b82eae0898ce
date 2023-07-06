@@ -5,7 +5,7 @@ import java.util.Objects;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+import com.examly.springapp.Exception.ResourceNotFoundException;
 import com.examly.springapp.Model.CourseModel;
 import com.examly.springapp.Repository.CourseRepository;
 
@@ -23,6 +23,11 @@ public class CourseServiceImpl implements CourseService{
     @Override
     public List<CourseModel> viewCourse() {
         return adminCourseRepository.findAll();
+    }
+
+    @Override
+    public List<CourseModel> findByInstituteId(int instituteId) {
+        return adminCourseRepository.findByInstituteId(instituteId);
     }
 
     @Override
@@ -68,5 +73,14 @@ public class CourseServiceImpl implements CourseService{
         adminCourseRepository.deleteById(courseId);
     }
 
+    @Override
+    public CourseModel getcourseById(int courseId) {
+        return adminCourseRepository.findById(courseId).orElseThrow(() -> 
+
+
+
+        new ResourceNotFoundException("Institute does not exist for id:"+ courseId));
+        
+    }
     
 }
