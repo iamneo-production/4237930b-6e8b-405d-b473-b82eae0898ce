@@ -26,5 +26,7 @@ public interface UserService {
     //check the userrId by the email
     int getIdByEmail(String email);
 
+}
+
     
 

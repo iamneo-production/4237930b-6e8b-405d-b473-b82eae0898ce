@@ -5,7 +5,6 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AdminserviceService } from 'src/app/service/adminservice/adminservice.service';
 import { ToastrService } from 'ngx-toastr';
 
-
 @Component({
   selector: 'app-institutes',
   templateUrl: './institutes.component.html',
