@@ -5,84 +5,120 @@ import { AdminserviceService } from 'src/app/service/adminservice/adminservice.s
 import { Router } from '@angular/router';
 import { Institute } from 'src/app/class/institute';
 import { Course } from 'src/app/class/Course';
+import { Admission } from 'src/app/class/admission';
+import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-adduser',
   templateUrl: './adduser.component.html',
   styleUrls: ['./adduser.component.css']
 })
+
 export class AdduserComponent implements OnInit {
+
   newstudent: Students = new Students();
+  newadmission : Admission = new Admission();
   institutes: Institute[] =[];
   courses: Course[] =[];
-
-
-
-  constructor(private adminservice:AdminserviceService, private router: Router) { }
+  courseName :string;
+  date = new Date();
+  
+  constructor(private adminservice:AdminserviceService, private router: Router,private toastr :ToastrService) { }
 
   ngOnInit(): void {
     this.getallInstitutes();
+    this.newadmission.courseStartDate = this.date;
+    console.log(this.newadmission.courseStartDate);
   }
 
-
-  // getCourses(){
-  //   this.adminservice.viewCoursesFromInstitute(this.instituteId).subscribe(data =>
-  //     {
-  //       console.log(data);
-  //       this.courses= data;
-  
-  //     })
-
-  // }
-
-  getallInstitutes()
-  {
-     this.adminservice.viewInstitute().subscribe(data =>{
-     this.institutes = data;
-     console.log(this.institutes);
-    })
+  // get all the courses according to institutes for dropdown
+  getCourseList(institute: any): void {
+    console.log(institute.target.value);
+    this.newadmission.instituteId = institute.target.value;
+    this.getCourses(this.newadmission.instituteId);
   }
 
-  loginForm = new FormGroup({
-    firstName:new FormControl('',[Validators.required]),
-    fatherName:new FormControl('',[Validators.required]),
-    motherName:new FormControl('',[Validators.required]),
-    emailId:new FormControl('',[Validators.required,Validators.email,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]),
-    age:new FormControl('',[Validators.required]),
-    sslc:new FormControl('',[Validators.required]),
-    lastName:new FormControl('',[Validators.required]),
-    mobile:new FormControl('',[Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
-    gender:new FormControl('',[Validators.required,Validators.pattern('^M(ale)?$|^F(emale)?$|^m(ale)?$|^f(emale)?$')]),
-    altMobile:new FormControl('',[Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
-    houseNo:new FormControl('',[Validators.required]),
-    streetName:new FormControl('',[Validators.required]),
-    areaName:new FormControl('',[Validators.required]),
-    pincode:new FormControl('',[Validators.required]),
-    state:new FormControl('',[Validators.required]),
-    nationality:new FormControl('',[Validators.required]),
-    // institute:new FormControl('',[Validators.required]),
-    // course:new FormControl('',[Validators.required])
+  //initializing the courseid to the admission data
+  setCourseId(courseId: any) {
+    this.newadmission.courseId = courseId.target.value;
+    this.getCoursedata(this.newadmission.courseId);
+    console.log(this.newadmission.courseId);
+  }
 
+    // get the courses according to the institutes from dropdown
+    getCourses(instituteId: number): void {
+      this.adminservice.viewCoursesFromInstitute(instituteId).subscribe(data => {
+          console.log(data);
+          this.courses= data;
+        })
+    }
+
+    // get all the institutes for dropdown
+    getallInstitutes()
+    {
+      this.adminservice.viewInstitute().subscribe(data =>{
+      this.institutes = data;
+      console.log(this.institutes);
+      })
+    }
+
+    // get the selected course data
+    getCoursedata(instituteId: number): void {
+      this.adminservice.getCourseById(instituteId).subscribe(data => {
+          console.log(data);
+          this.courseName = data.courseName;
+          this.addYears(new Date(),data.courseDuration);
+        })
+    }
+
+    loginForm = new FormGroup({
+        firstName: new FormControl('',[Validators.required]),
+        lastName: new FormControl('',[Validators.required]),
+        age: new FormControl('',[Validators.required]),
+        mobile: new FormControl('',[Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
+        sslc: new FormControl('',[Validators.required]),
+        gender: new FormControl('',[Validators.required,Validators.pattern('^M(ale)?$|^F(emale)?$|^m(ale)?$|^f(emale)?$')]),
+        fatherName: new FormControl('',[Validators.required]),
+        motherName: new FormControl('',[Validators.required]),
+        altMobile: new FormControl('',[Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
+        emailId: new FormControl('',[Validators.required,Validators.email,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]),
+        houseNo: new FormControl('',[Validators.required]),
+        streetName: new FormControl('',[Validators.required]),
+        areaName: new FormControl('',[Validators.required]),
+        pincode: new FormControl('',[Validators.required]),
+        nationality: new FormControl('',[Validators.required]),
+        state: new FormControl('',[Validators.required]),
   })
 
-  loginUser(val1:string, val2:string)
+  submit()
   {
-    console.log(val1,val2);
-    //console.warn(this.loginForm.value)
-    this.addStudent();
+    this.newstudent = this.loginForm.value;
+    this.newstudent.courseName = this.courseName;
     console.log(this.newstudent);
-
+    this.addStudent();
   }
 
   //for adding student details
   addStudent(): void {
     this.adminservice.addStudent(this.newstudent).subscribe(data =>
       {
-        console.log(data);
-        this.router.navigate(['/admin/students']);
+        this.newadmission.studentId = data.studentId;
+        this.addAdmission();
+        this.toastr.success('Registered Sucessfully!', 'Student Details !');
       })
   }
 
+  //for adding the admission for the student
+  addAdmission(): void {
+    this.newadmission.status = "Application received";
+    console.log(this.newadmission);
+    this.adminservice.addAdmission(this.newadmission).subscribe(data =>
+      {
+        this.toastr.success('Registered Sucessfully!', 'Course Details !');
+        this.router.navigate(['/admin/students']);
+      })
+  }
 
   get firstName()
   {
@@ -172,6 +208,12 @@ export class AdduserComponent implements OnInit {
   get course()
   {
     return this.loginForm.get('course')
+  }
+
+  addYears(date :Date, years : number) {
+    date.setFullYear(date.getFullYear() + years);
+    this.newadmission.courseEndDate = date;
+    console.log(this.newadmission);
   }
 
 

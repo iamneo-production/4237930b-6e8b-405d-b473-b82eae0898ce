@@ -10,13 +10,6 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./editcourse.component.css']
 })
 export class EditcourseComponent implements OnInit {
-  /*CourseName: string='' ;
-  CourseDuration:string='';
-  CourseTimings:string='';
-  StudentsEnrolled:any;
-  CourseDescription:string='';*/
-
- 
 
   constructor(private router:Router,private adminservice:AdminserviceService,private route:ActivatedRoute,private toastr :ToastrService) { }
   courseId !:number;
