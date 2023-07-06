@@ -1,9 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Course } from 'src/app/class/Course';
 import { Courses } from 'src/app/class/Courses';
+import { Students } from 'src/app/class/Student';
+import { Admission } from 'src/app/class/admission';
+import { Institute } from 'src/app/class/institute';
+import { UserserviceService } from 'src/app/service/userservice/userservice.service';
 
 
-type Institue = Array<{ id: number; name: string; src:string; Place: string; rating: number}>;
-type Info = Array<{id: number;firstname: string; lastname: string; gender: string; mobileNumber: string, fathername: string, mothername: string, emailId: string, age: number, marks: number}>;
 
 @Component({
   selector: 'app-status',
@@ -13,22 +17,52 @@ type Info = Array<{id: number;firstname: string; lastname: string; gender: strin
 export class StatusComponent implements OnInit {
   searchText!: string;
 
-  courses ?: Courses[]=[
-    new Courses("M.E(VSI)",10,"20days","YYYY",50)
-  ]
-
-  institutes : Institue = [
- { id: 2, name: "BIT", src: "https://static.businessworld.in/article/article_extra_large_image/1616143247_9SQluK_Bannari_Amman_Institute_of_Technology.jpg",Place :"Sathyamangalam",rating:4},
- ];
- studentInfo : Info =
- [
-  {id: 1, firstname:"ABC", lastname: "EFG", gender:"F", mobileNumber:"1245679561", fathername:"XXX", mothername:"YYY", emailId:"abc@gmail.com", age:18, marks:581 },
- ];
+  institute : Institute = new Institute();
+  course : Course=new Course();
+  students:Students=new Students();
+  admissionId:number;
+  admission:Admission=new Admission();
  
 
-  constructor() {}
+  constructor(private userservice:UserserviceService,private route:ActivatedRoute ) {}
 
   ngOnInit(): void {
+
+    this.admissionId = this.route.snapshot.params['admissionId'];
+    console.log(this.admissionId);
+    this.userservice.getAdmissionById(this.admissionId).subscribe(data => {
+          this.admission = data;
+          console.log(this.admission);
+          this.getInstitute(this.admission.instituteId);
+          this.getCourse(this.admission.courseId);
+          this.getStudent(this.admission.studentId);
+    });
+
+    
+  }
+
+  getInstitute(instituteId:number){
+    console.log(instituteId);
+    this.userservice.getInstituteById(instituteId).subscribe(data => {
+          this.institute = data;
+    });
+
+  }
+
+  getCourse(courseId:number){
+    console.log(courseId);
+    this.userservice.getCourseById(courseId).subscribe(data => {
+          this.course = data;
+    });
+
+  }
+
+  getStudent(studentId:number){
+    console.log(studentId);
+    this.userservice.getStudentById(studentId).subscribe(data => {
+          this.students = data;
+    });
+
   }
 
 }

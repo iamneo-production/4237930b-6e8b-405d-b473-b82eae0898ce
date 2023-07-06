@@ -17,7 +17,6 @@ export class AdminserviceService {
   //change the baseUrl asper your workspace port-8080 link
   baseUrl: string = "https://8080-fddecffdbcffbbedebaebcdacaee.project.examly.io/"
 
-
   //get the list of institutes
   public viewInstitute(): Observable<Institute[]>{
     return this.http.get<Institute[]>(this.baseUrl+`admin/viewInstitutes`);
