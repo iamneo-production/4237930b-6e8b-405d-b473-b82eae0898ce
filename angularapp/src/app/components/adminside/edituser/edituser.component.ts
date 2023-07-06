@@ -1,5 +1,4 @@
-import { Component, OnInit, AfterViewInit, NgModule } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Course } from 'src/app/class/Course';
