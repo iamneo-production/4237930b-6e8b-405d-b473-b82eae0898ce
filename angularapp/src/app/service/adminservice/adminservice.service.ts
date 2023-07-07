@@ -114,7 +114,7 @@ export class AdminserviceService {
     const requestOptions: Object = {
       responseType: 'text'
     }
-    return this.http.delete<String>(this.baseUrl+`/admin/deleteInstitute/`+instituteId,requestOptions);
+    return this.http.delete<string>(this.baseUrl+`admin/deleteInstitutes/`+instituteId,requestOptions);
   }
   
 
