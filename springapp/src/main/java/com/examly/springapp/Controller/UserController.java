@@ -28,11 +28,7 @@ import com.examly.springapp.Service.StudentService;
 @RequestMapping
 @RestController
 // change the origin link as per your workspace- port-8081 link
-
-@CrossOrigin(origins = "https://8081-bafffefcdbcffbbedebaebcdacaee.project.examly.io")
-
-
-
+@CrossOrigin(origins = "https://8081-fddecffdbcffbbedebaebcdacaee.project.examly.io")
 
 public class UserController {
     

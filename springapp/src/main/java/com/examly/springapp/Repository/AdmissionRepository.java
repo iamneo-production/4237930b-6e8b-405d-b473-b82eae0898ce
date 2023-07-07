@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
  @Repository
 public interface AdmissionRepository extends JpaRepository<AdmissionModel,Integer>{
     List<AdmissionModel> findByuserId(int userId);
-    
+    AdmissionModel findByStudentId(int studentId);
 }

@@ -15,13 +15,11 @@ import { Students } from 'src/app/class/Student';
 })
 export class UserserviceService {
 
+  baseUrl: string = "https://8080-fddecffdbcffbbedebaebcdacaee.project.examly.io/";
 
   constructor(private http: HttpClient) {}
 
-  baseUrl: string = "https://8080-bafffefcdbcffbbedebaebcdacaee.project.examly.io/"
-
 //get the list of institutes
-
 public viewInstitute(): Observable<Institute[]>{
   return this.http.get<Institute[]>(this.baseUrl+`user/viewInstitutes`);
 }

@@ -1,11 +1,11 @@
-import { Component, OnInit, AfterViewInit, NgModule } from '@angular/core';
-
-import { FormControl,FormGroup,NgModel,Validators} from '@angular/forms';
+import { Component, OnInit} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { Course } from 'src/app/class/Course';
 import { Students } from 'src/app/class/Student';
+import { Admission } from 'src/app/class/admission';
+import { Institute } from 'src/app/class/institute';
 import { AdminserviceService } from 'src/app/service/adminservice/adminservice.service';
-
 
 
 @Component({
@@ -19,7 +19,12 @@ export class EdituserComponent implements OnInit {
   constructor(private router:Router,private adminservice:AdminserviceService,private route:ActivatedRoute, private toastr :ToastrService){}
 
   newstudent : Students = new Students();
+  admission : Admission = new Admission();
   studentId !:number;
+  admissionId !:number;
+  institutes: Institute[] =[];
+  courses: Course[] =[];
+  date = new Date();
 
   ngOnInit(): void {
     this.studentId = this.route.snapshot.params['studentId'];
@@ -27,18 +32,81 @@ export class EdituserComponent implements OnInit {
     this.adminservice.getStudentById(this.studentId).subscribe(data => {
           this.newstudent = data;
     });
+    this.getOldAdmission();
+    this.getallInstitutes();
   }
 
-  //To add the New institute
-  loginUser(): void {
-    this.adminservice.editStudent(this.studentId,this.newstudent).subscribe(data => {
-      this.toastr.warning('Student Updated Sucessfully!', 'Student status !');
-      },error => console.log(error));
-      this.gotoStudentsPage();
+// retriving the old admission details
+getOldAdmission()
+{
+  this.adminservice.getAdmissionByStudentId(this.studentId).subscribe(data => {
+    console.log(data);
+    this.admission= data;
+  })
+}
+
+
+// get all the courses according to institutes for dropdown
+  getCourseList(institute: any): void {
+    console.log(institute.target.value);
+    this.admission.instituteId = institute.target.value;
+    this.adminservice.viewCoursesFromInstitute(this.admission.instituteId).subscribe(data => {
+      console.log(data);
+      this.courses= data;
+    })
   }
 
-  //To navigate to the institute Page
-  gotoStudentsPage(): void {
-      this.router.navigate(['/admin/students']);
+  //initializing the courseid to the admission data
+  setCourseId(courseId: any) {
+    this.admission.courseId = courseId.target.value;
+    this.getCoursedata(this.admission.courseId);
+    console.log(this.admission.courseId);
   }
+
+    // get all the institutes for dropdown
+    getallInstitutes() {
+       this.adminservice.viewInstitute().subscribe(data =>{
+       this.institutes = data;
+       console.log(this.institutes);
+        })
+    }
+
+    // get the selected course data
+    getCoursedata(instituteId: number): void {
+      this.adminservice.getCourseById(instituteId).subscribe(data => {
+          console.log(data);
+          this.admission.courseStartDate = this.date;
+          this.addYears(new Date(),data.courseDuration);
+          this.newstudent.courseName = data.courseName;
+        })
+    }
+
+      //To update the student
+      submit(): void {
+        console.log(this.newstudent);
+        this.adminservice.editStudent(this.studentId,this.newstudent).subscribe(data => {
+          this.toastr.warning('Student and Course Updated Sucessfully!', 'Student status !');
+          },error => console.log(error));
+          this.updateAdmission();
+          this.gotoStudentsPage();
+      }
+
+      updateAdmission()
+      {
+        console.log(this.admission);
+        this.admissionId = this.admission.admissionId;
+        this.adminservice.editAdmission(this.admissionId,this.admission).subscribe(data => {
+          },error => console.log(error));
+      }
+
+      //To navigate to the institute Page
+      gotoStudentsPage(): void {
+          this.router.navigate(['/admin/students']);
+      }
+
+      addYears(date :Date, years : number) {
+        date.setFullYear(date.getFullYear() + years);
+        this.admission.courseEndDate = date;
+        console.log(this.admission);
+      }
 }

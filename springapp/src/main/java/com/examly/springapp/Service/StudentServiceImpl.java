@@ -109,6 +109,11 @@ public class StudentServiceImpl implements StudentService{
             stud.setGender(student.getGender());
         }
 
+        if(Objects.nonNull(student.getCourseName()) &&
+        !"".equalsIgnoreCase(student.getCourseName())) {
+            stud.setCourseName(student.getCourseName());
+        }
+
         return adminRepository.save(stud);
 
     }

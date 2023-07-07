@@ -58,8 +58,8 @@ public class AdmissionServiceImp implements AdmissionService {
                 updateStudent.setStatus(admissionmodel.getStatus());
                 updateStudent.setCourseStartDate(admissionmodel.getCourseStartDate());
                 updateStudent.setCourseEndDate(admissionmodel.getCourseEndDate());
-                admissionRepo.save(updateStudent);
                 updateStudent.setUserId(admissionmodel.getUserId());
+                admissionRepo.save(updateStudent);
                 return updateStudent;
             }
          return null;
@@ -80,11 +80,16 @@ public class AdmissionServiceImp implements AdmissionService {
          return vs;
     }
 
-    @Override
+   @Override
    public List<AdmissionModel> getByuserId(int userId)
-  {
-     return admissionRepo.findByuserId(userId);
-      
-  }
+   {
+     return admissionRepo.findByuserId(userId);  
+   }
+
+   @Override
+    public AdmissionModel findByStudentId(int studentid) {
+        
+        return admissionRepo.findByStudentId(studentid);
+    }
 
 }
