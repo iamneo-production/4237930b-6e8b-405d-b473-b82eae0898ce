@@ -34,6 +34,11 @@ export class CourselistComponent {
             this.courses= data;
       
           })
+        }
+        goToStudentPage(courseId:number)
+        {
+          this.router.navigate(['/user/admissionform',this.instituteId,courseId]);
+       
         }    
         
       
