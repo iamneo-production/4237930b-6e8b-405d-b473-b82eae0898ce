@@ -15,7 +15,7 @@ import { Students } from 'src/app/class/Student';
 })
 export class UserserviceService {
 
-  baseUrl: string = "https://8080-fddecffdbcffbbedebaebcdacaee.project.examly.io/";
+  baseUrl: string = "https://8080-addcabcdecadbcffbbedebaebcdacaee.project.examly.io/";
 
   constructor(private http: HttpClient) {}
 
@@ -55,6 +55,22 @@ public viewCoursesFromInstitute(instituteId : number): Observable<Course[]>{
   //get the institute by instituteId
   public getAdmissionById(admissionId : number): Observable<Admission>{
     return this.http.get<Admission>(this.baseUrl+`user/viewAdmission/`+admissionId);
+  }
+  //add student details for admin
+  public addStudent(newstudent: Students): Observable<Students>{
+    return this.http.post<Students>(this.baseUrl+'user/addStudent',newstudent);
+  }
+
+  
+
+  //update student by studentId and student details
+  public editStudent(studentId : number, student:Students): Observable<Students>{
+    return this.http.put<Students>(this.baseUrl+'user/editStudent/'+studentId,student);
+  }
+
+  //add the admission
+  public addAdmission(newadmission:Admission): Observable<Admission>{
+    return this.http.post<Admission>(this.baseUrl+`user/addAdmission`,newadmission);
   }
 
 }
