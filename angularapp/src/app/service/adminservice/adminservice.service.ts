@@ -109,6 +109,13 @@ export class AdminserviceService {
   public getAdmissionByStudentId(studentId : number): Observable<Admission>{
     return this.http.get<Admission>(this.baseUrl+'admin/getAdmissionById/'+studentId);
   }
-
+  //delete the institute by instituteId
+  public deleteInstitute(instituteId : number): Observable<String>{
+    const requestOptions: Object = {
+      responseType: 'text'
+    }
+    return this.http.delete<String>(this.baseUrl+`/admin/deleteInstitute/`+instituteId,requestOptions);
+  }
+  
 
 }
