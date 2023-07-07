@@ -3,6 +3,8 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Students } from 'src/app/class/Student';
 import { AdminserviceService } from 'src/app/service/adminservice/adminservice.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-user',
@@ -11,11 +13,10 @@ import { Router } from '@angular/router';
 })
 export class UserComponent implements OnInit {
 
-  constructor(private modalService: NgbModal,private router: Router,private adminservice :AdminserviceService) { }
+  constructor(private modalService: NgbModal,private router: Router,private adminservice :AdminserviceService, private toastr :ToastrService) { }
 
   ngOnInit(): void {
     this.getallStudents();
-    console.log("Hi");
   }
   
   searchText!:string;
@@ -26,7 +27,7 @@ export class UserComponent implements OnInit {
   {
     this.adminservice.viewStudents().subscribe(data =>{
     this.students = data;
-    console.log(this.students);
+    // console.log(this.students);
     })
   }
 
@@ -44,14 +45,15 @@ export class UserComponent implements OnInit {
   {
     this.router.navigate(['/admin/editstudent',studentId]);
   }
+
   deleteStudent(studentId : number)
   {
     this.adminservice.deleteStudent(studentId).subscribe(data => {
-      console.log(data);
+      // console.log(data);
       this.modalService.dismissAll();
-      this.router.navigate(['/admin/students']);
+      this.toastr.warning('deleted Sucessfully!', 'Student Details !');
+      this.getallStudents();
     })
-      // this.students.pop();
   }
 
 }

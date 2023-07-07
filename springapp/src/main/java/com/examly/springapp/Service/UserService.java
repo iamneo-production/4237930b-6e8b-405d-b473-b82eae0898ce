@@ -22,13 +22,11 @@ public interface UserService {
 
     //check the userrole by the email
     String checkRoleByEmail(String email);
-
-
-
-    
+ 
     //check the userrId by the email
     int getIdByEmail(String email);
 
 }
+
     
 
