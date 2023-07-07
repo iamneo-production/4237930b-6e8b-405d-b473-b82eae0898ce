@@ -64,8 +64,8 @@ export class AdduserComponent implements OnInit {
     }
 
     // get the selected course data
-    getCoursedata(instituteId: number): void {
-      this.adminservice.getCourseById(instituteId).subscribe(data => {
+    getCoursedata(courseId: number): void {
+      this.adminservice.getCourseById(courseId).subscribe(data => {
           console.log(data);
           this.courseName = data.courseName;
           this.addYears(new Date(),data.courseDuration);
