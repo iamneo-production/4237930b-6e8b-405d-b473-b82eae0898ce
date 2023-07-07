@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Institute } from 'src/app/class/institute';
+import { UserserviceService } from 'src/app/service/userservice/userservice.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-userhomepage',
@@ -9,29 +12,24 @@ import { Institute } from 'src/app/class/institute';
 })
 export class UserhomepageComponent implements OnInit {
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private modalService: NgbModal, private userservice: UserserviceService, private toastr :ToastrService) {}
   searchText!: string;
+  institutes ?: Institute[];
 
   ngOnInit(): void {
+    this.getallInstitutes();
   }
 
-  institutes ?: Institute[]=[
-    new Institute(1,"PSG CAS","https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Y29sbGVnZXxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80","Coimbatore",5),
-    new Institute(2,"BIT","https://static.businessworld.in/article/article_extra_large_image/1616143247_9SQluK_Bannari_Amman_Institute_of_Technology.jpg","Sathyamangalam",4),
-    new Institute(3,"SRI KRISHNA","https://i.ytimg.com/vi/hhArRZNWRj0/maxresdefault.jpg","Coimbatore",3),
-    new Institute(1,"PSG CAS","https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Y29sbGVnZXxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80","Coimbatore",5),
-    new Institute(2,"BIT","https://static.businessworld.in/article/article_extra_large_image/1616143247_9SQluK_Bannari_Amman_Institute_of_Technology.jpg","Sathyamangalam",4),
-    new Institute(3,"SRI KRISHNA","https://i.ytimg.com/vi/hhArRZNWRj0/maxresdefault.jpg","Coimbatore",3),
-    new Institute(1,"PSG CAS","https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Y29sbGVnZXxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80","Coimbatore",5),
-    new Institute(2,"BIT","https://static.businessworld.in/article/article_extra_large_image/1616143247_9SQluK_Bannari_Amman_Institute_of_Technology.jpg","Sathyamangalam",4),
-    new Institute(3,"SRI KRISHNA","https://i.ytimg.com/vi/hhArRZNWRj0/maxresdefault.jpg","Coimbatore",3),
-    new Institute(1,"PSG CAS","https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Y29sbGVnZXxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80","Coimbatore",5),
-    new Institute(2,"BIT","https://static.businessworld.in/article/article_extra_large_image/1616143247_9SQluK_Bannari_Amman_Institute_of_Technology.jpg","Sathyamangalam",4),
-    new Institute(3,"SRI KRISHNA","https://i.ytimg.com/vi/hhArRZNWRj0/maxresdefault.jpg","Coimbatore",3),
-  ];
-
-  gotocourse(): void {
-    this.router.navigate(['/user/courses']);
+  gotocourse(instituteId:number): void {
+    this.router.navigate(['/user/courses',instituteId]);
+  }
+  //get the list of institutes
+  getallInstitutes()
+  {
+     this.userservice.viewInstitute().subscribe(data =>{
+     this.institutes = data;
+     console.log(this.institutes);
+    })
   }
 
 }

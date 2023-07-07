@@ -7,13 +7,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.examly.springapp.Model.InstituteModel;
-import com.examly.springapp.repository.AdminInstituteRepository;
+import com.examly.springapp.Repository.InstituteRepository;
+import com.examly.springapp.Exception.ResourceNotFoundException;
+
 
 @Service
 public class InstituteServiceImpl implements InstituteService{
 
     @Autowired
-    private AdminInstituteRepository adminInstituteRepository;
+    private InstituteRepository adminInstituteRepository;
 
     @Override
     public InstituteModel addInstitute(InstituteModel institute) {
@@ -24,7 +26,7 @@ public class InstituteServiceImpl implements InstituteService{
     public List<InstituteModel> viewInstitute() {
         return adminInstituteRepository.findAll();
     }
-
+    
     @Override
     public InstituteModel editInstitute(Integer instituteId, InstituteModel institute) {
        InstituteModel inm = adminInstituteRepository.findById(instituteId).get();
@@ -44,24 +46,38 @@ public class InstituteServiceImpl implements InstituteService{
             inm.setInstituteAddress(institute.getInstituteAddress());
         }
 
-        if(Objects.nonNull(institute.getMobile()) &&
-        !"".equalsIgnoreCase(institute.getMobile())) {
-            inm.setMobile(institute.getMobile());
+        if(Objects.nonNull(institute.getInstituteMobileNo()) &&
+        !"".equalsIgnoreCase(institute.getInstituteMobileNo())) {
+            inm.setInstituteMobileNo(institute.getInstituteMobileNo());
         }
 
-        if(Objects.nonNull(institute.getEmail()) &&
-        !"".equalsIgnoreCase(institute.getEmail())) {
-            inm.setEmail(institute.getEmail());
+        if(Objects.nonNull(institute.getInstituteEmail()) &&
+        !"".equalsIgnoreCase(institute.getInstituteEmail())) {
+            inm.setInstituteEmail(institute.getInstituteEmail());
         }
 
+        if(Objects.nonNull(institute.getInstituteImgUrl())&&
+        !"".equalsIgnoreCase(institute.getInstituteImgUrl())) {
+            inm.setInstituteImgUrl(institute.getInstituteImgUrl());
+        }
+
+        if(Objects.nonNull(institute.getInstituteRating()) &&
+        !"".equals(institute.getInstituteRating())) {
+            inm.setInstituteRating(institute.getInstituteRating());
+        }
         return adminInstituteRepository.save(inm);
-
-
     }
 
     @Override
     public void deleteInstitute(Integer instituteId) {
         adminInstituteRepository.deleteById(instituteId);
+    }
+
+    @Override
+    public InstituteModel getInstituteById(Integer instituteId) {
+
+        return adminInstituteRepository.findById(instituteId).orElseThrow(() -> 
+                                    new ResourceNotFoundException("Institute not existed for id:"+ instituteId));
     }
     
 }

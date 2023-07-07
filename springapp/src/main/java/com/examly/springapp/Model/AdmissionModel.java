@@ -10,7 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 @Entity
-@Table(name="admission1")
+@Table(name="admission")
 public class AdmissionModel {
     
     //declaring table entity
@@ -24,6 +24,7 @@ public class AdmissionModel {
     private String status;
     private LocalDate courseStartDate;
     private LocalDate courseEndDate;
+    private int userId;
     //default constructor
      public AdmissionModel() {
     }
@@ -31,7 +32,7 @@ public class AdmissionModel {
     
 
     public AdmissionModel(int admissionId, int instituteId, int courseId, int studentId, String status,
-            LocalDate courseStartDate, LocalDate courseEndDate) {
+            LocalDate courseStartDate, LocalDate courseEndDate,int userId) {
         this.admissionId = admissionId;
         this.instituteId = instituteId;
         this.courseId = courseId;
@@ -39,6 +40,7 @@ public class AdmissionModel {
         this.status = status;
         this.courseStartDate = courseStartDate;
         this.courseEndDate = courseEndDate;
+        this.userId=userId;
     }
 
 
@@ -85,6 +87,14 @@ public class AdmissionModel {
     public void setCourseEndDate(LocalDate courseEndDate) {
         this.courseEndDate = courseEndDate;
     }
+
+    public int getUserId() {
+        return userId;
+    }
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+    
 
     
 }

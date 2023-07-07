@@ -1,14 +1,10 @@
-export class Course
-{
-    public CourseName:any;
-    public JoinDate:any;
-    public CourseEndDate:any;
+export class Course {
 
-    constructor(CourseName:any,JoinDate:any,CourseEndDate:any)
-    {
-        this.CourseName=CourseName;
-        this.JoinDate=JoinDate;
-        this.CourseEndDate=CourseEndDate;
-    }
-
+    public courseId           !:number;
+    public courseName         !:string;
+    public courseDuration     !:number;
+    public courseTiming       !:string;
+    public courseDescription  !:string;
+    public enrolledStudents   !:number;
+    public instituteId        !:number;
 }

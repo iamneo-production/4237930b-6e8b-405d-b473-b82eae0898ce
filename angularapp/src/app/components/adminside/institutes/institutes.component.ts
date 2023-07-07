@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Institute } from 'src/app/class/institute';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-
+import { AdminserviceService } from 'src/app/service/adminservice/adminservice.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-institutes',
@@ -11,42 +12,48 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class InstitutesComponent implements OnInit {
 
-  constructor(private router: Router,private modalService: NgbModal) {}
+  constructor(private router: Router, private modalService: NgbModal, private adminservice: AdminserviceService, private toastr :ToastrService) {}
   searchText!: string;
+  institutes ?: Institute[];
 
   ngOnInit(): void {
+    this.getallInstitutes();
   }
 
-  institutes ?: Institute[]=[
-    new Institute(1,"PSG CAS","https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Y29sbGVnZXxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80","Coimbatore",5),
-    new Institute(2,"BIT","https://static.businessworld.in/article/article_extra_large_image/1616143247_9SQluK_Bannari_Amman_Institute_of_Technology.jpg","Sathyamangalam",4),
-    new Institute(3,"SRI KRISHNA","https://i.ytimg.com/vi/hhArRZNWRj0/maxresdefault.jpg","Coimbatore",3),
-    new Institute(1,"PSG CAS","https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Y29sbGVnZXxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80","Coimbatore",5),
-    new Institute(2,"BIT","https://static.businessworld.in/article/article_extra_large_image/1616143247_9SQluK_Bannari_Amman_Institute_of_Technology.jpg","Sathyamangalam",4),
-    new Institute(3,"SRI KRISHNA","https://i.ytimg.com/vi/hhArRZNWRj0/maxresdefault.jpg","Coimbatore",3),
-    new Institute(1,"PSG CAS","https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Y29sbGVnZXxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80","Coimbatore",5),
-    new Institute(2,"BIT","https://static.businessworld.in/article/article_extra_large_image/1616143247_9SQluK_Bannari_Amman_Institute_of_Technology.jpg","Sathyamangalam",4),
-    new Institute(3,"SRI KRISHNA","https://i.ytimg.com/vi/hhArRZNWRj0/maxresdefault.jpg","Coimbatore",3),
-    new Institute(1,"PSG CAS","https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Y29sbGVnZXxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80","Coimbatore",5),
-    new Institute(2,"BIT","https://static.businessworld.in/article/article_extra_large_image/1616143247_9SQluK_Bannari_Amman_Institute_of_Technology.jpg","Sathyamangalam",4),
-    new Institute(3,"SRI KRISHNA","https://i.ytimg.com/vi/hhArRZNWRj0/maxresdefault.jpg","Coimbatore",3),
-  ];
+  //get the list of institutes
+  getallInstitutes()
+  {
+     this.adminservice.viewInstitute().subscribe(data =>{
+     this.institutes = data;
+     console.log(this.institutes);
+    })
+  }
 
-    gotoeditinstitute(): void {
-      this.router.navigate(['/admin/editinstitute']);
-    }
+  //send the instituteId to editinstitute component
+  editInstitute(instituteId : number)
+  {
+    this.router.navigate(['/admin/editinstitute',instituteId]);
+  }
 
-    //for delete popup modal
-    open(content: any): void {
-      this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
-        console.log(result);
-      }, (reason) => {
-        console.log(reason);
-      });
-    }
+  //Redirect to the course with institute id
+  gotoCourse(instituteId:number)
+  {
+    this.router.navigate(['/admin/course',instituteId]);
+  }
 
-    delete(): void {
+  //for delete popup modal
+  open(content: any): void {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+      console.log(result);
+    }, (reason) => {
+      console.log(reason);
+    });
+  }
+
+    //delete the institute
+    delete(instituteId : number): void {
       this.modalService.dismissAll();
+      this.toastr.error('Institute deleted Sucessfully!', 'Institute status !');
     }
 
 

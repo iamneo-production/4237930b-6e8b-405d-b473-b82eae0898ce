@@ -31,16 +31,14 @@
   <div class="container">
     <div class="row">
       <div class="addcourse-form">
-        <form  [formGroup]="registerForm" (ngSubmit)="onSubmit()" #editcourse="ngForm">
+        <form   (ngSubmit)="onSubmit()" #editcourse="ngForm">
             <div class="row">
                       <div class="col-md-7">
                         <div class="form-group">
                             <label>Course Name</label><br>
                             <input class="input-box1" name="CourseName"  id="CourseName" style="text-align: center;margin-bottom: 30px;" 
-                            placeholder="Enter Course Name"   type="text" placeholder="Enter The Course Name" 
-                             formControlName="CourseName" 
-                            [ngClass]="{ 'is-invalid': submitted && f.CourseName.errors }" 
-                            [(ngModel)]="CourseName" aria-describedby="CN">
+                            placeholder="Enter Course Name"   type="text" placeholder="Enter The Course Name"                             
+                            [(ngModel)]="course.courseName" aria-describedby="CN">
                             <br>
                         </div>
                       </div>
@@ -50,8 +48,8 @@
                           <label>No of Students Enrolled</label><br>
                             <input class="input-box1" name="StudentsEnrolled" id="StudentsEnrolled"
                             style="text-align: center;margin-bottom: 30px;"
-                            type="number" placeholder=" No of Students Enrolled"  formControlName="StudentsEnrolled" 
-                            [ngClass]="{ 'is-invalid': submitted && f.StudentsEnrolled.errors }"  [(ngModel)]="StudentsEnrolled" aria-describedby="SE" >
+                            type="number" placeholder=" No of Students Enrolled"  
+                             [(ngModel)]="course.enrolledStudents" aria-describedby="SE" >
                             <br>
                         </div>
                       </div>
@@ -65,9 +63,7 @@
                             <input class="input-box1" name="CourseDuration" id="CourseDuration"
                             style="text-align: center;margin-bottom: 30px;"
                             type="number" placeholder="Enter The Course Duration" 
-                             formControlName="CourseDuration" 
-                            [ngClass]="{ 'is-invalid': submitted && f.CourseDuration.errors }" 
-                            [(ngModel)]="CourseDuration" aria-describedby="CDU">
+                            [(ngModel)]="course.courseDuration" aria-describedby="CDU">
                             <br>
                         </div>
                       </div>
@@ -76,8 +72,8 @@
                           <label>Course Description</label><br>
                             <input class="input-box1"  style="text-align: center;margin-bottom: 30px;" 
                              name="CourseDescription" id="CourseDescription"
-                            type="text" placeholder="Enter the Course Description"  formControlName="CourseDescription"  
-                            [ngClass]="{ 'is-invalid': submitted && f.CourseDescription.errors }"  [(ngModel)]="CourseDescription" aria-describedby="CD"S >
+                            type="text" placeholder="Enter the Course Description"    
+                              [(ngModel)]="course.courseDescription" aria-describedby="CD" >
                             <br>
                         </div>
                       </div>
@@ -90,9 +86,7 @@
                           <input class="input-box1"  style="text-align: center;margin-bottom: 30px;" 
                           name="CourseTimings" id="CourseTimings" 
                           type="text" placeholder="Enter The Course Timings" 
-                           formControlName="CourseTimings" 
-                           [ngClass]="{ 'is-invalid': submitted && f.CourseTimings.errors }" 
-                          [(ngModel)]="CourseTimings" aria-describedby="CT">
+                          [(ngModel)]="course.courseTiming" aria-describedby="CT">
                           <br>
                       </div>
                     </div>
@@ -100,7 +94,7 @@
                     
             </div>
                   <br><br>
-                  <button  [disabled] ="editcourse.invalid" [ngClass]="{ 'p1': editcourse.form.invalid,'p2':editcourse.form.valid} ">
+                  <button  [disabled] ="editcourse.invalid" [ngClass]="{ 'p1': editcourse.form.invalid,'p2':editcourse.form.valid}" >
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
                     <path d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0zm-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z"/>
                   </svg> Update </button>

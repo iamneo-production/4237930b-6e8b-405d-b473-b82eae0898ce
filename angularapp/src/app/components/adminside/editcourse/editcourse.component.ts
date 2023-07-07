@@ -1,55 +1,49 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
-import { ElementRef } from '@angular/core';
-
+import { ActivatedRoute, Router } from '@angular/router';
+import { Course } from 'src/app/class/Course';
+import { AdminserviceService } from 'src/app/service/adminservice/adminservice.service';
+import { ToastrService } from 'ngx-toastr';
 @Component({
+  
   selector: 'app-editcourse',
   templateUrl: './editcourse.component.html',
   styleUrls: ['./editcourse.component.css']
 })
 export class EditcourseComponent implements OnInit {
-  CourseName: string='' ;
-  CourseDuration:string='';
-  CourseTimings:string='';
-  StudentsEnrolled:any;
-  CourseDescription:string='';
 
-  registerForm!: FormGroup;
-  submitted = false;
-
-  constructor(private formBuilder: FormBuilder,private elementRef: ElementRef) { }
-
+  constructor(private router:Router,private adminservice:AdminserviceService,private route:ActivatedRoute,private toastr :ToastrService) { }
+  courseId !:number;
+  course : Course = new Course();
   ngOnInit(): void {
-    this.registerForm = this.formBuilder.group({
-      CourseName: ['', Validators.required],
-      CourseDuration: ['', Validators.required],
-      CourseTimings:['', Validators.required],
-      StudentsEnrolled:['', Validators.required],
-      CourseDescription:['', Validators.required],
-  },);
+    this.courseId = this.route.snapshot.params['courseId'];
+    console.log(this.courseId);
+    
+
+    this.adminservice.getCourseById(this.courseId).subscribe(data =>
+      {
+          this.course = data;
+      });
+ 
   }
-  ngAfterViewInit() {
-    /*this.elementRef.nativeElement.ownerDocument
-        .body.style.backgroundColor = '#808080';*/
-}
-get f() { return this.registerForm.controls; }
+  
 
   onSubmit() {
-    this.submitted = true;
-
-    // stop here if form is invalid
-    if (this.registerForm.invalid) {
-        return;
-    }
-
-    // display form values on success
-    alert('SUCCESSfully!! Updated Course');
+    
+    
+   // display form values on success
+  this.adminservice.editCourse(this.courseId,this.course).subscribe(data =>
+    {
+      this.toastr.warning('Course Updated Sucessfully!', 'Course status !');
+    },error => console.log(error));
+    this.gotoCoursePage();
 }
 
-onReset() {
-    this.submitted = false;
-    this.registerForm.reset();
-}
+
+gotoCoursePage()
+  {
+    this.router.navigate(['/admin/course',this.course.instituteId]);
+  }
+  
 
   
 

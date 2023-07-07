@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.examly.springapp.Model.LoginModel;
 import com.examly.springapp.Model.UserModel;
 import com.examly.springapp.Repository.UserRepository;
-
+import com.examly.springapp.Exception.ResourceNotFoundException;
 @Service
 public class UserServiceImpl implements UserService{
 
@@ -79,6 +79,14 @@ public class UserServiceImpl implements UserService{
         UserModel user = userrepository.findByEmail(email);
         return user;
     }
+
+    //for finding the userId by email
+    @Override
+    public int getIdByEmail(String email) {
+        UserModel user = userrepository.findByEmail(email);
+        return user.getUserId();
+    }
+
 
 }
     
