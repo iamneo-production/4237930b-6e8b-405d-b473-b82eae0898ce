@@ -41,15 +41,22 @@ export class CoursesComponent implements OnInit {
       });
     }
 
-    delete()
+    delete(courseId :number)
     {
-      this.modalService.dismissAll();
+        this.modalService.dismissAll();
+        this.adminservice.deleteCourse(courseId).subscribe(data =>
+          {
+            console.log(courseId);
+            
+        });
+
     }
 
     gotoaddcourse()
     {
       this.router.navigate(['/admin/addcourse',this.instituteId]);
     }
+
 
 
 

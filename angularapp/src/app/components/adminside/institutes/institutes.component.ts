@@ -50,11 +50,18 @@ export class InstitutesComponent implements OnInit {
     });
   }
 
-    //delete the institute
-    delete(instituteId : number): void {
+  delete(instituteId : number)
+  {
       this.modalService.dismissAll();
-      this.toastr.error('Institute deleted Sucessfully!', 'Institute status !');
+        this.adminservice.deleteInstitute(instituteId).subscribe(data =>
+          {
+            console.log(instituteId);
+            // alert("Institute Deleted sucessfully");
+            this.getallInstitutes();
+        });
+
     }
+
 
 
 }
