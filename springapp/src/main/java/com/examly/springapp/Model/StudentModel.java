@@ -49,6 +49,8 @@ public class StudentModel {
 	@Column(name = "state")
 	private String state;
 	private String courseName;
+	private Integer userId;
+
 	
 	public StudentModel() {
 		
@@ -56,7 +58,7 @@ public class StudentModel {
 
 	public StudentModel(Integer studentId, String firstName, String lastName, Integer age, String mobile,
 			Integer sslc, String gender, String fatherName,String motherName, String altMobile, String emailId, String houseNo, String streetName, String areaName,
-			Integer pincode, String nationality, String state, String courseName) {
+			Integer pincode, String nationality, String state, String courseName,Integer userId) {
 		this.studentId = studentId;
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -75,6 +77,8 @@ public class StudentModel {
 		this.nationality = nationality;
 		this.state = state;
 		this.courseName = courseName;
+		this.userId = userId;
+		
 	}
 
 
@@ -222,6 +226,13 @@ public class StudentModel {
 		this.courseName = courseName;
 	}
 	
+	public Integer getUserId() {
+		return this.userId;
+	}
+
+	public void setUserId(Integer userId) {
+		this.userId = userId;
+	}
 }
 
 

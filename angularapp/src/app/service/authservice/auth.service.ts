@@ -11,7 +11,7 @@ export class AuthService {
   loginstatus:boolean = false;
   userId: number;
 
-  private baseURL = "https://8080-addcabcdecadbcffbbedebaebcdacaee.project.examly.io/";
+  private baseURL = "https://8080-fddecffdbcffbbedebaebcdacaee.project.examly.io/";
 
   constructor(private http: HttpClient) { }
 

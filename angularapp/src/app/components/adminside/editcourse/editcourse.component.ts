@@ -28,14 +28,16 @@ export class EditcourseComponent implements OnInit {
   
 
   onSubmit() {
-    
-    
-   // display form values on success
-  this.adminservice.editCourse(this.courseId,this.course).subscribe(data =>
-    {
-      this.toastr.warning('Course Updated Sucessfully!', 'Course status !');
-    },error => console.log(error));
-    this.gotoCoursePage();
+     // display form values on success
+    this.adminservice.editCourse(this.courseId,this.course).subscribe({
+      next:()=>console.log('updating'),
+      error:()=>console.log('Error while updating'),
+      complete:()=>{
+        this.toastr.success('Course Updated Sucessfully!', 'Course status !');
+        console.log('Updated');
+        this.gotoCoursePage();
+        }
+      })
 }
 
 

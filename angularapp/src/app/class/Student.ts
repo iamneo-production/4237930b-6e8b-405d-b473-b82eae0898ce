@@ -18,5 +18,5 @@ export class Students{
 	public nationality  !:string;
 	public state  !:string;
 	public courseName !:string;
-	
+	public userId!: number;
 }
