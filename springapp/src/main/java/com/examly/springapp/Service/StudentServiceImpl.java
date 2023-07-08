@@ -130,4 +130,9 @@ public class StudentServiceImpl implements StudentService{
                                     new ResourceNotFoundException("Student does not exist for id:"+ studentId));
     }
 
+    @Override
+    public StudentModel findByStudentUserId(Integer userId) {
+        return adminRepository.findByUserId(userId);
+    }
+
 }

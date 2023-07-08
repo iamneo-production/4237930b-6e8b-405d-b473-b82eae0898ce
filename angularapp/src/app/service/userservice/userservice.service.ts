@@ -15,7 +15,7 @@ import { Students } from 'src/app/class/Student';
 })
 export class UserserviceService {
 
-  baseUrl: string = "https://8080-addcabcdecadbcffbbedebaebcdacaee.project.examly.io/";
+  baseUrl: string = "https://8080-fddecffdbcffbbedebaebcdacaee.project.examly.io/";
 
   constructor(private http: HttpClient) {}
 
@@ -24,18 +24,15 @@ public viewInstitute(): Observable<Institute[]>{
   return this.http.get<Institute[]>(this.baseUrl+`user/viewInstitutes`);
 }
 
-
 //get the list of courses in institutes
 public viewCoursesFromInstitute(instituteId : number): Observable<Course[]>{
   return this.http.get<Course[]>(this.baseUrl+`user/findByInstituteId/`+instituteId);
 }
 
- 
   //get admission by userId
   public getByUserId(userId : number): Observable<Admission[]>{
     return this.http.get<Admission[]>(this.baseUrl+`user/getByUserId/`+userId);
   }
-
 
   //get the course by courseId
   public getCourseById(courseId : number): Observable<Course>{
@@ -61,8 +58,6 @@ public viewCoursesFromInstitute(instituteId : number): Observable<Course[]>{
     return this.http.post<Students>(this.baseUrl+'user/addStudent',newstudent);
   }
 
-  
-
   //update student by studentId and student details
   public editStudent(studentId : number, student:Students): Observable<Students>{
     return this.http.put<Students>(this.baseUrl+'user/editStudent/'+studentId,student);
@@ -71,6 +66,24 @@ public viewCoursesFromInstitute(instituteId : number): Observable<Course[]>{
   //add the admission
   public addAdmission(newadmission:Admission): Observable<Admission>{
     return this.http.post<Admission>(this.baseUrl+`user/addAdmission`,newadmission);
+  }
+
+  //delete the admission by instituteId
+  public deleteAdmission(admissionId : number): Observable<String>{
+    const requestOptions: Object = {
+      responseType: 'text'
+    }
+    return this.http.delete<string>(this.baseUrl+`user/deleteAdmission/`+admissionId,requestOptions);
+  }
+
+  //update admission by admission id and admission details
+  public editAdmission(admissionId : number, admission:Admission): Observable<Admission>{
+    return this.http.put<Admission>(this.baseUrl+'user/editAdmission/'+admissionId,admission);
+  }
+
+  //get the student by userId
+  public getStudentByUserId(userId : number): Observable<Students>{
+    return this.http.get<Students>(this.baseUrl+`user/getStudentByuserId/`+userId);
   }
 
 }

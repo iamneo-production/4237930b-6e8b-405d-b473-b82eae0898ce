@@ -33,11 +33,12 @@ export class AdmissionformComponent implements OnInit {
     this.newAdmission.userId=this.userId;
     this.newAdmission.courseStartDate=new Date();
     this.getCoursedata(this.courseId);
-    
+    this.checkStudentdetails(this.userId);
 
   }
 
   loginForm = new FormGroup({
+    studentId: new FormControl('',),
     firstName: new FormControl('',[Validators.required]),
     lastName: new FormControl('',[Validators.required]),
     age: new FormControl('',[Validators.required]),
@@ -54,6 +55,7 @@ export class AdmissionformComponent implements OnInit {
     pincode: new FormControl('',[Validators.required]),
     nationality: new FormControl('',[Validators.required]),
     state: new FormControl('',[Validators.required]),
+    courseName: new FormControl('',),
 })
 
   loginUser()
@@ -154,8 +156,15 @@ submit()
 {
   this.newStudent=this.loginForm.value;
   this.newStudent.courseName=this.courseName;
-  this.addStudent();
+  this.newStudent.userId = this.userId;
   console.log(this.newStudent);
+  
+  if(this.checkStudentdetails(this.userId)) {
+    this.updateStudent();
+    }
+  else {
+    this.addStudent();
+  }
  
 }
 
@@ -167,29 +176,51 @@ submit()
           this.addYears(new Date(),data.courseDuration);
         })
     }
+
+    //course Start date and end date caluculation
     addYears(date :Date, years : number) {
       date.setFullYear(date.getFullYear() + years);
       this.newAdmission.courseEndDate = date;
       console.log(this.newAdmission);
     }
+
   //for adding student details
   addStudent(): void {
     this.userservice.addStudent(this.newStudent).subscribe(data =>
       {
         this.newAdmission.studentId = data.studentId;
         this.addAdmission();
-        this.toastr.success('Registered Sucessfully!', 'Student Details !');
       })
-  }
+    }
+
   //for adding the admission for the student
   addAdmission(): void {
-   
     console.log(this.newAdmission);
     this.userservice.addAdmission(this.newAdmission).subscribe(data =>
       {
-        this.toastr.success('Registered Sucessfully!', 'Course Details !');
+        this.toastr.success('Registered Sucessfully!', 'Course and Student Details !');
         this.router.navigate(['/user/institute']);
       })
-  }
+   }
+
+   //check the student details available or not
+    checkStudentdetails(userId:number): any {
+      this.userservice.getStudentByUserId(this.userId).subscribe(data => {
+        if(data != null) {
+            console.log(data);
+            this.loginForm.setValue(data);
+            return true;
+          }
+          return false;
+        })
+    }
+
+    //updating the existing student
+    updateStudent(): void {
+      this.userservice.editStudent(this.newStudent.studentId,this.newStudent).subscribe(data => {
+        this.toastr.info('Admission Updated Sucessfully!', 'Admission status !');
+        },error => console.log(error));
+        this.addAdmission();
+     }
 
 }

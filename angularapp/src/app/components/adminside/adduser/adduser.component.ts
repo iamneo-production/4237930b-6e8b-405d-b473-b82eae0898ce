@@ -105,7 +105,6 @@ export class AdduserComponent implements OnInit {
       {
         this.newadmission.studentId = data.studentId;
         this.addAdmission();
-        this.toastr.success('Registered Sucessfully!', 'Student Details !');
       })
   }
 
@@ -115,7 +114,7 @@ export class AdduserComponent implements OnInit {
     console.log(this.newadmission);
     this.adminservice.addAdmission(this.newadmission).subscribe(data =>
       {
-        this.toastr.success('Registered Sucessfully!', 'Course Details !');
+        this.toastr.success('Registered Sucessfully!', 'Student and Course Details !');
         this.router.navigate(['/admin/students']);
       })
   }

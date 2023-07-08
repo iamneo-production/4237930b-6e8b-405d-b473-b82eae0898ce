@@ -84,19 +84,23 @@ getOldAdmission()
       //To update the student
       submit(): void {
         console.log(this.newstudent);
-        this.adminservice.editStudent(this.studentId,this.newstudent).subscribe(data => {
-          this.toastr.warning('Student and Course Updated Sucessfully!', 'Student status !');
-          },error => console.log(error));
-          this.updateAdmission();
-          this.gotoStudentsPage();
+        this.adminservice.editStudent(this.studentId,this.newstudent).subscribe({
+          next:()=>console.log('updating'),
+          error:()=>console.log('Error while updating'),
+          complete:()=>{
+            this.toastr.success('Student and Course Updated Sucessfully!', 'Student status !');
+            this.updateAdmission();
+            this.gotoStudentsPage();
+          }
+        })
       }
 
       updateAdmission()
       {
         console.log(this.admission);
         this.admissionId = this.admission.admissionId;
-        this.adminservice.editAdmission(this.admissionId,this.admission).subscribe(data => {
-          },error => console.log(error));
+        this.adminservice.editAdmission(this.admissionId,this.admission).subscribe({
+        error:()=>console.log("error") });
       }
 
       //To navigate to the institute Page

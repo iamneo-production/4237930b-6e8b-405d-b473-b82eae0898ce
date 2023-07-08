@@ -1,4 +1,4 @@
-/* 
+/*
 <!-- Authors- Pavithra -->
 .p3
 {
@@ -158,4 +158,9 @@ ngb-rating
   display:inline-block;
   vertical-align: top;
   margin-left: 140px;
+}
+
+.header
+{
+  text-align: center;
 }

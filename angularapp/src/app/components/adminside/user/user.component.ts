@@ -51,7 +51,7 @@ export class UserComponent implements OnInit {
     this.adminservice.deleteStudent(studentId).subscribe(data => {
       // console.log(data);
       this.modalService.dismissAll();
-      this.toastr.warning('deleted Sucessfully!', 'Student Details !');
+      this.toastr.success('deleted Sucessfully!', 'Student Details !');
       this.getallStudents();
     })
   }

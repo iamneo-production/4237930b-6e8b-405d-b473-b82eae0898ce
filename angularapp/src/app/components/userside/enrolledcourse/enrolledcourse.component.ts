@@ -15,6 +15,7 @@ export class EnrolledcourseComponent implements OnInit {
 
   userId: number;
   admission:Admission[];
+  courseList = [];
 
   constructor(private modalService: NgbModal,private authservices: AuthService,private userservice: UserserviceService,private router:Router) {}
 
@@ -30,10 +31,20 @@ export class EnrolledcourseComponent implements OnInit {
      this.userservice.getByUserId(this.userId).subscribe(data =>{
      this.admission = data;
      console.log(this.admission);
+
+     //for retriving the course details
+     this.admission.forEach((value , index)=> {
+      this.userservice.getCourseById(value.courseId).subscribe(data => {
+        this.addcourse(data.courseName);
+        });
+      });
     })
   }
+
+  addcourse(courseName:string): void{
+    this.courseList.push(courseName);
+  }
   
- 
   //for delete popup modal
   open(content: any): void {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
@@ -43,17 +54,28 @@ export class EnrolledcourseComponent implements OnInit {
     });
   }
   
-  //delete the admission by admission id
-  delete(): void {
-    this.modalService.dismissAll();
-  }
-
   //redirect to status page with admission ID
   gotoStatus(admissionId:number): void {
     this.router.navigate(['/user/status',admissionId]);
     console.log(admissionId);
   }
 
+  //redirect to edit student page with admission ID
+  gotoEditAdmission(admissionId:number): void {
+    this.router.navigate(['/user/editadmission',admissionId]);
+    console.log(admissionId);
+  }
 
+  //delete the admission by admission id
+  delete(admissionId : number)
+  {
+      this.modalService.dismissAll();
+        this.userservice.deleteAdmission(admissionId).subscribe(data =>
+          {
+            console.log(admissionId);
+            this.getallAdmission();
+        });
+
+    }
 
 }

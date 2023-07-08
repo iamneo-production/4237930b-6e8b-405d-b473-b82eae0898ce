@@ -1,6 +1,6 @@
 <!-- Author Subhasis Mohapatra -->
 
-<app-usernavbar></app-usernavbar> 
+<app-usernavbar></app-usernavbar>
 <div class="group">
   <div><br>
     <p style="text-align:center;font-size: 28px;">REGISTRATION FORM</p>
@@ -33,19 +33,19 @@
   <br>
 
   <label>Marks</label><br>
-  <input type="number" id="sslc" class="sslc-hsc" placeholder="Enter SSLC/HSC marks" formControlName="sslc"><br>
+  <input type="number" id="SSLC/HSCMarks" class="sslc-hsc" placeholder="Enter SSLC/HSC marks" formControlName="sslc"><br>
   <span style="color: red;"
     *ngIf="sslc && sslc.invalid && sslc.touched">*Required</span>
   <br>
 
   <label>Phone Number</label><br>
-  <input type="number" id="mobile" class="sslc-hsc" placeholder="Enter phone number" formControlName="mobile"><br>
+  <input type="number" id="phoneNumber1" class="sslc-hsc" placeholder="Enter phone number" formControlName="mobile"><br>
   <span style="color: red;"
     *ngIf="mobile && mobile.invalid && mobile.touched">*Required</span>
   <br>
 
   <label>Alt Mobile number</label><br>
-  <input type="number" id="altMobile" class="sslc-hsc" placeholder="Enter alternate number" formControlName="altMobile"><br>
+  <input type="number" id="phoneNumber2" class="sslc-hsc" placeholder="Enter alternate number" formControlName="altMobile"><br>
   <span style="color: red;"
     *ngIf="altMobile && altMobile.invalid && altMobile.touched">*Required</span>
   <br>
@@ -57,12 +57,12 @@
   <span style="color: red;" *ngIf="lastName && lastName.invalid && lastName.touched" class="last">*Required</span>
   <br>
 
-   
+
 </div>
 
 <div class="forms2">
   <label class="mafe">Male/Female</label><br>
-  <select id="gender" name="gender" class="mf" placeholder="Enter male or female" formControlName="gender"><br>
+  <select id="male/female" name="gender" class="mf" placeholder="Enter male or female" formControlName="gender"><br>
     <option value="Male">MALE</option>
     <option value="Female">FEMALE</option>
   </select>
@@ -100,7 +100,7 @@
       <br>
   </div>
   <div class="foot">
-    <button type="button" class="btn" (click)="submit()" [disabled]="loginForm.invalid">Add Student</button>
+    <button type="button" id="enrolNowButton" class="btn" (click)="submit()" [disabled]="loginForm.invalid">Enroll Now</button>
   </div>
 </form>
 </div>
