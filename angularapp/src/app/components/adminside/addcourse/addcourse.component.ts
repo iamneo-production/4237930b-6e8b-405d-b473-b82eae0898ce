@@ -64,13 +64,15 @@ get courseName()
   addCourse()
   {
     this.course.instituteId = this.instituteId;
-    this.adminservice.addCourse(this.course).subscribe(data =>
-      {
-        console.log(data);
-        this.toastr.warning("Course for the Institute added Sucessfully");
-      },error => console.log(error));
-        this.router.navigate(['/admin/course',this.instituteId]);
-      }
+      this.adminservice.addCourse(this.course).subscribe({
+        next:()=>console.log('updating'),
+        error:()=>console.log('Error while adding'),
+        complete:()=>{
+          this.toastr.warning("Course for the Institute added Sucessfully");
+          this.router.navigate(['/admin/course',this.instituteId]);
+        }
+      })
+    }
    }
   
 

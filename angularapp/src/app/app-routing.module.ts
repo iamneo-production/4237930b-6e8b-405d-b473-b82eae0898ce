@@ -19,6 +19,7 @@ import { AuthComponent } from './components/auth/auth.component';
 import { LoginComponent } from './components/auth/login/login.component';
 import { SignupComponent } from './components/auth/signup/signup.component';
 import { StatusComponent } from './components/userside/status/status.component';
+import { EditadmissionComponent } from './components/userside/editadmission/editadmission.component';
 
 const routes: Routes = [
   {path:"",component:LoginComponent},
@@ -46,7 +47,8 @@ const routes: Routes = [
       {path:"enrolledcourse",component:EnrolledcourseComponent},
       {path:"courses/:instituteId",component:CourselistComponent},
       {path:"admissionform/:instituteId/:courseId",component:AdmissionformComponent},
-      {path:"status/:admissionId",component:StatusComponent}
+      {path:"status/:admissionId",component:StatusComponent},
+      {path:"editadmission/:admissionId",component:EditadmissionComponent}
     ],
     // canActivate: [AuthComponent]
   },
