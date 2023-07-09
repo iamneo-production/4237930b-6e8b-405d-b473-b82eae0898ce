@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Students } from 'src/app/class/Student';
+import { AdminserviceService } from 'src/app/service/adminservice/adminservice.service';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -9,39 +13,21 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class UserComponent implements OnInit {
 
-  constructor(private modalService: NgbModal) { }
+  constructor(private modalService: NgbModal,private router: Router,private adminservice :AdminserviceService, private toastr :ToastrService) { }
 
   ngOnInit(): void {
+    this.getallStudents();
   }
+  
   searchText!:string;
 
-  students =[
-    {
-      'studentId': 1232213,
-      'studentName': 'Anil',
-      'enrolledCourse': 'Boxing Drills',
-      'mobileNumber': 2971234445,
-    },
-    {
-      'studentId': 2238631,
-      'studentName': 'Sai',
-      'enrolledCourse': 'Strength Training',
-      'mobileNumber': 2971234445,
-    },
-    {
-      'studentId': 2346871,
-      'studentName': 'Manoj',
-      'enrolledCourse': 'Conditioning Work',
-      'mobileNumber': 2971234445,
-    }
-  ]
+  students ?:Students[];
 
-  addStudent(){
-    this.students.push({
-      'studentId': 19003144,
-      'studentName': 'Deepika',
-      'enrolledCourse': 'Frontend',
-      'mobileNumber': 8096254335,
+  getallStudents()
+  {
+    this.adminservice.viewStudents().subscribe(data =>{
+    this.students = data;
+    // console.log(this.students);
     })
   }
 
@@ -54,10 +40,20 @@ export class UserComponent implements OnInit {
     });
   }
 
-  deleteStudent()
+  //redirect to editstudent page with studentId
+  editStudent(studentId : number)
   {
+    this.router.navigate(['/admin/editstudent',studentId]);
+  }
+
+  deleteStudent(studentId : number)
+  {
+    this.adminservice.deleteStudent(studentId).subscribe(data => {
+      // console.log(data);
       this.modalService.dismissAll();
-      this.students.pop();
+      this.toastr.success('deleted Sucessfully!', 'Student Details !');
+      this.getallStudents();
+    })
   }
 
 }

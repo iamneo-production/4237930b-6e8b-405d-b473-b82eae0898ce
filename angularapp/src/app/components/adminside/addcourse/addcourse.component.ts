@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
-import { ElementRef } from '@angular/core';
+import { Course } from 'src/app/class/Course';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AdminserviceService } from 'src/app/service/adminservice/adminservice.service';
+import { ToastrService } from 'ngx-toastr';
+import { FormControl,FormGroup,Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-addcourse',
@@ -8,47 +11,68 @@ import { ElementRef } from '@angular/core';
   styleUrls: ['./addcourse.component.css']
 })
 export class AddcourseComponent implements OnInit {
-  CourseName: string='' ;
-  CourseDuration:string='';
-  CourseTimings:string='';
-  StudentsEnrolled:any;
-  CourseDescription:string='';
 
-  registerForm!: FormGroup;
+  constructor(private router:Router,private adminservice:AdminserviceService,private route:ActivatedRoute,private toastr :ToastrService) { }
+
+  course : Course = new Course();
+  instituteId !:number;
   submitted = false;
 
-  constructor(private formBuilder: FormBuilder,private elementRef: ElementRef) { }
-
   ngOnInit(): void {
-    this.registerForm = this.formBuilder.group({
-      CourseName: ['', Validators.required],
-      CourseDuration: ['', Validators.required],
-      CourseTimings:['', Validators.required],
-      StudentsEnrolled:['', Validators.required],
-      CourseDescription:['', Validators.required],
-  },);
+
+    this.instituteId = this.route.snapshot.params['instituteId'];
+    console.log(this.instituteId);
   }
-  ngAfterViewInit() {
-    /*this.elementRef.nativeElement.ownerDocument
-        .body.style.backgroundColor = '#808080';*/
-}
-get f() { return this.registerForm.controls; }
+  addcourseForm= new FormGroup({
+    courseName: new FormControl('',[Validators.required]),
+    courseDuration: new FormControl('',[Validators.required]),
+    courseTiming:new FormControl('',[Validators.required]),
+    enrolledStudents:new FormControl('',[Validators.required]),
+    courseDescription:new FormControl('',[Validators.required]),
+})
 
-  onSubmit() {
-    this.submitted = true;
+get courseName()
+  {
+    return this.addcourseForm.get('courseName')
+  }
+  get courseDuration()
+  {
+    return this.addcourseForm.get('courseDuration')
+  }
+  get courseTiming()
+  {
+    return this.addcourseForm.get('courseTiming')
+  }
+  get enrolledStudents()
+  {
+    return this.addcourseForm.get('enrolledStudents')
+  }
+  get courseDescription()
+  {
+    return this.addcourseForm.get('courseDescription')
+  }
 
-    // stop here if form is invalid
-    if (this.registerForm.invalid) {
-        return;
+  onSubmit()
+  {
+    this.submitted=true;
+    this.course = this.addcourseForm.value;
+    //this.course.instituteId = this.instituteId;
+    console.log(this.course);
+    this.addCourse();
+  }
+
+  addCourse()
+  {
+    this.course.instituteId = this.instituteId;
+      this.adminservice.addCourse(this.course).subscribe({
+        next:()=>console.log('updating'),
+        error:()=>console.log('Error while adding'),
+        complete:()=>{
+          this.toastr.warning("Course for the Institute added Sucessfully");
+          this.router.navigate(['/admin/course',this.instituteId]);
+        }
+      })
     }
+   }
+  
 
-    // display form values on success
-    alert('SUCCESSfully!! Added Course');
-}
-
-onReset() {
-    this.submitted = false;
-    this.registerForm.reset();
-}
-
-}

@@ -1,4 +1,4 @@
-package com.examly.springapp.service;
+package com.examly.springapp.Service;
 
 import java.util.List;
 
@@ -13,6 +13,11 @@ public interface CourseService {
     public CourseModel editCourse(Integer courseId, CourseModel course);
 
     public void deleteCourse(Integer courseId);
+
+
+    public List<CourseModel> findByInstituteId(int instituteId);
+
+    CourseModel getcourseById(int courseId);
 
 
 }

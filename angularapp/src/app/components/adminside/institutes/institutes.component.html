@@ -18,15 +18,15 @@
             <div class="col" id = "adminInstituteGrid{{i+1}}">
 
               <div class="card shadow-lg bg-body rounded thumbcard mb-4">
-                 <img class="card-img-top" [src]="institute.src" alt="Card image cap" routerLink="/admin/course">
+                 <img class="card-img-top" [src]="institute.instituteImgUrl" alt="Card image cap" (click)="gotoCourse(institute.instituteId)">
                   <div class="card-body">
-                      <h5 class="card-title">{{institute.name}}</h5>
-                      <p class="card-text mt-2 mb-2 d-inline text-muted">Place: {{institute.Place}}</p><br>
+                      <h5 class="card-title">{{institute.instituteName}}</h5>
+                      <p class="card-text mt-2 mb-2 d-inline text-muted">Place: {{institute.instituteAddress}}</p><br>
 
                       <div class="star">
-                        <ngb-rating [max]="5" [readonly]="true" [rate] = "institute.rating">:</ngb-rating>
+                        <ngb-rating [max]="5" [readonly]="true" [rate] = "institute.instituteRating">:</ngb-rating>
                         <div class="icons">
-                          <a (click)="gotoeditinstitute()" id="editInsitute"><i class="fa fa-pencil-square-o" aria-hidden="true" style="margin-right: 10px;"></i></a>
+                          <a (click)="editInstitute(institute.instituteId)" id="editInsitute"><i class="fa fa-pencil-square-o" aria-hidden="true" style="margin-right: 10px;"></i></a>
                           <a (click)="open(content)" id="deleteInsitute"><i class="fa fa-trash" aria-hidden="true"></i></a>
 
 

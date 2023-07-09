@@ -19,6 +19,7 @@ import { AuthComponent } from './components/auth/auth.component';
 import { LoginComponent } from './components/auth/login/login.component';
 import { SignupComponent } from './components/auth/signup/signup.component';
 import { StatusComponent } from './components/userside/status/status.component';
+import { EditadmissionComponent } from './components/userside/editadmission/editadmission.component';
 
 const routes: Routes = [
   {path:"",component:LoginComponent},
@@ -26,16 +27,17 @@ const routes: Routes = [
    [
       {path:"",component:InstitutesComponent},
       {path:"institute",component:InstitutesComponent},
-      {path:"course",component:CoursesComponent},
-      {path:"addcourse",component:AddcourseComponent},
-      {path:"editcourse",component:EditcourseComponent},
+      {path:"course/:instituteId",component:CoursesComponent},
+      {path:"addcourse/:instituteId",component:AddcourseComponent},
+      {path:"editcourse/:courseId",component:EditcourseComponent},
       {path:"students",component:UserComponent},
       {path:"addstudent",component:AdduserComponent},
-      {path:"editstudent",component:EdituserComponent},
+      {path:"editstudent/:studentId",component:EdituserComponent},
       {path:"addinstitute",component:AddinstituteComponent},
-      {path:"editinstitute",component:EditinstituteComponent},
+      {path:"editinstitute/:instituteId",component:EditinstituteComponent},
       {path:"edituser",component:EdituserComponent}
-   ]
+   ],
+  //  canActivate: [AuthComponent]
   },
 
   {path:"user",component:UsersideComponent,children:
@@ -43,11 +45,12 @@ const routes: Routes = [
       {path:"",component:UserhomepageComponent},
       {path:"institute",component:UserhomepageComponent},
       {path:"enrolledcourse",component:EnrolledcourseComponent},
-      {path:"courses",component:CourselistComponent},
-      {path:"admissionform",component:AdmissionformComponent},
-      {path:"status",component:StatusComponent}
-
-    ]
+      {path:"courses/:instituteId",component:CourselistComponent},
+      {path:"admissionform/:instituteId/:courseId",component:AdmissionformComponent},
+      {path:"status/:admissionId",component:StatusComponent},
+      {path:"editadmission/:admissionId",component:EditadmissionComponent}
+    ],
+    // canActivate: [AuthComponent]
   },
   
   {path:"auth",component:AuthComponent,children:
@@ -55,7 +58,7 @@ const routes: Routes = [
       {path:"",component:LoginComponent},
       {path:"login",component:LoginComponent},
       {path:"signup",component:SignupComponent},
-   ]
+   ],
   }
 ];
 

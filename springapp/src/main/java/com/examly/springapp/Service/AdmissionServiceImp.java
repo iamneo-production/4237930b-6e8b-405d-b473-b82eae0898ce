@@ -58,6 +58,7 @@ public class AdmissionServiceImp implements AdmissionService {
                 updateStudent.setStatus(admissionmodel.getStatus());
                 updateStudent.setCourseStartDate(admissionmodel.getCourseStartDate());
                 updateStudent.setCourseEndDate(admissionmodel.getCourseEndDate());
+                updateStudent.setUserId(admissionmodel.getUserId());
                 admissionRepo.save(updateStudent);
                 return updateStudent;
             }
@@ -77,6 +78,18 @@ public class AdmissionServiceImp implements AdmissionService {
     {
          AdmissionModel vs=admissionRepo.findById(id).orElseThrow(()->new ResourceNotFoundException("Admission Id "+ id+"not existed"));
          return vs;
+    }
+
+   @Override
+   public List<AdmissionModel> getByuserId(int userId)
+   {
+     return admissionRepo.findByuserId(userId);  
+   }
+
+   @Override
+    public AdmissionModel findByStudentId(int studentid) {
+        
+        return admissionRepo.findByStudentId(studentid);
     }
 
 }
