@@ -51,20 +51,25 @@
                  </ng-container>
         </div>
 
-        <div class="user">
+        <div class="student">
           <pre><h5 class="heading">STUDENT INFO <i class="fa fa-user" aria-hidden="true"></i></h5> </pre>
             <ng-container >
-                    <div class="info-body">
-                        <div class="std-left">
+                    <div class="card shadow-lg rounded mb-4 studentcard">
+                        <div class="student-left">
                           <h6 class="card-subtitle">First Name : {{students.firstName}}</h6><br>
                           <h6 class="card-subtitle">Gender : {{students.gender}}</h6><br>
                           <h6 class="card-subtitle">Phone Number : {{students.mobile}}</h6><br>
-                          <h6 class="card-subtitle">Mark : {{students.sslc}}</h6><br>
+                          <h6 class="card-subtitle ">Email ID: {{students.emailId}}</h6><br>
+                          
+                          <h6 class="card-subtitle st1"></h6>
                         </div>
-                        <div class="std-right">
+                        <div class="student-right">
                           <h6 class="card-subtitle">Last Name : {{students.lastName}}</h6><br>
                           <h6 class="card-subtitle">Age: {{students.age}}</h6><br>
-                          <h6 class="card-subtitle">Email ID: {{students.emailId}}</h6><br>
+                          <h6 class="card-subtitle">Mark : {{students.sslc}}</h6><br>
+                          <h6 class="card-subtitle ">Address : {{students.houseNo}},{{students.areaName}},{{students.streetName}}-{{students.pincode}}</h6><br>
+                          <!-- <h6 class="card-subtitle ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{students.streetName}}-{{students.pincode}}</h6><br> -->
+                          <h6 class="card-subtitle st1"></h6>
                         </div>
                 </div>
           </ng-container>
@@ -128,4 +133,5 @@
               </div>
             </div>
           </div>
+          
 </div>
