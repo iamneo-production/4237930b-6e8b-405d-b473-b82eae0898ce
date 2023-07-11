@@ -19,7 +19,7 @@ export class AdminserviceService {
 
   //get the list of institutes
   public viewInstitute(): Observable<Institute[]>{
-    return this.http.get<Institute[]>(this.baseUrl+`admin/viewInstitutes`);
+    return this.http.get<Institute[]>(this.baseUrl+`admin/institute`);
   }
 
   //add the institutes
@@ -29,7 +29,7 @@ export class AdminserviceService {
 
   //get the institute by instituteId
   public getInstituteById(instituteId : number): Observable<Institute>{
-    return this.http.get<Institute>(this.baseUrl+`admin/getInstituteById/`+instituteId);
+    return this.http.get<Institute>(this.baseUrl+`admin/institute/`+instituteId);
   }
 
   //update the institute by instituteId and institute details
@@ -60,11 +60,11 @@ export class AdminserviceService {
   }
   //get the course by courseId
   public getCourseById(courseId : number): Observable<Course>{
-    return this.http.get<Course>(this.baseUrl+`admin/getcourseById/`+courseId);
+    return this.http.get<Course>(this.baseUrl+`admin/courses/`+courseId);
   }
   //get the list of institutes
   public viewStudents(): Observable<Students[]>{
-    return this.http.get<Students[]>(this.baseUrl+`admin/viewStudent`);
+    return this.http.get<Students[]>(this.baseUrl+`admin/student`);
   }
 
    //add student details for admin
@@ -87,7 +87,7 @@ export class AdminserviceService {
 
   //get the student by studentId
   public getStudentById(studentId : number): Observable<Students>{
-    return this.http.get<Students>(this.baseUrl+'admin/getStudentById/'+studentId);
+    return this.http.get<Students>(this.baseUrl+'admin/student/'+studentId);
   }
 
   //add the admission
@@ -102,7 +102,7 @@ export class AdminserviceService {
 
   //get the admission by admissionId
   public getAdmissionById(admissionId : number): Observable<Admission>{
-    return this.http.get<Admission>(this.baseUrl+'admin/viewAdmission/'+admissionId);
+    return this.http.get<Admission>(this.baseUrl+'admin/admission/'+admissionId);
   }
 
   //get the admission by studentid
