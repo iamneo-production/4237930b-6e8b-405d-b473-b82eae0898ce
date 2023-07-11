@@ -94,7 +94,7 @@ public class AdminController {
     }
     
     //view course
-    @GetMapping("/Courses")
+    @GetMapping("/courses")
     public List<CourseModel> viewCourse() {
         return courseService.viewCourse();
     }
