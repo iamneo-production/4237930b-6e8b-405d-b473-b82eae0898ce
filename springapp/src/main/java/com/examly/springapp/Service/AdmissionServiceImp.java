@@ -29,14 +29,14 @@ public class AdmissionServiceImp implements AdmissionService {
         return ecrepository.saveAll(EC);
     }*/
 
-    //finding all person details (GET)
+    //finding all admission details (GET)
     @Override
     public List<AdmissionModel> getDetails()
     {
         return admissionRepo.findAll();
     }
 
-    //delete details
+    //delete admission
     @Override
     public String deleteDetails(int id)
     {
@@ -44,7 +44,7 @@ public class AdmissionServiceImp implements AdmissionService {
         return "Details Deleted Succesfully" + id;
     }
 
-    //update details(PUT Mapping)
+    //update admission(PUT Mapping)
     @Override
     public AdmissionModel updateDetails(int id,AdmissionModel admissionmodel)
     
@@ -65,7 +65,7 @@ public class AdmissionServiceImp implements AdmissionService {
          return null;
         }
 
-        //return status 
+    //return status 
     @Override
     public String getStatusValue(int id)
     {

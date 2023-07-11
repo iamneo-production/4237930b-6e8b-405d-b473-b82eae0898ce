@@ -4,6 +4,8 @@ import { AuthService } from 'src/app/service/authservice/auth.service';
 import { Admission } from 'src/app/class/admission';
 import { UserserviceService } from 'src/app/service/userservice/userservice.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+
 
 
 @Component({
@@ -17,7 +19,7 @@ export class EnrolledcourseComponent implements OnInit {
   admission:Admission[];
   courseList = [];
 
-  constructor(private modalService: NgbModal,private authservices: AuthService,private userservice: UserserviceService,private router:Router) {}
+  constructor(private modalService: NgbModal,private authservices: AuthService,private userservice: UserserviceService,private router:Router, private toastr :ToastrService) {}
 
   ngOnInit(): void {  
     this.userId = this.authservices.getUserId();
@@ -72,7 +74,7 @@ export class EnrolledcourseComponent implements OnInit {
       this.modalService.dismissAll();
         this.userservice.deleteAdmission(admissionId).subscribe(data =>
           {
-            console.log(admissionId);
+            this.toastr.info('Admission Deleted Sucessfully!', 'Admission status !');
             this.getallAdmission();
         });
 
