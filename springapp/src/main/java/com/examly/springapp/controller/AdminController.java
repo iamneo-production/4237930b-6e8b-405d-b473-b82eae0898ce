@@ -1,5 +1,5 @@
 //Author->Pavithra
-package com.examly.springapp.Controller;
+package com.examly.springapp.controller;
 
 import java.util.List;
 
@@ -21,11 +21,12 @@ import com.examly.springapp.Model.StudentModel;
 import com.examly.springapp.Service.CourseService;
 import com.examly.springapp.Service.InstituteService;
 import com.examly.springapp.Service.StudentService;
+import com.examly.springapp.Model.AdmissionModel;
+import com.examly.springapp.Service.AdmissionService;
 
 @RequestMapping("/admin")
 // change the origin link as per your workspace- port-8081 link
-
-@CrossOrigin(origins = "https://8081-ffaeadfaacdbcffbbedebaebcdacaee.project.examly.io")
+@CrossOrigin(origins = "https://8081-addcabcdecadbcffbbedebaebcdacaee.project.examly.io")
 
 @RestController
 public class AdminController {
@@ -39,10 +40,13 @@ public class AdminController {
     @Autowired
     private InstituteService instituteService;
 
+    @Autowired
+    public AdmissionService admissionService;
+
     // get student by student id
-    @GetMapping("/getStudentById/{courseId}")
-    public StudentModel getStudentById(@PathVariable Integer studentId) {
-        return adminService.getStudentById(studentId);
+    @GetMapping("/student/{id}")
+    public StudentModel getStudentById(@PathVariable Integer id) {
+        return adminService.getStudentById(id);
     }
     
     //method to add student
@@ -52,7 +56,7 @@ public class AdminController {
     }
 
     //method to view student
-    @GetMapping("/viewStudent")
+    @GetMapping("/student")
     public List<StudentModel> viewStudent() {
         return adminService.viewStudent();
     }
@@ -90,7 +94,7 @@ public class AdminController {
     }
     
     //view course
-    @GetMapping("/viewCourse")
+    @GetMapping("/courses")
     public List<CourseModel> viewCourse() {
         return courseService.viewCourse();
     }
@@ -103,12 +107,10 @@ public class AdminController {
     }
 
     // get course by courseId
-    @GetMapping("/getcourseById/{courseId}")
-    public CourseModel getcourseById(@PathVariable Integer courseId) {
-        return courseService.getcourseById(courseId);
+    @GetMapping("/courses/{id}")
+    public CourseModel getcourseById(@PathVariable Integer id) {
+        return courseService.getcourseById(id);
     }
-
-
 
     //delete course
     @DeleteMapping("/deleteCourse/{courseId}")
@@ -118,9 +120,9 @@ public class AdminController {
     }
 
     // get institutes by institute id
-    @GetMapping("/getInstituteById/{instituteId}")
-    public InstituteModel getInstituteById(@PathVariable Integer instituteId) {
-        return instituteService.getInstituteById(instituteId);
+    @GetMapping("/institute/{id}")
+    public InstituteModel getInstituteById(@PathVariable Integer id) {
+        return instituteService.getInstituteById(id);
     }
 
     
@@ -131,7 +133,7 @@ public class AdminController {
     }
 
     //view institute
-    @GetMapping("/viewInstitutes")
+    @GetMapping("/institute")
     public List<InstituteModel> viewInstitute() {
         return instituteService.viewInstitute();
     }
@@ -149,5 +151,43 @@ public class AdminController {
         instituteService.deleteInstitute(instituteId);
         return "Institute deleted Successfully";
     }
+
+    //view admission
+    @GetMapping("/admission")
+    public List<AdmissionModel> viewAllAdmission()
+    {
+        return admissionService.getDetails();
+    }
+
+    //add admissin
+    @PostMapping("/addAdmission")
+    public AdmissionModel addAdmission(@RequestBody AdmissionModel admissionmodel)
+    {
+        return admissionService.saveDetail(admissionmodel);
+    }
+
+    //edit admission
+    @PutMapping("/editAdmission/{id}")
+    public AdmissionModel editAddmission(@PathVariable ("id") int id,@RequestBody AdmissionModel admissionmodel)
+    {
+        return admissionService.updateDetails( id,admissionmodel);
+    }
+
+     //view admission by Id
+     @GetMapping("/admission/{id}")
+     public AdmissionModel viewAdmissionById(@PathVariable ("id") int id)
+     {
+         return admissionService.getDetailsById(id);
+     }
+
+     //view admission by Id
+    @GetMapping("/getAdmissionById/{studentId}")
+    public AdmissionModel getAdmissionBystudentId(@PathVariable ("studentId") int studentId)
+    {
+        return admissionService.findByStudentId(studentId);
+    }
+     
+
+
     
 }

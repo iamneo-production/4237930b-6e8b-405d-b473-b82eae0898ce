@@ -1,228 +1,236 @@
 ::placeholder {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: medium;
-  }
-  
-  .fn {
-    width: 370px;
-    text-align: center;
-    height: 25px;
-  
-  }
-  
-  .ln {
-    width: 370px;
-    text-align: center;
-    height: 25px;
-    margin-left: 100px;
-  }
-  
-  .mf {
-    width: 370px;
-    text-align: center;
-    height: 25px;
-    margin-left: 190px;
-  }
-  
-  .fan {
-    width: 370px;
-    text-align: center;
-    height: 25px;
-  }
-  
-  .pn1 {
-    width: 370px;
-    text-align: center;
-    height: 25px;
-    margin-left: 100px;
-  }
-  
-  .pn2 {
-    width: 370px;
-    text-align: center;
-    height: 25px;
-    margin-left: 190px;
-  }
-  
-  .mn {
-    width: 370px;
-    text-align: center;
-    height: 25px;
-  }
-  
-  .email {
-    width: 370px;
-    text-align: center;
-    height: 25px;
-  }
-  
-  .ag {
-    width: 370px;
-    text-align: center;
-    height: 25px;
-  
-  }
-  
-  .sslc-hsc {
-    width: 370px;
-    text-align: center;
-    height: 25px;
-  }
-  
-  .forms {
-    width: 25%;
-    height: 280px;
-    padding: 2%;
-    font-size: 12px;
-    float: left;
-  
-  
-  }
-  
-  .forms1 {
-    width: 25%;
-    height: 150px;
-    padding: 2%;
-    font-size: 12px;
-    float: left;
-  
-  }
-  
-  .forms2 {
-    width: 25%;
-    height: 200px;
-    padding: 2%;
-    font-size: 12px;
-    float: left;
-  
-  }
-  
-  .foot {
-    padding: 10px;
-    margin: 0;
-     position: absolute; 
-    width: 100%;
-    bottom: auto;
-  }
-  
-  button {
-    float: right;
-    border-radius: 15px;
-    position: relative;
-    overflow: visible;
-  }
-  
-  .navbar {
-    padding-top: 0;
-    padding-bottom: 0;
-    min-height: 45px; 
-  }
-  
-  .box_area {
-    background-color: rgba(255, 255, 255, 0.5);
-    padding: 1%;
-    display: inline-block;
-    margin-top: 40px;
-    margin-right: 5%;
-    margin-left: 130px;
-    padding-left: 40px;
-    padding-right: 40px;
-    margin-top: 15px;
-    color: black;
-    opacity: 12;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  }
-  
-  .hn {
-    width: 50%;
-    height: 9%;
-    margin-left: 30px;
-  }
-  
-  .sn {
-    width: 50%;
-    height: 9%;
-    margin-left: 15px;
-  }
-  
-  .an {
-    width: 30%;
-    height: 9%;
-    margin-left: 20px;
-  
-  }
-  
-  .pc {
-    width: 25%;
-    height: 9%;
-    margin-left: 21px;
-  }
-  
-  .p {
-    margin-left: 30px;
-  }
-  
-  .s {
-    width: 30%;
-    height: 9%;
-    margin-left: 60px;
-  }
-  
-  .n {
-    width: 25%;
-    height: 9%;
-    margin-left: 5px;
-  }
-  
-  .na {
-    margin-left: 30px;
-  }
-  
-  .last {
-    margin-left: 100px;
-  }
-  
-  .ph1 {
-    margin-left: 100px;
-  }
-  
-  .mafe {
-    margin-left: 190px;
-  }
-  
-  .ph2 {
-    margin-left: 190px;
-  }
-  
-  .group {
-     height:697px; 
-    
-    background: linear-gradient(
-      rgb(184, 234, 182),
-      rgb(211, 236, 206),
-      rgba(133, 209, 143, 0.303)
-    );
-  }
-  
-  span
-  {
-    font-size: small;
-  }
-  
-  .course
-  {
-    width: 370px;
-    text-align: center;
-    height: 30px;
-  }
-  
-  .institute
-  {
-    width: 370px;
-    text-align: center;
-    height: 30px;
-  }
-  
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: small;
+  text-transform: uppercase;
+}
+
+.fn {
+  width: 370px;
+  text-align: center;
+  height: 30px;
+
+}
+
+.ln {
+  width: 370px;
+  text-align: center;
+  height: 30px;
+  margin-left: 100px;
+}
+
+.mf {
+  width: 370px;
+  text-align: center;
+  height: 30px;
+  margin-left: 190px;
+}
+
+.fan {
+  width: 370px;
+  text-align: center;
+  height: 30px;
+}
+
+.pn1 {
+  width: 370px;
+  text-align: center;
+  height: 30px;
+  margin-left: 100px;
+}
+
+.pn2 {
+  width: 370px;
+  text-align: center;
+  height: 30px;
+  margin-left: 190px;
+}
+
+.mn {
+  width: 370px;
+  text-align: center;
+  height: 30px;
+}
+
+.email {
+  width: 370px;
+  text-align: center;
+  height: 30px;
+}
+
+.ag {
+  width: 370px;
+  text-align: center;
+  height: 30px;
+
+}
+
+.sslc-hsc {
+  width: 370px;
+  text-align: center;
+  height: 30px;
+}
+
+.forms {
+  width: 25%;
+  height: 280px;
+  padding: 2%;
+  font-size: 13px;
+  float: left;
+}
+
+.forms1 {
+  width: 25%;
+  height: 200px;
+  padding: 2%;
+  font-size: 13px;
+  float: left;
+
+}
+
+.forms2 {
+  width: 25%;
+  height: 200px;
+  padding: 2%;
+  font-size: 13px;
+  float: left;
+
+}
+
+.foot {
+  display: inline-block;
+  margin-left: 250px;
+  margin-top: 50px;
+  /* padding: 10px;
+  margin: 0;
+  position: absolute;
+  width: 100%;
+  bottom: 0; */
+}
+
+button {
+  display: inline-block;
+  /* float: right; */
+  border-radius: 15px;
+  overflow: visible;
+}
 
 
-    
+.box_area {
+  background-color: rgba(255, 255, 255, 0.5);
+  width: 600px;
+  padding: 20px;
+  display: inline-block;
+  margin-left: 130px;
+  /* margin-top: 40px; */
+  /* margin-right: 5%; */
+  color: black;
+  opacity: 12;
+  /* font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
+}
+
+.hn {
+  width: 50%;
+  height: 9%;
+  margin-left: 30px;
+}
+
+.sn {
+  width: 50%;
+  height: 9%;
+  margin-left: 15px;
+}
+
+.an {
+  width: 30%;
+  height: 9%;
+  margin-left: 20px;
+
+}
+
+.pc {
+  width: 25%;
+  height: 9%;
+  margin-left: 21px;
+}
+
+.p {
+  margin-left: 30px;
+}
+
+.s {
+  width: 30%;
+  height: 9%;
+  margin-left: 60px;
+}
+
+.n {
+  width: 25%;
+  height: 9%;
+  margin-left: 5px;
+}
+
+.na {
+  margin-left: 30px;
+}
+
+.last {
+  margin-left: 100px;
+}
+
+.ph1 {
+  margin-left: 0px;
+  width: 250px;
+  height: 25px;
+}
+
+.mafe {
+  margin-left: 190px;
+}
+
+.ph2 {
+  margin-left: 190px;
+}
+
+.group {
+  height: 785px;
+  background: linear-gradient(
+    rgb(184, 234, 182),
+    rgb(211, 236, 206),
+    rgba(133, 209, 143, 0.303)
+  );
+}
+
+span
+{
+  font-size: small;
+}
+
+.course
+{
+  width: 370px;
+  text-align: center;
+  height: 30px;
+}
+
+.institute
+{
+  width: 370px;
+  text-align: center;
+  height: 30px;
+}
+
+label{
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.institutefield {
+  margin-left: 100px;
+}
+
+.coursefield {
+  margin-left: 190px;
+}
+
+

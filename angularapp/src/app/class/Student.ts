@@ -1,14 +1,11 @@
 export class Students{
 
     public studentId  !:number;
-	public studentName  !:string;
-	public studentDOB !:Date;
-	public address !:string;
+	public firstName  !:string;
+	public lastName	  !:string;
+	public age !:number;
 	public mobile !:string;
     public sslc !:number;
-	public hsc  !:number;
-	public diploma  !:number;
-	public eligibility  !:string;
 	public gender  !:string;
 	public fatherName  !:string;
 	public motherName  !:string;
@@ -20,5 +17,6 @@ export class Students{
 	public pincode  !:number;
 	public nationality  !:string;
 	public state  !:string;
-	
+	public courseName !:string;
+	public userId!: number;
 }

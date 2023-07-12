@@ -66,6 +66,7 @@
 .left
 {
   display:inline-block;
+  width: 325px;
 }
 
 
@@ -73,7 +74,7 @@
 {
   display:inline-block;
   vertical-align: top;
-  margin-left: 100px;
+  margin-left: 30px;
 }
 
 .button
@@ -120,6 +121,7 @@
   margin-bottom: 10px;
   cursor: pointer;
   height: 180px;
+  width: 700px;
 }
 
 .icons

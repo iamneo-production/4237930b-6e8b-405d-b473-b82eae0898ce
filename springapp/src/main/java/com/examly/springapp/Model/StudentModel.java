@@ -16,22 +16,16 @@ public class StudentModel {
     @Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer studentId;
-	@Column(name = "student_name")
-	private String studentName;
-	@Column(name = "student_dob")
-	private Date studentDOB;
-	@Column(name = "address")
-	private String address;
+	@Column(name = "first_name")
+	private String firstName;
+	@Column(name = "last_name")
+	private String lastName;
+	@Column(name = "age")
+	private Integer age;
 	@Column(name = "mobile_no")
 	private String mobile;
 	@Column(name = "sslc_marks")
 	private Integer sslc;
-	@Column(name = "hsc_marks")
-	private Integer hsc;
-	@Column(name = "diploma_marks")
-	private Integer diploma;
-	@Column(name = "eligibility")
-	private String eligibility;
 	@Column(name = "gender")
 	private String gender;
 	@Column(name = "father_name")
@@ -54,24 +48,23 @@ public class StudentModel {
 	private String nationality;
 	@Column(name = "state")
 	private String state;
+	private String courseName;
+	private Integer userId;
+
 	
 	public StudentModel() {
 		
 	}
 
-	public StudentModel(Integer studentId, String studentName, Date studentDOB, String address, String mobile,
-			Integer sslc, Integer hsc, Integer diploma, String eligibility, String gender, String fatherName,
-			String motherName, String altMobile, String emailId, String houseNo, String streetName, String areaName,
-			Integer pincode, String nationality, String state) {
+	public StudentModel(Integer studentId, String firstName, String lastName, Integer age, String mobile,
+			Integer sslc, String gender, String fatherName,String motherName, String altMobile, String emailId, String houseNo, String streetName, String areaName,
+			Integer pincode, String nationality, String state, String courseName,Integer userId) {
 		this.studentId = studentId;
-		this.studentName = studentName;
-		this.studentDOB = studentDOB;
-		this.address = address;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.age = age;
 		this.mobile = mobile;
 		this.sslc = sslc;
-		this.hsc = hsc;
-		this.diploma = diploma;
-		this.eligibility = eligibility;
 		this.gender = gender;
 		this.fatherName = fatherName;
 		this.motherName = motherName;
@@ -83,6 +76,9 @@ public class StudentModel {
 		this.pincode = pincode;
 		this.nationality = nationality;
 		this.state = state;
+		this.courseName = courseName;
+		this.userId = userId;
+		
 	}
 
 
@@ -94,28 +90,28 @@ public class StudentModel {
 		this.studentId = studentId;
 	}
 
-	public String getStudentName() {
-		return studentName;
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public void setStudentName(String studentName) {
-		this.studentName = studentName;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
-	public Date getStudentDOB() {
-		return studentDOB;
+	public String getLastName() {
+		return lastName;
 	}
 
-	public void setStudentDOB(Date studentDOB) {
-		this.studentDOB = studentDOB;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
-	public String getAddress() {
-		return address;
+	public Integer getAge() {
+		return age;
 	}
 
-	public void setAddress(String address) {
-		this.address = address;
+	public void setAge(Integer age) {
+		this.age = age;
 	}
 
 	public String getMobile() {
@@ -132,30 +128,6 @@ public class StudentModel {
 
 	public void setSslc(Integer sslc) {
 		this.sslc = sslc;
-	}
-
-	public Integer getHsc() {
-		return hsc;
-	}
-
-	public void setHsc(Integer hsc) {
-		this.hsc = hsc;
-	}
-
-	public Integer getDiploma() {
-		return diploma;
-	}
-
-	public void setDiploma(Integer diploma) {
-		this.diploma = diploma;
-	}
-
-	public String getEligibility() {
-		return eligibility;
-	}
-
-	public void setEligibility(String eligibility) {
-		this.eligibility = eligibility;
 	}
 
 	public String getGender() {
@@ -246,9 +218,21 @@ public class StudentModel {
 		this.state = state;
 	}
 
+	public String getCourseName() {
+		return this.courseName;
+	}
+
+	public void setCourseName(String courseName) {
+		this.courseName = courseName;
+	}
 	
-	
-	
+	public Integer getUserId() {
+		return this.userId;
+	}
+
+	public void setUserId(Integer userId) {
+		this.userId = userId;
+	}
 }
 
 

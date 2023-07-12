@@ -27,10 +27,15 @@ export class EditinstituteComponent implements OnInit {
 
   //To add the New institute
   onSubmit(): void {
-    this.adminservice.editInstitute(this.instituteId,this.newinstitute).subscribe(data => {
-      this.toastr.warning('Institute Updated Sucessfully!', 'Institute status !');
-      },error => console.log(error));
-      this.gotoInstitutePage();
+    this.adminservice.editInstitute(this.instituteId,this.newinstitute).subscribe({
+      next:()=>console.log('updating'),
+      error:()=>console.log('Error while updating'),
+      complete:()=>{
+        this.toastr.success('Institute Updated Sucessfully!', 'Institute status !');
+        this.gotoInstitutePage();
+        console.log('Updated');
+      }
+    })
   }
 
   //To navigate to the institute Page
