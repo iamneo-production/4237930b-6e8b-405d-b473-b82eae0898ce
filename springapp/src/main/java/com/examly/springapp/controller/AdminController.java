@@ -1,5 +1,5 @@
 //Author->Pavithra
-package com.examly.springapp.Controller;
+package com.examly.springapp.controller;
 
 import java.util.List;
 
@@ -44,9 +44,9 @@ public class AdminController {
     public AdmissionService admissionService;
 
     // get student by student id
-    @GetMapping("/getStudentById/{studentId}")
-    public StudentModel getStudentById(@PathVariable Integer studentId) {
-        return adminService.getStudentById(studentId);
+    @GetMapping("/student/{id}")
+    public StudentModel getStudentById(@PathVariable Integer id) {
+        return adminService.getStudentById(id);
     }
     
     //method to add student
@@ -56,7 +56,7 @@ public class AdminController {
     }
 
     //method to view student
-    @GetMapping("/viewStudent")
+    @GetMapping("/student")
     public List<StudentModel> viewStudent() {
         return adminService.viewStudent();
     }
@@ -94,7 +94,7 @@ public class AdminController {
     }
     
     //view course
-    @GetMapping("/viewCourse")
+    @GetMapping("/courses")
     public List<CourseModel> viewCourse() {
         return courseService.viewCourse();
     }
@@ -107,9 +107,9 @@ public class AdminController {
     }
 
     // get course by courseId
-    @GetMapping("/getcourseById/{courseId}")
-    public CourseModel getcourseById(@PathVariable Integer courseId) {
-        return courseService.getcourseById(courseId);
+    @GetMapping("/courses/{id}")
+    public CourseModel getcourseById(@PathVariable Integer id) {
+        return courseService.getcourseById(id);
     }
 
     //delete course
@@ -120,9 +120,9 @@ public class AdminController {
     }
 
     // get institutes by institute id
-    @GetMapping("/getInstituteById/{instituteId}")
-    public InstituteModel getInstituteById(@PathVariable Integer instituteId) {
-        return instituteService.getInstituteById(instituteId);
+    @GetMapping("/institute/{id}")
+    public InstituteModel getInstituteById(@PathVariable Integer id) {
+        return instituteService.getInstituteById(id);
     }
 
     
@@ -133,7 +133,7 @@ public class AdminController {
     }
 
     //view institute
-    @GetMapping("/viewInstitutes")
+    @GetMapping("/institute")
     public List<InstituteModel> viewInstitute() {
         return instituteService.viewInstitute();
     }
@@ -152,6 +152,13 @@ public class AdminController {
         return "Institute deleted Successfully";
     }
 
+    //view admission
+    @GetMapping("/admission")
+    public List<AdmissionModel> viewAllAdmission()
+    {
+        return admissionService.getDetails();
+    }
+
     //add admissin
     @PostMapping("/addAdmission")
     public AdmissionModel addAdmission(@RequestBody AdmissionModel admissionmodel)
@@ -167,7 +174,7 @@ public class AdminController {
     }
 
      //view admission by Id
-     @GetMapping("/viewAdmission/{id}")
+     @GetMapping("/admission/{id}")
      public AdmissionModel viewAdmissionById(@PathVariable ("id") int id)
      {
          return admissionService.getDetailsById(id);

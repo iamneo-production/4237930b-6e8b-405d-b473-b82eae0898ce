@@ -100,7 +100,7 @@
       <br>
   </div>
   <div class="foot">
-    <button type="button" id="enrolNowButton" class="btn" (click)="submit()" [disabled]="loginForm.invalid">Enroll Now</button>
+    <button type="button" id="enrolNowButton" class="btn" (click)="submit()" [disabled]="loginForm.invalid && !submitstatus">Enroll Now</button>
   </div>
 </form>
 </div>

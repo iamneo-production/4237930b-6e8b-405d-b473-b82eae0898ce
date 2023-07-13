@@ -21,7 +21,7 @@ export class AdmissionformComponent implements OnInit {
   courseName:string;
   newStudent:Students=new Students();
   newAdmission:Admission=new Admission();
-  
+  submitstatus:Boolean = false;  
 
   ngOnInit(): void {
     this.courseId = this.route.snapshot.params['courseId'];
@@ -56,6 +56,7 @@ export class AdmissionformComponent implements OnInit {
     nationality: new FormControl('',[Validators.required]),
     state: new FormControl('',[Validators.required]),
     courseName: new FormControl('',),
+    userId: new FormControl('',)
 })
 
   loginUser()
@@ -198,7 +199,7 @@ submit()
     console.log(this.newAdmission);
     this.userservice.addAdmission(this.newAdmission).subscribe(data =>
       {
-        this.toastr.success('Registered Sucessfully!', 'Course and Student Details !');
+        this.toastr.info('Registered Sucessfully!', 'Course and Student Details !');
         this.router.navigate(['/user/institute']);
       })
    }
@@ -207,8 +208,9 @@ submit()
     checkStudentdetails(userId:number): any {
       this.userservice.getStudentByUserId(this.userId).subscribe(data => {
         if(data != null) {
-            console.log(data);
             this.loginForm.setValue(data);
+            this.submitstatus= true;
+            console.log(this.submitstatus);
             return true;
           }
           return false;
