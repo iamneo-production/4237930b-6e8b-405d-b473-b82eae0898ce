@@ -56,7 +56,7 @@ export class InstitutesComponent implements OnInit {
         this.adminservice.deleteInstitute(instituteId).subscribe(data =>
           {
             console.log(instituteId);
-            // alert("Institute Deleted sucessfully");
+            this.toastr.success('Institute Deleted Sucessfully!', 'Institute status !');
             this.getallInstitutes();
         });
 

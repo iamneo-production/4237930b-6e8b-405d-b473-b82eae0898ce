@@ -21,6 +21,11 @@ export class CoursesComponent implements OnInit {
   ngOnInit(): void {
     this.instituteId = this.route.snapshot.params['instituteId'];
     console.log(this.instituteId);
+    this.getCourseByInstitute();
+    }
+
+  getCourseByInstitute()
+  {
     this.adminservice.viewCoursesFromInstitute(this.instituteId).subscribe(data =>
       {
         console.log(data);
@@ -46,8 +51,7 @@ export class CoursesComponent implements OnInit {
         this.modalService.dismissAll();
         this.adminservice.deleteCourse(courseId).subscribe(data =>
           {
-            console.log(courseId);
-            
+            this.getCourseByInstitute();
         });
 
     }

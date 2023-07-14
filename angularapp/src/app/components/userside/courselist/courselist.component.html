@@ -17,7 +17,7 @@
                     <div class="card-body">
                       <div class="left">
                         <h6 class="card-subtitle">Course name : {{course.courseName}}</h6><br>
-                        <h6 class="card-subtitle">Course duration : {{course.courseDuration}}hrs</h6><br>
+                        <h6 class="card-subtitle">Course duration : {{course.courseDuration}} years</h6><br>
                         <h6 class="card-subtitle">Course Available timings : {{course.courseTiming}}</h6><br>
                       </div>
                         <div class="right">
@@ -25,7 +25,7 @@
                         <h6 class="card-subtitle">Course Description : {{course.courseDescription}}</h6><br>
                       </div>
                       <div class="button">
-                        <button class="btn btn-success enrollbutton" routerLink="/user/admissionform">Enroll course</button>
+                        <button class="btn btn-success enrollbutton" (click)="goToStudentPage(course.courseId)">Enroll course</button>
                       </div>
                     </div>
                 </div><br>

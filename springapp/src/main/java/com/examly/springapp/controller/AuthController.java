@@ -1,5 +1,5 @@
 // author-> Arulsaravanan
-package com.examly.springapp.Controller;
+package com.examly.springapp.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -16,7 +16,7 @@ import com.examly.springapp.Service.UserService;
 @RestController
 @RequestMapping
 // change the origin link as per your workspace- port-8081 link
-@CrossOrigin(origins = "https://8081-fddecffdbcffbbedebaebcdacaee.project.examly.io")
+@CrossOrigin(origins = "https://8081-ffaeadfaacdbcffbbedebaebcdacaee.project.examly.io")
 
 public class AuthController {
 

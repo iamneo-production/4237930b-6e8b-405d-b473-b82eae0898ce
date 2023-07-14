@@ -1,4 +1,4 @@
-package com.examly.springapp.Controller;
+package com.examly.springapp.controller;
 
 import java.util.List;
 
@@ -28,7 +28,7 @@ import com.examly.springapp.Service.StudentService;
 @RequestMapping
 @RestController
 // change the origin link as per your workspace- port-8081 link
-@CrossOrigin(origins = "https://8081-fddecffdbcffbbedebaebcdacaee.project.examly.io")
+@CrossOrigin(origins = "https://8081-ffaeadfaacdbcffbbedebaebcdacaee.project.examly.io")
 
 public class UserController {
     
@@ -126,6 +126,27 @@ public class UserController {
     public StudentModel getStudentById(@PathVariable Integer studentId) {
         return adminService.getStudentById(studentId);
     }
+   
+    
+    //method to add student
+    @PostMapping("/user/addStudent")
+    public StudentModel addStudent(@RequestBody StudentModel student) {
+        return adminService.addStudent(student);
+    }
+
+    //method to edit student
+    @PutMapping("/user/editStudent/{studentId}")
+    public StudentModel editStudent(@PathVariable("studentId") Integer studentId,
+                                    @RequestBody StudentModel student) {
+        return adminService.editStudent(studentId,student);
+    }
+
+     // get student by userId
+     @GetMapping("/user/getStudentByuserId/{userId}")
+     public StudentModel findStudentByUserId(@PathVariable Integer userId) {
+         return adminService.findByStudentUserId(userId);
+     }
+    
 
 
 }

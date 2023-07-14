@@ -64,8 +64,8 @@ export class AdduserComponent implements OnInit {
     }
 
     // get the selected course data
-    getCoursedata(instituteId: number): void {
-      this.adminservice.getCourseById(instituteId).subscribe(data => {
+    getCoursedata(courseId: number): void {
+      this.adminservice.getCourseById(courseId).subscribe(data => {
           console.log(data);
           this.courseName = data.courseName;
           this.addYears(new Date(),data.courseDuration);
@@ -105,7 +105,6 @@ export class AdduserComponent implements OnInit {
       {
         this.newadmission.studentId = data.studentId;
         this.addAdmission();
-        this.toastr.success('Registered Sucessfully!', 'Student Details !');
       })
   }
 
@@ -115,7 +114,7 @@ export class AdduserComponent implements OnInit {
     console.log(this.newadmission);
     this.adminservice.addAdmission(this.newadmission).subscribe(data =>
       {
-        this.toastr.success('Registered Sucessfully!', 'Course Details !');
+        this.toastr.success('Registered Sucessfully!', 'Student and Course Details !');
         this.router.navigate(['/admin/students']);
       })
   }
