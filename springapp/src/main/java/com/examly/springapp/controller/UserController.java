@@ -147,6 +147,17 @@ public class UserController {
          return adminService.findByStudentUserId(userId);
      }
     
-
-
+     // incrementing students enrolled
+     @GetMapping("/user/incrementstudents/{courseId}")
+     public int incrementStudents(@PathVariable("courseId") Integer courseId)
+     {
+         return courseService.incrementStudents(courseId);
+     }
+    
+     // decrementing students enrolled
+     @GetMapping("/user/decrementstudents/{courseId}")
+     public int decrementStudents(@PathVariable("courseId") Integer courseId)
+     {
+         return courseService.decrementStudents(courseId);
+     }
 }

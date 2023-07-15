@@ -20,7 +20,6 @@ export class UserComponent implements OnInit {
   }
   
   searchText!:string;
-
   students ?:Students[];
 
   getallStudents()
@@ -52,8 +51,14 @@ export class UserComponent implements OnInit {
       // console.log(data);
       this.modalService.dismissAll();
       this.toastr.success('deleted Sucessfully!', 'Student Details !');
+      this.adminservice.getAdmissionByStudentId(studentId).subscribe(data => {
+        this.adminservice.decrementStudents(data.courseId).subscribe(data => {
+          console.log(data);
+        });
+      })
       this.getallStudents();
     })
+    
   }
 
 }

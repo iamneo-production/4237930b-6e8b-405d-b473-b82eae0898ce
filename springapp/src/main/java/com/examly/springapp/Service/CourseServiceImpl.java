@@ -82,5 +82,27 @@ public class CourseServiceImpl implements CourseService{
         new ResourceNotFoundException("Institute does not exist for id:"+ courseId));
         
     }
+
+    //incrementing student count
+    public int incrementStudents(Integer courseId){
+        CourseModel cm = adminCourseRepository.findById(courseId).get();
+        cm.setEnrolledStudents(cm.getEnrolledStudents()+1);
+     
+        adminCourseRepository.save(cm);
+        return cm.getEnrolledStudents();
+    }
+
+    //decrementing student count
+    public int decrementStudents(Integer courseId){
+        CourseModel cm = adminCourseRepository.findById(courseId).get();
+        if(cm.getEnrolledStudents()!=0)
+        {
+        cm.setEnrolledStudents(cm.getEnrolledStudents()-1);
+        }
+        adminCourseRepository.save(cm);
+        return cm.getEnrolledStudents();
+    }
+
+
     
 }

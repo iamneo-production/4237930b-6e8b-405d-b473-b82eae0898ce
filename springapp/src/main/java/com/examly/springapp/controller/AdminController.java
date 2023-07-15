@@ -186,6 +186,20 @@ public class AdminController {
     {
         return admissionService.findByStudentId(studentId);
     }
+
+    // incrementing students enrolled
+    @GetMapping("/incrementstudents/{courseId}")
+    public int incrementStudents(@PathVariable("courseId") Integer courseId)
+    {
+        return courseService.incrementStudents(courseId);
+    }
+   
+    // decrementing students enrolled
+    @GetMapping("/decrementstudents/{courseId}")
+    public int decrementStudents(@PathVariable("courseId") Integer courseId)
+    {
+        return courseService.decrementStudents(courseId);
+    }
      
 
 
