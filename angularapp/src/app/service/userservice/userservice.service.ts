@@ -86,4 +86,15 @@ public viewCoursesFromInstitute(instituteId : number): Observable<Course[]>{
     return this.http.get<Students>(this.baseUrl+`user/getStudentByuserId/`+userId);
   }
 
+  //incrementing student count on enrolling course
+  public incrementStudents(courseId : number): Observable<any>{
+    return this.http.get<any>(this.baseUrl+`user/incrementstudents/`+courseId);
+  }
+
+  //incrementing student count on enrolling course
+  public decrementStudents(courseId : number): Observable<any>{
+    return this.http.get<any>(this.baseUrl+`user/decrementstudents/`+courseId);
+  }
+
+
 }

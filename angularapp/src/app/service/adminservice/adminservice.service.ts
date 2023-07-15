@@ -117,5 +117,14 @@ export class AdminserviceService {
     return this.http.delete<string>(this.baseUrl+`admin/deleteInstitutes/`+instituteId,requestOptions);
   }
   
+  //decrementing student count on enrolling course
+  public incrementStudents(courseId : number): Observable<any>{
+    return this.http.get<any>(this.baseUrl+`admin/incrementstudents/`+courseId);
+  }
+
+  //decrementing student count on enrolling course
+  public decrementStudents(courseId : number): Observable<any>{
+    return this.http.get<any>(this.baseUrl+`admin/decrementstudents/`+courseId);
+  }
 
 }

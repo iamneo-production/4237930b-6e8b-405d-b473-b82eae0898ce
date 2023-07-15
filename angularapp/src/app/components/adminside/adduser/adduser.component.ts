@@ -105,6 +105,7 @@ export class AdduserComponent implements OnInit {
       {
         this.newadmission.studentId = data.studentId;
         this.addAdmission();
+        this.updateEnrolledStudents(this.newadmission.courseId);
       })
   }
 
@@ -215,5 +216,13 @@ export class AdduserComponent implements OnInit {
     console.log(this.newadmission);
   }
 
+  //incrementing students enrolled count
+  updateEnrolledStudents(courseId:number): void {
+    this.adminservice.incrementStudents(courseId).subscribe(data =>
+      { 
+        console.log(data);
+      }
+      )
+   }
 
 }
