@@ -1,34 +1,40 @@
 import { Component, OnInit } from '@angular/core';
-import { Courses } from 'src/app/class/Courses';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-
+import { AdminserviceService } from 'src/app/service/adminservice/adminservice.service';
+import { ToastrService } from 'ngx-toastr';
+import { Course } from 'src/app/class/Course';
 
 @Component({
   selector: 'app-courses',
   templateUrl: './courses.component.html',
   styleUrls: ['./courses.component.css']
 })
+
 export class CoursesComponent implements OnInit {
 
-  constructor(private router: Router,private modalService: NgbModal) {}
-
-  ngOnInit(): void {
-  }
+  constructor(private router:Router,private adminservice:AdminserviceService,private route:ActivatedRoute,private toastr :ToastrService,private modalService: NgbModal) {}
+  instituteId !:number;
   searchText!:string;
+  course : Course[];
   
-  Courses:Courses[]=[
-    new Courses(" M.E(VSI)",2," 9am to 4pm","yyy",222),
-    new Courses(" M.SC(CS)",2," 9am to 4pm","yyy",122),
-    new Courses(" M.E(ECE)",2," 9am to 4pm","yyy",50)
-  ];
+  ngOnInit(): void {
+    this.instituteId = this.route.snapshot.params['instituteId'];
+    console.log(this.instituteId);
+    this.getCourseByInstitute();
+    }
 
-
-    
-
-    goteditcourse()
-    {
-      this.router.navigate(['/admin/editcourse/1']);
+  getCourseByInstitute()
+  {
+    this.adminservice.viewCoursesFromInstitute(this.instituteId).subscribe(data =>
+      {
+        console.log(data);
+        this.course= data;
+      });
+  }
+  
+    goteditcourse(courseId:number) {
+      this.router.navigate(['/admin/editcourse',courseId]);
     }
 
     //for delete popup modal
@@ -40,10 +46,21 @@ export class CoursesComponent implements OnInit {
       });
     }
 
-    delete()
+    delete(courseId :number)
     {
-      this.modalService.dismissAll();
+        this.modalService.dismissAll();
+        this.adminservice.deleteCourse(courseId).subscribe(data =>
+          {
+            this.getCourseByInstitute();
+        });
+
     }
+
+    gotoaddcourse()
+    {
+      this.router.navigate(['/admin/addcourse',this.instituteId]);
+    }
+
 
 
 

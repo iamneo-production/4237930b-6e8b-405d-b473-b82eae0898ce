@@ -4,8 +4,6 @@ import { Login } from 'src/app/class/login';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/service/authservice/auth.service';
 
-
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -15,6 +13,7 @@ export class LoginComponent {
 
   login: Login = new Login();
   userRole!: string;
+  userId !:number;
 
   constructor(private router: Router, private toastr: ToastrService, private authservice : AuthService) {}
 
@@ -69,6 +68,7 @@ export class LoginComponent {
         console.log(data);
         this.gotoUser();
         this.authservice.loginstatus = true;
+        this.saveUserId();
       }
       else
       {
@@ -77,6 +77,13 @@ export class LoginComponent {
     });
   }
   
+  saveUserId(): void {
+    this.authservice.getIdByEmail(this.login.email).subscribe((data) =>
+    {
+      this.authservice.setUserId(data);
+      console.log(this.authservice.getUserId());
+    });
+  }
 
   gotoAdmin(): void {
     this.toastr.success('Admin Login successful !', 'Login Status !');

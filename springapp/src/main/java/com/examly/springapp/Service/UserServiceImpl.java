@@ -80,6 +80,16 @@ public class UserServiceImpl implements UserService{
         return user;
     }
 
+    //for finding the userId by email
+    @Override
+    public int getIdByEmail(String email) {
+        UserModel user = userrepository.findByEmail(email);
+        return user.getUserId();
+    }
+
+    
+
+
 }
     
 

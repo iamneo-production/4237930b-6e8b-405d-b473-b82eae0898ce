@@ -1,3 +1,4 @@
+<!-- Author- Pavithra -->
 <app-adminnavbar></app-adminnavbar>
 
     <div class="courses">
@@ -11,20 +12,20 @@
       <br>
 
         <div class = "container">
-              <ng-container *ngFor = "let course of Courses | filter:searchText">
+              <ng-container *ngFor = "let course of course | filter:searchText">
                     <div class="card shadow-lg rounded mb-4">
                         <div class="card-body">
                           <div class="left">
-                            <h6 class="card-subtitle">Course name : {{course.Coursename}}</h6><br>
-                            <h6 class="card-subtitle">Course duration : {{course.Courseduration}}hrs</h6><br>
-                            <h6 class="card-subtitle">Course Available timings : {{course.Coursetimings}}</h6><br>
+                            <h6 class="card-subtitle">Course Name : {{course.courseName}}</h6><br>
+                            <h6 class="card-subtitle">Course Duration : {{course.courseDuration}} years</h6><br>
+                            <h6 class="card-subtitle">Course Available timings : {{course.courseTiming}}</h6><br>
                           </div>
                             <div class="right">
-                            <h6 class="card-subtitle">Number of Students : {{course.noOfStudentsEnrolled}}</h6><br>
-                            <h6 class="card-subtitle">Course Description : {{course.Coursedescription}}</h6><br>
+                            <h6 class="card-subtitle">Number of Students : {{course.enrolledStudents}}</h6><br>
+                            <h6 class="card-subtitle">Course Description : {{course.courseDescription}}</h6><br>
                           </div>
                             <div class="icons">
-                              <a (click)="goteditcourse()"><i class="fa fa-pencil-square-o" aria-hidden="true"  style="margin-right: 12px;"></i></a>
+                              <a (click)="goteditcourse(course.courseId)"><i class="fa fa-pencil-square-o" aria-hidden="true"  style="margin-right: 12px;"></i></a>
                               <a (click)="open(content)"><i class="fa fa-trash" aria-hidden="true"></i></a>
                                 
                                <!-- codes for the popup -->
@@ -49,7 +50,7 @@
                     </div>
                 </ng-container>
                 <div class="addButtondiv">
-                  <button class="btn btn-success addButton" routerLink="/admin/addcourse">
+                  <button class="btn btn-success addButton" (click)="gotoaddcourse()">
                     <i class="fa fa-plus-circle" aria-hidden="true"></i>
                     &nbsp;Add Course</button>
                 </div>

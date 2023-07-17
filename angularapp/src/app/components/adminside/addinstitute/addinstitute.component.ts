@@ -25,13 +25,15 @@ export class AddinstituteComponent implements OnInit {
 
   //For adding the new institute
   addInstitute(): void {
-    this.newinstitute.instituteRating = 5;
-    this.adminservice.addInstitute(this.newinstitute).subscribe(data =>
-    {
-       console.log(data);
-       this.toastr.warning('Institute added Sucessfully!', 'Institute status !');
-       this.router.navigate(['/admin']);
-       })
+      this.newinstitute.instituteRating = 5;
+      this.adminservice.addInstitute(this.newinstitute).subscribe({
+        next:()=>console.log('updating'),
+        error:()=>console.log('Error while updating'),
+        complete:()=>{
+        this.toastr.success('Institute added Sucessfully!', 'Institute status !');
+        this.router.navigate(['/admin']);
+        }
+      })
     }
 
 }

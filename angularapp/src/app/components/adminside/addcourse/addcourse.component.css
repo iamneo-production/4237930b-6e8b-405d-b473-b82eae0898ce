@@ -39,6 +39,19 @@ span
       align-items: center;
   
   }
+  .enrollcourse
+{
+  background-color: rgb(58, 135, 58);
+  color: white;
+  border: none;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: opacity 0.15s;
+  vertical-align: top;
+  height: 35px;
+}
   
   span
   {
@@ -143,4 +156,31 @@ button{
     border-radius: 40px;
 
   }
+  .course1
+{
+    /* display: block; */
+  left: 165px;
+  margin-bottom: 8px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-transform: uppercase;
+	line-height: 24px;
+	height: 24px;
+	font-size: 15px;
+  margin-bottom: 5px;
+	font-weight: 400;
+}
+.course2
+{
+    
+    background-color:#E0E0E0;
+    border-radius: 0;
+    float: right;
+    margin-right: 645px;
+    margin-top: 30px;
+    text-align: center;
+    width: 250px;
+    height: 200px;
+    border-style: none;
+    
+}
   

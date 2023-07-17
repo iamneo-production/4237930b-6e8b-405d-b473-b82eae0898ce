@@ -1,0 +1,102 @@
+<!-- Author-Arulsaravanan -->
+<app-usernavbar></app-usernavbar>
+
+<div class="group">
+  <div><br>
+    <p style="text-align:center;font-size: 28px;">EDIT ADMISSION FORM</p>
+  </div>
+<form #editAdmissionForm = "ngForm">
+<div class="forms">
+  <label>FIRST NAME</label><br>
+  <input type="text" id="firstName" name="firstName"class="fn" placeholder="Enter your first name" [(ngModel)]="student.firstName" name="first" #first="ngModel"><br>
+  <br>
+
+  <label>Father Name</label><br>
+  <input type="text" id="fatherName" class="fan" placeholder="Enter your father name" [(ngModel)]="student.fatherName" name="father" #father="ngModel"><br>
+  <br>
+
+  <label>Mother Name</label><br>
+  <input type="text" id="motherName" class="mn" placeholder="Enter your mother name" [(ngModel)]="student.motherName" name="mother" #mother="ngModel"><br>
+  <br>
+
+  <label>Email Id</label><br>
+  <input type="text" id="emailId" class="email" placeholder="Enter email id" [(ngModel)]="student.emailId" name="mail" #mail="ngModel"><br>
+  <br>
+
+  <label>Age</label><br>
+  <input type="number" id="age" class="ag" placeholder="Enter your age" [(ngModel)]="student.age" name="age" #age="ngModel"><br>
+  <br>
+
+  <label>Marks</label><br>
+  <input type="number" id="sslc" class="sslc-hsc" placeholder="Enter SSLC/HSC marks" [(ngModel)]="student.sslc" name="marks" #marks="ngModel"><br>
+  <br>
+
+  <label>Phone Number</label><br>
+  <input type="number" id="mobile" class="sslc-hsc" placeholder="Enter phone number" [(ngModel)]="student.mobile" name="mob" #mob="ngModel"><br>
+  <br>
+
+  <label>Alt Mobile number</label><br>
+  <input type="number" id="altMobile" class="sslc-hsc" placeholder="Enter alternate number" [(ngModel)]="student.altMobile" name="altmob" #altmob="ngModel"><br>
+  <br>
+</div>
+
+<div class="forms1">
+  <label class="last">Last Name</label><br>
+  <input type="text" id="lastName" class="ln" placeholder="Enter your last name" [(ngModel)]="student.lastName" name="last" #last="ngModel"><br>
+  <br>
+
+  <label class="last">Selected Institute & Course</label><br>
+  <input type="text" id="seletedinstitute" class="ln" disabled [(ngModel)]="institute.instituteName" name="seletedinstitute" #seletedinstitute="ngModel"><br>
+  <br>
+</div>
+
+<div class="forms2">
+  <label class="mafe">Male/Female</label><br>
+  <select id="gender" name="gender" class="mf" placeholder="Enter male or female" [(ngModel)]="student.gender" name="gender" #gender="ngModel"><br>
+    <option value="Male">MALE</option>
+    <option value="Female">FEMALE</option>
+  </select>
+  <br><br>
+
+  <label class="mafe">Selected Course</label><br>
+  <input type="text" id="selectedCourse" class="mf" disabled [(ngModel)]="selectedcourse.courseName" name="selectedCourse" #selectedCourse="ngModel"><br>
+  <br>
+
+    <div class="coursefield">
+      <label class="selectCourseLabel">Courses :- <p class="courseNote">(*Select if you want to change course)</p></label><br>
+
+        <select id="courses" class="course" #course (change)="setAdmissionDetails($event)">
+          <option value="">SELECT COURSE</option>
+          <option value="{{course.courseId}}" *ngFor="let course of courses" [selected]="selectedCourse.courseName">{{course.courseName}}</option>
+        </select>
+    </div>
+</div>
+
+    <div class="box_area" id="content">
+      <p>ADDRESS INFORMATION</p>
+      <label>House No:</label>
+      <input type="text" id="houseNo" class="hn" [(ngModel)]="student.houseNo" name="house" #house="ngModel"><br>
+      <br>
+      <label>Street Name:</label>
+      <input type="text" id="streetName" class="sn" [(ngModel)]="student.streetName" name="street" #street="ngModel">
+      <br>
+      <br>
+      <label>Area Name:</label>
+      <input type="text" id="areaName" class="an" [(ngModel)]="student.areaName" name="area" #area="ngModel">
+
+      <label class="p">Pincode:</label>
+      <input type="number" id="pincode" class="pc" [(ngModel)]="student.pincode" name="pin" #pin="ngModel">
+      <br><br>
+      <label>State:</label>
+      <input type="text" id="state" class="s" [(ngModel)]="student.state" name="state" #state="ngModel">
+      <label class="na">Nationality:</label>
+      <input type="text" id="nationality" class="n" [(ngModel)]="student.nationality" name="nation" #nation="ngModel">
+      <br>
+      <br>
+  </div>
+
+  <div class="foot">
+    <button type="button" class="btn" (click)="submit()" [disabled]="editAdmissionForm.invalid">Update Admission</button>
+  </div>
+</form>
+</div>

@@ -3,6 +3,8 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Students } from 'src/app/class/Student';
 import { AdminserviceService } from 'src/app/service/adminservice/adminservice.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-user',
@@ -11,24 +13,22 @@ import { Router } from '@angular/router';
 })
 export class UserComponent implements OnInit {
 
-  constructor(private modalService: NgbModal,private router: Router,private adminservice :AdminserviceService) { }
+  constructor(private modalService: NgbModal,private router: Router,private adminservice :AdminserviceService, private toastr :ToastrService) { }
 
   ngOnInit(): void {
     this.getallStudents();
-    console.log("Hi");
   }
   
   searchText!:string;
-
   students ?:Students[];
 
   getallStudents()
-    {
-        this.adminservice.viewStudents().subscribe(data =>{
-        this.students = data;
-        console.log(this.students);
-      })
-    }
+  {
+    this.adminservice.viewStudents().subscribe(data =>{
+    this.students = data;
+    // console.log(this.students);
+    })
+  }
 
   //for delete popup modal
   open(content:any) {
@@ -44,10 +44,21 @@ export class UserComponent implements OnInit {
   {
     this.router.navigate(['/admin/editstudent',studentId]);
   }
-  deleteStudent()
+
+  deleteStudent(studentId : number)
   {
+    this.adminservice.deleteStudent(studentId).subscribe(data => {
+      // console.log(data);
       this.modalService.dismissAll();
-      this.students.pop();
+      this.toastr.success('deleted Sucessfully!', 'Student Details !');
+      this.adminservice.getAdmissionByStudentId(studentId).subscribe(data => {
+        this.adminservice.decrementStudents(data.courseId).subscribe(data => {
+          console.log(data);
+        });
+      })
+      this.getallStudents();
+    })
+    
   }
 
 }

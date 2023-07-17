@@ -7,14 +7,25 @@ import { Login } from 'src/app/class/login';
   providedIn: 'root'
 })
 export class AuthService {
-  loginstatus:boolean = false;
 
-  private baseURL = "https://8080-ecefccaeffbaddbcffbbedebaebcdacaee.project.examly.io/";
+  loginstatus:boolean = false;
+  userId: number;
+
+  private baseURL = "https://8080-ffaeadfaacdbcffbbedebaebcdacaee.project.examly.io/";
 
   constructor(private http: HttpClient) { }
+
+  getUserId(): number {
+    return this.userId;
+  }
+  
+  setUserId(userId: number): void {
+    this.userId = userId;
+  }
+
   //register admin
   public saveAdmin(data :User):Observable<string>
-{
+  {
   const requestOptions: Object = {
     responseType: 'text'
   }
@@ -50,7 +61,9 @@ public checkUserRole(email:string):Observable<string> {
  {
     return this.http.post<boolean>(this.baseURL+`admin/login`,data);
  }
+
+ //check id by mail
+public getIdByEmail(email:string):Observable<number> {
+  return this.http.get<number>(this.baseURL+`user/getId/`+email);
 }
-
-
-
+}

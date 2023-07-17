@@ -212,7 +212,7 @@ h4
  .std-right{
    position: relative;
    margin-left: 280px;
-   margin-top: -174px;
+   margin-top: -160px;
 
  }
  .info-body{
@@ -317,4 +317,49 @@ h4
    margin-left: 380px;
    width: 480px;
  }
+ .st1
+ {
+  margin-bottom: 20px;
+ }
+ .student-left{
+  position: relative;
+  margin-left: 20px;
+  margin-top: 14px;
+  width:275px;
+  
+}
+.student-right{
+  position: relative;
+  margin-left: 290px;
+  margin-top: -173px;
+  width:260px;
+  
+
+}
+.student {
+  
+  width: 500px;
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 0px;
+ }
+
+ .studentcard{
+  margin-left: 0px;
+  width:550px;
+ }
+
+ .studentbody{
+  margin-left: 20px;
+  font-family: fontawesome;
+ }
+ .e1
+ {
+  margin-bottom: 50px;
+  background-color: #ECECEC;
+ }
+ .card1
+ {
+  width: 450px;
+}
  

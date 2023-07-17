@@ -1,28 +1,28 @@
 <!-- authors - subhasis -->
-
 <app-adminnavbar></app-adminnavbar>
+
 <div class="group">
-  <div>
-    <p style="text-align:center;font-size: 30px;">Registration Form:</p>
+  <div><br>
+    <p style="text-align:center;font-size: 28px;">REGISTRATION FORM</p>
   </div>
 <form [formGroup]="loginForm">
 <div class="forms">
-  <label>FirstName</label><br>
-  <input type="text" id="firstName" class="fn" placeholder="Enter your first name" formControlName="firstName"><br>
+  <label>FIRST NAME</label><br>
+  <input type="text" id="firstName" name="firstName"class="fn" placeholder="Enter your first name" formControlName="firstName"><br>
     <span style="color: red;" *ngIf="firstName && firstName.invalid && firstName.touched">*Required</span>
   <br>
 
-  <label>FatherName</label><br>
+  <label>Father Name</label><br>
   <input type="text" id="fatherName" class="fan" placeholder="Enter your father name" formControlName="fatherName"><br>
   <span style="color: red;" *ngIf="fatherName && fatherName.invalid && fatherName.touched">*Required</span>
   <br>
 
-  <label>MotherName</label><br>
+  <label>Mother Name</label><br>
   <input type="text" id="motherName" class="mn" placeholder="Enter your mother name" formControlName="motherName"><br>
   <span style="color: red;" *ngIf="motherName && motherName.invalid && motherName.touched">*Required</span>
   <br>
 
-  <label>EmailId</label><br>
+  <label>Email Id</label><br>
   <input type="text" id="emailId" class="email" placeholder="Enter email id" formControlName="emailId"><br>
   <span style="color: red;" *ngIf="emailId && emailId.invalid && emailId.touched">*Required</span>
   <br>
@@ -33,106 +33,93 @@
   <br>
 
   <label>Marks</label><br>
-  <input type="number" id="enterSSLC/HSCMarks" class="sslc-hsc" placeholder="Enter SSLC/HSC marks"
-    formControlName="enterSSLC/HSCMarks">
-  <br>
+  <input type="number" id="sslc" class="sslc-hsc" placeholder="Enter SSLC/HSC marks" formControlName="sslc"><br>
   <span style="color: red;"
-    *ngIf="enterSSLCHSCMarks && enterSSLCHSCMarks.invalid && enterSSLCHSCMarks.touched">*Required</span>
+    *ngIf="sslc && sslc.invalid && sslc.touched">*Required</span>
   <br>
 
-  <label>InstituteName</label><br>
-  <!-- <input type="text" id="institute" class="institute" placeholder="Enter Institute name"
-  formControlName="institute"> -->
-  <select id="institute" class="institute" #institute>
-    <option value="ITER">ITER</option>
-    <option value="IIIT">IIIT</option>
-    <option value="SIT">SIT</option>
-  </select>
-
-  <br>
-  <!-- <span style="color: red;"
-    *ngIf="institute && institute.invalid && institute.touched">*Required</span> -->
-  <br>
-
-  <label>CourseName</label><br>
-  <!-- <input type="text" id="course" class="course" placeholder="Enter Course name"
-  formControlName="course"> -->
-  <select id="course" class="course" #course>
-    <option value="javascript">JavaScript</option>
-    <option value="php">PHP</option>
-    <option value="java">Java</option>
-    <option value="golang">Golang</option>
-    <option value="python">Python</option>
-    <option value="c#">C#</option>
-    <option value="C++">C++</option>
-    <option value="erlang">Erlang</option>
-  </select>
-  <!-- <br>
+  <label>Phone Number</label><br>
+  <input type="number" id="mobile" class="sslc-hsc" placeholder="Enter phone number" formControlName="mobile"><br>
   <span style="color: red;"
-    *ngIf="course && course.invalid && course.touched">*Required</span>
-  <br> -->
+    *ngIf="mobile && mobile.invalid && mobile.touched">*Required</span>
+  <br>
+
+  <label>Alt Mobile number</label><br>
+  <input type="number" id="altMobile" class="sslc-hsc" placeholder="Enter alternate number" formControlName="altMobile"><br>
+  <span style="color: red;"
+    *ngIf="altMobile && altMobile.invalid && altMobile.touched">*Required</span>
+  <br>
 </div>
 
 <div class="forms1">
-  <label class="last">LastName</label><br>
+  <label class="last">Last Name</label><br>
   <input type="text" id="lastName" class="ln" placeholder="Enter your last name" formControlName="lastName"><br>
   <span style="color: red;" *ngIf="lastName && lastName.invalid && lastName.touched" class="last">*Required</span>
   <br>
 
-  <label class="ph1">PhoneNumber</label><br>
-  <input type="number" id="phoneNumber1" class="pn1" placeholder="Enter phone number" formControlName="phoneNumber1"><br>
-  <span style="color: red;" *ngIf="phoneNumber1 && phoneNumber1.invalid && phoneNumber1.touched"class="ph1">*Required</span>
-  <br>
+  <!-- ------- -->
+    <div class="institutefield">
+          <label>Institute Name</label><br>
+          <select id="institute" class="institute" (change)="getCourseList($event)">
+            <option value="">SELECT INSTITUTE</option>
+            <option value="{{ins.instituteId}}" *ngFor="let ins of institutes">{{ins.instituteName}}</option>
+          </select>
+          <br><br>
+    </div>
+  
 </div>
 
 <div class="forms2">
   <label class="mafe">Male/Female</label><br>
-  <input type="text" id="male/female" class="mf" placeholder="Enter male or female" formControlName="male/female"><br>
-  <span style="color: rgb(161, 22, 22);" *ngIf="malefemale && malefemale.invalid && malefemale.touched"class="mafe">*Required</span>
-  <br>
+  <select id="gender" name="gender" class="mf" placeholder="Enter male or female" formControlName="gender"><br>
+    <option value="Male">MALE</option>
+    <option value="Female">FEMALE</option>
+  </select>
+  <span style="color: rgb(161, 22, 22);" *ngIf="gender && gender.invalid && gender.touched"class="mafe">*Required</span>
+  <br><br>
 
-  <label class="ph2">Alt number</label><br>
-  <input type="number" id="phoneNumber2" class="pn2" placeholder="Enter alternate number"formControlName="phoneNumber2"><br>
-  <span style="color: red;" *ngIf="phoneNumber2 && phoneNumber2.invalid && phoneNumber2.touched"class="ph2">*Required</span>
-  <br>
+    <div class="coursefield">
+      <label>Course Name</label><br>
+        <select id="course" class="course" #course (change)="setCourseId($event)">
+          <option value="">SELECT COURSE</option>
+          <option value="{{course.courseId}}" *ngFor="let course of courses">{{course.courseName}}</option>
+        </select>
+    </div>
 </div>
 
-<div class="box_area" id="content">
-  <p>Address Information</p>
-  <label>House No:</label>
-  <input type="text" id="houseNo" class="hn" formControlName="houseNo">
-  <br>
-  <span style="color: red;" *ngIf="houseNo && houseNo.invalid && houseNo.touched">*Required</span>
-  <br>
-  <label>Street Name:</label>
-  <input type="text" id="streetName" class="sn" formControlName="streetName">
-  <br>
-  <span style="color: red;" *ngIf="streetName && streetName.invalid && streetName.touched">*Required</span>
-  <br>
-  <label>Area Name:</label>
-  <input type="text" id="areaName" class="an" formControlName="areaName">
+    <div class="box_area" id="content">
+      <p>ADDRESS INFORMATION</p>
+      <label>House No:</label>
+      <input type="text" id="houseNo" class="hn" formControlName="houseNo"><br>
+      <span style="color: red;" *ngIf="houseNo && houseNo.invalid && houseNo.touched">*Required</span>
+      <br>
+      <label>Street Name:</label>
+      <input type="text" id="streetName" class="sn" formControlName="streetName">
+      <br>
+      <span style="color: red;" *ngIf="streetName && streetName.invalid && streetName.touched">*Required</span>
+      <br>
+      <label>Area Name:</label>
+      <input type="text" id="areaName" class="an" formControlName="areaName">
 
-  <label class="p">Pincode:</label>
-  <input type="number" id="pincode" class="pc" formControlName="pincode">
-  <br>
-  <span style="color: red;"
-    *ngIf="areaName && areaName.invalid && areaName.touched || pincode && pincode.invalid && pincode.touched">*Required</span>
-  <!-- <span style="color: red;" *ngIf="pincode && pincode.invalid && pincode.touched">*Required</span> -->
-  <br>
-  <label>State:</label>
-  <input type="text" id="state" class="s" formControlName="state">
-  <label class="na">Nationality:</label>
-  <input type="text" id="nation" class="n" formControlName="nation">
-  <br>
-  <span style="color: red;"
-    *ngIf="state && state.invalid && state.touched || nation && nation.invalid && nation.touched">*Required</span>
-  <!-- <span style="color: red;" *ngIf="nation && nation.invalid && nation.touched">*Required</span> -->
-  <br>
-</div>
+      <label class="p">Pincode:</label>
+      <input type="number" id="pincode" class="pc" formControlName="pincode">
+      <br>
+      <span style="color: red;"
+        *ngIf="areaName && areaName.invalid && areaName.touched || pincode && pincode.invalid && pincode.touched">*Required</span>
+      <br>
+      <label>State:</label>
+      <input type="text" id="state" class="s" formControlName="state">
+      <label class="na">Nationality:</label>
+      <input type="text" id="nationality" class="n" formControlName="nationality">
+      <br>
+      <span style="color: red;"
+        *ngIf="state && state.invalid && state.touched || nationality && nationality.invalid && nationality.touched">*Required</span>
+      <br>
+  </div>
+  <div class="foot">
+    <button type="button" class="btn btn-success" (click)="submit()" [disabled]="loginForm.invalid">Add Student</button>
+  </div>
 </form>
-<div class="foot">
-  <button type="button" class="btn btn-success" (click)="loginUser(institute.value,course.value)" [disabled]="loginForm.invalid">Add Student</button>
-</div>
 </div>
 
 

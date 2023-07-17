@@ -2,24 +2,26 @@
 <app-usernavbar></app-usernavbar>
 
 <div class="enrolledcourse">
-<br><br>
+<br>
+<h5 class="header">STUDENT ADMISSION DETAILS</h5>
+<br>
 <div class = "container">
-    <ng-container *ngFor = "let ec of enrollcourse">
+    <ng-container *ngFor = "let ec of admission; index as i">
           <div class="card shadow-lg rounded">
               <div class="card-body">
                   <div class="left">
-                    <h6 class="card-subtitle">Course name : {{ec.CourseName}}</h6><br>
-                    <h6 class="card-subtitle">Joined duration : {{ec.JoinDate}}</h6><br>
-                    <h6 class="card-subtitle">Course End Date: {{ec.CourseEndDate}}</h6><br>
+                    <h6 class="card-subtitle">Course name : {{courseList[i]}}</h6><br>
+                    <h6 class="card-subtitle">Course Start Date : {{ec.courseStartDate | date | uppercase}}</h6><br>
+                    <h6 class="card-subtitle">Course End Date :  {{ec.courseEndDate | date | uppercase}}</h6><br>
                   </div>
                   <div class="right">
                       <p><strong>Ratings : <ngb-rating [max]="5">:</ngb-rating></strong></p>
                   </div>
                   <div class="button">
-                    <button class="btn editbutton" routerLink='/user/admissionform'>Edit&nbsp;<i class="fa fa-pencil" aria-hidden="true"></i></button>
+                    <button class="btn editbutton" (click)="gotoEditAdmission(ec.admissionId)">Edit&nbsp;<i class="fa fa-pencil" aria-hidden="true"></i></button>
                     <button class="btn deletebutton" (click) = "open(content)">Delete&nbsp;<i class="fa fa-trash-o" aria-hidden="true"></i></button>
-                    <button class="btn statusbutton" routerLink='/user/status'>Status&nbsp;<i class="fa fa-info-circle" aria-hidden="true"></i></button>
-                    <button class="btn mylearnbutton">My Learning&nbsp;<i class="fa fa-book" aria-hidden="true"></i></button>
+                    <!-- <button class="btn statusbutton" >Status&nbsp;<i class="fa fa-info-circle" aria-hidden="true"></i></button> -->
+                    <button class="btn mylearnbutton" (click)="gotoStatus(ec.admissionId)">My Learning&nbsp;<i class="fa fa-book" aria-hidden="true"></i></button>
                   </div>
 
                   <!-- codes for the delete popup -->
@@ -35,7 +37,7 @@
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" (click)="modal.dismiss('cancel')">Cancel</button>
-                      <button type="button" class="btn btn-danger" (click)="delete()">Delete</button>
+                      <button type="button" class="btn btn-danger" (click)="delete(ec.admissionId,ec.courseId)">Delete</button>
                     </div>
                   </ng-template>
                   <!-- ------------------------ -->

@@ -1,7 +1,11 @@
-import { Component, OnInit, AfterViewInit, NgModule } from '@angular/core';
-
-import { FormControl,FormGroup,NgModel,Validators} from '@angular/forms';
-
+import { Component, OnInit} from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { Course } from 'src/app/class/Course';
+import { Students } from 'src/app/class/Student';
+import { Admission } from 'src/app/class/admission';
+import { Institute } from 'src/app/class/institute';
+import { AdminserviceService } from 'src/app/service/adminservice/adminservice.service';
 
 
 @Component({
@@ -12,130 +16,101 @@ import { FormControl,FormGroup,NgModel,Validators} from '@angular/forms';
 
 export class EdituserComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router,private adminservice:AdminserviceService,private route:ActivatedRoute, private toastr :ToastrService){}
+
+  newstudent : Students = new Students();
+  admission : Admission = new Admission();
+  studentId !:number;
+  admissionId !:number;
+  institutes: Institute[] =[];
+  courses: Course[] =[];
+  date = new Date();
 
   ngOnInit(): void {
+    this.studentId = this.route.snapshot.params['studentId'];
+    console.log(this.studentId);
+    this.adminservice.getStudentById(this.studentId).subscribe(data => {
+          this.newstudent = data;
+    });
+    this.getOldAdmission();
+    this.getallInstitutes();
   }
-  ngAfterViewInit(){
-    
-  }
-  name=new FormControl('');
-  
-  loginForm = new FormGroup({
-    firstName:new FormControl('',[Validators.required]),
-    fatherName:new FormControl('',[Validators.required]),
-    motherName:new FormControl('',[Validators.required]),
-    emailId:new FormControl('',[Validators.required,Validators.email,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]),
-    age:new FormControl('',[Validators.required]),
-    'enterSSLC/HSCMarks':new FormControl('',[Validators.required]),
-    lastName:new FormControl('',[Validators.required]),
-    phoneNumber1:new FormControl('',[Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
-    'male/female':new FormControl('',[Validators.required,Validators.pattern('^M(ale)?$|^F(emale)?$|^m(ale)?$|^f(emale)?$')]),
-    phoneNumber2:new FormControl('',[Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
-    houseNo:new FormControl('',[Validators.required]),
-    streetName:new FormControl('',[Validators.required]),
-    areaName:new FormControl('',[Validators.required]),
-    pincode:new FormControl('',[Validators.required]),
-    state:new FormControl('',[Validators.required]),
-    nation:new FormControl('',[Validators.required]),
-    // institute:new FormControl('',[Validators.required]),
-    // course:new FormControl('',[Validators.required])
 
+// retriving the old admission details
+getOldAdmission()
+{
+  this.adminservice.getAdmissionByStudentId(this.studentId).subscribe(data => {
+    console.log(data);
+    this.admission= data;
   })
+}
 
-  loginUser(val1:string, val2:string)
-  {
-    console.log(val1,val2);
-    console.warn(this.loginForm.value)
+
+// get all the courses according to institutes for dropdown
+  getCourseList(institute: any): void {
+    console.log(institute.target.value);
+    this.admission.instituteId = institute.target.value;
+    this.adminservice.viewCoursesFromInstitute(this.admission.instituteId).subscribe(data => {
+      console.log(data);
+      this.courses= data;
+    })
   }
 
-  get firstName()
-  {
-    return this.loginForm.get('firstName')
+  //initializing the courseid to the admission data
+  setCourseId(courseId: any) {
+    this.admission.courseId = courseId.target.value;
+    this.getCoursedata(this.admission.courseId);
+    console.log(this.admission.courseId);
   }
 
-  get fatherName()
-  {
-    return this.loginForm.get('fatherName')
-  }
+    // get all the institutes for dropdown
+    getallInstitutes() {
+       this.adminservice.viewInstitute().subscribe(data =>{
+       this.institutes = data;
+       console.log(this.institutes);
+        })
+    }
 
-  get motherName()
-  {
-    return this.loginForm.get('motherName')
-  }
+    // get the selected course data
+    getCoursedata(instituteId: number): void {
+      this.adminservice.getCourseById(instituteId).subscribe(data => {
+          console.log(data);
+          this.admission.courseStartDate = this.date;
+          this.addYears(new Date(),data.courseDuration);
+          this.newstudent.courseName = data.courseName;
+        })
+    }
 
-  get emailId()
-  {
-    return this.loginForm.get('emailId')
-  }
+      //To update the student
+      submit(): void {
+        console.log(this.newstudent);
+        this.adminservice.editStudent(this.studentId,this.newstudent).subscribe({
+          next:()=>console.log('updating'),
+          error:()=>console.log('Error while updating'),
+          complete:()=>{
+            this.toastr.success('Student and Course Updated Sucessfully!', 'Student status !');
+            this.updateAdmission();
+            this.gotoStudentsPage();
+          }
+        })
+      }
 
-  get age()
-  {
-    return this.loginForm.get('age')
-  }
+      updateAdmission()
+      {
+        console.log(this.admission);
+        this.admissionId = this.admission.admissionId;
+        this.adminservice.editAdmission(this.admissionId,this.admission).subscribe({
+        error:()=>console.log("error") });
+      }
 
-  get enterSSLCHSCMarks()
-  {
-    return this.loginForm.get('enterSSLC/HSCMarks')
-  }
+      //To navigate to the institute Page
+      gotoStudentsPage(): void {
+          this.router.navigate(['/admin/students']);
+      }
 
-  get lastName()
-  {
-    return this.loginForm.get('lastName')
-  }
-
-  get phoneNumber1()
-  {
-    return this.loginForm.get('phoneNumber1')
-  }
-
-  get malefemale()
-  {
-    return this.loginForm.get('male/female')
-  }
-
-  get phoneNumber2()
-  {
-    return this.loginForm.get('phoneNumber2')
-  }
-
-  get houseNo()
-  {
-    return this.loginForm.get('houseNo')
-  }
-
-  get streetName()
-  {
-    return this.loginForm.get('streetName')
-  }
-
-  get areaName()
-  {
-    return this.loginForm.get('areaName')
-  }
-
-  get pincode()
-  {
-    return this.loginForm.get('pincode')
-  }
-
-  get state()
-  {
-    return this.loginForm.get('state')
-  }
-
-  get nation()
-  {
-    return this.loginForm.get('nation')
-  }
-
-  get institute()
-  {
-    return this.loginForm.get('institute')
-  }
-
-  get course()
-  {
-    return this.loginForm.get('course')
-  }
+      addYears(date :Date, years : number) {
+        date.setFullYear(date.getFullYear() + years);
+        this.admission.courseEndDate = date;
+        console.log(this.admission);
+      }
 }

@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Courses } from 'src/app/class/Courses';
+import { ActivatedRoute, Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ToastrService } from 'ngx-toastr';
+import { Course } from 'src/app/class/Course';
+import { Admission } from 'src/app/class/admission';
+import { AuthService } from 'src/app/service/authservice/auth.service';
+import { UserserviceService } from 'src/app/service/userservice/userservice.service';
 
 
 @Component({
@@ -8,17 +14,57 @@ import { Courses } from 'src/app/class/Courses';
   styleUrls: ['./courselist.component.css']
 })
 export class CourselistComponent {
-  searchText!:string;
 
-      courses ?: Courses[]=[
-        new Courses("M.E(VSI)",10,"20days","YYYY",50),
-        new Courses("M.E",10,"30days","ZZZZ",60),
-        new Courses("PHD",15,"40days","XXXX",40),
-        new Courses("MCA",9,"10days","XYZA",25),
-        new Courses("MBA",11,"15days","AAAA",50),
-        new Courses("MBA",11,"15days","AAAA",50),
-      ]
+  constructor(private router:Router,private userservice:UserserviceService,private route:ActivatedRoute,private toastr :ToastrService,private modalService: NgbModal, private authservice:AuthService) {}
+  searchText!:string;
+  instituteId !:number;
+  userId : number;
+  courses ?: Course[];
+  oldAdmission ?: Admission[];
+
+      ngOnInit(): void {
   
-  }
+        this.instituteId = this.route.snapshot.params['instituteId'];
+        console.log(this.instituteId);
+        this.getCourses();
+        this.userId = this.authservice.getUserId();
+        this.checkAdmissionByuserId();
+      }
+      
+      getCourses(){
+        this.userservice.viewCoursesFromInstitute(this.instituteId).subscribe(data =>
+          {
+            console.log(data);
+            this.courses= data;
+      
+          })
+        }
+
+        //Retrive the old admission and navigate to admission form page
+        checkAdmissionByuserId()
+        {
+            this.userservice.getByUserId(this.userId).subscribe(data =>{
+            this.oldAdmission = data;
+          })
+        }
+
+        //check old admission and redirect to AdmissionForm page
+        goToStudentPage(courseId : number)
+        {
+          if(this.oldAdmission.length == 0) {
+            this.router.navigate(['/user/admissionform',this.instituteId,courseId]);
+          }
+          else {
+            let data = this.oldAdmission.find(admission => admission.courseId === courseId );
+            console.log(data);
+            if(data != null) {
+              this.toastr.warning('Check other courses!', 'Already Enrolled this Course!');
+            }
+            else {
+              this.router.navigate(['/user/admissionform',this.instituteId,courseId]);
+            }
+          }
+        }    
+}
 
   

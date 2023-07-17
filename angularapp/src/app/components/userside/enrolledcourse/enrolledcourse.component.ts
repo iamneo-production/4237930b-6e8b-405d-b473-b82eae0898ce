@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { EnrollCourse } from 'src/app/class/enrollCourse';
-import { Course } from 'src/app/class/Course';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { AuthService } from 'src/app/service/authservice/auth.service';
+import { Admission } from 'src/app/class/admission';
+import { UserserviceService } from 'src/app/service/userservice/userservice.service';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+
 
 
 @Component({
@@ -10,25 +14,39 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./enrolledcourse.component.css']
 })
 export class EnrolledcourseComponent implements OnInit {
-  public CourseName: any;
-  public JoinDate: any;
-  public CourseEndDate: any;
 
-  constructor(private modalService: NgbModal) {}
+  userId: number;
+  admission:Admission[];
+  courseList = [];
+
+  constructor(private modalService: NgbModal,private authservices: AuthService,private userservice: UserserviceService,private router:Router, private toastr :ToastrService) {}
 
   ngOnInit(): void {  
+    this.userId = this.authservices.getUserId();
+    console.log(this.userId);
+    this.getallAdmission();
+
   }
 
-  enrollcourse:EnrollCourse[]=[
+  getallAdmission()
+  {
+     this.userservice.getByUserId(this.userId).subscribe(data =>{
+     this.admission = data;
+     console.log(this.admission);
 
-    new EnrollCourse("M.E(VSI)","10/12/2022","10/10/2023"),
-    new EnrollCourse("B.Tech(VSI)","21/1/2023","20/12/2024"),
-    new EnrollCourse("M.E(VSI)","16/7/2022","23/7/2023"),
-    new EnrollCourse("M.E(VSI)","16/7/2022","23/7/2023"),
-    new EnrollCourse("M.E(VSI)","16/7/2022","23/7/2023")
+     //for retriving the course details
+     this.admission.forEach((value , index)=> {
+      this.userservice.getCourseById(value.courseId).subscribe(data => {
+        this.addcourse(data.courseName);
+        });
+      });
+    })
+  }
 
-  ];
- 
+  addcourse(courseName:string): void{
+    this.courseList.push(courseName);
+  }
+  
   //for delete popup modal
   open(content: any): void {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
@@ -38,9 +56,32 @@ export class EnrolledcourseComponent implements OnInit {
     });
   }
   
-  //delete the admission by admission id
-  delete(): void {
-    this.modalService.dismissAll();
+  //redirect to status page with admission ID
+  gotoStatus(admissionId:number): void {
+    this.router.navigate(['/user/status',admissionId]);
+    console.log(admissionId);
   }
+
+  //redirect to edit student page with admission ID
+  gotoEditAdmission(admissionId:number): void {
+    this.router.navigate(['/user/editadmission',admissionId]);
+    console.log(admissionId);
+  }
+
+  //delete the admission by admission id
+  delete(admissionId : number,courseId: number)
+  {
+      this.modalService.dismissAll();
+        this.userservice.deleteAdmission(admissionId).subscribe(data =>
+          {
+            this.toastr.info('Admission Deleted Sucessfully!', 'Admission status !');
+            this.userservice.decrementStudents(courseId).subscribe(data =>
+              {
+                console.log(data);
+              });
+    
+            this.getallAdmission();
+        });  
+    }
 
 }

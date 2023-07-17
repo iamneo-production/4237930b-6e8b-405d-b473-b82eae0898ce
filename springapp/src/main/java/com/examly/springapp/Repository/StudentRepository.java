@@ -11,6 +11,6 @@ import com.examly.springapp.Model.StudentModel;
 
 public interface StudentRepository extends JpaRepository<StudentModel, Integer>{
 	
-	
+	StudentModel findByUserId(int userId);
 }
 
