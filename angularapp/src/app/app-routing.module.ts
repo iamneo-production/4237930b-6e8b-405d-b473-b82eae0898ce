@@ -37,7 +37,7 @@ const routes: Routes = [
       {path:"editinstitute/:instituteId",component:EditinstituteComponent},
       {path:"edituser",component:EdituserComponent}
    ],
-  //  canActivate: [AuthComponent]
+    canActivate: [AuthComponent]
   },
 
   {path:"user",component:UsersideComponent,children:
@@ -50,7 +50,7 @@ const routes: Routes = [
       {path:"status/:admissionId",component:StatusComponent},
       {path:"editadmission/:admissionId",component:EditadmissionComponent}
     ],
-    // canActivate: [AuthComponent]
+      canActivate: [AuthComponent]
   },
   
   {path:"auth",component:AuthComponent,children:

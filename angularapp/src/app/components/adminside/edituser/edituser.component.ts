@@ -58,11 +58,29 @@ getOldAdmission()
 
   //initializing the courseid to the admission data
   setCourseId(courseId: any) {
+    this.decrementStudentsCount(this.admission.courseId);
     this.admission.courseId = courseId.target.value;
     this.getCoursedata(this.admission.courseId);
-    console.log(this.admission.courseId);
+    // console.log(this.admission.courseId);
+    this.incrementStudentsCount(this.admission.courseId);
   }
 
+  //decrement the oldCourse students count
+  decrementStudentsCount(courseId:number)
+  {
+    this.adminservice.decrementStudents(courseId).subscribe(data => {
+      console.log(data);
+    });
+  }
+
+  //increment the oldCourse students count
+  incrementStudentsCount(courseId:number)
+  {
+    this.adminservice.incrementStudents(courseId).subscribe(data => {
+      console.log(data);
+    });
+  }
+  
     // get all the institutes for dropdown
     getallInstitutes() {
        this.adminservice.viewInstitute().subscribe(data =>{

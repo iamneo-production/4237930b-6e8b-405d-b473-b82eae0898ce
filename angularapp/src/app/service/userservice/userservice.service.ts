@@ -15,7 +15,7 @@ import { Students } from 'src/app/class/Student';
 })
 export class UserserviceService {
 
-  baseUrl: string = "https://8080-ecefccaeffbaddbcffbbedebaebcdacaee.project.examly.io/";
+  baseUrl: string = "https://8080-fddecffdbcffbbedebaebcdacaee.project.examly.io/";
 
   constructor(private http: HttpClient) {}
 
@@ -68,7 +68,7 @@ public viewCoursesFromInstitute(instituteId : number): Observable<Course[]>{
     return this.http.post<Admission>(this.baseUrl+`user/addAdmission`,newadmission);
   }
 
-  //delete the admission by instituteId
+  //delete the admission by admissionId
   public deleteAdmission(admissionId : number): Observable<String>{
     const requestOptions: Object = {
       responseType: 'text'
