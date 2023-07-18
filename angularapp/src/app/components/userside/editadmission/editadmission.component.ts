@@ -75,13 +75,16 @@ export class EditadmissionComponent implements OnInit {
   // updating the course details in the admission tables
   setAdmissionDetails(Data:any)
   {
+    this.decrementStudentsCount(this.selectedcourse.courseId);
     this.userservice.getCourseById(Data.target.value).subscribe(data => {
       console.log(data);
       this.student.courseName = data.courseName;
       this.admission.courseId = data.courseId;
       this.addYears(new Date(),data.courseDuration);
+      this.incrementStudentsCount(this.admission.courseId);
       });
     console.log(this.admission);
+    
   }
 
   // course start date and end date calculation
@@ -113,6 +116,22 @@ updateAdmission(): void {
   //To navigate to the enrolled course Page
   gotoEnrolledCoursePage(): void {
     this.router.navigate(['/user/enrolledcourse']);
+}
+
+//decrement the oldCourse students count
+decrementStudentsCount(courseId:number)
+{
+  this.userservice.decrementStudents(courseId).subscribe(data => {
+    console.log(data);
+  });
+}
+
+//increment the oldCourse students count
+incrementStudentsCount(courseId:number)
+{
+  this.userservice.incrementStudents(courseId).subscribe(data => {
+    console.log(data);
+  });
 }
 
 }
