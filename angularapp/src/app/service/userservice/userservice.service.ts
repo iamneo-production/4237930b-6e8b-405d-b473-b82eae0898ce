@@ -15,7 +15,7 @@ import { Students } from 'src/app/class/Student';
 })
 export class UserserviceService {
 
-  baseUrl: string = "https://8080-ffaeadfaacdbcffbbedebaebcdacaee.project.examly.io/";
+  baseUrl: string = "https://8080-fddecffdbcffbbedebaebcdacaee.project.examly.io/";
 
   constructor(private http: HttpClient) {}
 
@@ -68,7 +68,7 @@ public viewCoursesFromInstitute(instituteId : number): Observable<Course[]>{
     return this.http.post<Admission>(this.baseUrl+`user/addAdmission`,newadmission);
   }
 
-  //delete the admission by instituteId
+  //delete the admission by admissionId
   public deleteAdmission(admissionId : number): Observable<String>{
     const requestOptions: Object = {
       responseType: 'text'
@@ -85,5 +85,16 @@ public viewCoursesFromInstitute(instituteId : number): Observable<Course[]>{
   public getStudentByUserId(userId : number): Observable<Students>{
     return this.http.get<Students>(this.baseUrl+`user/getStudentByuserId/`+userId);
   }
+
+  //incrementing student count on enrolling course
+  public incrementStudents(courseId : number): Observable<any>{
+    return this.http.get<any>(this.baseUrl+`user/incrementstudents/`+courseId);
+  }
+
+  //incrementing student count on enrolling course
+  public decrementStudents(courseId : number): Observable<any>{
+    return this.http.get<any>(this.baseUrl+`user/decrementstudents/`+courseId);
+  }
+
 
 }
