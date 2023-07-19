@@ -32,8 +32,8 @@
           <td>{{student.courseName}}</td>
           <td>{{student.mobile}}</td>
           <td class="actions">
-            <button (click)="editStudent(student.studentId)" class="btn btn-primary">Edit &nbsp;<i class="fa fa-pencil" aria-hidden="true"></i></button>
-            <button class="btn btn-danger del-btn" (click)="open(content)">Delete &nbsp;<i class="fa fa-trash-o" aria-hidden="true"></i></button>
+            <button (click)="editStudent(student.studentId)" class="btn btn-primary"> &nbsp;<i class="fa fa-pencil" title="Edit" aria-hidden="true"></i></button>
+            <button class="btn btn-danger del-btn" (click)="open(content)"> &nbsp;<i class="fa fa-trash-o" title="Delete" aria-hidden="true"></i></button>
 
             <!-- codes for the delete popup -->
             <ng-template #content let-modal >
