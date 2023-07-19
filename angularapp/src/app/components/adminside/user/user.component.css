@@ -180,3 +180,11 @@ tr:nth-child(even) {
   padding-right: 14px;
   padding-bottom: 14px;
 }
+
+.searchicon
+{
+  display: inline-block;
+  margin-top:8px;
+  margin-right: 6px;
+  font-size: 12px;
+}
