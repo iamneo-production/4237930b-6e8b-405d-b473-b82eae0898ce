@@ -10,7 +10,8 @@
           <div class="card shadow-lg rounded">
               <div class="card-body">
                   <div class="left">
-                    <h6 class="card-subtitle">Course name : {{courseList[i]}}</h6><br>
+                    <h6 class="card-subtitle">Admission Id : {{ec.admissionId}}</h6><br>
+                    <h6 class="card-subtitle">Course Name : {{courseList[i]}}</h6><br>
                     <h6 class="card-subtitle">Course Start Date : {{ec.courseStartDate | date | uppercase}}</h6><br>
                     <h6 class="card-subtitle">Course End Date :  {{ec.courseEndDate | date | uppercase}}</h6><br>
                   </div>
@@ -37,7 +38,7 @@
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" (click)="modal.dismiss('cancel')">Cancel</button>
-                      <button type="button" class="btn btn-danger" (click)="delete(ec.admissionId)">Delete</button>
+                      <button type="button" class="btn btn-danger" (click)="delete(ec.admissionId,ec.courseId)">Delete</button>
                     </div>
                   </ng-template>
                   <!-- ------------------------ -->

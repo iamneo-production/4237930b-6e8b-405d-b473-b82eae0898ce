@@ -19,5 +19,9 @@ public interface CourseService {
 
     CourseModel getcourseById(int courseId);
 
+    int incrementStudents(Integer courseId);
+   
+    int decrementStudents(Integer courseId);
+
 
 }
