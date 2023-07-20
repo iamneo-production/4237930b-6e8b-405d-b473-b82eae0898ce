@@ -20,6 +20,8 @@ import { LoginComponent } from './components/auth/login/login.component';
 import { SignupComponent } from './components/auth/signup/signup.component';
 import { StatusComponent } from './components/userside/status/status.component';
 import { EditadmissionComponent } from './components/userside/editadmission/editadmission.component';
+import { ErrorComponent } from './components/error/error.component';
+
 
 const routes: Routes = [
   {path:"",component:LoginComponent},
@@ -37,7 +39,7 @@ const routes: Routes = [
       {path:"editinstitute/:instituteId",component:EditinstituteComponent},
       {path:"edituser",component:EdituserComponent}
    ],
-  //  canActivate: [AuthComponent]
+    canActivate: [AuthComponent]
   },
 
   {path:"user",component:UsersideComponent,children:
@@ -50,7 +52,7 @@ const routes: Routes = [
       {path:"status/:admissionId",component:StatusComponent},
       {path:"editadmission/:admissionId",component:EditadmissionComponent}
     ],
-    // canActivate: [AuthComponent]
+      canActivate: [AuthComponent]
   },
   
   {path:"auth",component:AuthComponent,children:
@@ -59,7 +61,8 @@ const routes: Routes = [
       {path:"login",component:LoginComponent},
       {path:"signup",component:SignupComponent},
    ],
-  }
+  },
+  { path: '**', pathMatch: 'full', component: ErrorComponent }
 ];
 
 @NgModule({

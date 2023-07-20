@@ -7,6 +7,7 @@ import { Institute } from 'src/app/class/institute';
 import { Course } from 'src/app/class/Course';
 import { Admission } from 'src/app/class/admission';
 import { ToastrService } from 'ngx-toastr';
+import { AuthService } from 'src/app/service/authservice/auth.service';
 
 
 @Component({
@@ -24,12 +25,15 @@ export class AdduserComponent implements OnInit {
   courseName :string;
   date = new Date();
   
-  constructor(private adminservice:AdminserviceService, private router: Router,private toastr :ToastrService) { }
+  constructor(private adminservice:AdminserviceService, private router: Router,private toastr :ToastrService,private authservice:AuthService) { }
 
   ngOnInit(): void {
     this.getallInstitutes();
     this.newadmission.courseStartDate = this.date;
-    console.log(this.newadmission.courseStartDate);
+    // console.log(this.newadmission.courseStartDate);
+    this.newadmission.userId=this.authservice.getUserId();
+    console.log(this.newadmission.userId);
+
   }
 
   // get all the courses according to institutes for dropdown

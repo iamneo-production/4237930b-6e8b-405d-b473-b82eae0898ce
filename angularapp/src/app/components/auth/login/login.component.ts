@@ -50,6 +50,7 @@ export class LoginComponent {
       console.log(data);
       this.gotoAdmin();
       this.authservice.loginstatus = true;
+      this.saveUserId();
     }
   
   }
