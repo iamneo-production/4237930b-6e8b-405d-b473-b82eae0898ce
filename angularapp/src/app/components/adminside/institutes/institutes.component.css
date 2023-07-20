@@ -126,7 +126,17 @@ ngb-rating
 .addButtondiv
 {
   margin: auto;
-  text-align: right;
+  /* text-align: right; */
+  margin-left: 1230px;
   padding-right: 14px;
   padding-bottom: 14px;
 }
+
+.searchicon
+{
+  display: inline-block;
+  margin-top:8px;
+  margin-right: 6px;
+  font-size: 12px;
+}
+

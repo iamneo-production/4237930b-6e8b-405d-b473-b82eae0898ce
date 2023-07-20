@@ -20,6 +20,8 @@ import { LoginComponent } from './components/auth/login/login.component';
 import { SignupComponent } from './components/auth/signup/signup.component';
 import { StatusComponent } from './components/userside/status/status.component';
 import { EditadmissionComponent } from './components/userside/editadmission/editadmission.component';
+import { ErrorComponent } from './components/error/error.component';
+
 
 const routes: Routes = [
   {path:"",component:LoginComponent},
@@ -59,7 +61,8 @@ const routes: Routes = [
       {path:"login",component:LoginComponent},
       {path:"signup",component:SignupComponent},
    ],
-  }
+  },
+  { path: '**', pathMatch: 'full', component: ErrorComponent }
 ];
 
 @NgModule({

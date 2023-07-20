@@ -3,6 +3,7 @@ import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest
 import {Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 
 @Injectable({
@@ -10,7 +11,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class HttperrorInterceptorService implements HttpInterceptor{
 
-  constructor(private toastr: ToastrService) { }
+  constructor(private toastr: ToastrService,private router: Router) { }
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable <HttpEvent<any>> {
     
     console.log('HTTP Request started');
@@ -21,7 +22,7 @@ export class HttperrorInterceptorService implements HttpInterceptor{
                     
                     if(error.status==0)
                     {
-                        this.toastr.error('Server Down!!! \nTry again later', error.statusText);
+                        this.router.navigate(['/error']);
                     } 
                     else if(error.status==500) 
                     {

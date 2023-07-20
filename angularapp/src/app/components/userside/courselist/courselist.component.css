@@ -117,3 +117,11 @@
   width:700px;
 }
 
+.searchicon
+{
+  display: inline-block;
+  margin-top:8px;
+  margin-right: 6px;
+  font-size: 12px;
+}
+
