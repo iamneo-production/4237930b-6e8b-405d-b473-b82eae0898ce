@@ -15,7 +15,7 @@ export class AdminserviceService {
   constructor(private http: HttpClient) { }
 
   //change the baseUrl asper your workspace port-8080 link
-  baseUrl: string = "https://8080-ecefccaeffbaddbcffbbedebaebcdacaee.project.examly.io/"
+  baseUrl: string = "https://8080-cacdfbaedcbbdbddaedecdbcffbbedebaebcdacaee.project.examly.io/"
 
   //get the list of institutes
   public viewInstitute(): Observable<Institute[]>{
