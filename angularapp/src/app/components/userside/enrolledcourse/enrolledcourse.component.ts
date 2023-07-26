@@ -69,15 +69,19 @@ export class EnrolledcourseComponent implements OnInit {
   }
 
   //delete the admission by admission id
-  delete(admissionId : number)
+  delete(admissionId : number,courseId: number)
   {
       this.modalService.dismissAll();
         this.userservice.deleteAdmission(admissionId).subscribe(data =>
           {
             this.toastr.info('Admission Deleted Sucessfully!', 'Admission status !');
+            this.userservice.decrementStudents(courseId).subscribe(data =>
+              {
+                console.log(data);
+              });
+    
             this.getallAdmission();
-        });
-
+        });  
     }
 
 }

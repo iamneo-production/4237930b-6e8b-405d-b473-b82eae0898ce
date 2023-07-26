@@ -136,6 +136,18 @@ tr:nth-child(even) {
   background-color: #c82333;
 }
 
+.modal-footer .btn-danger {
+  background-color: #dc3545;
+  color: #ffffff;
+  font-size: 14px;
+  padding: 5.2px 5.2px;
+}
+
+.modal-footer .btn-danger:hover {
+  background-color: #c82333
+
+}
+
 .add-std {
   background-color: rgb(58, 135, 58);
   margin: auto;
@@ -167,4 +179,12 @@ tr:nth-child(even) {
   text-align: right;
   padding-right: 14px;
   padding-bottom: 14px;
+}
+
+.searchicon
+{
+  display: inline-block;
+  margin-top:8px;
+  margin-right: 6px;
+  font-size: 12px;
 }

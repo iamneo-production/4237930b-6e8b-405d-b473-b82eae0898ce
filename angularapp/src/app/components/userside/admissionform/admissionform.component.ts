@@ -191,6 +191,7 @@ submit()
       {
         this.newAdmission.studentId = data.studentId;
         this.addAdmission();
+        this.updateEnrolledStudents();
       })
     }
 
@@ -223,6 +224,15 @@ submit()
         this.toastr.info('Admission Updated Sucessfully!', 'Admission status !');
         },error => console.log(error));
         this.addAdmission();
+     }
+ 
+     //incrementation
+     updateEnrolledStudents(): void {
+      this.userservice.incrementStudents(this.courseId).subscribe(data =>
+        { 
+          console.log(data);
+        }
+        )
      }
 
 }
